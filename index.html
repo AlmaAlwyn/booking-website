@@ -234,7 +234,7 @@
             margin-bottom: 10px;
         }
 
-        .booking-form, .admin-section {
+        .booking-form {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -253,7 +253,7 @@
             font-size: 16px;
         }
 
-        .booking-form button, .admin-section button {
+        .booking-form button {
             background-color: #4a90e2;
             color: #fff;
             border: none;
@@ -261,30 +261,24 @@
             transition: background-color 0.3s;
         }
 
-        .booking-form button:hover, .admin-section button:hover {
+        .booking-form button:hover {
             background-color: #357abd;
         }
 
-        .admin-section {
-            display: none;
+        .whatsapp-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .admin-section.active {
-            display: block;
-        }
-
-        .booking-item {
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .booking-item button {
-            padding: 5px 10px;
-            margin-left: 10px;
-            font-size: 14px;
+        .whatsapp-button:hover {
+            background-color: #1DA851;
+            transform: scale(1.05);
         }
 
         footer {
@@ -336,6 +330,7 @@
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li class="schedule"><a href="#schedule">Schedule a Session</a></li>
+                <li><a href="admin.html">Admin Dashboard</a></li>
             </ul>
         </nav>
     </header>
@@ -351,23 +346,23 @@
     <section class="section" id="about">
         <h2>About the Work</h2>
         <h3>Offering Compassionate Support for Your Healing Journey</h3>
-        <p>I offer you a welcoming safe space where you can show up just as you are. Where your anger, shame, sadness, and resistance are all welcome and held. My intention is to help you in healing from the inside out and reconnect with your inner strength and wisdom. Together we can heal emotional wounds, resolve internal conflicts, and move through feeling stuck in life.</p>
+        <p id="about-content-1">I offer you a welcoming safe space where you can show up just as you are. Where your anger, shame, sadness, and resistance are all welcome and held. My intention is to help you in healing from the inside out and reconnect with your inner strength and wisdom. Together we can heal emotional wounds, resolve internal conflicts, and move through feeling stuck in life.</p>
         <h3>Take the first step toward change.</h3>
-        <p>Sessions are available both in person and online, so you can choose what feels right whether you’re nearby or across the globe.</p>
+        <p id="about-content-2">Sessions are available both in person and online, so you can choose what feels right whether you’re nearby or across the globe.</p>
     </section>
 
     <section class="section" id="testimonials">
         <h2>Words from the Heart</h2>
         <h3>What Clients Are Saying About Our Work Together</h3>
         <div class="testimonials-container" id="testimonialsContainer">
-            <!-- Testimonials will be dynamically loaded here -->
+            <!-- Testimonials loaded dynamically -->
         </div>
     </section>
 
     <section class="section" id="faq">
         <h2>Frequently Asked Questions</h2>
         <h3>Common Questions About IFS Therapy</h3>
-        <p>Coming soon: Answers to your questions about Internal Family Systems therapy and how it can support your healing journey.</p>
+        <p id="faq-content">Coming soon: Answers to your questions about Internal Family Systems therapy and how it can support your healing journey.</p>
     </section>
 
     <section class="section" id="schedule">
@@ -379,127 +374,79 @@
             <input type="datetime-local" id="sessionTime" required>
             <button onclick="submitBooking()">Submit Booking</button>
         </div>
-        <div class="admin-section" id="adminSection">
-            <h3>Admin: Manage Bookings</h3>
-            <button onclick="showAdmin()">Access Admin Panel</button>
-            <div id="bookingsList"></div>
-        </div>
     </section>
 
     <footer>
+        <p><a href="https://wa.me/+1234567890?text=Hi,%20I'd%20like%20to%20book%20a%20session" class="whatsapp-button">Contact Us on WhatsApp</a></p>
         <p>&copy; 2025 Abundance Being. All rights reserved.</p>
     </footer>
 
     <script>
-        // Testimonial data (can be moved to a separate JSON file)
-        const testimonials = [
-            {
-                text: "“Sakshi is a very sensitive therapist and skilled with her work on facilitating all parts being welcomed. Her rhythm brings us safety and her commitment to IFS model is a unique feature on a psychotherapy approach. Thanks, Sakshi, for walking with me through my inner system with opening, compassion and presence...”",
-                author: "Camila Fonseca",
-                rating: 5
-            },
-            {
-                text: "“Sakshi is by far one of the most helpful therapists I’ve had the good fortune of working with. She diagnosed my issues and got to the parts who were active very quickly. Even more importantly she guided me lovingly and compassionately to work with them...”",
-                author: "Michael Simkin",
-                rating: 5
-            },
-            {
-                text: "“Sakshi has a strong understanding of Internal Family Systems (IFS) and its application, creating a safe space where I can go at my own pace and build trust on my terms. She patiently understands and holds space for whatever surfaces in each session...”",
-                author: "Nishmita D'souza",
-                rating: 5
-            },
-            {
-                text: "“Sakshi is extremely professional and a great therapist. She possesses a lot of patience and is very approachable. From the very first session, she helped me greatly. She made me question myself in a good way and helped me understand quite a lot of things about myself...”",
-                author: "Garima Grover",
-                rating: 5
+        // Fetch and render testimonials
+        async function fetchTestimonials() {
+            try {
+                const response = await fetch('/api/testimonials');
+                const testimonials = await response.json();
+                const container = document.getElementById('testimonialsContainer');
+                container.innerHTML = '';
+                testimonials.forEach((testimonial, index) => {
+                    const card = document.createElement('div');
+                    card.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+                    card.innerHTML = `
+                        <div class="stars">${'★'.repeat(testimonial.rating)}</div>
+                        <p>${testimonial.text}</p>
+                        <p class="author">${testimonial.author}</p>
+                    `;
+                    container.appendChild(card);
+                });
+                cycleTestimonials();
+            } catch (error) {
+                console.error('Error fetching testimonials:', error);
             }
-        ];
-
-        // Function to render testimonials
-        function renderTestimonials() {
-            const container = document.getElementById('testimonialsContainer');
-            container.innerHTML = '';
-            testimonials.forEach((testimonial, index) => {
-                const card = document.createElement('div');
-                card.className = 'testimonial-card';
-                card.innerHTML = `
-                    <div class="stars">${'★'.repeat(testimonial.rating)}</div>
-                    <p>${testimonial.text}</p>
-                    <p class="author">${testimonial.author}</p>
-                `;
-                if (index === 0) card.classList.add('active');
-                container.appendChild(card);
-            });
         }
 
         // Cycle testimonials
         let currentTestimonial = 0;
         function cycleTestimonials() {
             const cards = document.querySelectorAll('.testimonial-card');
+            if (cards.length === 0) return;
             cards[currentTestimonial].classList.remove('active');
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            currentTestimonial = (currentTestimonial + 1) % cards.length;
             cards[currentTestimonial].classList.add('active');
+            setTimeout(cycleTestimonials, 5000);
         }
 
-        // Initialize testimonials and start cycling
-        renderTestimonials();
-        setInterval(cycleTestimonials, 5000);
-
-        // Booking management
-        function submitBooking() {
+        // Submit booking
+        async function submitBooking() {
             const name = document.getElementById('clientName').value;
             const email = document.getElementById('clientEmail').value;
             const time = document.getElementById('sessionTime').value;
             if (name && email && time) {
-                const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-                bookings.push({ id: Date.now(), name, email, time, status: 'Pending' });
-                localStorage.setItem('bookings', JSON.stringify(bookings));
-                alert('Booking submitted!');
-                document.getElementById('clientName').value = '';
-                document.getElementById('clientEmail').value = '';
-                document.getElementById('sessionTime').value = '';
-                renderBookings();
+                try {
+                    const response = await fetch('/api/bookings', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, time, status: 'Pending' })
+                    });
+                    if (response.ok) {
+                        alert('Booking submitted! You will receive a confirmation soon.');
+                        document.getElementById('clientName').value = '';
+                        document.getElementById('clientEmail').value = '';
+                        document.getElementById('sessionTime').value = '';
+                    } else {
+                        alert('Error submitting booking.');
+                    }
+                } catch (error) {
+                    console.error('Error submitting booking:', error);
+                    alert('Error submitting booking.');
+                }
             } else {
                 alert('Please fill all fields.');
             }
         }
 
-        function renderBookings() {
-            const bookingsList = document.getElementById('bookingsList');
-            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-            bookingsList.innerHTML = bookings.length ? '' : '<p>No bookings yet.</p>';
-            bookings.forEach(booking => {
-                const item = document.createElement('div');
-                item.className = 'booking-item';
-                item.innerHTML = `
-                    <span>${booking.name} - ${booking.email} - ${new Date(booking.time).toLocaleString()} - ${booking.status}</span>
-                    <div>
-                        <button onclick="updateBooking(${booking.id}, 'Accepted')">Accept</button>
-                        <button onclick="updateBooking(${booking.id}, 'Cancelled')">Cancel</button>
-                    </div>
-                `;
-                bookingsList.appendChild(item);
-            });
-        }
-
-        function updateBooking(id, status) {
-            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-            const updatedBookings = bookings.map(booking => 
-                booking.id === id ? { ...booking, status } : booking
-            );
-            localStorage.setItem('bookings', JSON.stringify(updatedBookings));
-            renderBookings();
-        }
-
-        function showAdmin() {
-            const password = prompt('Enter admin password:');
-            if (password === 'admin123') { // Replace with a secure password
-                document.getElementById('adminSection').classList.add('active');
-                renderBookings();
-            } else {
-                alert('Incorrect password.');
-            }
-        }
+        // Initialize
+        fetchTestimonials();
     </script>
 </body>
 </html>
