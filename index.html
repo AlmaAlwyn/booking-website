@@ -60,16 +60,49 @@
   </section>
 
   <!-- Appointment Form -->
-  <section class="py-16 px-6 max-w-xl mx-auto" id="booking">
-    <h2 class="text-3xl font-semibold mb-6 text-center">Book an Appointment</h2>
-    <form class="space-y-4">
-      <input type="text" name="name" placeholder="Your Name" class="w-full p-3 border rounded" required>
-      <input type="email" name="email" placeholder="Your Email" class="w-full p-3 border rounded" required>
-      <input type="date" name="date" class="w-full p-3 border rounded" required>
-      <textarea name="message" placeholder="Tell us about what you're looking for..." class="w-full p-3 border rounded" rows="4"></textarea>
-      <button type="submit" class="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800">Submit</button>
-    </form>
-  </section>
+<form id="bookingForm" class="space-y-4 bg-white p-6 rounded shadow max-w-lg mx-auto mt-8">
+  <h2 class="text-2xl font-bold mb-4 text-center">Book Appointment</h2>
+
+  <div>
+    <label class="block mb-1 font-semibold">Your Name</label>
+    <input type="text" name="name" class="w-full border border-gray-300 p-2 rounded" required>
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Your Email</label>
+    <input type="email" name="email" class="w-full border border-gray-300 p-2 rounded" required>
+  </div>
+
+  <div>
+    <label class="block mb-1 font-semibold">Your Message</label>
+    <textarea name="message" rows="4" class="w-full border border-gray-300 p-2 rounded" required></textarea>
+  </div>
+
+  <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700">
+    Book Appointment
+  </button>
+</form>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+
+    const res = await fetch('http://localhost:3000/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: formData.get("name"),
+            email: formData.get("email"),
+            message: formData.get("message")
+        })
+    });
+
+    const result = await res.json();
+    alert(result.message);
+});
+</script>
+
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-6 text-center">
