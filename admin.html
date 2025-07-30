@@ -1,31 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Admin Panel - Bookings</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 p-8">
-  <h1 class="text-3xl font-bold mb-6 text-center">Booking Records</h1>
-  <div id="bookingsContainer" class="space-y-4"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abundance Being - Admin Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <script>
-    fetch('http://localhost:3000/bookings')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('bookingsContainer');
-        data.forEach(b => {
-          const div = document.createElement('div');
-          div.className = "bg-white p-4 rounded shadow";
-          div.innerHTML = `
-            <p><strong>Name:</strong> ${b.name}</p>
-            <p><strong>Email:</strong> ${b.email}</p>
-            <p><strong>Message:</strong> ${b.message}</p>
-            <p><strong>Time:</strong> ${new Date(b.timestamp).toLocaleString()}</p>
-          `;
-          container.appendChild(div);
-        });
-      });
-  </script>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f9fc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #2b5e8c;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .booking-item, .testimonial-item, .whatsapp-message {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .booking-item button, .testimonial-item button {
+            padding: 5px 10px;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .login-section {
+            max-width: 400px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        #dashboard {
+            display: none;
+        }
+
+        #dashboard.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-section" id="loginSection">
+        <h1>Admin Login</h1>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div class="container" id="dashboard">
+        <h1>Abundance Being - Admin Dashboard</h1>
+
+        <div class="section">
+            <h2>Manage Bookings</h2>
+            <div id="bookingsList"></div>
+        </div>
+
+        <div class="section">
+            <h2>WhatsApp Messages</h2>
+            <div id="whatsappMessages"></div>
+        </div>
+
+        <div class="section">
+            <h2>Manage Testimonials</h2>
+            <div class="form-group">
+                <label for="testimonialText">Testimonial Text</label>
+                <textarea id="testimonialText" rows="4" placeholder="Enter testimonial text"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="testimonialAuthor">Author</label>
+                <input type="text" id="testimonialAuthor" placeholder="Author name">
+            </div>
+            <div class="form-group">
+                <label for="testimonialRating">Rating (1-5)</label>
+                <input type="number" id="testimonialRating" min="1" max="5" value="5">
+            </div>
+            <button onclick="addTestimonial()">Add Testimonial</button>
+            <div id="testimonialsList"></div>
+        </div>
+
+        <div class="section">
+            <h2>Update Site Content</h2>
+            <div class="form-group">
+                <label for="aboutContent1">About Content (Paragraph 1)</label>
+                <textarea id="aboutContent1" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="aboutContent2">About Content (Paragraph 2)</label>
+                <textarea id="aboutContent2" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="faqContent">FAQ Content</label>
+                <textarea id="faqContent" rows="4"></textarea>
+            </div>
+            <button onclick="updateContent()">Update Content</button>
+        </div>
+
+        <div class="section">
+            <h2>Upload Hero Media</h2>
+            <div class="form-group">
+                <label for="heroMedia">Upload Image/Video</label>
+                <input type="file" id="heroMedia" accept="image/*,video/*">
+            </div>
+            <button onclick="uploadMedia()">Upload Media</button>
+        </div>
+    </div>
+
+    <script>
+        // Login
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    document.getElementById('loginSection').style.display = 'none';
+                    document.getElementById('dashboard').classList.add('active');
+                    fetchBookings();
+                    fetchTestimonials();
+                    fetchContent();
+                    fetchWhatsAppMessages();
+                } else {
+                    alert(data.message || 'Login failed.');
+                }
+            } catch (error) {
+                console.error('Error logging in:', error);
+                alert('Error logging in.');
+            }
+        }
+
+        // Fetch and render bookings
+        async function fetchBookings() {
+            try {
+                const response = await fetch('/api/bookings', {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                });
+                const bookings = await response.json();
+                const bookingsList = document.getElementById('bookingsList');
+                bookingsList.innerHTML = bookings.length ? '' : '<p>No bookings yet.</p>';
+                bookings.forEach(booking => {
+                    const item = document.createElement('div');
+                    item.className = 'booking-item';
+                    item.innerHTML = `
+                        <span>${booking.name} - ${booking.email} - ${new Date(booking.time).toLocaleString()} - ${booking.status}</span>
+                        <div>
+                            <button onclick="updateBooking('${booking._id}', 'Accepted')">Accept</button>
+                            <button onclick="updateBooking('${booking._id}', 'Cancelled')">Cancel</button>
+                        </div>
+                    `;
+                    bookingsList.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error fetching bookings:', error);
+            }
+        }
+
+        // Update booking status
+        async function updateBooking(id, status) {
+            try {
+                const response = await fetch(`/api/bookings/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({ status })
+                });
+                if (response.ok) {
+                    fetchBookings();
+                } else {
+                    alert('Error updating booking.');
+                }
+            } catch (error) {
+                console.error('Error updating booking:', error);
+            }
+        }
+
+        // Fetch and render testimonials
+        async function fetchTestimonials() {
+            try {
+                const response = await fetch('/api/testimonials', {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                });
+                const testimonials = await response.json();
+                const testimonialsList = document.getElementById('testimonialsList');
+                testimonialsList.innerHTML = testimonials.length ? '' : '<p>No testimonials yet.</p>';
+                testimonials.forEach(testimonial => {
+                    const item = document.createElement('div');
+                    item.className = 'testimonial-item';
+                    item.innerHTML = `
+                        <span>${testimonial.text} - ${testimonial.author} (${testimonial.rating} stars)</span>
+                        <button onclick="deleteTestimonial('${testimonial._id}')">Delete</button>
+                    `;
+                    testimonialsList.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error fetching testimonials:', error);
+            }
+        }
+
+        // Add testimonial
+        async function addTestimonial() {
+            const text = document.getElementById('testimonialText').value;
+            const author = document.getElementById('testimonialAuthor').value;
+            const rating = document.getElementById('testimonialRating').value;
+            if (text && author && rating) {
+                try {
+                    const response = await fetch('/api/testimonials', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        },
+                        body: JSON.stringify({ text, author, rating })
+                    });
+                    if (response.ok) {
+                        document.getElementById('testimonialText').value = '';
+                        document.getElementById('testimonialAuthor').value = '';
+                        document.getElementById('testimonialRating').value = '5';
+                        fetchTestimonials();
+                    } else {
+                        alert('Error adding testimonial.');
+                    }
+                } catch (error) {
+                    console.error('Error adding testimonial:', error);
+                }
+            } else {
+                alert('Please fill all fields.');
+            }
+        }
+
+        // Delete testimonial
+        async function deleteTestimonial(id) {
+            try {
+                const response = await fetch(`/api/testimonials/${id}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                });
+                if (response.ok) {
+                    fetchTestimonials();
+                } else {
+                    alert('Error deleting testimonial.');
+                }
+            } catch (error) {
+                console.error('Error deleting testimonial:', error);
+            }
+        }
+
+        // Fetch and render content
+        async function fetchContent() {
+            try {
+                const response = await fetch('/api/content', {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                });
+                const content = await response.json();
+                document.getElementById('aboutContent1').value = content.aboutContent1 || '';
+                document.getElementById('aboutContent2').value = content.aboutContent2 || '';
+                document.getElementById('faqContent').value = content.faqContent || '';
+            } catch (error) {
+                console.error('Error fetching content:', error);
+            }
+        }
+
+        // Update content
+        async function updateContent() {
+            const aboutContent1 = document.getElementById('aboutContent1').value;
+            const aboutContent2 = document.getElementById('aboutContent2').value;
+            const faqContent = document.getElementById('faqContent').value;
+            try {
+                const response = await fetch('/api/content', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({ aboutContent1, aboutContent2, faqContent })
+                });
+                if (response.ok) {
+                    alert('Content updated successfully.');
+                } else {
+                    alert('Error updating content.');
+                }
+            } catch (error) {
+                console.error('Error updating content:', error);
+            }
+        }
+
+        // Fetch WhatsApp messages
+        async function fetchWhatsAppMessages() {
+            try {
+                const response = await fetch('/api/whatsapp/messages', {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                });
+                const messages = await response.json();
+                const messagesList = document.getElementById('whatsappMessages');
+                messagesList.innerHTML = messages.length ? '' : '<p>No WhatsApp messages yet.</p>';
+                messages.forEach(message => {
+                    const item = document.createElement('div');
+                    item.className = 'whatsapp-message';
+                    item.innerHTML = `
+                        <span>From: ${message.from} - ${message.text} (${new Date(message.timestamp).toLocaleString()})</span>
+                    `;
+                    messagesList.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error fetching WhatsApp messages:', error);
+            }
+        }
+
+        // Upload media
+        async function uploadMedia() {
+            const fileInput = document.getElementById('heroMedia');
+            if (fileInput.files.length === 0) {
+                alert('Please select a file.');
+                return;
+            }
+            const formData = new FormData();
+            formData.append('media', fileInput.files[0]);
+            try {
+                const response = await fetch('/api/media', {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+                    body: formData
+                });
+                if (response.ok) {
+                    alert('Media uploaded successfully.');
+                    fileInput.value = '';
+                } else {
+                    alert('Error uploading media.');
+                }
+            } catch (error) {
+                console.error('Error uploading media:', error);
+            }
+        }
+    </script>
 </body>
 </html>
