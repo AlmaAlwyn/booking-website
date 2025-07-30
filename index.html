@@ -26,6 +26,18 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         nav {
@@ -40,6 +52,11 @@
             font-size: 24px;
             font-weight: bold;
             color: #2b5e8c;
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -53,23 +70,25 @@
             text-decoration: none;
             color: #2b5e8c;
             font-size: 16px;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
         }
 
         nav ul li a:hover {
             color: #4a90e2;
+            transform: translateY(-2px);
         }
 
         nav ul li.schedule a {
             border: 2px solid #4a90e2;
             padding: 8px 15px;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
         }
 
         nav ul li.schedule a:hover {
             background-color: #4a90e2;
             color: #fff;
+            transform: scale(1.05);
         }
 
         .hero {
@@ -87,17 +106,33 @@
         .hero-content {
             max-width: 800px;
             padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             font-weight: bold;
+            animation: fadeIn 1s ease-out 0.2s;
+            animation-fill-mode: both;
         }
 
         .hero p {
             font-size: 24px;
             margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.4s;
+            animation-fill-mode: both;
         }
 
         .cta-button {
@@ -108,17 +143,34 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: fadeIn 1s ease-out 0.6s;
+            animation-fill-mode: both;
         }
 
         .cta-button:hover {
             background-color: #357abd;
+            transform: scale(1.1);
         }
 
         .section {
             max-width: 1200px;
             margin: 80px auto;
             padding: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section h2 {
@@ -153,12 +205,34 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            opacity: 0;
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+
+        .offering-card:nth-child(1) { animation-delay: 0.3s; }
+        .offering-card:nth-child(2) { animation-delay: 0.4s; }
+        .offering-card:nth-child(3) { animation-delay: 0.5s; }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .offering-card h4 {
             font-size: 20px;
             color: #2b5e8c;
             margin-bottom: 10px;
+        }
+
+        .offering-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s;
         }
 
         .testimonials-grid {
@@ -173,7 +247,14 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: scaleIn 0.5s ease-out forwards;
         }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.3s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.5s; }
+        .testimonial-card:nth-child(4) { animation-delay: 0.6s; }
 
         .testimonial-card p {
             font-style: italic;
@@ -183,6 +264,11 @@
             font-weight: bold;
             color: #2b5e8c;
             margin-top: 10px;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s;
         }
 
         .stars {
@@ -196,6 +282,7 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
+            animation: fadeIn 0.8s ease-out;
         }
 
         footer p {
