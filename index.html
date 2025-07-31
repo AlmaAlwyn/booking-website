@@ -104,13 +104,11 @@
         }
 
         .hero-video {
-            position: absolute;
-            top: 0;
-            left: 20px;
-            right: 20px;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
+             width: calc(100% - 40px); /* full width minus 20px left + 20px right */
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100vh;
+  object-fit: cover;
         }
 
         .hero::before {
