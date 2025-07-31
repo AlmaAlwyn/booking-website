@@ -91,54 +91,49 @@
             transform: scale(1.05);
         }
 
-        .hero {
-            height: 100vh;
-            position: relative;
+        .hero-section {
+            background: white;
+            padding: 40px 0;
             display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: center;
+            justify-content: center;
+        }
+
+        .hero-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
-            margin-top: 60px;
-            padding-left: 5%;
+            border-radius: 8px;
         }
 
         .hero-video {
-             width: calc(100% - 40px); /* full width minus 20px left + 20px right */
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 100vh;
-  object-fit: cover;
-        }
-
-        .hero::before {
-            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            object-fit: cover;
             z-index: -1;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-            text-align: left;
+        .hero-text {
+            position: relative;
+            color: white;
+            padding: 40px;
+            z-index: 1;
+            font-family: sans-serif;
         }
 
-        .hero h1 {
+        .hero-text h1 {
             font-size: 48px;
             margin-bottom: 20px;
             font-weight: bold;
-            color: #2b5e8c;
         }
 
-        .hero p {
+        .hero-text p {
             font-size: 24px;
             margin-bottom: 30px;
-            color: #2b5e8c;
         }
 
         .cta-button {
@@ -327,11 +322,15 @@
                 font-size: 14px;
             }
 
-            .hero h1 {
+            .hero-section {
+                padding: 20px 0;
+            }
+
+            .hero-text h1 {
                 font-size: 36px;
             }
 
-            .hero p {
+            .hero-text p {
                 font-size: 20px;
             }
 
@@ -419,14 +418,16 @@
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <video autoplay loop muted playsinline class="hero-video">
-            <source src="/Uploads/vecteezy_4k-tree-growing-animation-animated-tree-growth-on-white_16247466.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-content">
-            <h1>Healing Begins Within.</h1>
-            <p>A gentle, non-judgmental space where all parts of you are seen, heard, and welcomed, just as they are.</p>
+    <section class="hero-section" id="home">
+        <div class="hero-container">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="/Uploads/vecteezy_4k-tree-growing-animation-animated-tree-growth-on-white_16247466.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-text">
+                <h1>Healing Begins Within.</h1>
+                <p>A gentle, non-judgmental space where all parts of you are seen, heard, and welcomed, just as they are.</p>
+            </div>
         </div>
     </section>
 
