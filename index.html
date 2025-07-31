@@ -24,6 +24,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             width: 100%;
             animation: slideDown 0.5s ease-out;
+            z-index: 1000;
         }
 
         @keyframes slideDown {
@@ -41,7 +42,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1600px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -50,6 +51,7 @@
             font-weight: bold;
             color: #2b5e8c;
             transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
         nav .logo:hover {
@@ -60,7 +62,7 @@
             list-style: none;
             display: flex;
             gap: 20px;
-            align-items: left;
+            align-items: center;
         }
 
         nav ul li a {
@@ -398,7 +400,7 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Abundance Being</div>
+            <a href="index.html" class="logo">Abundance Being</a>
             <ul>
                 <li><a href="approach.html">About the Work</a></li>
                 <li><a href="faqs.html">FAQs</a></li>
@@ -428,7 +430,7 @@
     </section>
 
     <section class="section" id="testimonials">
-        <h2>Words衔接</h2>
+        <h2>Words from the Heart</h2>
         <h3>What Clients Are Saying...</h3>
         <div class="testimonials-container" id="testimonialsContainer">
             <!-- Testimonials loaded dynamically -->
