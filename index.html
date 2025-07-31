@@ -69,7 +69,7 @@
         nav ul li a {
             text-decoration: none;
             color: #2b5e8c;
-            font-size: 16px;
+            font-size: 17px;
             transition: color 0.3s, transform 0.3s;
         }
 
@@ -107,12 +107,10 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 90%;
+            width: 100%;
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            margin-left: 5%;
-            margin-right: 5%;
         }
 
         .hero::before {
@@ -270,7 +268,7 @@
             justify-content: space-between;
             padding: 40px 80px;
             font-family: sans-serif;
-            font-size: 18px;
+            font-size: 20px;
             background-color: #f5f9fc;
             color: #2b5e8c;
         }
@@ -293,8 +291,13 @@
         }
 
         .footer-section p {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 15px;
+        }
+
+        .footer-section p.name {
+            font-size: 23px;
+            font-weight: bold;
         }
 
         .footer-section a {
@@ -302,11 +305,15 @@
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .footer-section a:hover {
             color: #4a90e2;
+        }
+
+        .footer-section .cta-button {
+            color: #fff;
         }
 
         @media (max-width: 768px) {
@@ -393,7 +400,11 @@
             }
 
             .footer-section p, .footer-section a {
-                font-size: 16px;
+                font-size: 18px;
+            }
+
+            .footer-section p.name {
+                font-size: 21px;
             }
         }
     </style>
@@ -450,13 +461,13 @@
 
     <footer class="footer">
         <div class="footer-section">
-            <p><strong>Tinesh Kumar</strong></p>
+            <p class="name">Tinesh Kumar</p>
             <p>xx@gmail.com</p>
             <a href="https://wa.me/919876543210" class="cta-button">Contact us on WhatsApp</a>
         </div>
         <div class="footer-section">
             <a href="faqs.html">FAQs</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="admin.html">Admin Dashboard</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
         </div>
