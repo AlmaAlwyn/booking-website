@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abundance Being - Admin Dashboard</title>
+    <title>Abundance Being</title>
     <style>
         * {
             margin: 0;
@@ -18,390 +18,504 @@
             background-color: #f5f9fc;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
+        header {
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
         }
 
-        h1, h2 {
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
             color: #2b5e8c;
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2b5e8c;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a90e2;
+            transform: translateY(-2px);
+        }
+
+        nav ul li.schedule a {
+            border: 2px solid #4a90e2;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        nav ul li.schedule a:hover {
+            background-color: #4a90e2;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 48px;
             margin-bottom: 20px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4a90e2;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: fadeIn 1s ease-out 0.6s;
+            animation-fill-mode: both;
+        }
+
+        .cta-button:hover {
+            background-color: #357abd;
+            transform: scale(1.1);
         }
 
         .section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            font-size: 36px;
+            color: #2b5e8c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 24px;
+            color: #2b5e8c;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-container {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            height: 200px;
+        }
+
+        .testimonial-card {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .testimonial-card.active {
+            opacity: 1;
         }
 
-        .form-group label {
+        .testimonial-card p {
+            font-style: italic;
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            color: #2b5e8c;
+            margin-top: 10px;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s;
+        }
+
+        .stars {
+            color: #f4c430;
+            margin-bottom: 10px;
+        }
+
+        .booking-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .booking-form input, .booking-form button {
             display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group textarea {
             width: 100%;
             padding: 10px;
+            margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
         }
 
-        button {
-            padding: 10px 20px;
+        .booking-form button {
             background-color: #4a90e2;
             color: #fff;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        button:hover {
+        .booking-form button:hover {
             background-color: #357abd;
         }
 
-        .booking-item, .testimonial-item, .whatsapp-message {
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
+        .whatsapp-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1DA851;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #2b5e8c;
+            color: #fff;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .booking-item button, .testimonial-item button {
-            padding: 5px 10px;
-            margin-left: 10px;
-            font-size: 14px;
+        footer .left {
+            text-align: left;
         }
 
-        .login-section {
-            max-width: 400px;
-            margin: 100px auto;
-            text-align: center;
+        footer .left p {
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
-        #dashboard {
-            display: none;
+        footer .right {
+            text-align: right;
         }
 
-        #dashboard.active {
+        footer .right a {
             display: block;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        footer .right a:hover {
+            color: #4a90e2;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 20px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            nav ul li.schedule a {
+                padding: 6px 12px;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer .left, footer .right {
+                text-align: center;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="login-section" id="loginSection">
-        <h1>Admin Login</h1>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Password" required>
-        </div>
-        <button onclick="login()">Login</button>
-    </div>
+    <header>
+        <nav>
+            <div class="logo">Abundance Being</div>
+            <ul>
+                <li><a href="#about">About the Work</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li class="schedule"><a href="#schedule">Schedule a Session</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container" id="dashboard">
-        <h1>Abundance Being - Admin Dashboard</h1>
-
-        <div class="section">
-            <h2>Manage Bookings</h2>
-            <div id="bookingsList"></div>
+    <section class="hero" id="home">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="/uploads/vecteezy_4k-tree-growing-animation-animated-tree-growth-on-white_16247466.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Healing Begins Within.</h1>
+            <p>A gentle, non-judgmental space where all parts of you are seen, heard, and welcomed, just as they are.</p>
+            <a href="#schedule" class="cta-button">Take the First Step</a>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>WhatsApp Messages</h2>
-            <div id="whatsappMessages"></div>
-        </div>
+    <section class="section" id="about">
+        <h2>About the Work</h2>
+        <h3>Offering Compassionate Support for Your Healing Journey</h3>
+        <p id="about-content-1">I offer you a welcoming safe space where you can show up just as you are. Where your anger, shame, sadness, and resistance are all welcome and held. My intention is to help you in healing from the inside out and reconnect with your inner strength and wisdom. Together we can heal emotional wounds, resolve internal conflicts, and move through feeling stuck in life.</p>
+        <h3>Take the first step toward change.</h3>
+        <p id="about-content-2">Sessions are available both in person and online, so you can choose what feels right whether you’re nearby or across the globe.</p>
+    </section>
 
-        <div class="section">
-            <h2>Manage Testimonials</h2>
-            <div class="form-group">
-                <label for="testimonialText">Testimonial Text</label>
-                <textarea id="testimonialText" rows="4" placeholder="Enter testimonial text"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="testimonialAuthor">Author</label>
-                <input type="text" id="testimonialAuthor" placeholder="Author name">
-            </div>
-            <div class="form-group">
-                <label for="testimonialRating">Rating (1-5)</label>
-                <input type="number" id="testimonialRating" min="1" max="5" value="5">
-            </div>
-            <button onclick="addTestimonial()">Add Testimonial</button>
-            <div id="testimonialsList"></div>
+    <section class="section" id="testimonials">
+        <h2>Words from the Heart</h2>
+        <h3>What Clients Are Saying About Our Work Together</h3>
+        <div class="testimonials-container" id="testimonialsContainer">
+            <!-- Testimonials loaded dynamically -->
         </div>
+    </section>
 
-        <div class="section">
-            <h2>Update Site Content</h2>
-            <div class="form-group">
-                <label for="aboutContent1">About Content (Paragraph 1)</label>
-                <textarea id="aboutContent1" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="aboutContent2">About Content (Paragraph 2)</label>
-                <textarea id="aboutContent2" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="faqContent">FAQ Content</label>
-                <textarea id="faqContent" rows="4"></textarea>
-            </div>
-            <button onclick="updateContent()">Update Content</button>
-        </div>
+    <section class="section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <h3>Common Questions About IFS Therapy</h3>
+        <p id="faq-content">Coming soon: Answers to your questions about Internal Family Systems therapy and how it can support your healing journey.</p>
+    </section>
 
-        <div class="section">
-            <h2>Upload Hero Media</h2>
-            <div class="form-group">
-                <label for="heroMedia">Upload Image/Video</label>
-                <input type="file" id="heroMedia" accept="image/*,video/*">
-            </div>
-            <button onclick="uploadMedia()">Upload Media</button>
+    <section class="section" id="schedule">
+        <h2>Schedule a Session</h2>
+        <div class="booking-form">
+            <h3>Book Your Session</h3>
+            <input type="text" id="clientName" placeholder="Your Name" required>
+            <input type="email" id="clientEmail" placeholder="Your Email" required>
+            <input type="datetime-local" id="sessionTime" required>
+            <button onclick="submitBooking()">Submit Booking</button>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <div class="left">
+            <p>Tinesh Kumar</p>
+            <p>xx@gmail.com</p>
+            <a href="https://wa.me/+1234567890?text=Hi,%20I'd%20like%20to%20book%20a%20session" class="whatsapp-button">Contact on WhatsApp</a>
+        </div>
+        <div class="right">
+            <a href="#faq">FAQs</a>
+            <a href="#contact">Contact us</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+        </div>
+    </footer>
 
     <script>
-        // Login
-        async function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            try {
-                const response = await fetch('/api/admin/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                const data = await response.json();
-                if (response.ok) {
-                    localStorage.setItem('token', data.token);
-                    document.getElementById('loginSection').style.display = 'none';
-                    document.getElementById('dashboard').classList.add('active');
-                    fetchBookings();
-                    fetchTestimonials();
-                    fetchContent();
-                    fetchWhatsAppMessages();
-                } else {
-                    alert(data.message || 'Login failed.');
-                }
-            } catch (error) {
-                console.error('Error logging in:', error);
-                alert('Error logging in.');
-            }
-        }
-
-        // Fetch and render bookings
-        async function fetchBookings() {
-            try {
-                const response = await fetch('/api/bookings', {
-                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                });
-                const bookings = await response.json();
-                const bookingsList = document.getElementById('bookingsList');
-                bookingsList.innerHTML = bookings.length ? '' : '<p>No bookings yet.</p>';
-                bookings.forEach(booking => {
-                    const item = document.createElement('div');
-                    item.className = 'booking-item';
-                    item.innerHTML = `
-                        <span>${booking.name} - ${booking.email} - ${new Date(booking.time).toLocaleString()} - ${booking.status}</span>
-                        <div>
-                            <button onclick="updateBooking('${booking._id}', 'Accepted')">Accept</button>
-                            <button onclick="updateBooking('${booking._id}', 'Cancelled')">Cancel</button>
-                        </div>
-                    `;
-                    bookingsList.appendChild(item);
-                });
-            } catch (error) {
-                console.error('Error fetching bookings:', error);
-            }
-        }
-
-        // Update booking status
-        async function updateBooking(id, status) {
-            try {
-                const response = await fetch(`/api/bookings/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    },
-                    body: JSON.stringify({ status })
-                });
-                if (response.ok) {
-                    fetchBookings();
-                } else {
-                    alert('Error updating booking.');
-                }
-            } catch (error) {
-                console.error('Error updating booking:', error);
-            }
-        }
-
         // Fetch and render testimonials
         async function fetchTestimonials() {
             try {
-                const response = await fetch('/api/testimonials', {
-                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                });
+                const response = await fetch('/api/testimonials');
                 const testimonials = await response.json();
-                const testimonialsList = document.getElementById('testimonialsList');
-                testimonialsList.innerHTML = testimonials.length ? '' : '<p>No testimonials yet.</p>';
-                testimonials.forEach(testimonial => {
-                    const item = document.createElement('div');
-                    item.className = 'testimonial-item';
-                    item.innerHTML = `
-                        <span>${testimonial.text} - ${testimonial.author} (${testimonial.rating} stars)</span>
-                        <button onclick="deleteTestimonial('${testimonial._id}')">Delete</button>
+                const container = document.getElementById('testimonialsContainer');
+                container.innerHTML = '';
+                testimonials.forEach((testimonial, index) => {
+                    const card = document.createElement('div');
+                    card.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+                    card.innerHTML = `
+                        <div class="stars">${'★'.repeat(testimonial.rating)}</div>
+                        <p>${testimonial.text}</p>
+                        <p class="author">${testimonial.author}</p>
                     `;
-                    testimonialsList.appendChild(item);
+                    container.appendChild(card);
                 });
+                cycleTestimonials();
             } catch (error) {
                 console.error('Error fetching testimonials:', error);
             }
         }
 
-        // Add testimonial
-        async function addTestimonial() {
-            const text = document.getElementById('testimonialText').value;
-            const author = document.getElementById('testimonialAuthor').value;
-            const rating = document.getElementById('testimonialRating').value;
-            if (text && author && rating) {
+        // Cycle testimonials
+        let currentTestimonial = 0;
+        function cycleTestimonials() {
+            const cards = document.querySelectorAll('.testimonial-card');
+            if (cards.length === 0) return;
+            cards[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % cards.length;
+            cards[currentTestimonial].classList.add('active');
+            setTimeout(cycleTestimonials, 5000);
+        }
+
+        // Submit booking
+        async function submitBooking() {
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const time = document.getElementById('sessionTime').value;
+            if (name && email && time) {
                 try {
-                    const response = await fetch('/api/testimonials', {
+                    const response = await fetch('/api/bookings', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${localStorage.getItem('token')}`
-                        },
-                        body: JSON.stringify({ text, author, rating })
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, time, status: 'Pending' })
                     });
                     if (response.ok) {
-                        document.getElementById('testimonialText').value = '';
-                        document.getElementById('testimonialAuthor').value = '';
-                        document.getElementById('testimonialRating').value = '5';
-                        fetchTestimonials();
+                        alert('Booking submitted! You will receive a confirmation soon.');
+                        document.getElementById('clientName').value = '';
+                        document.getElementById('clientEmail').value = '';
+                        document.getElementById('sessionTime').value = '';
                     } else {
-                        alert('Error adding testimonial.');
+                        alert('Error submitting booking.');
                     }
                 } catch (error) {
-                    console.error('Error adding testimonial:', error);
+                    console.error('Error submitting booking:', error);
+                    alert('Error submitting booking.');
                 }
             } else {
                 alert('Please fill all fields.');
             }
         }
 
-        // Delete testimonial
-        async function deleteTestimonial(id) {
-            try {
-                const response = await fetch(`/api/testimonials/${id}`, {
-                    method: 'DELETE',
-                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                });
-                if (response.ok) {
-                    fetchTestimonials();
-                } else {
-                    alert('Error deleting testimonial.');
-                }
-            } catch (error) {
-                console.error('Error deleting testimonial:', error);
-            }
-        }
-
-        // Fetch and render content
-        async function fetchContent() {
-            try {
-                const response = await fetch('/api/content', {
-                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                });
-                const content = await response.json();
-                document.getElementById('aboutContent1').value = content.aboutContent1 || '';
-                document.getElementById('aboutContent2').value = content.aboutContent2 || '';
-                document.getElementById('faqContent').value = content.faqContent || '';
-            } catch (error) {
-                console.error('Error fetching content:', error);
-            }
-        }
-
-        // Update content
-        async function updateContent() {
-            const aboutContent1 = document.getElementById('aboutContent1').value;
-            const aboutContent2 = document.getElementById('aboutContent2').value;
-            const faqContent = document.getElementById('faqContent').value;
-            try {
-                const response = await fetch('/api/content', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    },
-                    body: JSON.stringify({ aboutContent1, aboutContent2, faqContent })
-                });
-                if (response.ok) {
-                    alert('Content updated successfully.');
-                } else {
-                    alert('Error updating content.');
-                }
-            } catch (error) {
-                console.error('Error updating content:', error);
-            }
-        }
-
-        // Fetch WhatsApp messages
-        async function fetchWhatsAppMessages() {
-            try {
-                const response = await fetch('/api/whatsapp/messages', {
-                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                });
-                const messages = await response.json();
-                const messagesList = document.getElementById('whatsappMessages');
-                messagesList.innerHTML = messages.length ? '' : '<p>No WhatsApp messages yet.</p>';
-                messages.forEach(message => {
-                    const item = document.createElement('div');
-                    item.className = 'whatsapp-message';
-                    item.innerHTML = `
-                        <span>From: ${message.from} - ${message.text} (${new Date(message.timestamp).toLocaleString()})</span>
-                    `;
-                    messagesList.appendChild(item);
-                });
-            } catch (error) {
-                console.error('Error fetching WhatsApp messages:', error);
-            }
-        }
-
-        // Upload media
-        async function uploadMedia() {
-            const fileInput = document.getElementById('heroMedia');
-            if (fileInput.files.length === 0) {
-                alert('Please select a file.');
-                return;
-            }
-            const formData = new FormData();
-            formData.append('media', fileInput.files[0]);
-            try {
-                const response = await fetch('/api/media', {
-                    method: 'POST',
-                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-                    body: formData
-                });
-                if (response.ok) {
-                    alert('Media uploaded successfully.');
-                    fileInput.value = '';
-                } else {
-                    alert('Error uploading media.');
-                }
-            } catch (error) {
-                console.error('Error uploading media:', error);
-            }
-        }
+        // Initialize
+        fetchTestimonials();
     </script>
 </body>
 </html>
