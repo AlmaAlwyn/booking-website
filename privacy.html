@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Abundance Being</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f9fc;
+        }
+
+        header {
+            background-color: #f5f9fc;
+            padding: 20px 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            animation: slideDown 0.5s ease-out;
+            z-index: 1000;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2b5e8c;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2b5e8c;
+            font-size: 17px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a90e2;
+            transform: translateY(-2px);
+        }
+
+        nav ul li.schedule a {
+            border: 2px solid #4a90e2;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        nav ul li.schedule a:hover {
+            background-color: #4a90e2;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            color: #2b5e8c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 24px;
+            color: #2b5e8c;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 80px;
+            font-family: sans-serif;
+            font-size: 20px;
+            background-color: #f5f9fc;
+            color: #2b5e8c;
+        }
+
+        .footer-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-section:first-child {
+            margin-right: 20px;
+        }
+
+        .footer-section:last-child {
+            margin-left: 20px;
+        }
+
+        .footer-section p {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p.name {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .footer-section a {
+            color: #007bff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+
+        .footer-section .cta-button {
+            color: #fff;
+            padding: 15px 30px;
+            background-color: #4a90e2;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .footer-section .cta-button:hover {
+            background-color: #357abd;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .section {
+                margin: 80px auto;
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 30px;
+            }
+
+            .section h3 {
+                font-size: 20px;
+            }
+
+            .section p {
+                font-size: 16px;
+            }
+
+            .footer {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .footer-section {
+                margin: 0;
+                margin-bottom: 20px;
+            }
+
+            .footer-section:first-child {
+                margin-right: 0;
+            }
+
+            .footer-section:last-child {
+                margin-left: 0;
+            }
+
+            .footer-section p, .footer-section a {
+                font-size: 18px;
+            }
+
+            .footer-section p.name {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Abundance Being</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="approach.html">About the Work</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li class="schedule"><a href="schedule.html">Schedule a Session</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>Privacy Policy</h2>
+        <h3>Introduction</h3>
+        <p>Abundance Being, operated by Tinesh Kumar, is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information.</p>
+        
+        <h3>Information We Collect</h3>
+        <p>We may collect personal information such as your name, email address, and phone number when you contact us via WhatsApp or email, or when you schedule a session.</p>
+        
+        <h3>How We Use Your Information</h3>
+        <p>Your information is used to schedule sessions, communicate with you, and improve our services. We do not share your information with third parties without your consent, except as required by law.</p>
+        
+        <h3>Data Security</h3>
+        <p>We use secure platforms for virtual sessions and communications. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+        
+        <h3>Your Rights</h3>
+        <p>You have the right to access, correct, or delete your personal information. Contact us at xx@gmail.com to exercise these rights.</p>
+        
+        <h3>Contact Us</h3>
+        <p>For questions about this Privacy Policy, please contact us at <a href="mailto:xx@gmail.com">xx@gmail.com</a> or via WhatsApp at <a href="https://wa.me/919876543210">+919876543210</a>.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <p class="name">Tinesh Kumar</p>
+            <p>xx@gmail.com</p>
+            <a href="https://wa.me/919876543210" class="cta-button">Contact me on WhatsApp</a>
+        </div>
+        <div class="footer-section">
+            <a href="faqs.html">FAQs</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>
