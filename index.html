@@ -99,7 +99,8 @@
         .hero-container {
             position: relative;
             width: 100%;
-            
+            max-width: 1600px;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
             border-radius: 8px;
             background-color: #e0e7f7; /* Fallback background color */
@@ -109,8 +110,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            max-width: 1600px;
-            aspect-ratio: 16 / 9;
+            
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -126,7 +126,7 @@
             text-align: left;
             justify-content: center;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
             display: flex;
             overflow: hidden;
         }
