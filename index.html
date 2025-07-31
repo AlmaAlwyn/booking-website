@@ -111,6 +111,8 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            margin-left: 5%; /* Increased left margin */
+            margin-right: 5%; /* Increased right margin */
         }
 
         .hero::before {
@@ -127,17 +129,20 @@
         .hero-content {
             max-width: 800px;
             padding: 20px;
+            text-align: left; /* Left-aligned text */
         }
 
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             font-weight: bold;
+            color: #000; /* Black color */
         }
 
         .hero p {
             font-size: 24px;
             margin-bottom: 30px;
+            color: #000; /* Black color */
         }
 
         .cta-button {
@@ -194,10 +199,12 @@
             font-style: italic;
             color: #2b5e8c;
             max-width: 50%;
+            margin-left: 10%;
         }
 
         .support-section .buttons {
             display: flex;
+            flex-direction: column;
             gap: 20px;
         }
 
@@ -244,8 +251,8 @@
         }
 
         footer {
-            background-color: #2b5e8c;
-            color: #fff;
+            background-color: #f5f9fc;
+            color: #333;
             padding: 40px 20px;
             display: flex;
             justify-content: center;
@@ -277,7 +284,7 @@
         footer .right a {
             display: block;
             text-decoration: none;
-            color: #fff;
+            color: #333;
             font-size: 18px;
             margin-bottom: 15px;
             transition: color 0.3s;
@@ -320,6 +327,7 @@
 
             .support-section .quote {
                 max-width: 100%;
+                margin-left: 0;
                 margin-bottom: 20px;
             }
 
@@ -378,16 +386,7 @@
         <div class="hero-content">
             <h1>Healing Begins Within.</h1>
             <p>A gentle, non-judgmental space where all parts of you are seen, heard, and welcomed, just as they are.</p>
-            <a href="#schedule" class="cta-button">Schedule a Session</a>
         </div>
-    </section>
-
-    <section class="section" id="approach">
-        <h2>Approach</h2>
-        <h3>Offering Compassionate Support for Your Healing Journey</h3>
-        <p>I offer you a welcoming safe space where you can show up just as you are. Where your anger, shame, sadness, and resistance are all welcome and held. My intention is to help you in healing from the inside out and reconnect with your inner strength and wisdom. Together we can heal emotional wounds, resolve internal conflicts, and move through feeling stuck in life.</p>
-        <p>Sessions are available both in person and online, so you can choose what feels right whether you’re nearby or across the globe.</p>
-        <a href="#about-me" class="cta-button">Learn More</a>
     </section>
 
     <section class="section" id="about-me">
@@ -395,15 +394,6 @@
         <h3>Psychodynamic IFS Therapist</h3>
         <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
         <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
-        <a href="#schedule" class="cta-button">Schedule a Session</a>
-    </section>
-
-    <section class="support-section" id="support">
-        <div class="quote">We are always here</div>
-        <div class="buttons">
-            <a href="#schedule" class="cta-button">Book a Rapport Session</a>
-            <a href="#schedule" class="cta-button">Schedule a Session</a>
-        </div>
     </section>
 
     <section class="section" id="testimonials">
@@ -411,6 +401,14 @@
         <h3>What Clients Are Saying About Our Work Together</h3>
         <div class="testimonials-container" id="testimonialsContainer">
             <!-- Testimonials loaded dynamically -->
+        </div>
+    </section>
+
+    <section class="support-section" id="support">
+        <div class="quote">We are always here</div>
+        <div class="buttons">
+            <a href="#schedule" class="cta-button">Book a Rapport Session</a>
+            <a href="#schedule" class="cta-button">Schedule a Session</a>
         </div>
     </section>
 
