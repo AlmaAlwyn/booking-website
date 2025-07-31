@@ -146,6 +146,48 @@
             border-radius: 5px;
         }
 
+        .testimonial-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .testimonial-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .testimonial-item p {
+            font-size: 16px;
+        }
+
+        .testimonial-item .author {
+            font-weight: bold;
+            color: #2b5e8c;
+            margin-top: 10px;
+        }
+
+        .testimonial-item .rating {
+            color: #f4c430;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item button {
+            padding: 8px 15px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .testimonial-item .delete-btn {
+            background-color: #e74c3c;
+        }
+
+        .testimonial-item .delete-btn:hover {
+            background-color: #c0392b;
+        }
+
         .footer {
             display: flex;
             justify-content: space-between;
@@ -233,6 +275,11 @@
                 padding: 15px;
             }
 
+            .testimonial-item button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
             .footer {
                 flex-direction: column;
                 padding: 30px 20px;
@@ -287,6 +334,9 @@
             <input type="text" id="testimonialAuthor" placeholder="Author Name">
             <input type="number" id="testimonialRating" placeholder="Rating (1-5)" min="1" max="5">
             <button onclick="addTestimonial()">Add Testimonial</button>
+            <div class="testimonial-list" id="testimonialList">
+                <!-- Testimonials will be dynamically loaded here -->
+            </div>
         </div>
     </section>
 
@@ -294,7 +344,7 @@
         <div class="footer-section">
             <p class="name">Tinesh Kumar</p>
             <p>xx@gmail.com</p>
-            <a href="https://wa.me/919876543210" class="cta-button">Contact me on WhatsApp</a>
+            <a href="https://wa.me/919445150202" class="cta-button">Contact me on WhatsApp</a>
         </div>
         <div class="footer-section">
             <a href="faqs.html">FAQs</a>
@@ -312,37 +362,110 @@
             if (username === 'admin' && password === 'password123') {
                 document.getElementById('loginForm').style.display = 'none';
                 document.getElementById('dashboardContent').style.display = 'block';
+                loadTestimonials();
             } else {
                 alert('Invalid credentials');
             }
         }
 
-        async function addTestimonial() {
+        function addTestimonial() {
             const text = document.getElementById('testimonialText').value;
             const author = document.getElementById('testimonialAuthor').value;
             const rating = document.getElementById('testimonialRating').value;
-            if (!text || !author || !rating) {
-                alert('Please fill all fields');
+
+            if (!text || !author || !rating || rating < 1 || rating > 5) {
+                alert('Please fill all fields with valid data (Rating must be 1-5)');
                 return;
             }
-            try {
-                const response = await fetch('/api/testimonials', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ text, author, rating })
-                });
-                if (response.ok) {
-                    alert('Testimonial added successfully');
-                    document.getElementById('testimonialText').value = '';
-                    document.getElementById('testimonialAuthor').value = '';
-                    document.getElementById('testimonialRating').value = '';
-                } else {
-                    alert('Error adding testimonial');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error adding testimonial');
+
+            // Store testimonial in localStorage
+            const testimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
+            testimonials.push({ text, author, rating: parseInt(rating) });
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+
+            alert('Testimonial added successfully');
+            document.getElementById('testimonialText').value = '';
+            document.getElementById('testimonialAuthor').value = '';
+            document.getElementById('testimonialRating').value = '';
+            loadTestimonials();
+        }
+
+        function loadTestimonials() {
+            const testimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
+            const testimonialList = document.getElementById('testimonialList');
+            testimonialList.innerHTML = '';
+
+            testimonials.forEach((testimonial, index) => {
+                const testimonialItem = document.createElement('div');
+                testimonialItem.className = 'testimonial-item';
+                testimonialItem.innerHTML = `
+                    <div class="rating">${'★'.repeat(testimonial.rating)}</div>
+                    <p>${testimonial.text}</p>
+                    <p class="author">${testimonial.author}</p>
+                    <button onclick="editTestimonial(${index})">Edit</button>
+                    <button class="delete-btn" onclick="deleteTestimonial(${index})">Delete</button>
+                `;
+                testimonialList.appendChild(testimonialItem);
+            });
+        }
+
+        function editTestimonial(index) {
+            const testimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
+            const testimonial = testimonials[index];
+
+            document.getElementById('testimonialText').value = testimonial.text;
+            document.getElementById('testimonialAuthor').value = testimonial.author;
+            document.getElementById('testimonialRating').value = testimonial.rating;
+
+            // Temporarily store the index being edited
+            document.getElementById('testimonialText').dataset.editIndex = index;
+
+            // Change the "Add Testimonial" button to "Update Testimonial"
+            const addButton = document.querySelector('#dashboardContent button');
+            addButton.textContent = 'Update Testimonial';
+            addButton.onclick = function() { updateTestimonial(index); };
+        }
+
+        function updateTestimonial(index) {
+            const text = document.getElementById('testimonialText').value;
+            const author = document.getElementById('testimonialAuthor').value;
+            const rating = document.getElementById('testimonialRating').value;
+
+            if (!text || !author || !rating || rating < 1 || rating > 5) {
+                alert('Please fill all fields with valid data (Rating must be 1-5)');
+                return;
             }
+
+            const testimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
+            testimonials[index] = { text, author, rating: parseInt(rating) };
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+
+            alert('Testimonial updated successfully');
+            document.getElementById('testimonialText').value = '';
+            document.getElementById('testimonialAuthor').value = '';
+            document.getElementById('testimonialRating').value = '';
+            document.getElementById('testimonialText').dataset.editIndex = '';
+
+            // Reset button to "Add Testimonial"
+            const addButton = document.querySelector('#dashboardContent button');
+            addButton.textContent = 'Add Testimonial';
+            addButton.onclick = addTestimonial;
+
+            loadTestimonials();
+        }
+
+        function deleteTestimonial(index) {
+            if (!confirm('Are you sure you want to delete this testimonial?')) return;
+
+            const testimonials = JSON.parse(localStorage.getItem('testimonials') || '[]');
+            testimonials.splice(index, 1);
+            localStorage.setItem('testimonials', JSON.stringify(testimonials));
+            loadTestimonials();
+        }
+
+        // Load testimonials on page load if logged in
+        if (document.getElementById('dashboardContent').style.display === 'block') {
+            loadTestimonials();
         }
     </script>
 </body>
