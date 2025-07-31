@@ -1,1 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Work - Abundance Being</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f9fc;
+        }
+
+        header {
+            background-color: #f5f9fc;
+            padding: 20px 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2b5e8c;
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: left;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2b5e8c;
+            font-size: 17px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a90e2;
+            transform: translateY(-2px);
+        }
+
+        nav ul li.schedule a {
+            border: 2px solid #4a90e2;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        nav ul li.schedule a:hover {
+            background-color: #4a90e2;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            color: #2b5e8c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 24px;
+            color: #2b5e8c;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 80px;
+            font-family: sans-serif;
+            font-size: 20px;
+            background-color: #f5f9fc;
+            color: #2b5e8c;
+        }
+
+        .footer-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-section:first-child {
+            margin-right: 20px;
+        }
+
+        .footer-section:last-child {
+            margin-left: 20px;
+        }
+
+        .footer-section p {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p.name {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .footer-section a {
+            color: #007bff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+
+        .footer-section .cta-button {
+            color: #fff;
+            padding: 15px 30px;
+            background-color: #4a90e2;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .footer-section .cta-button:hover {
+            background-color: #357abd;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .section {
+                margin: 80px auto;
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 30px;
+            }
+
+            .section h3 {
+                font-size: 20px;
+            }
+
+            .section p {
+                font-size: 16px;
+            }
+
+            .footer {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .footer-section {
+                margin: 0;
+                margin-bottom: 20px;
+            }
+
+            .footer-section:first-child {
+                margin-right: 0;
+            }
+
+            .footer-section:last-child {
+                margin-left: 0;
+            }
+
+            .footer-section p, .footer-section a {
+                font-size: 18px;
+            }
+
+            .footer-section p.name {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Abundance Being</div>
+            <ul>
+                <li><a href="approach.html">About the Work</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li class="schedule"><a href="schedule.html">Schedule a Session</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2>About the Work</h2>
+        <p>Please provide the content for this section, and it will be added here.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <p class="name">Tinesh Kumar</p>
+            <p>xx@gmail.com</p>
+            <a href="https://wa.me/919876543210" class="cta-button">Contact me on WhatsApp</a>
+        </div>
+        <div class="footer-section">
+            <a href="faqs.html">FAQs</a>
+            <a href="admin.html">Admin Dashboard</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>
