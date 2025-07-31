@@ -18,77 +18,34 @@
             background-color: #f5f9fc;
         }
 
-        header {
-            background-color: #fff;
+        header, footer {
+            background-color: #2b5e8c;
+            color: #fff;
             padding: 20px 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            animation: slideDown 0.5s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        nav .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2b5e8c;
-            transition: transform 0.3s ease;
-        }
-
-        nav .logo:hover {
-            transform: scale(1.05);
+            text-align: center;
         }
 
         nav ul {
             list-style: none;
             display: flex;
+            justify-content: center;
             gap: 20px;
-            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 10px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #2b5e8c;
-            font-size: 16px;
-            transition: color 0.3s, transform 0.3s;
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s;
         }
 
         nav ul li a:hover {
             color: #4a90e2;
-            transform: translateY(-2px);
-        }
-
-        nav ul li.schedule a {
-            border: 2px solid #4a90e2;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
-        }
-
-        nav ul li.schedule a:hover {
-            background-color: #4a90e2;
-            color: #fff;
-            transform: scale(1.05);
         }
 
         .hero {
@@ -100,6 +57,7 @@
             text-align: center;
             color: #fff;
             overflow: hidden;
+            margin-top: 60px;
         }
 
         .hero-video {
@@ -126,33 +84,17 @@
         .hero-content {
             max-width: 800px;
             padding: 20px;
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             font-weight: bold;
-            animation: fadeIn 1s ease-out 0.2s;
-            animation-fill-mode: both;
         }
 
         .hero p {
             font-size: 24px;
             margin-bottom: 30px;
-            animation: fadeIn 1s ease-out 0.4s;
-            animation-fill-mode: both;
         }
 
         .cta-button {
@@ -163,41 +105,24 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
-            transition: background-color 0.3s, transform 0.3s;
-            animation: fadeIn 1s ease-out 0.6s;
-            animation-fill-mode: both;
+            transition: background-color 0.3s;
         }
 
         .cta-button:hover {
             background-color: #357abd;
-            transform: scale(1.1);
         }
 
         .section {
             max-width: 1200px;
             margin: 80px auto;
             padding: 20px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 0.2s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            text-align: center;
         }
 
         .section h2 {
             font-size: 36px;
             color: #2b5e8c;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .section h3 {
@@ -285,33 +210,13 @@
             background-color: #357abd;
         }
 
-        .whatsapp-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #25D366;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .whatsapp-button:hover {
-            background-color: #1DA851;
-            transform: scale(1.05);
-        }
-
         footer {
-            background-color: #2b5e8c;
-            color: #fff;
             padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            flex-wrap: wrap;
             gap: 60px;
-            margin-top: 40px;
-            animation: fadeIn 0.8s ease-out;
+            flex-wrap: wrap;
         }
 
         footer .left {
@@ -347,12 +252,8 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 20px;
+            header, footer {
+                padding: 15px 20px;
             }
 
             nav ul {
@@ -360,11 +261,15 @@
             }
 
             nav ul li a {
-                font-size: 14px;
+                font-size: 16px;
             }
 
-            nav ul li.schedule a {
-                padding: 6px 12px;
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 20px;
             }
 
             .section {
@@ -395,12 +300,12 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Abundance Being</div>
+            <h1>Grow</h1>
             <ul>
-                <li><a href="#about">About the Work</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li class="schedule"><a href="#schedule">Schedule a Session</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#about">More About 1:1 Work</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#schedule">Schedule Consultation</a></li>
             </ul>
         </nav>
     </header>
@@ -413,36 +318,34 @@
         <div class="hero-content">
             <h1>Healing Begins Within.</h1>
             <p>A gentle, non-judgmental space where all parts of you are seen, heard, and welcomed, just as they are.</p>
-            <a href="#schedule" class="cta-button">Take the First Step</a>
+            <a href="#schedule" class="cta-button">Schedule Consultation</a>
         </div>
+    </section>
+
+    <section class="section" id="approach">
+        <h2>Approach</h2>
+        <h3>Offering Compassionate Support for Your Healing Journey</h3>
+        <p>I offer you a welcoming safe space where you can show up just as you are. Where your anger, shame, sadness, and resistance are all welcome and held. My intention is to help you in healing from the inside out and reconnect with your inner strength and wisdom. Together we can heal emotional wounds, resolve internal conflicts, and move through feeling stuck in life.</p>
+        <p>Sessions are available both in person and online, so you can choose what feels right whether you’re nearby or across the globe.</p>
+        <a href="#about" class="cta-button">Learn More</a>
     </section>
 
     <section class="section" id="about">
-        <h2>About the Work</h2>
-        <h3>Offering Compassionate Support for Your Healing Journey</h3>
-        <p id="about-content-1">I offer you a welcoming safe space where you can show up just as you are. Where your anger, shame, sadness, and resistance are all welcome and held. My intention is to help you in healing from the inside out and reconnect with your inner strength and wisdom. Together we can heal emotional wounds, resolve internal conflicts, and move through feeling stuck in life.</p>
-        <h3>Take the first step toward change.</h3>
-        <p id="about-content-2">Sessions are available both in person and online, so you can choose what feels right whether you’re nearby or across the globe.</p>
+        <h2>More About 1:1 Work</h2>
+        <h3>Psychodynamic IFS Therapist</h3>
+        <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
+        <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
+        <a href="#schedule" class="cta-button">Schedule Consultation</a>
     </section>
 
-    <section class="section" id="testimonials">
-        <h2>Words from the Heart</h2>
-        <h3>What Clients Are Saying About Our Work Together</h3>
-        <div class="testimonials-container" id="testimonialsContainer">
-            <!-- Testimonials loaded dynamically -->
-        </div>
-    </section>
-
-    <section class="section" id="faq">
-        <h2>Frequently Asked Questions</h2>
-        <h3>Common Questions About IFS Therapy</h3>
-        <p id="faq-content">Coming soon: Answers to your questions about Internal Family Systems therapy and how it can support your healing journey.</p>
+    <section class="section" id="about-me">
+        <h2>About Me</h2>
+        <p>More details about Tinesh Kumar and his journey will be added soon.</p>
     </section>
 
     <section class="section" id="schedule">
-        <h2>Schedule a Session</h2>
+        <h2>Schedule Consultation</h2>
         <div class="booking-form">
-            <h3>Book Your Session</h3>
             <input type="text" id="clientName" placeholder="Your Name" required>
             <input type="email" id="clientEmail" placeholder="Your Email" required>
             <input type="datetime-local" id="sessionTime" required>
@@ -454,52 +357,26 @@
         <div class="left">
             <p class="name">Tinesh Kumar</p>
             <p>xx@gmail.com</p>
-            <a href="https://wa.me/+1234567890?text=Hi,%20I'd%20like%20to%20book%20a%20session" class="whatsapp-button">Contact on WhatsApp</a>
+            <p>+91-9876543210</p>
         </div>
         <div class="right">
             <a href="faqs.html">FAQs</a>
-            <a href="contact.html">Contact us</a>
-            <a href="admin.html">Admin Dashboard</a>
+            <a href="about.html">About 1:1 Work</a>
+            <a href="contact.html">Contact Us</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#about">More About 1:1 Work</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#schedule">Schedule Consultation</a></li>
+            </ul>
+        </nav>
     </footer>
 
     <script>
-        // Fetch and render testimonials
-        async function fetchTestimonials() {
-            try {
-                const response = await fetch('/api/testimonials');
-                const testimonials = await response.json();
-                const container = document.getElementById('testimonialsContainer');
-                container.innerHTML = '';
-                testimonials.forEach((testimonial, index) => {
-                    const card = document.createElement('div');
-                    card.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
-                    card.innerHTML = `
-                        <div class="stars">${'★'.repeat(testimonial.rating)}</div>
-                        <p>${testimonial.text}</p>
-                        <p class="author">${testimonial.author}</p>
-                    `;
-                    container.appendChild(card);
-                });
-                cycleTestimonials();
-            } catch (error) {
-                console.error('Error fetching testimonials:', error);
-            }
-        }
-
-        // Cycle testimonials
-        let currentTestimonial = 0;
-        function cycleTestimonials() {
-            const cards = document.querySelectorAll('.testimonial-card');
-            if (cards.length === 0) return;
-            cards[currentTestimonial].classList.remove('active');
-            currentTestimonial = (currentTestimonial + 1) % cards.length;
-            cards[currentTestimonial].classList.add('active');
-            setTimeout(cycleTestimonials, 5000);
-        }
-
         // Submit booking
         async function submitBooking() {
             const name = document.getElementById('clientName').value;
@@ -528,9 +405,6 @@
                 alert('Please fill all fields.');
             }
         }
-
-        // Initialize
-        fetchTestimonials();
     </script>
 </body>
 </html>
