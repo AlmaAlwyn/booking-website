@@ -18,34 +18,77 @@
             background-color: #f5f9fc;
         }
 
-        header, footer {
-            background-color: #2b5e8c;
-            color: #fff;
+        header {
+            background-color: #fff;
             padding: 20px 40px;
-            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2b5e8c;
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        nav ul li {
-            margin: 0 10px;
+            align-items: center;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #fff;
-            font-size: 18px;
-            transition: color 0.3s;
+            color: #2b5e8c;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
         }
 
         nav ul li a:hover {
             color: #4a90e2;
+            transform: translateY(-2px);
+        }
+
+        nav ul li.schedule a {
+            border: 2px solid #4a90e2;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        nav ul li.schedule a:hover {
+            background-color: #4a90e2;
+            color: #fff;
+            transform: scale(1.05);
         }
 
         .hero {
@@ -137,6 +180,27 @@
             margin-bottom: 20px;
         }
 
+        .support-section {
+            background-color: #e0e7f7;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        .support-section .quote {
+            font-size: 28px;
+            font-style: italic;
+            color: #2b5e8c;
+            max-width: 50%;
+        }
+
+        .support-section .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
         .testimonials-container {
             position: relative;
             max-width: 800px;
@@ -179,44 +243,16 @@
             margin-bottom: 10px;
         }
 
-        .booking-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .booking-form input, .booking-form button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .booking-form button {
-            background-color: #4a90e2;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .booking-form button:hover {
-            background-color: #357abd;
-        }
-
         footer {
+            background-color: #2b5e8c;
+            color: #fff;
             padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             gap: 60px;
             flex-wrap: wrap;
+            margin-top: 40px;
         }
 
         footer .left {
@@ -252,7 +288,7 @@
         }
 
         @media (max-width: 768px) {
-            header, footer {
+            header {
                 padding: 15px 20px;
             }
 
@@ -261,7 +297,7 @@
             }
 
             nav ul li a {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .hero h1 {
@@ -274,6 +310,31 @@
 
             .section {
                 padding: 15px;
+            }
+
+            .support-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .support-section .quote {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .support-section .buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .testimonials-container {
+                height: auto;
+            }
+
+            .testimonial-card {
+                position: static;
+                margin-bottom: 20px;
             }
 
             footer {
@@ -300,12 +361,11 @@
 <body>
     <header>
         <nav>
-            <h1>Grow</h1>
+            <div class="logo">Abundance Being</div>
             <ul>
-                <li><a href="#approach">Approach</a></li>
-                <li><a href="#about">More About 1:1 Work</a></li>
-                <li><a href="#about-me">About Me</a></li>
-                <li><a href="#schedule">Schedule Consultation</a></li>
+                <li><a href="#approach">About the Work</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li class="schedule"><a href="#schedule">Schedule a Session</a></li>
             </ul>
         </nav>
     </header>
@@ -318,7 +378,7 @@
         <div class="hero-content">
             <h1>Healing Begins Within.</h1>
             <p>A gentle, non-judgmental space where all parts of you are seen, heard, and welcomed, just as they are.</p>
-            <a href="#schedule" class="cta-button">Schedule Consultation</a>
+            <a href="#schedule" class="cta-button">Schedule a Session</a>
         </div>
     </section>
 
@@ -327,29 +387,30 @@
         <h3>Offering Compassionate Support for Your Healing Journey</h3>
         <p>I offer you a welcoming safe space where you can show up just as you are. Where your anger, shame, sadness, and resistance are all welcome and held. My intention is to help you in healing from the inside out and reconnect with your inner strength and wisdom. Together we can heal emotional wounds, resolve internal conflicts, and move through feeling stuck in life.</p>
         <p>Sessions are available both in person and online, so you can choose what feels right whether you’re nearby or across the globe.</p>
-        <a href="#about" class="cta-button">Learn More</a>
-    </section>
-
-    <section class="section" id="about">
-        <h2>More About 1:1 Work</h2>
-        <h3>Psychodynamic IFS Therapist</h3>
-        <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
-        <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
-        <a href="#schedule" class="cta-button">Schedule Consultation</a>
+        <a href="#about-me" class="cta-button">Learn More</a>
     </section>
 
     <section class="section" id="about-me">
         <h2>About Me</h2>
-        <p>More details about Tinesh Kumar and his journey will be added soon.</p>
+        <h3>Psychodynamic IFS Therapist</h3>
+        <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
+        <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
+        <a href="#schedule" class="cta-button">Schedule a Session</a>
     </section>
 
-    <section class="section" id="schedule">
-        <h2>Schedule Consultation</h2>
-        <div class="booking-form">
-            <input type="text" id="clientName" placeholder="Your Name" required>
-            <input type="email" id="clientEmail" placeholder="Your Email" required>
-            <input type="datetime-local" id="sessionTime" required>
-            <button onclick="submitBooking()">Submit Booking</button>
+    <section class="support-section" id="support">
+        <div class="quote">We are always here</div>
+        <div class="buttons">
+            <a href="#schedule" class="cta-button">Book a Rapport Session</a>
+            <a href="#schedule" class="cta-button">Schedule a Session</a>
+        </div>
+    </section>
+
+    <section class="section" id="testimonials">
+        <h2>Words from the Heart</h2>
+        <h3>What Clients Are Saying About Our Work Together</h3>
+        <div class="testimonials-container" id="testimonialsContainer">
+            <!-- Testimonials loaded dynamically -->
         </div>
     </section>
 
@@ -361,50 +422,49 @@
         </div>
         <div class="right">
             <a href="faqs.html">FAQs</a>
-            <a href="about.html">About 1:1 Work</a>
             <a href="contact.html">Contact Us</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#approach">Approach</a></li>
-                <li><a href="#about">More About 1:1 Work</a></li>
-                <li><a href="#about-me">About Me</a></li>
-                <li><a href="#schedule">Schedule Consultation</a></li>
-            </ul>
-        </nav>
     </footer>
 
     <script>
-        // Submit booking
-        async function submitBooking() {
-            const name = document.getElementById('clientName').value;
-            const email = document.getElementById('clientEmail').value;
-            const time = document.getElementById('sessionTime').value;
-            if (name && email && time) {
-                try {
-                    const response = await fetch('/api/bookings', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, email, time, status: 'Pending' })
-                    });
-                    if (response.ok) {
-                        alert('Booking submitted! You will receive a confirmation soon.');
-                        document.getElementById('clientName').value = '';
-                        document.getElementById('clientEmail').value = '';
-                        document.getElementById('sessionTime').value = '';
-                    } else {
-                        alert('Error submitting booking.');
-                    }
-                } catch (error) {
-                    console.error('Error submitting booking:', error);
-                    alert('Error submitting booking.');
-                }
-            } else {
-                alert('Please fill all fields.');
+        // Fetch and render testimonials
+        async function fetchTestimonials() {
+            try {
+                const response = await fetch('/api/testimonials');
+                const testimonials = await response.json();
+                const container = document.getElementById('testimonialsContainer');
+                container.innerHTML = '';
+                testimonials.forEach((testimonial, index) => {
+                    const card = document.createElement('div');
+                    card.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+                    card.innerHTML = `
+                        <div class="stars">${'★'.repeat(testimonial.rating)}</div>
+                        <p>${testimonial.text}</p>
+                        <p class="author">${testimonial.author}</p>
+                    `;
+                    container.appendChild(card);
+                });
+                cycleTestimonials();
+            } catch (error) {
+                console.error('Error fetching testimonials:', error);
             }
         }
+
+        // Cycle testimonials
+        let currentTestimonial = 0;
+        function cycleTestimonials() {
+            const cards = document.querySelectorAll('.testimonial-card');
+            if (cards.length === 0) return;
+            cards[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % cards.length;
+            cards[currentTestimonial].classList.add('active');
+            setTimeout(cycleTestimonials, 5000);
+        }
+
+        // Initialize
+        fetchTestimonials();
     </script>
 </body>
 </html>
