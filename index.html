@@ -194,12 +194,27 @@
             margin: 80px 0;
         }
 
+        .support-section .support-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .support-section .support-content:first-child {
+            margin-right: 20px;
+        }
+
+        .support-section .support-content:last-child {
+            margin-left: 20px;
+        }
+
         .support-section .quote {
             font-size: 28px;
             font-style: italic;
             color: #2b5e8c;
-            max-width: 50%;
-            margin-left: 10%;
         }
 
         .support-section .buttons {
@@ -260,20 +275,29 @@
             color: #2b5e8c;
         }
 
-        .footer-left {
-            text-align: left;
+        .footer-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
         }
 
-        .footer-left p {
+        .footer-section:first-child {
+            margin-right: 20px;
+        }
+
+        .footer-section:last-child {
+            margin-left: 20px;
+        }
+
+        .footer-section p {
             font-size: 18px;
             margin-bottom: 15px;
         }
 
-        .footer-right {
-            text-align: right;
-        }
-
-        .footer-right a {
+        .footer-section a {
             color: #007bff;
             text-decoration: none;
             display: block;
@@ -281,7 +305,7 @@
             font-size: 18px;
         }
 
-        .footer-right a:hover {
+        .footer-section a:hover {
             color: #4a90e2;
         }
 
@@ -317,9 +341,21 @@
                 margin: 40px 0;
             }
 
+            .support-section .support-content {
+                margin: 0;
+                margin-bottom: 20px;
+            }
+
+            .support-section .support-content:first-child {
+                margin-right: 0;
+            }
+
+            .support-section .support-content:last-child {
+                margin-left: 0;
+            }
+
             .support-section .quote {
                 max-width: 100%;
-                margin-left: 0;
                 margin-bottom: 20px;
             }
 
@@ -343,13 +379,20 @@
                 padding: 30px 20px;
             }
 
-            .footer-left, .footer-right {
-                text-align: center;
-                width: 100%;
+            .footer-section {
+                margin: 0;
                 margin-bottom: 20px;
             }
 
-            .footer-left p, .footer-right a {
+            .footer-section:first-child {
+                margin-right: 0;
+            }
+
+            .footer-section:last-child {
+                margin-left: 0;
+            }
+
+            .footer-section p, .footer-section a {
                 font-size: 16px;
             }
         }
@@ -394,20 +437,24 @@
     </section>
 
     <section class="support-section" id="support">
-        <div class="quote">We are always here</div>
-        <div class="buttons">
-            <a href="#schedule" class="cta-button">Book a Rapport Session</a>
-            <a href="#schedule" class="cta-button">Schedule a Session</a>
+        <div class="support-content">
+            <div class="quote">We are always here</div>
+        </div>
+        <div class="support-content">
+            <div class="buttons">
+                <a href="#schedule" class="cta-button">Book a Rapport Session</a>
+                <a href="#schedule" class="cta-button">Schedule a Session</a>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="footer-left">
+        <div class="footer-section">
             <p><strong>Tinesh Kumar</strong></p>
             <p>xx@gmail.com</p>
             <a href="https://wa.me/919876543210" class="cta-button">Contact us on WhatsApp</a>
         </div>
-        <div class="footer-right">
+        <div class="footer-section">
             <a href="faqs.html">FAQs</a>
             <a href="contact.html">Contact Us</a>
             <a href="privacy.html">Privacy Policy</a>
