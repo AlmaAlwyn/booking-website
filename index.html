@@ -96,23 +96,23 @@
             position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
-            color: #fff;
             overflow: hidden;
             margin-top: 60px;
+            padding-left: 5%;
         }
 
         .hero-video {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 90%;
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            margin-left: 5%; /* Increased left margin */
-            margin-right: 5%; /* Increased right margin */
+            margin-left: 5%;
+            margin-right: 5%;
         }
 
         .hero::before {
@@ -129,20 +129,20 @@
         .hero-content {
             max-width: 800px;
             padding: 20px;
-            text-align: left; /* Left-aligned text */
+            text-align: left;
         }
 
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             font-weight: bold;
-            color: #000; /* Black color */
+            color: #2b5e8c;
         }
 
         .hero p {
             font-size: 24px;
             margin-bottom: 30px;
-            color: #000; /* Black color */
+            color: #2b5e8c;
         }
 
         .cta-button {
@@ -191,7 +191,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 40px 0;
+            margin: 80px 0; /* Increased upper and lower margin from 40px to 80px */
         }
 
         .support-section .quote {
@@ -252,18 +252,19 @@
 
         footer {
             background-color: #f5f9fc;
-            color: #333;
-            padding: 40px 20px;
+            color: #2b5e8c;
+            padding: 60px 20px;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 60px;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             margin-top: 40px;
         }
 
         footer .left {
-            text-align: left;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
         }
 
         footer .left .name {
@@ -278,13 +279,15 @@
         }
 
         footer .right {
-            text-align: right;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
         }
 
         footer .right a {
             display: block;
             text-decoration: none;
-            color: #333;
+            color: #2b5e8c;
             font-size: 18px;
             margin-bottom: 15px;
             transition: color 0.3s;
@@ -323,6 +326,7 @@
                 flex-direction: column;
                 text-align: center;
                 padding: 30px 20px;
+                margin: 40px 0; /* Adjusted margin for mobile */
             }
 
             .support-section .quote {
@@ -348,12 +352,13 @@
             footer {
                 flex-direction: column;
                 text-align: center;
-                padding: 30px 20px;
+                padding: 60px 20px;
             }
 
             footer .left, footer .right {
                 text-align: center;
                 width: 100%;
+                margin-bottom: 20px;
             }
 
             footer .left .name {
@@ -416,7 +421,7 @@
         <div class="left">
             <p class="name">Tinesh Kumar</p>
             <p>xx@gmail.com</p>
-            <p>+91-9876543210</p>
+            <a href="https://wa.me/919876543210" class="cta-button">Contact us on WhatsApp</a>
         </div>
         <div class="right">
             <a href="faqs.html">FAQs</a>
