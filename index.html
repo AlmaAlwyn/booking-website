@@ -307,7 +307,7 @@
             padding: 20px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             flex-wrap: wrap;
             gap: 20px;
             margin-top: 40px;
@@ -315,23 +315,29 @@
         }
 
         footer .left {
-            text-align: center;
+            text-align: left;
+        }
+
+        footer .left .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         footer .left p {
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 10px;
         }
 
         footer .right {
-            text-align: center;
+            text-align: right;
         }
 
         footer .right a {
             display: block;
             text-decoration: none;
             color: #fff;
-            font-size: 17px;
+            font-size: 16px;
             margin-bottom: 10px;
             transition: color 0.3s;
         }
@@ -373,6 +379,10 @@
             footer .left, footer .right {
                 text-align: center;
                 width: 100%;
+            }
+
+            footer .left .name {
+                font-size: 20px;
             }
         }
     </style>
@@ -437,16 +447,16 @@
 
     <footer>
         <div class="left">
-            <p>Tinesh Kumar</p>
+            <p class="name">Tinesh Kumar</p>
             <p>xx@gmail.com</p>
             <a href="https://wa.me/+1234567890?text=Hi,%20I'd%20like%20to%20book%20a%20session" class="whatsapp-button">Contact on WhatsApp</a>
         </div>
         <div class="right">
-            <a href="#faq">FAQs</a>
-            <a href="#contact">Contact us</a>
+            <a href="faqs.html">FAQs</a>
+            <a href="contact.html">Contact us</a>
             <a href="admin.html">Admin Dashboard</a>
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
         </div>
     </footer>
 
