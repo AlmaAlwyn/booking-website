@@ -14,7 +14,7 @@
         body {
             font-family: 'Caprasimo', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #F5F5DC; /* Beige */
             background-color: #40E0D0;
         }
 
@@ -52,7 +52,7 @@
         }
 
         nav .logo img {
-            height: 34px; /* Matches original font-size for consistency */
+            height: 68px; /* Doubled from 34px */
             width: auto;
         }
 
@@ -70,7 +70,7 @@
         }
 
         .hamburger span {
-            background-color: #2b5e8c;
+            background-color: #F5F5DC; /* Beige */
             height: 3px;
             width: 100%;
             transition: all 0.3s ease;
@@ -83,10 +83,11 @@
             right: 20px;
             background-color: #40E0D0;
             flex-direction: column;
-            padding: 20px;
+            padding: 80px; /* Increased 4x from 20px */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             z-index: 1000;
+            list-style: none; /* Ensure no bullets */
         }
 
         .nav-menu.active {
@@ -95,8 +96,9 @@
 
         .nav-menu li a {
             text-decoration: none;
-            color: #2b5e8c;
-            font-size: 17px;
+            color: #F5F5DC; /* Beige */
+            font-size: 68px; /* Increased 4x from 17px */
+            font-weight: bold; /* Bold text */
             transition: color 0.3s, transform 0.3s;
         }
 
@@ -157,8 +159,8 @@
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background-color: #4a90e2;
-            color: #fff;
+            background-color: #40E0D0; /* Changed to Turquoise */
+            color: #F5F5DC; /* Changed to Beige */
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
@@ -184,14 +186,14 @@
 
         .section h2 {
             font-size: 40px;
-            color: #2b5e8c;
+            color: #F5F5DC; /* Beige */
             margin-bottom: 20px;
             font-family: 'Caprasimo', sans-serif;
         }
 
         .section h3 {
             font-size: 30px;
-            color: #2b5e8c;
+            color: #F5F5DC; /* Beige */
             margin-top: 30px;
             margin-bottom: 15px;
             font-family: 'Caprasimo', sans-serif;
@@ -203,7 +205,7 @@
         }
 
         .support-section {
-            background-color: #40E0D0;
+            background-color: #F5F5DC; /* Beige */
             padding: 40px 20px;
             margin: 80px 0;
             text-align: center;
@@ -212,7 +214,7 @@
         .support-section .quote {
             font-size: 28px;
             font-style: italic;
-            color: #2b5e8c;
+            color: #40E0D0; /* Changed to Turquoise */
             margin-bottom: 20px;
         }
 
@@ -231,7 +233,7 @@
             font-family: 'Caprasimo', sans-serif;
             font-size: 20px;
             background-color: #40E0D0;
-            color: #2b5e8c;
+            color: #F5F5DC; /* Beige */
             margin-bottom: 40px;
         }
 
@@ -265,33 +267,36 @@
             font-family: 'Caprasimo', sans-serif;
         }
 
-        .footer-section a {
-            color: #007bff;
+        .footer-section:last-child a {
+            color: #6A5ACD; /* Changed to Slate Blue */
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
             font-size: 20px;
         }
 
-        .footer-section a:hover {
+        .footer-section:last-child a:hover {
             color: #4a90e2;
         }
 
-        .footer-section .cta-button {
-            color: #fff;
-            padding: 15px;
-            background-color: #4a90e2;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .footer-section .cta-button:hover {
-            background-color: #357abd;
+        .footer-section .whatsapp-link img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
         }
 
         @media (max-width: 768px) {
             header {
                 padding: 15px 20px;
+            }
+
+            .nav-menu {
+                padding: 80px; /* Increased 4x from 20px */
+            }
+
+            .nav-menu li a {
+                font-size: 64px; /* Increased 4x from 16px */
+                font-weight: bold; /* Bold text */
             }
 
             .hero-section {
@@ -358,7 +363,7 @@
                 margin-left: 0;
             }
 
-            .footer-section p, .footer-section a {
+            .footer-section p, .footer-section:last-child a {
                 font-size: 18px;
             }
 
@@ -398,7 +403,7 @@
     </section>
 
     <section class="section" id="about-me">
-        <h2>About Me</h2>
+        <h2>About the Work</h2>
         <h3>Psychodynamic IFS Therapist</h3>
         <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
         <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
@@ -413,7 +418,7 @@
 
     <footer class="footer">
         <div class="footer-section">
-            <a href="https://wa.me/919445150202" class="cta-button"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
+            <a href="https://wa.me/919445150202" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
             <p class="name">Tinesh Kumar</p>
         </div>
         <div class="footer-section">
