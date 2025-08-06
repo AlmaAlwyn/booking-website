@@ -32,7 +32,6 @@
             from {
                 transform: translateY(-100%);
                 opacity: 0;
-           
             }
             to {
                 transform: translateY(0);
@@ -101,7 +100,7 @@
             color: #0B1D34;
             font-size: 34px;
             font-weight: bold;
-            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
+            font-family: 'Satisfy', cursive;
             transition: color 0.3s, transform 0.3s;
         }
 
@@ -167,7 +166,7 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 18px;
-            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
+            font-family: 'Satisfy', cursive;
             transition: background-color 0.3s;
         }
 
@@ -206,7 +205,7 @@
         .section p {
             font-size: 24px;
             margin-bottom: 20px;
-            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
+            font-family: 'Satisfy', cursive;
         }
 
         .support-section {
@@ -221,7 +220,7 @@
             font-style: italic;
             color: #40E0D0;
             margin-bottom: 20px;
-            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
+            font-family: 'Satisfy', cursive;
         }
 
         .support-section .buttons {
@@ -297,13 +296,13 @@
             }
 
             .nav-menu {
-                padding: 40px;
+                padding: 30px; /* Adjusted from 40px for compact look */
             }
 
             .nav-menu li a {
-                font-size: 32px;
+                font-size: 36px; /* Increased from 32px for better readability */
                 font-weight: bold;
-                font-family: 'Satisfy', cursive; /* Changed to Satisfy */
+                font-family: 'Satisfy', cursive;
             }
 
             .hero-section {
@@ -341,18 +340,34 @@
                 padding: 15px;
             }
 
+            .section p {
+                font-size: 22px; /* Increased from 20px (implied) for legibility */
+                font-family: 'Satisfy', cursive;
+            }
+
             .support-section {
                 padding: 30px 20px;
                 margin: 40px 0;
+            }
+
+            .support-section .quote {
+                font-size: 32px; /* Increased from 28px for prominence */
+                font-family: 'Satisfy', cursive;
             }
 
             .support-section .buttons {
                 gap: 10px;
             }
 
+            .cta-button {
+                padding: 18px 35px; /* Slightly increased from 15px 30px */
+                font-size: 20px; /* Increased from 18px for bolder look */
+                font-family: 'Satisfy', cursive;
+            }
+
             .footer {
                 flex-direction: column;
-                padding: 30px 20px;
+                padding: 20px 15px; /* Reduced from 30px 20px for tighter look */
             }
 
             .footer-section {
@@ -371,11 +386,19 @@
             }
 
             .footer-section p, .footer-section:last-child a {
-                font-size: 18px;
+                font-size: 20px; /* Increased from 18px for prominence */
             }
 
             .footer-section p.name {
-                font-size: 42px;
+                font-size: 48px; /* Increased from 42px for prominence */
+            }
+
+            .footer-section .whatsapp-link img {
+                transition: transform 0.3s ease; /* Added hover effect */
+            }
+
+            .footer-section .whatsapp-link img:hover {
+                transform: scale(1.1); /* Slight scale on hover */
             }
         }
     </style>
@@ -410,7 +433,7 @@
     </section>
 
     <section class="section" id="about-me">
-        <h2>About Me</h2>
+        <h2>About the Work</h2>
         <h3>Psychodynamic IFS Therapist</h3>
         <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
         <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
