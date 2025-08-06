@@ -295,12 +295,17 @@
                 padding: 15px 20px;
             }
 
+            nav .logo img {
+                height: 51px; /* Decreased by half from 102px */
+                width: auto;
+            }
+
             .nav-menu {
-                padding: 30px; /* Adjusted from 40px for compact look */
+                padding: 30px;
             }
 
             .nav-menu li a {
-                font-size: 36px; /* Increased from 32px for better readability */
+                font-size: 32px; /* Reduced back from 36px */
                 font-weight: bold;
                 font-family: 'Satisfy', cursive;
             }
@@ -324,24 +329,33 @@
             }
 
             .hero-text {
-                margin-top: 150px;
+                margin-top: 75px; /* Adjusted for middle alignment */
                 padding: 20px;
+                text-align: left;
             }
 
             .hero-text h1 {
-                font-size: 36px;
+                font-size: 18px; /* Decreased by half from 36px */
             }
 
             .hero-text p {
-                font-size: 20px;
+                font-size: 10px; /* Decreased by half from 20px */
             }
 
             .section {
                 padding: 15px;
             }
 
+            .section h2 {
+                font-size: 38px; /* Decreased by 2px (approx. 2pt) from 40px */
+            }
+
+            .section h3 {
+                font-size: 28px; /* Decreased by 2px (approx. 2pt) from 30px */
+            }
+
             .section p {
-                font-size: 22px; /* Increased from 20px (implied) for legibility */
+                font-size: 22px;
                 font-family: 'Satisfy', cursive;
             }
 
@@ -351,7 +365,7 @@
             }
 
             .support-section .quote {
-                font-size: 32px; /* Increased from 28px for prominence */
+                font-size: 32px;
                 font-family: 'Satisfy', cursive;
             }
 
@@ -360,14 +374,14 @@
             }
 
             .cta-button {
-                padding: 18px 35px; /* Slightly increased from 15px 30px */
-                font-size: 20px; /* Increased from 18px for bolder look */
+                padding: 16px 30px; /* Decreased from 18px 35px */
+                font-size: 20px;
                 font-family: 'Satisfy', cursive;
             }
 
             .footer {
                 flex-direction: column;
-                padding: 20px 15px; /* Reduced from 30px 20px for tighter look */
+                padding: 20px 15px;
             }
 
             .footer-section {
@@ -386,19 +400,19 @@
             }
 
             .footer-section p, .footer-section:last-child a {
-                font-size: 20px; /* Increased from 18px for prominence */
+                font-size: 20px;
             }
 
             .footer-section p.name {
-                font-size: 48px; /* Increased from 42px for prominence */
+                font-size: 45px; /* Decreased from 48px */
             }
 
             .footer-section .whatsapp-link img {
-                transition: transform 0.3s ease; /* Added hover effect */
+                transition: transform 0.3s ease;
             }
 
             .footer-section .whatsapp-link img:hover {
-                transform: scale(1.1); /* Slight scale on hover */
+                transform: scale(1.1);
             }
         }
     </style>
