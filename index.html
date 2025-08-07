@@ -16,13 +16,13 @@
             font-family: 'Caprasimo', sans-serif;
             line-height: 1.6;
             color: #0B1D34;
-            background-color: #40E0D0;
+            background-color: #C7FAFF; /* Changed from #40E0D0 */
         }
 
         header {
-            background-color: #40E0D0;
-            padding: 20px 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #C7FAFF; /* Changed from #40E0D0 */
+            padding: 1.25rem 2.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
             width: 100%;
             animation: slideDown 0.5s ease-out;
             z-index: 1000;
@@ -43,7 +43,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1600px;
+            max-width: 90vw; /* Changed from 1600px */
             margin: 0 auto;
         }
 
@@ -53,8 +53,8 @@
         }
 
         nav .logo img {
-            height: 102px;
-            width: auto;
+            height: 6.375rem; /* 102px */
+            width: 8.125rem; /* Approx 1.3x estimated original width (102px * 1.3) */
         }
 
         nav .logo:hover {
@@ -65,14 +65,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 30px;
-            height: 20px;
+            width: 1.875rem;
+            height: 1.25rem;
             cursor: pointer;
         }
 
         .hamburger span {
             background-color: #0B1D34;
-            height: 3px;
+            height: 0.1875rem;
             width: 100%;
             transition: all 0.3s ease;
         }
@@ -80,13 +80,13 @@
         .nav-menu {
             display: none;
             position: absolute;
-            top: 80px;
-            right: 20px;
-            background-color: #40E0D0;
+            top: 5rem;
+            right: 1.25rem;
+            background-color: #C7FAFF; /* Changed from #40E0D0 */
             flex-direction: column;
-            padding: 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            padding: 2.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+            border-radius: 0.3125rem;
             z-index: 1000;
             list-style: none;
         }
@@ -98,7 +98,7 @@
         .nav-menu li a {
             text-decoration: none;
             color: #0B1D34;
-            font-size: 34px;
+            font-size: 2.125rem; /* 34px */
             font-weight: bold;
             font-family: 'Satisfy', cursive;
             transition: color 0.3s, transform 0.3s;
@@ -106,24 +106,25 @@
 
         .nav-menu li a:hover {
             color: #4a90e2;
-            transform: translateY(-2px);
+            transform: translateY(-0.125rem);
         }
 
         .hero-section {
-            background: #40E0D0;
-            padding: 40px 0;
+            background: #C7FAFF; /* Changed from #40E0D0 */
+            padding: 0; /* Removed padding to match video height */
             display: flex;
             justify-content: center;
         }
 
         .hero-container {
             position: relative;
-            width: 100%;
-            max-width: 1600px;
+            width: 90vw; /* Responsive width */
+            max-width: 90vw;
             aspect-ratio: 16 / 9;
             overflow: hidden;
-            border-radius: 8px;
-            background-color: #40E0D0;
+            border-radius: 0.5rem;
+            background-color: #C7FAFF; /* Changed from #40E0D0 */
+            margin: 0 auto; /* Centered */
         }
 
         .hero-video {
@@ -139,33 +140,33 @@
         .hero-text {
             position: relative;
             color: white;
-            padding: 40px;
+            padding: 2.5rem;
             z-index: 1;
             font-family: 'Caprasimo', sans-serif;
             text-align: left;
-            margin-top: 378px;
+            margin-top: 23.625rem; /* 378px */
         }
 
         .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 3rem; /* 48px */
+            margin-bottom: 1.25rem;
             font-weight: bold;
             font-family: 'Caprasimo', sans-serif;
         }
 
         .hero-text p {
-            font-size: 24px;
-            margin-bottom: 30px;
+            font-size: 1.5rem; /* 24px */
+            margin-bottom: 1.875rem;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 15px 30px;
-            background-color: #40E0D0;
+            padding: 0.9375rem 1.875rem;
+            background-color: #C7FAFF; /* Changed from #40E0D0 */
             color: #0B1D34;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
+            border-radius: 0.3125rem;
+            font-size: 1.125rem; /* 18px */
             font-family: 'Satisfy', cursive;
             transition: background-color 0.3s;
         }
@@ -175,71 +176,71 @@
         }
 
         .cta-button img {
-            width: 24px;
-            height: 24px;
+            width: 1.5rem;
+            height: 1.5rem;
             vertical-align: middle;
         }
 
         .section {
-            max-width: 1400px;
-            margin: 80px auto;
-            padding: 20px;
+            max-width: 87.5rem; /* 1400px */
+            margin: 5rem auto;
+            padding: 1.25rem;
             text-align: justify;
         }
 
         .section h2 {
-            font-size: 40px;
+            font-size: 2.5rem; /* 40px */
             color: #0B1D34;
-            margin-bottom: 20px;
-            font-family: 'Caprasimo', sans-serif;
+            margin-bottom: 1.25rem;
+            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
         }
 
         .section h3 {
-            font-size: 30px;
+            font-size: 1.875rem; /* 30px */
             color: #0B1D34;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-family: 'Caprasimo', sans-serif;
+            margin-top: 1.875rem;
+            margin-bottom: 0.9375rem;
+            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
         }
 
         .section p {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 1.5rem; /* 24px */
+            margin-bottom: 1.25rem;
             font-family: 'Satisfy', cursive;
         }
 
         .support-section {
             background-color: #0B1D34;
-            padding: 40px 20px;
-            margin: 80px 0;
+            padding: 2.5rem 1.25rem;
+            margin: 5rem 0;
             text-align: center;
         }
 
         .support-section .quote {
-            font-size: 28px;
+            font-size: 1.75rem; /* 28px */
             font-style: italic;
             color: #40E0D0;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             font-family: 'Satisfy', cursive;
         }
 
         .support-section .buttons {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            max-width: 300px;
+            gap: 1.25rem;
+            max-width: 18.75rem; /* 300px */
             margin: 0 auto;
         }
 
         .footer {
             display: flex;
             justify-content: space-between;
-            padding: 40px 80px;
+            padding: 2.5rem 5rem;
             font-family: 'Caprasimo', sans-serif;
-            font-size: 20px;
-            background-color: #40E0D0;
+            font-size: 1.25rem; /* 20px */
+            background-color: #C7FAFF; /* Changed from #40E0D0 */
             color: #0B1D34;
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
         }
 
         .footer-section {
@@ -252,32 +253,33 @@
         }
 
         .footer-section:first-child {
-            margin-right: 20px;
+            margin-right: 1.25rem;
             flex-direction: row;
-            gap: 10px;
+            gap: 0.625rem;
         }
 
         .footer-section:last-child {
-            margin-left: 20px;
+            margin-left: 1.25rem;
         }
 
         .footer-section p {
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 1.25rem; /* 20px */
+            margin-bottom: 0.9375rem;
         }
 
         .footer-section p.name {
-            font-size: 46px;
+            font-size: 2.875rem; /* 46px */
             font-weight: bold;
-            font-family: 'Caprasimo', sans-serif;
+            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
         }
 
         .footer-section:last-child a {
             color: #6A5ACD;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            font-size: 20px;
+            margin-bottom: 0.625rem;
+            font-size: 1.25rem; /* 20px */
+            font-family: 'Satisfy', cursive; /* Changed to Satisfy */
         }
 
         .footer-section:last-child a:hover {
@@ -285,37 +287,38 @@
         }
 
         .footer-section .whatsapp-link img {
-            width: 72px;
-            height: 72px;
+            width: 4.5rem; /* 72px */
+            height: 4.5rem;
             vertical-align: middle;
         }
 
         @media (max-width: 768px) {
             header {
-                padding: 15px 20px;
+                padding: 0.9375rem 1.25rem;
             }
 
             nav .logo img {
-                height: 51px; /* Decreased by half from 102px */
-                width: auto;
+                height: 3.1875rem; /* 51px */
+                width: 4.0625rem; /* 51px * 1.3 */
             }
 
             .nav-menu {
-                padding: 30px;
+                padding: 1.875rem;
             }
 
             .nav-menu li a {
-                font-size: 32px; /* Reduced back from 36px */
+                font-size: 2rem; /* 32px */
                 font-weight: bold;
                 font-family: 'Satisfy', cursive;
             }
 
             .hero-section {
-                padding: 20px 0;
+                padding: 0; /* Match video height */
             }
 
             .hero-container {
                 max-width: 100%;
+                width: 95vw; /* Responsive width */
                 aspect-ratio: 16 / 9;
             }
 
@@ -329,70 +332,72 @@
             }
 
             .hero-text {
-                margin-top: 75px; /* Adjusted for middle alignment */
-                padding: 20px;
+                margin-top: 4.6875rem; /* 75px */
+                padding: 1.25rem;
                 text-align: left;
             }
 
             .hero-text h1 {
-                font-size: 18px; /* Decreased by half from 36px */
+                font-size: 1.125rem; /* 18px */
             }
 
             .hero-text p {
-                font-size: 10px; /* Decreased by half from 20px */
+                font-size: 0.625rem; /* 10px */
             }
 
             .section {
-                padding: 15px;
+                padding: 0.9375rem;
             }
 
             .section h2 {
-                font-size: 38px; /* Decreased by 2px (approx. 2pt) from 40px */
+                font-size: 2.375rem; /* 38px */
+                font-family: 'Satisfy', cursive;
             }
 
             .section h3 {
-                font-size: 28px; /* Decreased by 2px (approx. 2pt) from 30px */
+                font-size: 1.75rem; /* 28px */
+                font-family: 'Satisfy', cursive;
             }
 
             .section p {
-                font-size: 22px;
+                font-size: 1.375rem; /* 22px */
                 font-family: 'Satisfy', cursive;
             }
 
             .support-section {
-                padding: 30px 20px;
-                margin: 40px 0;
+                padding: 1.875rem 1.25rem;
+                margin: 2.5rem 0;
             }
 
             .support-section .quote {
-                font-size: 32px;
+                font-size: 2rem; /* 32px */
                 font-family: 'Satisfy', cursive;
             }
 
             .support-section .buttons {
-                gap: 10px;
+                gap: 0.625rem;
             }
 
             .cta-button {
-                padding: 16px 30px; /* Decreased from 18px 35px */
-                font-size: 20px;
+                padding: 1rem 1.875rem; /* 16px 30px */
+                font-size: 1.25rem; /* 20px */
                 font-family: 'Satisfy', cursive;
             }
 
             .footer {
                 flex-direction: column;
-                padding: 20px 15px;
+                padding: 1.25rem 0.9375rem;
             }
 
             .footer-section {
                 margin: 0;
-                margin-bottom: 20px;
+                margin-bottom: 1.25rem;
             }
 
             .footer-section:first-child {
                 margin-right: 0;
                 flex-direction: column;
-                gap: 10px;
+                gap: 0.625rem;
             }
 
             .footer-section:last-child {
@@ -400,11 +405,13 @@
             }
 
             .footer-section p, .footer-section:last-child a {
-                font-size: 20px;
+                font-size: 1.25rem; /* 20px */
+                font-family: 'Satisfy', cursive;
             }
 
             .footer-section p.name {
-                font-size: 45px; /* Decreased from 48px */
+                font-size: 2.8125rem; /* 45px */
+                font-family: 'Satisfy', cursive;
             }
 
             .footer-section .whatsapp-link img {
@@ -447,7 +454,7 @@
     </section>
 
     <section class="section" id="about-me">
-        <h2>About Me</h2>
+        <h2>About the Work</h2> <!-- Changed from About Me -->
         <h3>Psychodynamic IFS Therapist</h3>
         <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
         <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
