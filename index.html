@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +44,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 90vw;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -183,7 +184,7 @@
         }
 
         .section {
-            max-width: 87.5rem;
+            max-width: 1600px;
             margin: 5rem auto;
             padding: 1.25rem;
             text-align: justify;
@@ -213,8 +214,9 @@
         .support-section {
             background-color: #0B1D34;
             padding: 2.5rem 1.25rem;
-            margin: 5rem 0;
+            margin: 5rem auto;
             text-align: center;
+            max-width: 1600px;
         }
 
         .support-section h2 {
@@ -242,6 +244,9 @@
             background-color: white;
             color: #0B1D34;
             margin-bottom: 2.5rem;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .footer-section {
@@ -431,6 +436,13 @@
                 transform: scale(1.1);
             }
         }
+
+        @media (min-width: 769px) {
+            .hero-section {
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -506,3 +518,4 @@
     </script>
 </body>
 </html>
+```
