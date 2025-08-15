@@ -106,58 +106,40 @@ i<!DOCTYPE html>
             transform: translateY(-0.125rem);
         }
 
-        .hero-section {
-            background: white;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-container {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+/* Video container */
+        .video-container {
             position: relative;
-            border-radius: 0.5rem;
-            background-color: white;
-            margin-bottom: -0.625rem;
-            max-width: 1600px;
+            width: 100%;
+            height: 50vh; /* Responsive height */
+            overflow: hidden;
         }
 
-        .hero-video {
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
             position: absolute;
             top: 50%;
             left: 50%;
-            height: 100%;
             transform: translate(-50%, -50%);
-            object-fit: cover;
-            min-width: 100%;
-            z-index: 0;
+            text-align: center;
+            color: #fff;
+            width: 80%;
+            max-width: 80%;
         }
 
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            padding: 1.5rem;
-            z-index: 1;
-            font-family: 'Caveat', cursive;
-            text-align: left;
+        .overlay h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .hero-text h1 {
-            font-size: 3rem;
-            margin-bottom: 1.25rem;
-            font-weight: bold;
-            font-family: 'Caveat', cursive;
+        .overlay p {
+            font-size: 1.25rem;
         }
 
-        .hero-text p {
-            font-size: 1.5rem;
-            margin-bottom: 1.875rem;
-            font-family: 'Caveat', cursive;
-        }
 
         .cta-button {
             display: inline-block;
@@ -476,18 +458,18 @@ i<!DOCTYPE html>
         </nav>
     </header>
 
-    <section class="hero-section" id="home">
-        <div class="hero-container">
-            <video autoplay loop muted playsinline class="hero-video">
-                <source src="Uploads/vecteezy_4k-tree-growing-animation-animated-tree-growth-on-white_16247466.mp4" type="video/mp4">
+   <!-- Video container -->
+        <div class="video-container">
+            <video autoplay loop muted playsinline>
+                <source src="video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="hero-text">
+            <div class="overlay">
                 <h1>Rooted.</h1>
-                <p>Get help with Suicidal ideation - Depression - Anxiety - Disorders.</p>
+                <p>Get help with Suicidal Ideation - Depression - Anxiety - Disorders.</p>
             </div>
         </div>
-    </section>
+
 
     <section class="section" id="about-me">
         <h2>About the Work</h2>
