@@ -293,6 +293,14 @@
             vertical-align: middle;
         }
 
+        #left {
+            justify-content: flex-start;
+        }
+
+        #right {
+            justify-content: flex-end;
+        }
+
         @media (max-width: 768px) {
             header {
                 padding: 0.9375rem 1.25rem;
@@ -456,11 +464,11 @@
     </section>
 
     <footer class="footer">
-        <div class="footer-section">
+        <div class="footer-section" id="left">
             <a href="https://wa.me/919445150202" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
             <p class="name">Tinesh Kumar</p>
         </div>
-        <div class="footer-section">
+        <div class="footer-section" id="right">
             <a href="faqs.html">FAQs</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
