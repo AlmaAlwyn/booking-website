@@ -1,4 +1,4 @@
-i<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@ i<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <style>
         * {
-            margin: 1px;
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
@@ -15,7 +15,7 @@ i<!DOCTYPE html>
         body {
             font-family: 'Caveat', cursive;
             line-height: 1.6;
-            color: #284b63;
+            color: #0B1D34;
             background-color: white;
         }
 
@@ -25,7 +25,7 @@ i<!DOCTYPE html>
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
             width: 100%;
             animation: slideDown 0.5s ease-out;
-            
+            z-index: 1000;
         }
 
         @keyframes slideDown {
@@ -53,8 +53,8 @@ i<!DOCTYPE html>
         }
 
         nav .logo img {
-            height: 5rem;
-            width: 25rem;
+            height: 6.375rem;
+            width: auto;
         }
 
         nav .logo:hover {
@@ -64,9 +64,9 @@ i<!DOCTYPE html>
         .hamburger {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            width: 2rem;
-            height: 1.5rem;
+            justify-content: space-between;
+            width: 2.5rem;
+            height: 1.875rem;
             cursor: pointer;
         }
 
@@ -77,14 +77,15 @@ i<!DOCTYPE html>
 
         .nav-menu {
             display: none;
-            position: static;
-            padding: 1rem;
-            background-color: #d9d9d9;
+            position: absolute;
+            top: 5rem;
+            right: 1.25rem;
+            background-color: white;
             flex-direction: column;
-            padding: 1rem;
+            padding: 2.5rem;
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-            border-radius: 0.5rem;
-            border: 1px solid #353535;
+            border-radius: 0.3125rem;
+            z-index: 1000;
             list-style: none;
         }
 
@@ -94,54 +95,69 @@ i<!DOCTYPE html>
 
         .nav-menu li a {
             text-decoration: none;
-            color: #284b63;
-            font-size: 2rem;
+            color: #0B1D34;
+            font-size: 2.125rem;
             font-weight: bold;
             font-family: 'Caveat', cursive;
             transition: color 0.3s, transform 0.3s;
         }
 
         .nav-menu li a:hover {
-            color: #353535;
+            color: #4a90e2;
             transform: translateY(-0.125rem);
         }
 
-/* Video container */
-        .video-container {
-            position: relative;
+        .hero-section {
+            background: white;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-container {
+            height: 56rem;
             width: 100%;
-            height: 70vh; /* Responsive height */
             overflow: hidden;
-            max-width: 1600px;
-            margin: 0 auto;
+            position: relative;
+            border-radius: 0.5rem;
+            background-color: white;
+            margin-bottom: -0.625rem;
         }
 
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .overlay {
+        .hero-video {
             position: absolute;
             top: 50%;
             left: 50%;
+            height: 100%;
             transform: translate(-50%, -50%);
+            object-fit: cover;
+            min-width: 100%;
+            z-index: 0;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            padding: 1.5rem;
+            z-index: 1;
+            font-family: 'Caveat', cursive;
             text-align: left;
-            color: #fff;
-            width: 80%;
-            max-width: 80%;
         }
 
-        .overlay h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1.25rem;
+            font-weight: bold;
+            font-family: 'Caveat', cursive;
         }
 
-        .overlay p {
-            font-size: 1.25rem;
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 1.875rem;
+            font-family: 'Caveat', cursive;
         }
-
 
         .cta-button {
             display: inline-block;
@@ -308,49 +324,43 @@ i<!DOCTYPE html>
                 font-family: 'Caveat', cursive;
             }
 
-            .hero-section {
-                padding: 0;
-            }
 
-            .hero-container {
-                height: 25rem;
-                width: 100%;
-                overflow: hidden;
-                position: relative;
-                margin-bottom: -0.625rem;
-            }
+        /* Video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 50vh; /* Responsive height */
+            overflow: hidden;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
 
-            .hero-video {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                min-width: auto;
-                width: 100%;
-                height: auto;
-                min-height: 100%;
-                object-fit: cover;
-                z-index: 0;
-            }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-            .hero-text {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                padding: 1.25rem;
-                text-align: left;
-                font-family: 'Caveat', cursive;
-            }
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: left;
+            color: #fff;
+            width: 80%;
+            max-width: 80%;
+        }
 
-            .hero-text h1 {
-                font-size: 1.125rem;
-                font-family: 'Caveat', cursive;
-            }
+        .overlay h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
-            .hero-text p {
-                font-size: 0.625rem;
-                font-family: 'Caveat', cursive;
-            }
+        .overlay p {
+            font-size: 1.25rem;
+        }
+
 
             .section {
                 padding: 0.9375rem;
@@ -460,7 +470,7 @@ i<!DOCTYPE html>
         </nav>
     </header>
 
-   <!-- Video container -->
+      <!-- Video container -->
         <div class="video-container">
             <video autoplay loop muted playsinline>
                 <source src="uploads/video.mp4" type="video/mp4">
@@ -468,10 +478,9 @@ i<!DOCTYPE html>
             </video>
             <div class="overlay">
                 <h1>Rooted.</h1>
-                <p>Get help with Suicidal Ideation - Depression - Anxiety - Disorders.</p>
+                <p>Get help with Suicidal Ideation - Depression - Anxiety - Disorder.</p>
             </div>
         </div>
-
 
     <section class="section" id="about-me">
         <h2>About the Work</h2>
