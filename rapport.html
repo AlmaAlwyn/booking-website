@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Rapport Session - Abundance Being</title>
+    <title>Consultation - Rooted. Help with Suicidal ideation - Depression - Anxiety - Disorders.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comic+Relief:wght@700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         * {
             margin: 0;
@@ -12,16 +26,14 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #d8edfd;
+            color: #284b63;
+            background-color: white;
         }
 
         header {
-            background-color: #d8edfd;
-            padding: 20px 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 1.25rem 2.5rem;
             width: 100%;
             animation: slideDown 0.5s ease-out;
             z-index: 1000;
@@ -42,111 +54,160 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
         nav .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2b5e8c;
             transition: transform 0.3s ease;
             text-decoration: none;
+        }
+
+        nav .logo img {
+            height: 5rem;
+            width: 30rem;
         }
 
         nav .logo:hover {
             transform: scale(1.05);
         }
 
-        nav ul {
-            list-style: none;
+        .hamburger {
             display: flex;
-            gap: 20px;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 2.5rem;
+            height: 1.875rem;
+            cursor: pointer;
         }
 
-        nav ul li a {
+        .hamburger img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            padding: 15px 35px;
+            background-color: #d9d9d9;
+            flex-direction: column;
+            margin: 25px 0;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1000;
+            list-style: none;
+            border: 1px solid #353535;
+        }
+
+        .nav-menu.active {
+            display: flex;
+        }
+
+        .nav-menu li a {
             text-decoration: none;
-            color: #2b5e8c;
-            font-size: 17px;
+            color: #284b63;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: "Adamina", serif;
             transition: color 0.3s, transform 0.3s;
         }
 
-        nav ul li a:hover {
+        .nav-menu li a:hover {
             color: #4a90e2;
-            transform: translateY(-2px);
-        }
-
-        nav ul li.schedule a {
-            border: 2px solid #4a90e2;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
-        }
-
-        nav ul li.schedule a:hover {
-            background-color: #4a90e2;
-            color: #fff;
-            transform: scale(1.05);
+            transform: translateY(-0.125rem);
         }
 
         .section {
-            max-width: 1200px;
-            margin: 100px auto;
-            padding: 20px;
-            text-align: center;
+            max-width: 1600px;
+            margin: 5rem auto;
+            padding: 1rem;
+            line-height: 1.8;
+            text-align: justify;
         }
 
         .section h2 {
-            font-size: 36px;
-            color: #2b5e8c;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #353535;
+            margin-bottom: 1.25rem;
+            font-family: "Abril Fatface", serif;
+        }
+
+        .section h3 {
+            font-size: 1.875rem;
+            color: #353535;
+            margin-top: 1.875rem;
+            margin-bottom: 0.9375rem;
+            font-family: "Abril Fatface", serif;
         }
 
         .section p {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            font-family: "Adamina", serif;
+            color: #284b63;
         }
 
         .form-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .form-container input, .form-container select, .form-container textarea {
+        .form-container label {
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-family: "Adamina", serif;
+            color: #284b63;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 0.75rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid #d9d9d9;
+            border-radius: 0.5rem;
+            font-size: 1.125rem;
+            font-family: "Adamina", serif;
         }
 
-        .form-container button {
-            padding: 10px 20px;
-            background-color: #4a90e2;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .form-container textarea {
+            height: 150px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.9375rem 1.375rem;
+            background-color: #3c6e71;
+            color: #d9d9d9;
+            text-decoration: none;
+            border-radius: 1.5rem;
+            font-size: 1.725rem;
+            font-family: "Adamina", serif;
             transition: background-color 0.3s;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
         }
 
-        .form-container button:hover {
-            background-color: #357abd;
+        .cta-button:hover {
+            background-color: #284b63;
         }
 
         .footer {
             display: flex;
             justify-content: space-between;
-            padding: 40px 80px;
-            font-family: sans-serif;
-            font-size: 20px;
-            background-color: #f5f9fc;
-            color: #2b5e8c;
+            padding: 2.5rem 5rem;
+            font-family: "Adamina", serif;
+            font-size: 1.25rem;
+            background-color: white;
+            color: #0B1D34;
+            margin-bottom: 2.5rem;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .footer-section {
@@ -159,101 +220,146 @@
         }
 
         .footer-section:first-child {
-            margin-right: 20px;
+            margin-right: 1.25rem;
+            flex-direction: row;
+            gap: 0.625rem;
         }
 
         .footer-section:last-child {
-            margin-left: 20px;
+            margin-left: 1.25rem;
         }
 
         .footer-section p {
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            margin-bottom: 0.9375rem;
+            font-family: "Adamina", serif;
         }
 
         .footer-section p.name {
-            font-size: 23px;
+            font-size: 2.875rem;
             font-weight: bold;
+            font-family: "Abril Fatface", serif;
+            color: #284b63;
         }
 
-        .footer-section a {
-            color: #007bff;
+        .footer-section:last-child a {
+            color: #6A5ACD;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            font-size: 20px;
+            margin-bottom: 0.625rem;
+            font-size: 1.25rem;
+            font-family: "Adamina", serif;
         }
 
-        .footer-section a:hover {
+        .footer-section:last-child a:hover {
             color: #4a90e2;
         }
 
-        .footer-section .cta-button {
-            color: #fff;
-            padding: 15px 30px;
-            background-color: #4a90e2;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .footer-section .cta-button:hover {
-            background-color: #357abd;
+        .footer-section .whatsapp-link img {
+            width: 4.5rem;
+            height: 4.5rem;
+            vertical-align: middle;
         }
 
         @media (max-width: 768px) {
             header {
-                padding: 15px 20px;
+                padding: 0.9375rem 1.25rem;
             }
 
-            nav ul {
-                gap: 10px;
+            nav .logo img {
+                height: 3.1875rem;
+                width: auto;
             }
 
-            nav ul li a {
-                font-size: 14px;
+            .hamburger {
+                width: 2.25rem;
+                height: 1.625rem;
+            }
+
+            .nav-menu {
+                padding: 1.875rem;
+            }
+
+            .nav-menu li a {
+                font-size: 2rem;
+                font-weight: bold;
+                font-family: "Comic Relief", system-ui;
             }
 
             .section {
-                margin: 80px auto;
-                padding: 15px;
+                padding: 0.9375rem;
             }
 
             .section h2 {
-                font-size: 30px;
+                font-size: 2.375rem;
+                font-family: "Comic Relief", system-ui;
+                color: #239617;
+            }
+
+            .section h3 {
+                font-size: 1.75rem;
+                font-family: "Comic Relief", system-ui;
+                color: #239617;
             }
 
             .section p {
-                font-size: 16px;
+                font-size: 1.375rem;
+                font-family: "Comic Relief", system-ui;
+                color: #0158ad;
             }
 
-            .form-container {
-                padding: 15px;
+            .cta-button {
+                padding: 1rem 1.875rem;
+                font-size: 1.5rem;
+                font-family: "Comic Relief", system-ui;
+                color: #0158ad;
+                font-weight: bold;
             }
 
             .footer {
                 flex-direction: column;
-                padding: 30px 20px;
+                padding: 1.25rem 0.9375rem;
             }
 
             .footer-section {
                 margin: 0;
-                margin-bottom: 20px;
+                margin-bottom: 1.25rem;
             }
 
             .footer-section:first-child {
                 margin-right: 0;
+                flex-direction: column;
+                gap: 0.625rem;
             }
 
             .footer-section:last-child {
                 margin-left: 0;
             }
 
-            .footer-section p, .footer-section a {
-                font-size: 18px;
+            .footer-section p, .footer-section:last-child a {
+                font-size: 1.25rem;
+                font-family: "Comic Relief", system-ui;
             }
 
             .footer-section p.name {
-                font-size: 21px;
+                font-size: 2.8125rem;
+                font-family: "Comic Relief", system-ui;
+                color: #239617;
+            }
+
+            .footer-section .whatsapp-link img {
+                transition: transform 0.3s ease;
+            }
+
+            .footer-section .whatsapp-link img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hero-section {
+                max-width: 1600px;
+                margin: 0 auto;
             }
         }
     </style>
@@ -261,83 +367,92 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">Abundance Being</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="approach.html">About the Work</a></li>
+            <a href="index.html" class="logo"><img src="Uploads/logo.jpg" alt="Logo"></a>
+            <div class="hamburger" id="hamburger">
+                <img src="Uploads/hamburger-icon.png" alt="Menu">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="rapport.html">Consultation</a></li>
                 <li><a href="faqs.html">FAQs</a></li>
-                <li class="schedule"><a href="schedule.html">Schedule a Session</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="section">
-        <h2>Book a Rapport Session</h2>
-        <p>The first session is entirely free. This rapport session is a one-hour introductory meeting designed for new users to discuss your needs, explore the Internal Family Systems (IFS) approach, and determine if we’re a good fit to work together. Sessions are conducted both virtually and in-person, offering flexibility and comfort.</p>
-        <p>Click below to message me on WhatsApp to arrange your session. I’ll respond within 24 hours to confirm your appointment with "Accept" or "Reject."</p>
+    <section class="section" id="consultation">
+        <h2>Your Rooting Begins with a Consultation</h2>
+        <h3>What is a Consultation?</h3>
+        <p>A consultation is asskjlkdjflakljdlkjakjdslkjfljdskjfklajdlkfjkadjflkjskdjfkljadfjkajlkfjdfak</p>
+        <h3>Schedule Your Free Consultation</h3>
         <div class="form-container">
-            <input type="text" id="name" placeholder="Full Name" required>
-            <select id="gender" required>
-                <option value="" disabled selected>Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
-            <input type="number" id="age" placeholder="Age" required>
-            <select id="maritalStatus" required>
-                <option value="" disabled selected>Select Marital Status</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Other">Other</option>
-            </select>
-            <input type="text" id="occupation" placeholder="Occupation" required>
-            <input type="tel" id="mobile" placeholder="Mobile Number" required>
-            <input type="email" id="email" placeholder="Email Address" required>
-            <input type="date" id="date" required>
-            <input type="time" id="time" required>
-            <textarea id="message" placeholder="Your Message" rows="4"></textarea>
-            <button onclick="sendRapportToWhatsApp()">Submit via WhatsApp</button>
+            <form id="consultationForm">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber" required>
+
+                <label for="preferredContact">Preferred Contact:</label>
+                <select id="preferredContact" name="preferredContact" required>
+                    <option value="Phone">Phone</option>
+                    <option value="Whatsapp">Whatsapp</option>
+                </select>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0">
+
+                <label for="message">How may I help you?</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="cta-button">ROOTED</button>
+            </form>
         </div>
     </section>
 
     <footer class="footer">
         <div class="footer-section">
+            <a href="https://wa.me/919445150202" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
             <p class="name">Tinesh Kumar</p>
-            <p>xx@gmail.com</p>
-            <a href="https://wa.me/919445150202" class="cta-button">Contact me on WhatsApp</a>
         </div>
         <div class="footer-section">
             <a href="faqs.html">FAQs</a>
-            <a href="admin.html">Admin Dashboard</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
         </div>
     </footer>
 
     <script>
-        function sendRapportToWhatsApp() {
-            const name = document.getElementById('name').value;
-            const gender = document.getElementById('gender').value;
-            const age = document.getElementById('age').value;
-            const maritalStatus = document.getElementById('maritalStatus').value;
-            const occupation = document.getElementById('occupation').value;
-            const mobile = document.getElementById('mobile').value;
-            const email = document.getElementById('email').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
+        // Toggle hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Handle form submission to WhatsApp
+        const form = document.getElementById('consultationForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const mobileNumber = document.getElementById('mobileNumber').value;
+            const preferredContact = document.getElementById('preferredContact').value;
+            const age = document.getElementById('age').value || 'Not provided';
             const message = document.getElementById('message').value;
 
-            if (!name || !gender || !age || !maritalStatus || !occupation || !mobile || !email || !date || !time) {
-                alert('Please fill all required fields');
-                return;
-            }
+            const whatsappMessage = `Full Name: ${fullName}\nMobile Number: ${mobileNumber}\nPreferred Contact: ${preferredContact}\nAge: ${age}\nHow may I help you?: ${message}`;
 
-            const whatsappMessage = `Rapport Session Request (Free 1-Hour):%0AName: ${name}%0AGender: ${gender}%0AAge: ${age}%0AMarital Status: ${maritalStatus}%0AOccupation: ${occupation}%0AMobile: ${mobile}%0AEmail: ${email}%0ADate: ${date}%0ATime: ${time}%0AMessage: ${message || 'None'}`;
-            const whatsappURL = `https://wa.me/919445150202?text=${whatsappMessage}`;
-            window.open(whatsappURL, '_blank');
-        }
+            const whatsappUrl = `https://wa.me/+919445150202?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.location.href = whatsappUrl;
+        });
     </script>
 </body>
 </html>
-
