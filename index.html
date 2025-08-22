@@ -193,6 +193,40 @@
             vertical-align: middle;
         }
 
+        .styled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #d9d9d9;
+  text-shadow: 1px 1px 1px black;
+  border-radius: 10px;
+  background-color: #38a3a5;
+  background-image: linear-gradient(
+    to top left,
+    rgb(0 0 0 / 0.2),
+    rgb(0 0 0 / 0.2) 30%,
+    transparent
+    font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  );      
+  box-shadow:
+    inset 2px 2px 3px rgb(255 255 255 / 0.6),
+    inset -2px -2px 3px rgb(0 0 0 / 0.6);
+}
+
+.styled:hover {
+   background-color: #22577a;
+}
+
+.styled:active {
+  box-shadow:
+    inset -2px -2px 3px rgb(255 255 255 / 0.6),
+    inset 2px 2px 3px rgb(0 0 0 / 0.6);
+}
+
+
         .section {
             max-width: 1600px;
             margin: 5rem auto;
@@ -239,21 +273,13 @@
         .support-section h3 {
             font-size: 2.5rem;
             font-style: bold;
-            color: #339825;
+            color: #1786A6;
             margin-bottom: 1.70rem;
            font-family: "Poppins", sans-serif;
   font-weight: 600;
         }
 
-        .support-section .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            max-width: 16.75rem;
-            margin: 0 auto;
-            border-radius: 10px;
-            color: #284b63;
-        }
+  
 
         .footer {
             display: flex;
@@ -483,8 +509,8 @@
 
     <section class="support-section" id="support">
         <h3>Rooted. I'm here and now.</h3>
-        <div class="buttons">
-            <a href="rapport.html" class="cta-button">Consultation</a>
+        <div button class="favorite styled" type="button">
+            <a href="rapport.html">Consultation</button></a>
         </div>
     </section>
 
