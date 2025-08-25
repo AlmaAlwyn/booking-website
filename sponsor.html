@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation - Rooted. Help with Suicidal ideation - Depression - Anxiety - Disorders.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comic+Relief:wght@700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #284b63;
+            background-color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        header {
+            background-color: white;
+            padding: 1.25rem 2.5rem;
+            width: 100%;
+            animation: slideDown 0.5s ease-out;
+            z-index: 1000;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        nav .logo img {
+            height: 5rem;
+            width: 30rem;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 2.5rem;
+            height: 1.875rem;
+            cursor: pointer;
+        }
+
+        .hamburger img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-menu {
+            display: none;
+            height: fit-content;
+            position: absolute;
+            padding: 1.5rem;
+            background-color: #FEFCFF;
+            flex-direction: column;
+            top: 6rem;
+            right: 1.875rem;
+            box-shadow: 10px 10px 10px #747d8c;
+            border-radius: 0.75rem;
+            z-index: 1000;
+            list-style: none;
+            border: 0.5px solid #353535;
+        }
+
+        .nav-menu.active {
+            display: flex;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #284b63;
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            color: #4a90e2;
+            transform: translateY(-0.125rem);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            color: #1786A6;
+            margin-bottom: 20px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .section h3 {
+            font-size: 26px;
+            color: #1786A6;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .section p {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            color: ##1786A6;
+        }
+
+        .section li {
+            list-style-type: circle;
+            font-size: 24px;
+            font-weight: 300;
+            color: #284b63;
+        }
+
+        .form-head {
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-container label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            color: #284b63;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+        }
+
+        .form-container textarea {
+            height: 100px;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #3c6e71;
+            color: #d9d9d9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+        }
+
+        .form-container button:hover {
+            background-color: #284b63;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 2.5rem 5rem;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.25rem;
+            background-color: #EDF8FC;
+            color: #0B1D34;
+            /*margin-bottom: 2.5rem;
+            max-width: 1600px;*/
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            background-color: #EDF8FC;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-section:first-child {
+            margin-right: 1.25rem;
+            flex-direction: row;
+            gap: 0.625rem;
+        }
+
+        .footer-section:last-child {
+            margin-left: 1.25rem;
+        }
+
+        .footer-section p {
+            font-size: 1.25rem;
+            margin-bottom: 0.9375rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+        }
+
+        .footer-section p.name {
+            font-size: 2.875rem;
+            font-weight: bold;
+            font-family: "Satisfy", cursive;
+            color: #1786A6;
+        }
+
+        .footer-section:last-child a {
+            color: #6A5ACD;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.625rem;
+            font-size: 1.25rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+        }
+
+        .footer-section:last-child a:hover {
+            color: #4a90e2;
+        }
+
+        .footer-section .whatsapp-link img {
+            width: 4.5rem;
+            height: 4.5rem;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.9375rem 1.25rem;
+            }
+
+            nav .logo img {
+                height: 3.1875rem;
+                width: auto;
+            }
+
+            .hamburger {
+                width: 2.25rem;
+                height: 1.625rem;
+            }
+
+            .nav-menu {
+                padding: 1.875rem;
+            }
+
+            .nav-menu li a {
+                font-size: 2rem;
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                color: #284b63;
+            }
+
+            .section {
+                margin: 80px auto;
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 30px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 700;
+                color: #1786A6;
+            }
+
+            .section h3 {
+                font-size: 20px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                color: #1786A6;
+            }
+
+            .section p {
+                font-size: 16px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 300;
+                color: #1786A6;
+            }
+
+             .section li {
+            list-style-type: circle;
+            font-size: 16px;
+            font-weight: 300;
+            color: #284b63;
+             }
+
+            .form-container {
+                padding: 15px;
+            }
+
+            .form-container label {
+                font-size: 14px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 300;
+                color: #284b63;
+            }
+
+            .form-container input,
+            .form-container select,
+            .form-container textarea {
+                font-size: 14px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 300;
+            }
+
+            .form-container button {
+                font-size: 14px;
+                padding: 8px 16px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                color: #d9d9d9;
+                background-color: #3c6e71;
+            }
+
+            .footer {
+                flex-direction: column;
+                padding: 1.25rem 0.9375rem;
+                background-color: #EDF8FC;
+                
+            }
+
+            .footer-section {
+                margin: 0;
+                margin-bottom: 1.25rem;
+            }
+
+            .footer-section:first-child {
+                margin-right: 0;
+                flex-direction: column;
+                gap: 0.625rem;
+            }
+
+            .footer-section:last-child {
+                margin-left: 0;
+            }
+
+            .footer-section p, .footer-section:last-child a {
+                font-size: 1.25rem;
+                font-family: "Poppins", sans-serif;
+                font-weight: 300;
+                color: #0B1D34;
+            }
+
+            .footer-section:last-child a {
+                color: #6A5ACD;
+            }
+
+            .footer-section p.name {
+                font-size: 2.8125rem;
+                font-family: "Satisfy", cursive;
+                font-weight: bold;
+                color: #1786A6;
+            }
+
+            .footer-section .whatsapp-link img {
+                transition: transform 0.3s ease;
+            }
+
+            .footer-section .whatsapp-link img:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hero-section {
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="Uploads/logo.jpg" alt="Logo"></a>
+            <div class="hamburger" id="hamburger">
+                <img src="Uploads/hamburger-icon.png" alt="Menu">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="rapport.html">Consultation</a></li>
+                <li><a href="sponsor.html">Become a Sponsor</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section" id="sponsor">
+        <h2>Become a Sponsor - Empower someone's rooting journey through your generosity.</h2>
+        <p>Need Sponsor is a generous initiative that empowers healing.</p>
+        <h3>Sponsorship Process:</h3>
+         <p><ul><li>Your privacy - Remain anonymous or be recognized</li>
+            <li>Your purpose - Transfer funds as you choose</li>
+            <li>Your impact - Confidential updates on lives empowered</li></ul></p>
+         
+        <h3 class="form-head">Sponsor Form</h3>
+        <div class="form-container">
+            <form id="sponsorForm">
+                <label for="fullName">Full Name: [Optional for anonymity]</label>
+                <input type="text" id="fullName" name="fullName">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" min="0" required>
+
+                <label for="purpose">Purpose</label>
+                <textarea id="purpose" name="purpose" required rows="4"></textarea>
+              
+              <p>By sponsoring, you'll receive our confidential newsletter with impact updates and program developments.</p>
+
+                <button type="submit">ROOTED</button>
+            </form>
+        </div>
+
+      <h2>Secure Payment:</h2>
+        <ul>
+            <li>India: <a href="https://example.com/upi-payment">UPI Payment Link</a></li>
+            <li>International: <a href="https://example.com/wise-transfer">Wise Transfer Link</a></li>
+            <li>Global: <a href="https://example.com/card-payment">Credit/Debit Card Payment</a></li>
+            <li>Other: <a href="https://example.com/paypal">PayPal Link</a></li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <a href="https://wa.me/919445150202" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
+            <p class="name">Tinesh Kumar</p>
+        </div>
+        <div class="footer-section">
+            <a href="faqs.html">FAQs</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        const form = document.getElementById('sponsorForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value || 'Not provided';
+            const email = document.getElementById('email').value;
+           const amount = document.getElementById('amount').value ;
+            const purpose = document.getElementById('purpose').value || 'Not provided';
+
+            const whatsappMessage = `Sponsor Name: ${fullName}\nEmail: ${email}\nAmount: ${amount}\nPurpose: ${purpose}`;
+
+            const whatsappUrl = `https://wa.me/+919445150202?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
