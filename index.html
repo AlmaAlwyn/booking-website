@@ -123,12 +123,22 @@
 
         .video-container {
             position: relative;
-            width: 95vw;
+            width: 100vw;
             height: 80vh;
             overflow: hidden;
-            margin-top: 3vw;
             max-width: 1600px;
             margin: 0 auto;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 1;
         }
 
         .video-container video {
@@ -144,22 +154,40 @@
             transform: translate(-50%, -50%);
             text-align: left;
             color: #353535;
-            width: 30%;
-            max-width: 30%;
+            width: 40%;
+            max-width: 600px;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -30%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
         }
 
         .overlay h1 {
             font-family: "Abril Fatface", serif;
             font-weight: 500;
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
         }
 
         .overlay p {
-            font-family: "Abril Fatface", serif;
+            font-family: "Poppins", sans-serif;
             color: white;
-            font-size: 2rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.6);
+            line-height: 1.6;
         }
 
         .cta-button {
@@ -222,53 +250,152 @@
         .section {
             max-width: 1600px;
             margin: 5rem auto;
-            padding: 1rem;
+            padding: 2rem;
             line-height: 1.8;
-            text-align: justify;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #1786A6;
-            margin-bottom: 1.25rem;
+            margin-bottom: 3rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #EDF8FC 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(23, 134, 166, 0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 16px 40px rgba(23, 134, 166, 0.25);
+            border-color: #1786A6;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #1786A6 0%, #2a9cc1 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.75rem;
+            color: #1786A6;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 1.125rem;
+            color: #2a9cc1;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .support-section {
+            background: linear-gradient(135deg, #EDF8FC 0%, #d4f1f9 100%);
+            padding: 4rem 2rem;
+            margin: 5rem auto;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .support-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .support-section h3 {
+            font-size: 2.75rem;
+            font-style: normal;
+            color: #1786A6;
+            margin-bottom: 2.5rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
         }
 
-        .section h3 {
-            font-size: 1.875rem;
-            color: #1786A6;
-            margin-top: 1.875rem;
-            margin-bottom: 0.9375rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-        }
-
-        .section p {
+        .cta-consultation {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: linear-gradient(135deg, #1786A6 0%, #2a9cc1 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
             font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            font-style: normal;
-            line-height: 38.52px;
-            color: #2a9cc1;
-            overflow-wrap: break-word;
-        }
-
-        .support-section {
-            background-color: #EDF8FC;
-            padding: 2.5rem 1.25rem;
-            margin: 5rem auto;
-            text-align: center;
-        }
-
-        .support-section h3 {
-            font-size: 2.5rem;
-            font-style: normal;
-            color: #1786A6;
-            margin-bottom: 1.70rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 24px rgba(23, 134, 166, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-consultation::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-consultation:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-consultation:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(23, 134, 166, 0.5);
+        }
+
+        .cta-consultation:active {
+            transform: translateY(-2px) scale(1.02);
         }
 
         .footer {
@@ -357,10 +484,10 @@
                 height: 1.625rem;
             }
 
-             .nav-menu {
+            .nav-menu {
                 padding: 1rem;
                 top: 3rem;
-            right: 1rem;
+                right: 1rem;
             }
 
             .nav-menu li a {
@@ -370,60 +497,87 @@
                 color: #284b63;
             }
 
-            
-        .overlay h1 {
-            color: white;
-            -webkit-text-stroke: 0.5px black; /* Adds a 1px black stroke (for WebKit browsers) */
-  text-stroke: 0.5px black; 
-        }
+            .video-container {
+                height: 60vh;
+            }
 
-        .overlay p {
-            color: white;
-            -webkit-text-stroke: 0.25px black; /* Adds a 1px black stroke (for WebKit browsers) */
-  text-stroke: 0.25px black; 
-        }
+            .overlay {
+                left: 50%;
+                width: 85%;
+                max-width: 85%;
+                text-align: center;
+            }
 
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -40%);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .overlay h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .overlay p {
+                font-size: 1.125rem;
+                line-height: 1.5;
+            }
 
             .section {
-                padding: 0.9375rem;
+                padding: 1.5rem;
+                margin: 3rem auto;
             }
 
             .section h2 {
-                font-size: 2.375rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 700;
-                color: #1786A6;
+                font-size: 2.25rem;
+                margin-bottom: 2rem;
             }
 
-            .section h3 {
-                font-size: 1.75rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 600;
-                color: #1786A6;
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
             }
 
-            .section p {
-                font-size: 1.375rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                color: #2a9cc1;
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .service-card p {
+                font-size: 1rem;
             }
 
             .support-section {
-                padding: 1.875rem 1.25rem;
-                margin: 2.5rem 0;
+                padding: 3rem 1.5rem;
+                margin: 3rem 0;
             }
 
             .support-section h3 {
-                font-size: 2.375rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 600;
-                font-style: normal;
-                color: #1786A6;
+                font-size: 2rem;
+                margin-bottom: 2rem;
             }
 
-            .support-section .buttons {
-                gap: 0.625rem;
+            .cta-consultation {
+                padding: 1rem 2.5rem;
+                font-size: 1.25rem;
+                width: 100%;
+                max-width: 350px;
             }
 
             .cta-button {
@@ -524,19 +678,46 @@
         </div>
     </div>
 
-    <section class="section" id="about-me">
-        <h2>About the Work</h2>
-        <h3>Psychodynamic IFS Therapist</h3>
-        <p>Tinesh Kumar (he/him/his). The chapters in my life have provided me with the lived experience and training necessary to offer a non-hierarchical, collaborative, non-judgmental, and inclusive space for my clients. I have been privileged to work with adults across various backgrounds using the Internal Family Systems (IFS) approach, which is transforming the mental health paradigm and hailed by trauma-expert Bessel van der Kolk as the “go-to treatment method that all clinicians should know”. I also integrate IFS with coaching and psychodynamic approaches to provide you with the best support possible.</p>
-        <p>My approach is based on an empowering, non-pathologizing, wellness model. I believe in everyone’s capacity to access and build on resiliency and personal resources.</p>
+    <section class="section" id="services">
+        <h2>How I Can Help You</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Suicidal Ideation</h3>
+                <p>Compassionate support for those experiencing thoughts of self-harm, providing a safe space to explore feelings and develop coping strategies.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☀️</div>
+                <h3>Depression</h3>
+                <p>Evidence-based therapy using IFS approaches to help you navigate through depressive episodes and rediscover hope and meaning.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌊</div>
+                <h3>Anxiety</h3>
+                <p>Learn effective techniques to manage overwhelming anxiety, panic attacks, and excessive worry through personalized therapeutic approaches.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>Disorders</h3>
+                <p>Specialized treatment for various mental health conditions using Internal Family Systems (IFS) and psychodynamic approaches.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💚</div>
+                <h3>Trauma Healing</h3>
+                <p>Gentle, trauma-informed therapy helping you process past experiences and build resilience for a healthier future.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Personal Growth</h3>
+                <p>Empowering, non-pathologizing support to access your inner resources and unlock your full potential for wellbeing.</p>
+            </div>
+        </div>
     </section>
 
     <section class="support-section" id="support">
         <h3>Rooted. I'm here and now.</h3>
         <div>
-            <button class="favorite styled" type="button">
-                <a href="rapport.html">Consultation</a>
-            </button>
+            <a href="rapport.html" class="cta-consultation">Book Your Consultation</a>
         </div>
     </section>
 
@@ -564,6 +745,31 @@
             if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
                 navMenu.classList.remove('active');
             }
+        });
+
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section, .support-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add staggered animation to service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
         });
     </script>
 </body>
