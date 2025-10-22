@@ -27,13 +27,13 @@
 
         body {
             line-height: 1.6;
-            color: #263238;
-            background: linear-gradient(135deg, #A7FFEB 0%, #FFD54F 50%, #FFAB91 100%);
+            color: #37474F;
+            background: linear-gradient(to bottom, #B2DFDB 0%, #F8BBD0 100%);
             background-attachment: fixed;
         }
 
         header {
-            background-color: #00BFA5;
+            background-color: #009688;
             padding: 1.25rem 2.5rem;
             width: 100%;
             animation: slideDown 0.5s ease-out;
@@ -92,7 +92,7 @@
             height: fit-content;
             position: absolute;
             padding: 1.5rem;
-            background-color: #00BFA5;
+            background-color: #009688;
             flex-direction: column;
             top: 6rem;
             right: 1.875rem;
@@ -118,7 +118,7 @@
         }
 
         .nav-menu li a:hover {
-            color: #FFD54F;
+            color: #F8BBD0;
             transform: translateY(-0.125rem);
         }
 
@@ -265,7 +265,7 @@
 
         .section h2 {
             font-size: 3rem;
-            color: #00897B;
+            color: #00695C;
             margin-bottom: 3rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
@@ -280,20 +280,24 @@
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 2.5rem 2rem;
             text-align: center;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
-            border: 3px solid #26A69A;
+            border: 3px solid #E91E63;
+        }
+
+        .service-card:nth-child(even) {
+            border-color: #009688;
         }
 
         .service-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 16px 40px rgba(0, 137, 123, 0.35);
-            border-color: #00BFA5;
+            box-shadow: 0 16px 40px rgba(233, 30, 99, 0.35);
+            border-color: #FF4081;
             background: rgba(255, 255, 255, 1);
         }
 
@@ -301,7 +305,7 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #26A69A 0%, #00BFA5 100%);
+            background: linear-gradient(135deg, #009688 0%, #00897B 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -311,13 +315,17 @@
             transition: transform 0.3s ease;
         }
 
+        .service-card:nth-child(even) .service-icon {
+            background: linear-gradient(135deg, #E91E63 0%, #FF4081 100%);
+        }
+
         .service-card:hover .service-icon {
             transform: scale(1.1) rotate(5deg);
         }
 
         .service-card h3 {
             font-size: 1.75rem;
-            color: #00897B;
+            color: #00695C;
             margin-bottom: 1rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
@@ -325,7 +333,7 @@
 
         .service-card p {
             font-size: 1.125rem;
-            color: #263238;
+            color: #37474F;
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             line-height: 1.7;
@@ -351,7 +359,7 @@
         .support-section h3 {
             font-size: 2.75rem;
             font-style: normal;
-            color: #00897B;
+            color: #00695C;
             margin-bottom: 2.5rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
@@ -360,7 +368,7 @@
         .cta-consultation {
             display: inline-block;
             padding: 1.25rem 3rem;
-            background: #FF5722;
+            background: #FF4081;
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -368,7 +376,7 @@
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
+            box-shadow: 0 8px 24px rgba(255, 64, 129, 0.4);
             border: none;
             cursor: pointer;
             position: relative;
@@ -395,8 +403,8 @@
 
         .cta-consultation:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 16px 40px rgba(255, 87, 34, 0.6);
-            background: #F4511E;
+            box-shadow: 0 16px 40px rgba(255, 64, 129, 0.6);
+            background: #E91E63;
         }
 
         .cta-consultation:active {
@@ -410,7 +418,7 @@
             font-family: "Poppins", sans-serif;
             font-weight: 300;
             font-size: 1.25rem;
-            background-color: #FF6E40;
+            background-color: #E91E63;
             color: white;
             margin-bottom: 2.5rem;
             max-width: 1600px;
@@ -452,7 +460,7 @@
             font-size: 2.875rem;
             font-weight: bold;
             font-family: "Satisfy", cursive;
-            color: #FFD54F;
+            color: #B2DFDB;
         }
 
         .footer-section:last-child a {
@@ -466,7 +474,7 @@
         }
 
         .footer-section:last-child a:hover {
-            color: #FFD54F;
+            color: #B2DFDB;
         }
 
         .footer-section .whatsapp-link img {
@@ -639,7 +647,7 @@
                 font-size: 2.8125rem;
                 font-family: "Satisfy", cursive;
                 font-weight: bold;
-                color: #FFD54F;
+                color: #B2DFDB;
             }
 
             .footer-section .whatsapp-link img {
