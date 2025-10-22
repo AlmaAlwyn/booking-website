@@ -277,8 +277,8 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
             margin-top: 3rem;
         }
 
@@ -347,6 +347,10 @@
             font-style: italic;
         }
 
+        .service-card.expanded {
+            grid-column: span 2;
+        }
+
         .service-card.expanded .card-details {
             display: block;
             animation: fadeIn 0.3s ease-in;
@@ -364,16 +368,40 @@
         }
 
         .support-section {
-            background: rgba(26, 26, 46, 0.8);
-            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.1) 100%);
+            padding: 5rem 3rem;
             margin: 5rem auto;
             text-align: center;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4), inset 0 0 40px rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
         }
 
         .support-section.visible {
@@ -388,25 +416,30 @@
             margin-bottom: 2.5rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4);
+            position: relative;
+            z-index: 1;
         }
 
         .cta-consultation {
             display: inline-block;
-            padding: 1.25rem 3rem;
-            background: #FFD700;
+            padding: 1.5rem 4rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #1A1A2E;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.5);
             border: none;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-consultation::before {
@@ -428,9 +461,9 @@
         }
 
         .cta-consultation:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 16px 40px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.6);
-            background: #FFA500;
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 215, 0, 0.8);
+            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
         }
 
         .cta-consultation:active {
@@ -438,9 +471,11 @@
         }
 
         .footer {
-            display: flex;
-            justify-content: space-between;
-            padding: 2.5rem 5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 5rem;
             font-family: "Poppins", sans-serif;
             font-weight: 300;
             font-size: 1.25rem;
@@ -450,27 +485,28 @@
             max-width: 1600px;
             margin-left: auto;
             margin-right: auto;
-            border-radius: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 3rem;
         }
 
         .footer-section {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            text-align: right;
         }
 
         .footer-section:first-child {
-            margin-right: 1.25rem;
-            flex-direction: row;
-            gap: 0.625rem;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .footer-section:nth-child(2) {
+            text-align: center;
         }
 
         .footer-section:last-child {
-            margin-left: 1.25rem;
-            line-height: 1.1;
+            align-items: flex-end;
             text-align: right;
         }
 
@@ -483,10 +519,12 @@
         }
 
         .footer-section p.name {
-            font-size: 2.875rem;
+            font-size: 3rem;
             font-weight: bold;
             font-family: "Satisfy", cursive;
             color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            margin-bottom: 0.5rem;
         }
 
         .footer-section:last-child a {
@@ -504,10 +542,17 @@
         }
 
         .footer-section .whatsapp-link img {
-            width: 4.15rem;
-            height: 4.15rem;
+            width: 4.5rem;
+            height: 4.5rem;
             vertical-align: middle;
-            margin-bottom: 0.9375rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .footer-section .whatsapp-link img:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
         }
 
         @media (max-width: 768px) {
@@ -586,6 +631,10 @@
                 margin-top: 2rem;
             }
 
+            .service-card.expanded {
+                grid-column: span 1;
+            }
+
             .service-card {
                 padding: 2rem 1.5rem;
             }
@@ -639,23 +688,24 @@
             }
 
             .footer {
-                flex-direction: column;
-                padding: 1.25rem 0.9375rem;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem;
+                text-align: center;
             }
 
             .footer-section {
-                margin: 0;
-                margin-bottom: 1.25rem;
+                align-items: center;
+                text-align: center;
             }
 
             .footer-section:first-child {
-                margin-right: 0;
-                flex-direction: column;
-                gap: 0.625rem;
+                align-items: center;
             }
 
             .footer-section:last-child {
-                margin-left: 0;
+                align-items: center;
+                text-align: center;
             }
 
             .footer-section p, .footer-section:last-child a {
@@ -795,7 +845,10 @@
     <footer class="footer">
         <div class="footer-section">
             <a href="https://wa.me/914448548889" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
-            <p class="name"> Tinesh Kumar</p>
+        </div>
+        <div class="footer-section">
+            <p class="name">Tinesh Kumar</p>
+            <p>Counselling & Therapy</p>
         </div>
         <div class="footer-section">
             <a href="faqs.html">FAQs</a>
