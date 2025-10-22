@@ -27,14 +27,13 @@
 
         body {
             line-height: 1.6;
-            color: #284b63;
-            background: linear-gradient(to bottom, #EDF8F5 0%, #E5F2EE 50%, #F8FAF9 100%);
+            color: #263238;
+            background: linear-gradient(135deg, #A7FFEB 0%, #FFD54F 50%, #FFAB91 100%);
             background-attachment: fixed;
         }
 
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: #00BFA5;
             padding: 1.25rem 2.5rem;
             width: 100%;
             animation: slideDown 0.5s ease-out;
@@ -93,15 +92,15 @@
             height: fit-content;
             position: absolute;
             padding: 1.5rem;
-            background-color: #FEFCFF;
+            background-color: #00BFA5;
             flex-direction: column;
             top: 6rem;
             right: 1.875rem;
-            box-shadow: 10px 10px 10px #747d8c;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
             border-radius: 0.75rem;
             z-index: 1000;
             list-style: none;
-            border: 0.5px solid #353535;
+            border: 0.5px solid rgba(255, 255, 255, 0.3);
         }
 
         .nav-menu.active {
@@ -110,7 +109,7 @@
 
         .nav-menu li a {
             text-decoration: none;
-            color: #284b63;
+            color: white;
             font-size: 1.3rem;
             font-weight: bold;
             font-family: "Poppins", sans-serif;
@@ -119,7 +118,7 @@
         }
 
         .nav-menu li a:hover {
-            color: #4a90e2;
+            color: #FFD54F;
             transform: translateY(-0.125rem);
         }
 
@@ -266,7 +265,7 @@
 
         .section h2 {
             font-size: 3rem;
-            color: #1786A6;
+            color: #00897B;
             margin-bottom: 3rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
@@ -281,27 +280,28 @@
         }
 
         .service-card {
-            background: linear-gradient(135deg, #F8FAF9 0%, #ffffff 100%);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             padding: 2.5rem 2rem;
             text-align: center;
-            box-shadow: 0 8px 24px rgba(23, 134, 166, 0.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
-            border: 2px solid transparent;
+            border: 3px solid #26A69A;
         }
 
         .service-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 16px 40px rgba(23, 134, 166, 0.25);
-            border-color: #1786A6;
+            box-shadow: 0 16px 40px rgba(0, 137, 123, 0.35);
+            border-color: #00BFA5;
+            background: rgba(255, 255, 255, 1);
         }
 
         .service-icon {
             width: 80px;
             height: 80px;
             margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #1786A6 0%, #2a9cc1 100%);
+            background: linear-gradient(135deg, #26A69A 0%, #00BFA5 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -317,7 +317,7 @@
 
         .service-card h3 {
             font-size: 1.75rem;
-            color: #1786A6;
+            color: #00897B;
             margin-bottom: 1rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
@@ -325,20 +325,22 @@
 
         .service-card p {
             font-size: 1.125rem;
-            color: #2a9cc1;
+            color: #263238;
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             line-height: 1.7;
         }
 
         .support-section {
-            background: linear-gradient(135deg, #E5F2EE 0%, #D4E8E1 100%);
+            background: rgba(255, 255, 255, 0.85);
             padding: 4rem 2rem;
             margin: 5rem auto;
             text-align: center;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .support-section.visible {
@@ -349,7 +351,7 @@
         .support-section h3 {
             font-size: 2.75rem;
             font-style: normal;
-            color: #1786A6;
+            color: #00897B;
             margin-bottom: 2.5rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
@@ -358,7 +360,7 @@
         .cta-consultation {
             display: inline-block;
             padding: 1.25rem 3rem;
-            background: linear-gradient(135deg, #1786A6 0%, #2a9cc1 100%);
+            background: #FF5722;
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -366,7 +368,7 @@
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 24px rgba(23, 134, 166, 0.3);
+            box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
             border: none;
             cursor: pointer;
             position: relative;
@@ -393,7 +395,8 @@
 
         .cta-consultation:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 16px 40px rgba(23, 134, 166, 0.5);
+            box-shadow: 0 16px 40px rgba(255, 87, 34, 0.6);
+            background: #F4511E;
         }
 
         .cta-consultation:active {
@@ -407,12 +410,13 @@
             font-family: "Poppins", sans-serif;
             font-weight: 300;
             font-size: 1.25rem;
-            background-color: rgba(248, 250, 249, 0.6);
-            color: #0B1D34;
+            background-color: #FF6E40;
+            color: white;
             margin-bottom: 2.5rem;
             max-width: 1600px;
             margin-left: auto;
             margin-right: auto;
+            border-radius: 20px;
         }
 
         .footer-section {
@@ -441,17 +445,18 @@
             margin-bottom: 0.9375rem;
             font-family: "Poppins", sans-serif;
             font-weight: 300;
+            color: white;
         }
 
         .footer-section p.name {
             font-size: 2.875rem;
             font-weight: bold;
             font-family: "Satisfy", cursive;
-            color: #1786A6;
+            color: #FFD54F;
         }
 
         .footer-section:last-child a {
-            color: #6A5ACD;
+            color: white;
             text-decoration: none;
             display: block;
             margin-bottom: 0.625rem;
@@ -461,7 +466,7 @@
         }
 
         .footer-section:last-child a:hover {
-            color: #4a90e2;
+            color: #FFD54F;
         }
 
         .footer-section .whatsapp-link img {
@@ -496,7 +501,7 @@
                 font-size: 1.25rem;
                 font-family: "Poppins", sans-serif;
                 font-weight: 400;
-                color: #284b63;
+                color: white;
             }
 
             .video-container {
@@ -623,18 +628,18 @@
                 font-size: 1.25rem;
                 font-family: "Poppins", sans-serif;
                 font-weight: 300;
-                color: #0B1D34;
+                color: white;
             }
 
             .footer-section:last-child a {
-                color: #6A5ACD;
+                color: white;
             }
 
             .footer-section p.name {
                 font-size: 2.8125rem;
                 font-family: "Satisfy", cursive;
                 font-weight: bold;
-                color: #1786A6;
+                color: #FFD54F;
             }
 
             .footer-section .whatsapp-link img {
