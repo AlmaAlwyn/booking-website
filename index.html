@@ -335,6 +335,34 @@
             line-height: 1.7;
         }
 
+        .card-summary {
+            display: block;
+        }
+
+        .card-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            font-style: italic;
+        }
+
+        .service-card.expanded .card-details {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .support-section {
             background: rgba(26, 26, 46, 0.8);
             padding: 4rem 2rem;
@@ -692,37 +720,67 @@
     </div>
 
     <section class="section" id="services">
-        <h2>How I Can Help You</h2>
+        <h2>Understanding your Roots</h2>
         <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🧠</div>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">🆘</div>
                 <h3>Suicidal Ideation</h3>
-                <p>Compassionate support for those experiencing thoughts of self-harm, providing a safe space to explore feelings and develop coping strategies.</p>
+                <p class="card-summary">Suicidal thoughts are life-threatening crisis moments where death feels like the only solution to unbearable pain. This is an emergency. Professional intervention can save your life and help you discover reasons to live.</p>
+                <p class="card-details">When overwhelming emotions - especially abandonment fears or relationship conflicts (central to Borderline Personality Disorder) - drive you toward self-harm or suicide, immediate counselling interrupts the crisis, creates safety plans, and builds emotional regulation skills that transform life-threatening moments into survivable ones.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">☀️</div>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">🍽️</div>
+                <h3>Eating Disorders</h3>
+                <p class="card-summary">Anorexia is a life-threatening eating disorder where your mind convinces you that starvation is safety, and every bite is danger. Recovery is possible - your life depends on it.</p>
+                <p class="card-details">When Eating Disorders - Anorexia (starving yourself despite dangerous thinness), Bulimia (binge-purge cycles that destroy your body), Binge Eating Disorder (losing control around food), or restrictive eating driven by Body Dysmorphic Disorder - distort reality so completely that you see obesity in the mirror while your body shuts down, count every calorie obsessively, fear food more than death itself, or use eating as the only thing you can control - emergency intervention saves lives. Therapy addresses the terror of weight gain, corrects the lies your mind tells about your body, heals trauma or perfectionism driving the disorder, and teaches you that food is medicine, not the enemy.</p>
+            </div>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">🌧️</div>
                 <h3>Depression</h3>
-                <p>Evidence-based therapy using IFS approaches to help you navigate through depressive episodes and rediscover hope and meaning.</p>
+                <p class="card-summary">Depression is a serious mental health condition involving persistent emptiness, hopelessness, and complete loss of interest in life. It's not weakness - it's an illness that requires professional treatment.</p>
+                <p class="card-details">When Major Depressive Disorder steals your ability to feel pleasure, leaves you exhausted yet unable to sleep, fills your mind with thoughts of worthlessness, and makes every day feel unbearable - therapy combines evidence-based techniques to lift the fog, restore energy, and help you rediscover reasons to live.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">🌊</div>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">🎭</div>
+                <h3>Psychosis</h3>
+                <p class="card-summary">Psychosis means losing touch with reality through hallucinations, delusions, or severely confused thinking. Professional support helps you reconnect with what's real and manage frightening experiences.</p>
+                <p class="card-details">When Bipolar Disorder sends you into extreme highs where you believe you're invincible or crushing lows where voices tell you you're worthless - therapy combined with medication stabilizes your mood swings, silences the hallucinations, and helps you distinguish your thoughts from reality.</p>
+            </div>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">⚠️</div>
+                <h3>Addiction</h3>
+                <p class="card-summary">Addiction is a chronic disease where compulsive substance use takes over your life despite devastating consequences. Recovery is possible with professional support.</p>
+                <p class="card-details">When Substance Use Disorder controls your life - you've lost jobs, damaged relationships, risked your health, tried to quit countless times but can't - therapy treats addiction as the medical condition it is, addressing physical dependence, psychological triggers, and co-occurring disorders like depression or PTSD to achieve lasting recovery.</p>
+            </div>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">💔</div>
+                <h3>Trauma</h3>
+                <p class="card-summary">Trauma is lasting psychological pain from overwhelming events that shattered your sense of safety. Professional therapy helps you heal without being trapped by the past.</p>
+                <p class="card-details">When Post-Traumatic Stress Disorder from abuse, assault, combat, accidents, or violence won't let you move on - intrusive memories invade your mind, your body stays in fight-or-flight mode, relationships feel impossible, and you avoid anything that reminds you of what happened - evidence-based trauma therapy helps you process these memories safely, calm your nervous system, and reclaim your life.</p>
+            </div>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">😰</div>
                 <h3>Anxiety</h3>
-                <p>Learn effective techniques to manage overwhelming anxiety, panic attacks, and excessive worry through personalized therapeutic approaches.</p>
+                <p class="card-summary">Anxiety is overwhelming worry, fear, and physical distress that takes control of your life. Professional support helps you break free from anxiety's grip.</p>
+                <p class="card-details">When Panic Disorder strikes without warning – sudden waves of terror where your heart pounds, you can't catch your breath, rooms spin, you're convinced you're dying, and the fear of another attack keeps you from living normally – therapy teaches you that panic can't harm you, provides immediate coping tools, and helps you reclaim activities you've been avoiding.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" onclick="toggleCard(this)">
                 <div class="service-icon">🔄</div>
-                <h3>Disorders</h3>
-                <p>Specialized treatment for various mental health conditions using Internal Family Systems (IFS) and psychodynamic approaches.</p>
+                <h3>Obsession</h3>
+                <p class="card-summary">Obsession means intrusive, unwanted thoughts that won't leave your mind, driving compulsive behaviors to reduce unbearable anxiety. You can break free from this exhausting cycle.</p>
+                <p class="card-details">When Obsessive-Compulsive Disorder takes over your life – intrusive thoughts about germs, harm, mistakes, or "bad things happening" create such intense anxiety that you must perform rituals (washing, checking, counting, confessing) just to function, and these compulsions consume hours each day – evidence-based OCD therapy teaches you to sit with the discomfort without ritualizing, proving your fears wrong and restoring your freedom.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">💚</div>
-                <h3>Trauma Healing</h3>
-                <p>Gentle, trauma-informed therapy helping you process past experiences and build resilience for a healthier future.</p>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">😴</div>
+                <h3>Insomnia</h3>
+                <p class="card-summary">Insomnia is chronic sleep difficulty that steals your energy, focus, and quality of life. Your body's sleep system can be retrained - you don't have to suffer through exhaustion.</p>
+                <p class="card-details">When Sleep Disorders destroy your rest - whether it's Circadian Rhythm Disorders making you a "night owl" trapped in a "morning lark" world, your body demanding sleep at 4 AM when you need to wake at 6 AM, shift work fragmenting your sleep-wake cycle, anxiety flooding you with racing thoughts the moment your head hits the pillow, PTSD nightmares making you fear sleep itself, or depression leaving you exhausted yet unable to rest - therapy doesn't just tell you "sleep better" but identifies your specific sleep disruptors, retrains your circadian rhythm through behavioral techniques, addresses underlying anxiety or trauma, and teaches Cognitive-Behavioral Therapy for Insomnia (CBT-I) proven to restore restorative sleep.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">✨</div>
-                <h3>Personal Growth</h3>
-                <p>Empowering, non-pathologizing support to access your inner resources and unlock your full potential for wellbeing.</p>
+            <div class="service-card" onclick="toggleCard(this)">
+                <div class="service-icon">⚡</div>
+                <h3>Hyperactivity</h3>
+                <p class="card-summary">Hyperactivity means difficulty staying still, focusing, or controlling impulses that interferes with daily life. Your brain works differently, not defectively - and you can learn to thrive.</p>
+                <p class="card-details">When Attention-Deficit/Hyperactivity Disorder (ADHD) makes you feel like you're constantly battling your own brain - unable to focus despite trying hard, interrupting people without meaning to, forgetting things immediately after hearing them, starting projects with enthusiasm but never finishing, making impulsive choices, feeling restless even when exhausted, or struggling with time management and organization - therapy doesn't try to "fix" you but teaches evidence-based strategies to harness your unique brain's strengths, manage executive function challenges, and build systems that actually work for how you think.</p>
             </div>
         </div>
     </section>
@@ -784,6 +842,21 @@
         serviceCards.forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
         });
+
+        // Toggle card expansion
+        function toggleCard(card) {
+            const isExpanded = card.classList.contains('expanded');
+
+            // Collapse all cards
+            document.querySelectorAll('.service-card').forEach(c => {
+                c.classList.remove('expanded');
+            });
+
+            // If this card wasn't expanded, expand it
+            if (!isExpanded) {
+                card.classList.add('expanded');
+            }
+        }
     </script>
 </body>
 </html>
