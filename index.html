@@ -3,21 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooted.  Help with Suicidal ideation - Depression - Anxiety - Disorders.</title>
+    <title>Rooted - Therapy & Counselling</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comic+Relief:wght@700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -26,893 +15,587 @@
         }
 
         body {
-            line-height: 1.6;
-            color: #F5E6D3;
-            background: linear-gradient(135deg, #0A0E27 0%, #1A1A2E 50%, #2C1810 100%);
-            background-attachment: fixed;
+            font-family: "Poppins", sans-serif;
+            line-height: 1.7;
+            color: #4a5568;
+            background: #ffffff;
         }
 
+        /* Header */
         header {
-            background: transparent;
-            padding: 1.25rem 2.5rem;
-            width: 100%;
-            animation: slideDown 0.5s ease-out;
+            background: #4a6660;
+            padding: 1.5rem 3rem;
+            position: sticky;
+            top: 0;
             z-index: 1000;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        nav .logo {
-            transition: transform 0.3s ease;
+        .logo-text {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            font-weight: 600;
             text-decoration: none;
         }
 
-        nav .logo img {
-            height: 5rem;
-            width: 30rem;
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
         }
 
-        nav .logo:hover {
-            transform: scale(1.05);
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .btn-book {
+            background: #946B54;
+            color: #ffffff;
+            padding: 0.7rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-book:hover {
+            background: #7d5a47;
         }
 
         .hamburger {
-            display: flex;
+            display: none;
             flex-direction: column;
-            justify-content: space-between;
-            width: 2.5rem;
-            height: 1.875rem;
+            gap: 5px;
             cursor: pointer;
         }
 
         .hamburger span {
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
             border-radius: 2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
-        .hamburger:hover span {
-            background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-        }
-
-        .nav-menu {
-            display: none;
-            height: fit-content;
-            position: absolute;
-            padding: 1.5rem;
-            background: rgba(26, 26, 46, 0.95);
-            flex-direction: column;
-            top: 6rem;
-            right: 1.875rem;
-            box-shadow: 10px 10px 10px rgba(255, 215, 0, 0.3);
-            border-radius: 0.75rem;
-            z-index: 1000;
-            list-style: none;
-            border: 1px solid rgba(255, 215, 0, 0.5);
-        }
-
-        .nav-menu.active {
-            display: flex;
-        }
-
-        .nav-menu li a {
-            text-decoration: none;
-            color: #F5E6D3;
-            font-size: 1.3rem;
-            font-weight: bold;
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .nav-menu li a:hover {
-            color: #FFD700;
-            transform: translateY(-0.125rem);
-        }
-
-        .video-container {
+        /* Hero Section with Video */
+        .hero-video {
             position: relative;
-            width: 100vw;
-            height: 80vh;
+            height: 85vh;
             overflow: hidden;
-            max-width: 1600px;
-            margin: 1.5rem auto 0;
-            border: 2px solid #D4AF37;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 30px rgba(212, 175, 55, 0.2);
         }
 
-        .video-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
-            z-index: 1;
-        }
-
-        .video-container video {
+        .hero-video video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .overlay {
+        .hero-video::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(74, 102, 96, 0.7) 0%, rgba(148, 107, 84, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
             position: absolute;
             top: 50%;
-            left: 20%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            text-align: left;
-            color: #353535;
-            width: 40%;
-            max-width: 600px;
+            text-align: center;
             z-index: 2;
-            animation: fadeInUp 1s ease-out;
+            color: #ffffff;
+            width: 90%;
+            max-width: 900px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -30%);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        .overlay h1 {
-            font-family: "Abril Fatface", serif;
+        .hero-content h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 4.5rem;
             font-weight: 500;
-            font-size: 5.5rem;
-            color: #D4AF37;
             margin-bottom: 1.5rem;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 2px 4px 8px rgba(0, 0, 0, 0.7);
             line-height: 1.2;
         }
 
-        .overlay p {
-            font-family: "Poppins", sans-serif;
-            color: #D4AF37;
-            font-size: 1.8rem;
-            font-weight: 500;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 1px 2px 6px rgba(0, 0, 0, 0.6);
-            line-height: 1.6;
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
         }
 
-        .cta-button {
+        .btn-primary {
             display: inline-block;
-            padding: 0.9375rem 1.375rem;
-            background-color: #3c6e71;
-            color: #d9d9d9;
+            background: #946B54;
+            color: #ffffff;
+            padding: 1rem 3rem;
             text-decoration: none;
-            border-radius: 1.5rem;
-            font-size: 1.725rem;
-            font-family: "Poppins", sans-serif;
+            border-radius: 4px;
+            font-size: 1.1rem;
             font-weight: 500;
-            transition: background-color 0.3s;
-            font-weight: bold;
+            transition: all 0.3s;
         }
 
-        .cta-button:hover {
-            background-color: #284b63;
+        .btn-primary:hover {
+            background: #7d5a47;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(148, 107, 84, 0.3);
         }
 
-        .cta-button img {
-            width: 1.5rem;
-            height: 1.5rem;
-            vertical-align: middle;
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #d4b5a8 0%, #e8ddd0 50%, #a8c5be 100%);
+            padding: 8rem 2rem;
         }
 
-        .styled {
-            border: 0;
-            line-height: 2.5;
-            padding: 0 20px;
-            font-size: 1.6rem;
-            text-align: center;
-            color: #d9d9d9;
-            text-shadow: 1px 1px 1px black;
-            border-radius: 10px;
-            background-color: #38a3a5;
-            background-image: linear-gradient(
-                to top left,
-                rgb(0 0 0 / 0.2),
-                rgb(0 0 0 / 0.2) 30%,
-                transparent
-            );
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            box-shadow:
-                inset 2px 2px 3px rgb(255 255 255 / 0.6),
-                inset -2px -2px 3px rgb(0 0 0 / 0.6);
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
         }
 
-        .styled:hover {
-            background-color: #22577a;
+        .about-image {
+            background: #c9b5a5;
+            border-radius: 8px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.2rem;
         }
 
-        .styled:active {
-            box-shadow:
-                inset -2px -2px 3px rgb(255 255 255 / 0.6),
-                inset 2px 2px 3px rgb(0 0 0 / 0.6);
+        .about-content {
+            color: #4a5568;
         }
 
-        .section {
-            max-width: 1600px;
-            margin: 5rem auto;
-            padding: 2rem;
-            line-height: 1.8;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .section-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section h2 {
+        .about-content h2 {
+            font-family: "Playfair Display", serif;
             font-size: 3rem;
-            color: #FFD700;
-            margin-bottom: 3rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+
+        /* Approach/Services Section */
+        .approach-section {
+            background: #ffffff;
+            padding: 8rem 2rem;
+        }
+
+        .approach-container {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .approach-container h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: rgba(26, 26, 46, 0.8);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            border: 2px solid #FFD700;
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 16px 40px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
-            border-color: #FFD700;
-            background: rgba(42, 42, 42, 0.95);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: #1A1A2E;
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .service-card h3 {
-            font-size: 1.75rem;
-            color: #FFD700;
-            margin-bottom: 1rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            font-size: 1.125rem;
-            color: #E8D5C4;
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            line-height: 1.7;
-        }
-
-        .card-summary {
-            display: block;
-        }
-
-        .card-details {
-            display: none;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.3);
-            font-style: italic;
-        }
-
-        .service-card.expanded {
-            grid-column: span 2;
-        }
-
-        .service-card.expanded .card-details {
-            display: block;
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .support-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.1) 100%);
-            padding: 5rem 3rem;
-            margin: 5rem auto;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            border-radius: 0;
-            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4), inset 0 0 40px rgba(255, 215, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .support-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        .support-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .support-section h3 {
-            font-size: 2.75rem;
-            font-style: normal;
-            color: #FFD700;
-            margin-bottom: 2.5rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 700;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4);
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-consultation {
-            display: inline-block;
-            padding: 1.5rem 4rem;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #1A1A2E;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.6rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.5);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-
-        .cta-consultation:hover {
-            transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 215, 0, 0.8);
-            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
-        }
-
-        .cta-consultation:active {
-            transform: translateY(-2px) scale(1.02);
-        }
-
-        .footer {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
-            align-items: center;
-            padding: 3rem 5rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            font-size: 1.25rem;
-            background: transparent;
-            color: #F5E6D3;
-            margin-bottom: 2.5rem;
-            max-width: 1600px;
-            margin-left: auto;
-            margin-right: auto;
-            border-top: 1px solid rgba(255, 215, 0, 0.3);
-            padding-top: 3rem;
+            margin-top: 4rem;
         }
 
-        .footer-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        .service-item {
+            text-align: center;
+            padding: 2rem;
         }
 
-        .footer-section:first-child {
-            justify-content: flex-start;
-            align-items: flex-start;
+        .service-item h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
         }
 
-        .footer-section:nth-child(2) {
+        .service-item p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: #f7f3f0;
+            padding: 8rem 2rem;
+        }
+
+        .values-container {
+            max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .footer-section:last-child {
-            align-items: flex-end;
-            text-align: right;
-        }
-
-        .footer-section p {
-            font-size: 1.25rem;
-            margin-bottom: 0.9375rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            color: #F5E6D3;
-        }
-
-        .footer-section p.name {
+        .values-container h2 {
+            font-family: "Playfair Display", serif;
             font-size: 3rem;
-            font-weight: bold;
-            font-family: "Satisfy", cursive;
-            color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .value-item {
+            font-size: 1.2rem;
+            color: #4a5568;
+        }
+
+        .value-item::before {
+            content: '◦';
+            margin-right: 0.5rem;
+            color: #946B54;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, #7a9287 0%, #c1ad8e 50%, #9db3a8 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .quote-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quote-container blockquote {
+            font-family: "Playfair Display", serif;
+            font-size: 2.2rem;
+            line-height: 1.5;
+            color: #ffffff;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-author {
+            font-size: 1.1rem;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #ffffff;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #2d3748;
+        }
+
+        /* Footer */
+        footer {
+            background: #4a6660;
+            color: #ffffff;
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
             margin-bottom: 0.5rem;
         }
 
-        .footer-section:last-child a {
-            color: #F5E6D3;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.625rem;
-            font-size: 1.25rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
+        .footer-section a:hover {
+            color: #ffffff;
         }
 
-        .footer-section:last-child a:hover {
-            color: #FFD700;
-        }
-
-        .footer-section .whatsapp-link img {
-            width: 4.5rem;
-            height: 4.5rem;
-            vertical-align: middle;
+        .whatsapp-link img {
+            width: 50px;
+            height: 50px;
             margin-bottom: 1rem;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
         }
 
-        .footer-section .whatsapp-link img:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
-        }
-
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             header {
-                padding: 0.9375rem 1.25rem;
+                padding: 1rem 1.5rem;
             }
 
-            nav .logo img {
-                height: 3.1875rem;
-                width: auto;
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #4a6660;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .hamburger {
-                width: 2.25rem;
-                height: 1.625rem;
+                display: flex;
             }
 
-            .hamburger span {
-                height: 3px;
-            }
-
-            .nav-menu {
-                padding: 1rem;
-                top: 3rem;
-                right: 1rem;
-            }
-
-            .nav-menu li a {
-                font-size: 1.25rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 400;
-                color: #F5E6D3;
-            }
-
-            .video-container {
+            .hero-video {
                 height: 70vh;
-                border: none;
             }
 
-            .overlay {
-                top: 40%;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
 
-            .overlay {
-                left: 50%;
-                width: 85%;
-                max-width: 85%;
-                text-align: center;
+            .hero-content p {
+                font-size: 1.1rem;
             }
 
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translate(-50%, -40%);
-                }
-                to {
-                    opacity: 1;
-                    transform: translate(-50%, -50%);
-                }
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            .overlay h1 {
-                font-size: 2rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .overlay p {
-                font-size: 1rem;
-                line-height: 1.4;
-            }
-
-            .section {
-                padding: 1.5rem;
-                margin: 3rem auto;
-            }
-
-            .section h2 {
-                font-size: 2.25rem;
-                margin-bottom: 2rem;
+            .about-image {
+                height: 300px;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-
-            .service-card.expanded {
-                grid-column: span 1;
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .service-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
-            }
-
-            .service-card h3 {
-                font-size: 1.5rem;
-            }
-
-            .service-card p {
-                font-size: 1rem;
-            }
-
-            .support-section {
-                padding: 3rem 0;
-                margin: 3rem 0;
-                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25), inset 0 0 20px rgba(255, 215, 0, 0.08);
-            }
-
-            .support-section h3 {
-                font-size: 1.75rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .cta-consultation {
-                padding: 0.9rem 2rem;
-                font-size: 1.1rem;
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .cta-button {
-                padding: 1rem 1.875rem;
-                font-size: 1.5rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 500;
-                color: #d9d9d9;
-                background-color: #3c6e71;
-            }
-
-            .styled {
-                font-family: "Poppins", sans-serif;
-                font-weight: 500;
-                font-size: 1.5rem;
-                color: #d9d9d9;
-                background-color: #38a3a5;
-            }
-
-            .footer {
-                grid-template-columns: 1fr;
                 gap: 2rem;
-                padding: 2rem 1rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .footer-section {
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-section:first-child {
-                align-items: center;
-            }
-
-            .footer-section:last-child {
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-section p, .footer-section:last-child a {
-                font-size: 1rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                color: #F5E6D3;
-            }
-
-            .footer-section:last-child a {
-                color: #F5E6D3;
-            }
-
-            .footer-section p.name {
-                font-size: 2.2rem;
-                font-family: "Satisfy", cursive;
-                font-weight: bold;
-                color: #FFD700;
-            }
-
-            .footer-section .whatsapp-link img {
-                transition: transform 0.3s ease;
-            }
-
-            .footer-section .whatsapp-link img:hover {
-                transform: scale(1.1);
-            }
-        }
-
-        @media (min-width: 769px) {
-            .hero-section {
-                max-width: 1600px;
-                margin: 0 auto;
+            .quote-container blockquote {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav>
-            <a href="index.html" class="logo"><img src="Uploads/logo.jpg" alt="Logo"></a>
+            <a href="index.html" class="logo-text">Rooted</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="rapport.html" class="btn-book">Book Online</a></li>
+            </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="rapport.html">Consultation</a></li>
-                <li><a href="faqs.html">FAQs</a></li>
-                <li><a href="sponsor.html">Sponsor</a></li>
-            </ul>
         </nav>
     </header>
 
-    <div class="video-container">
+    <!-- Hero Section with Video -->
+    <section class="hero-video">
         <video autoplay loop muted playsinline>
             <source src="Uploads/video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
-        <div class="overlay">
-            <h1>Rooted.</h1>
-            <p>Get help with Suicidal Ideation - Depression - Anxiety - Disorder.</p>
+        <div class="hero-content">
+            <h1>Come as you are- there's room for every version of you!</h1>
+            <p>A space to slow down, reflect and reconnect with yourself.</p>
+            <a href="#about" class="btn-primary">Discover</a>
         </div>
-    </div>
+    </section>
 
-    <section class="section" id="services">
-        <h2>Understanding your Roots</h2>
-        <div class="services-grid">
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">🆘</div>
-                <h3>Suicidal Ideation</h3>
-                <p class="card-summary">Suicidal thoughts are life-threatening crisis moments where death feels like the only solution to unbearable pain. This is an emergency. Professional intervention can save your life and help you discover reasons to live.</p>
-                <p class="card-details">When overwhelming emotions - especially abandonment fears or relationship conflicts (central to Borderline Personality Disorder) - drive you toward self-harm or suicide, immediate counselling interrupts the crisis, creates safety plans, and builds emotional regulation skills that transform life-threatening moments into survivable ones.</p>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                [Your Photo Here]
             </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">🍽️</div>
-                <h3>Eating Disorders</h3>
-                <p class="card-summary">Anorexia is a life-threatening eating disorder where your mind convinces you that starvation is safety, and every bite is danger. Recovery is possible - your life depends on it.</p>
-                <p class="card-details">When Eating Disorders - Anorexia (starving yourself despite dangerous thinness), Bulimia (binge-purge cycles that destroy your body), Binge Eating Disorder (losing control around food), or restrictive eating driven by Body Dysmorphic Disorder - distort reality so completely that you see obesity in the mirror while your body shuts down, count every calorie obsessively, fear food more than death itself, or use eating as the only thing you can control - emergency intervention saves lives. Therapy addresses the terror of weight gain, corrects the lies your mind tells about your body, heals trauma or perfectionism driving the disorder, and teaches you that food is medicine, not the enemy.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">🌧️</div>
-                <h3>Depression</h3>
-                <p class="card-summary">Depression is a serious mental health condition involving persistent emptiness, hopelessness, and complete loss of interest in life. It's not weakness - it's an illness that requires professional treatment.</p>
-                <p class="card-details">When Major Depressive Disorder steals your ability to feel pleasure, leaves you exhausted yet unable to sleep, fills your mind with thoughts of worthlessness, and makes every day feel unbearable - therapy combines evidence-based techniques to lift the fog, restore energy, and help you rediscover reasons to live.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">🎭</div>
-                <h3>Psychosis</h3>
-                <p class="card-summary">Psychosis means losing touch with reality through hallucinations, delusions, or severely confused thinking. Professional support helps you reconnect with what's real and manage frightening experiences.</p>
-                <p class="card-details">When Bipolar Disorder sends you into extreme highs where you believe you're invincible or crushing lows where voices tell you you're worthless - therapy combined with medication stabilizes your mood swings, silences the hallucinations, and helps you distinguish your thoughts from reality.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">⚠️</div>
-                <h3>Addiction</h3>
-                <p class="card-summary">Addiction is a chronic disease where compulsive substance use takes over your life despite devastating consequences. Recovery is possible with professional support.</p>
-                <p class="card-details">When Substance Use Disorder controls your life - you've lost jobs, damaged relationships, risked your health, tried to quit countless times but can't - therapy treats addiction as the medical condition it is, addressing physical dependence, psychological triggers, and co-occurring disorders like depression or PTSD to achieve lasting recovery.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">💔</div>
-                <h3>Trauma</h3>
-                <p class="card-summary">Trauma is lasting psychological pain from overwhelming events that shattered your sense of safety. Professional therapy helps you heal without being trapped by the past.</p>
-                <p class="card-details">When Post-Traumatic Stress Disorder from abuse, assault, combat, accidents, or violence won't let you move on - intrusive memories invade your mind, your body stays in fight-or-flight mode, relationships feel impossible, and you avoid anything that reminds you of what happened - evidence-based trauma therapy helps you process these memories safely, calm your nervous system, and reclaim your life.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">😰</div>
-                <h3>Anxiety</h3>
-                <p class="card-summary">Anxiety is overwhelming worry, fear, and physical distress that takes control of your life. Professional support helps you break free from anxiety's grip.</p>
-                <p class="card-details">When Panic Disorder strikes without warning – sudden waves of terror where your heart pounds, you can't catch your breath, rooms spin, you're convinced you're dying, and the fear of another attack keeps you from living normally – therapy teaches you that panic can't harm you, provides immediate coping tools, and helps you reclaim activities you've been avoiding.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">🔄</div>
-                <h3>Obsession</h3>
-                <p class="card-summary">Obsession means intrusive, unwanted thoughts that won't leave your mind, driving compulsive behaviors to reduce unbearable anxiety. You can break free from this exhausting cycle.</p>
-                <p class="card-details">When Obsessive-Compulsive Disorder takes over your life – intrusive thoughts about germs, harm, mistakes, or "bad things happening" create such intense anxiety that you must perform rituals (washing, checking, counting, confessing) just to function, and these compulsions consume hours each day – evidence-based OCD therapy teaches you to sit with the discomfort without ritualizing, proving your fears wrong and restoring your freedom.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">😴</div>
-                <h3>Insomnia</h3>
-                <p class="card-summary">Insomnia is chronic sleep difficulty that steals your energy, focus, and quality of life. Your body's sleep system can be retrained - you don't have to suffer through exhaustion.</p>
-                <p class="card-details">When Sleep Disorders destroy your rest - whether it's Circadian Rhythm Disorders making you a "night owl" trapped in a "morning lark" world, your body demanding sleep at 4 AM when you need to wake at 6 AM, shift work fragmenting your sleep-wake cycle, anxiety flooding you with racing thoughts the moment your head hits the pillow, PTSD nightmares making you fear sleep itself, or depression leaving you exhausted yet unable to rest - therapy doesn't just tell you "sleep better" but identifies your specific sleep disruptors, retrains your circadian rhythm through behavioral techniques, addresses underlying anxiety or trauma, and teaches Cognitive-Behavioral Therapy for Insomnia (CBT-I) proven to restore restorative sleep.</p>
-            </div>
-            <div class="service-card" onclick="toggleCard(this)">
-                <div class="service-icon">⚡</div>
-                <h3>Hyperactivity</h3>
-                <p class="card-summary">Hyperactivity means difficulty staying still, focusing, or controlling impulses that interferes with daily life. Your brain works differently, not defectively - and you can learn to thrive.</p>
-                <p class="card-details">When Attention-Deficit/Hyperactivity Disorder (ADHD) makes you feel like you're constantly battling your own brain - unable to focus despite trying hard, interrupting people without meaning to, forgetting things immediately after hearing them, starting projects with enthusiasm but never finishing, making impulsive choices, feeling restless even when exhausted, or struggling with time management and organization - therapy doesn't try to "fix" you but teaches evidence-based strategies to harness your unique brain's strengths, manage executive function challenges, and build systems that actually work for how you think.</p>
+            <div class="about-content">
+                <div class="section-icon">✿</div>
+                <h2>Meet Tinesh Kumar</h2>
+                <p>I'm a counselling psychologist who believes that each person's story is unique and healing begins by coming home to yourself. I work with adults navigating anxiety, grief, stress, mood related issues, trauma and interpersonal challenges, often exploring how past experiences shape how we relate to ourselves and others.</p>
+                <p>As a therapist, I strive to create a space where you can slow down, breathe, and be present held in compassion and curiosity. My approach is collaborative and flexible, supporting self-understanding and helping you move toward clarity and connection at your own pace.</p>
+                <a href="rapport.html" class="btn-primary">Read More</a>
             </div>
         </div>
     </section>
 
-    <section class="support-section" id="support">
-        <h3>Rooted. I'm here and now.</h3>
-        <div>
-            <a href="rapport.html" class="cta-consultation">Book Your Consultation</a>
+    <!-- Approach Section -->
+    <section class="approach-section" id="approach">
+        <div class="approach-container">
+            <div class="section-icon">❋</div>
+            <h2>Understanding your Roots</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Anxiety & Panic</h3>
+                    <p>Managing overwhelming worry, fear, and physical distress through evidence-based therapeutic approaches.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Depression & Mood</h3>
+                    <p>Navigating persistent emptiness and hopelessness with compassionate, professional support.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Trauma & PTSD</h3>
+                    <p>Processing overwhelming events and reclaiming your sense of safety through trauma-informed therapy.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Grief & Loss</h3>
+                    <p>Finding your way through loss with compassion and understanding in a supportive space.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Relationships</h3>
+                    <p>Building healthier connections and exploring interpersonal patterns that shape your relationships.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Life Transitions</h3>
+                    <p>Navigating change and finding clarity during significant life shifts and challenges.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-section">
-            <a href="https://wa.me/914448548889" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="section-icon">✤</div>
+            <h2>My Values</h2>
+            <div class="values-grid">
+                <div class="value-item">Safety</div>
+                <div class="value-item">Trauma Informed</div>
+                <div class="value-item">Client Centered</div>
+                <div class="value-item">Inclusive & Intersectional</div>
+                <div class="value-item">Curiosity & Collaboration</div>
+                <div class="value-item">Authenticity</div>
+            </div>
+            <a href="rapport.html" class="btn-primary" style="margin-top: 2rem;">Read More</a>
         </div>
-        <div class="footer-section">
-            <p class="name">Tinesh Kumar</p>
-            <p>Counselling & Therapy</p>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-container">
+            <blockquote>"The curious paradox is that when I accept myself just as I am, then I can change"</blockquote>
+            <p class="quote-author">- Carl Rogers</p>
         </div>
-        <div class="footer-section">
-            <a href="faqs.html">FAQs</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Take the first step. Schedule a free consultation now!</h2>
+            <a href="rapport.html" class="btn-primary">Begin your journey</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <a href="https://wa.me/914448548889" class="whatsapp-link">
+                    <img src="Uploads/whatsapp-logo.png" alt="WhatsApp">
+                </a>
+            </div>
+            <div class="footer-section">
+                <h3>Tinesh Kumar</h3>
+                <p>Counselling & Therapy</p>
+            </div>
+            <div class="footer-section">
+                <a href="faqs.html">FAQs</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
         </div>
     </footer>
 
     <script>
         const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.getElementById('navLinks');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
 
-        document.addEventListener('click', (event) => {
-            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Smooth scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    navLinks.classList.remove('active');
                 }
             });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section, .support-section').forEach(section => {
-            observer.observe(section);
         });
-
-        // Add staggered animation to service cards
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        // Toggle card expansion
-        function toggleCard(card) {
-            const isExpanded = card.classList.contains('expanded');
-
-            // Collapse all cards
-            document.querySelectorAll('.service-card').forEach(c => {
-                c.classList.remove('expanded');
-            });
-
-            // If this card wasn't expanded, expand it
-            if (!isExpanded) {
-                card.classList.add('expanded');
-            }
-        }
     </script>
 </body>
 </html>
