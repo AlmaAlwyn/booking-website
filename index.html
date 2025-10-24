@@ -487,9 +487,8 @@
 
         .support-section {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 140, 0, 0.1) 100%);
-            padding: 5rem 3rem;
-            margin: 5rem auto;
-            max-width: 1600px;
+            padding: 0;
+            margin: 0;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -497,10 +496,16 @@
             box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4), inset 0 0 40px rgba(255, 215, 0, 0.1);
             position: relative;
             overflow: hidden;
+        }
+
+        .support-section-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 4rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
         }
 
         .support-section::before {
@@ -530,27 +535,33 @@
             transform: translateY(0);
         }
 
+        .support-section-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
         .support-section h3 {
             font-size: 2.75rem;
             font-style: normal;
             color: #FFD700;
-            margin-bottom: 0;
+            margin: 0;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
             text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4);
             position: relative;
-            z-index: 1;
             text-align: left;
-            flex: 1;
         }
 
         .cta-buttons-container {
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             justify-content: center;
-            align-items: flex-end;
-            flex: 1;
+            align-items: center;
             z-index: 1;
         }
 
@@ -812,18 +823,24 @@
             }
 
             .support-section {
-                padding: 3rem 2rem;
-                margin: 3rem 0;
+                padding: 0;
+                margin: 0;
                 box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25), inset 0 0 20px rgba(255, 215, 0, 0.08);
+            }
+
+            .support-section-inner {
                 flex-direction: column;
                 gap: 2rem;
-                align-items: center;
-                text-align: center;
+                padding: 3rem 2rem;
+            }
+
+            .support-section-content {
+                justify-content: center;
             }
 
             .support-section h3 {
                 font-size: 1.75rem;
-                margin-bottom: 0;
+                margin: 0;
                 text-align: center;
             }
 
@@ -1015,10 +1032,14 @@
     </section>
 
     <section class="support-section" id="support">
-        <h3>Rooted. I'm here and now.</h3>
-        <div class="cta-buttons-container">
-            <a href="rapport.html" class="cta-consultation">Book Your Consultation</a>
-            <a href="sponsor.html" class="cta-corporate">Corporate Sessions</a>
+        <div class="support-section-inner">
+            <div class="support-section-content">
+                <h3>Rooted. I'm here and now.</h3>
+            </div>
+            <div class="cta-buttons-container">
+                <a href="rapport.html" class="cta-consultation">Book Your Consultation</a>
+                <a href="sponsor.html" class="cta-corporate">Corporate Sessions</a>
+            </div>
         </div>
     </section>
 
