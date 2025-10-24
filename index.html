@@ -538,6 +538,14 @@
             z-index: 1;
         }
 
+        .cta-buttons-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
         .cta-consultation {
             display: inline-block;
             padding: 1.5rem 4rem;
@@ -559,7 +567,6 @@
             letter-spacing: 1px;
         }
 
-
         .cta-consultation:hover {
             transform: translateY(-8px) scale(1.08);
             box-shadow: 0 20px 60px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 215, 0, 0.8);
@@ -567,6 +574,39 @@
         }
 
         .cta-consultation:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .cta-corporate {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            color: #FFD700;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.6rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2);
+            border: 2px solid #FFD700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-corporate:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1A1A2E;
+            border-color: #FFA500;
+        }
+
+        .cta-corporate:active {
             transform: translateY(-2px) scale(1.02);
         }
 
@@ -776,7 +816,19 @@
                 margin-bottom: 1.5rem;
             }
 
+            .cta-buttons-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
             .cta-consultation {
+                padding: 0.9rem 2rem;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .cta-corporate {
                 padding: 0.9rem 2rem;
                 font-size: 1.1rem;
                 width: 100%;
@@ -952,8 +1004,9 @@
 
     <section class="support-section" id="support">
         <h3>Rooted. I'm here and now.</h3>
-        <div>
+        <div class="cta-buttons-container">
             <a href="rapport.html" class="cta-consultation">Book Your Consultation</a>
+            <a href="sponsor.html" class="cta-corporate">Corporate Sessions</a>
         </div>
     </section>
 
