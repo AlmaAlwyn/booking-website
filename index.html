@@ -1058,7 +1058,15 @@
             }
 
             .service-card.expanded {
-                transform: scale(1.02);
+                transform: translateY(0);
+                z-index: auto;
+                position: static;
+            }
+
+            .services-grid.has-expanded .service-card:not(.expanded) {
+                opacity: 1;
+                transform: scale(1);
+                filter: none;
             }
 
             .service-card {
