@@ -111,10 +111,16 @@
         nav .logo img {
             height: 5rem;
             width: 30rem;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+            transition: all 0.3s ease;
         }
 
         nav .logo:hover {
             transform: scale(1.05);
+        }
+
+        nav .logo:hover img {
+            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7));
         }
 
         .hamburger {
@@ -160,15 +166,15 @@
         }
 
         .hamburger:hover {
-            background: rgba(255, 215, 0, 0.12);
-            border-color: rgba(255, 215, 0, 0.6);
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.5);
         }
 
         .hamburger:hover span {
             background: linear-gradient(90deg, #FFA500 0%, #FFD700 100%);
-            box-shadow: 0 2px 12px rgba(255, 215, 0, 0.7);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.7);
         }
 
         .hamburger:hover span:nth-child(1) {
@@ -291,8 +297,19 @@
             overflow: hidden;
             max-width: 1600px;
             margin: 1.5rem auto 0;
-            border: 2px solid #D4AF37;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), inset 0 0 30px rgba(212, 175, 55, 0.2);
+            border: 3px solid #D4AF37;
+            border-radius: 20px;
+            box-shadow: 0 0 60px rgba(212, 175, 55, 1), 0 0 90px rgba(212, 175, 55, 0.6), inset 0 0 50px rgba(212, 175, 55, 0.3);
+            animation: borderPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% {
+                box-shadow: 0 0 60px rgba(212, 175, 55, 1), 0 0 90px rgba(212, 175, 55, 0.6), inset 0 0 50px rgba(212, 175, 55, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 80px rgba(212, 175, 55, 1), 0 0 120px rgba(212, 175, 55, 0.8), inset 0 0 70px rgba(212, 175, 55, 0.4);
+            }
         }
 
         .video-container::before {
@@ -302,8 +319,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
             z-index: 1;
+        }
+
+        .video-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 40%);
+            z-index: 1;
+            pointer-events: none;
         }
 
         .video-container video {
@@ -314,7 +343,7 @@
 
         .overlay {
             position: absolute;
-            top: 50%;
+            top: 48%;
             left: 20%;
             transform: translate(-50%, -50%);
             text-align: left;
@@ -323,6 +352,7 @@
             max-width: 600px;
             z-index: 2;
             animation: fadeInUp 1s ease-out;
+            padding: 2.5rem;
         }
 
         @keyframes fadeInUp {
@@ -340,19 +370,34 @@
             font-family: "Abril Fatface", serif;
             font-weight: 500;
             font-size: 5.5rem;
-            color: #D4AF37;
+            color: #FFD700;
             margin-bottom: 1.5rem;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 2px 4px 8px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.8), 0 0 90px rgba(255, 215, 0, 0.6), 2px 4px 8px rgba(0, 0, 0, 0.7);
             line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+
+        .overlay h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, transparent 100%);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            border-radius: 2px;
         }
 
         .overlay p {
             font-family: "Poppins", sans-serif;
-            color: #D4AF37;
+            color: #FFD700;
             font-size: 1.8rem;
             font-weight: 500;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 1px 2px 6px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 215, 0, 0.6), 1px 2px 6px rgba(0, 0, 0, 0.6);
             line-height: 1.6;
+            margin-top: 2rem;
         }
 
         .cta-button {
@@ -793,7 +838,8 @@
 
             .video-container {
                 height: 70vh;
-                border: none;
+                border: 2px solid #D4AF37;
+                border-radius: 15px;
             }
 
             .overlay {
@@ -970,6 +1016,37 @@
 
             .footer-section .whatsapp-link img:hover {
                 transform: scale(1.1);
+            }
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatUp 8s ease-in infinite;
+            opacity: 0;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(-20px) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(-600px) scale(1.5);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-650px) scale(0);
             }
         }
 
@@ -1155,6 +1232,47 @@
                 card.classList.add('expanded');
             }
         }
+
+        // Floating particles with mouse interaction
+        const videoContainer = document.querySelector('.video-container');
+
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = x + 'px';
+            particle.style.bottom = y + 'px';
+            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            videoContainer.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+
+        // Create particles at bottom of container continuously
+        setInterval(() => {
+            if (videoContainer) {
+                const containerWidth = videoContainer.offsetWidth;
+                const randomX = Math.random() * containerWidth;
+                createParticle(randomX, 0);
+            }
+        }, 300);
+
+        // Interactive particles on mouse move
+        let mouseTimeout;
+        videoContainer?.addEventListener('mousemove', (e) => {
+            clearTimeout(mouseTimeout);
+            mouseTimeout = setTimeout(() => {
+                const rect = videoContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = rect.bottom - e.clientY;
+
+                if (Math.random() > 0.7) {
+                    createParticle(x, y);
+                }
+            }, 50);
+        });
     </script>
 </body>
 </html>
