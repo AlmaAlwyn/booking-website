@@ -567,7 +567,15 @@
         }
 
         .service-card.expanded {
-            grid-column: span 2;
+            transform: scale(1.05);
+            z-index: 10;
+            position: relative;
+        }
+
+        .services-grid.has-expanded .service-card:not(.expanded) {
+            opacity: 0.3;
+            transform: scale(0.95);
+            filter: blur(2px);
         }
 
         .service-card.expanded .card-details {
@@ -1050,7 +1058,7 @@
             }
 
             .service-card.expanded {
-                grid-column: span 1;
+                transform: scale(1.02);
             }
 
             .service-card {
@@ -1477,6 +1485,7 @@
         // Toggle card expansion
         function toggleCard(card) {
             const isExpanded = card.classList.contains('expanded');
+            const servicesGrid = document.querySelector('.services-grid');
 
             // Collapse all cards
             document.querySelectorAll('.service-card').forEach(c => {
@@ -1486,6 +1495,9 @@
             // If this card wasn't expanded, expand it
             if (!isExpanded) {
                 card.classList.add('expanded');
+                servicesGrid.classList.add('has-expanded');
+            } else {
+                servicesGrid.classList.remove('has-expanded');
             }
         }
 
