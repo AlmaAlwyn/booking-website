@@ -109,13 +109,44 @@
         nav .logo {
             transition: transform 0.3s ease;
             text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        nav .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav .logo-title {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #D4AF37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(243, 214, 120, 0.6);
+            letter-spacing: 1px;
+            margin-bottom: 0.2rem;
         }
 
         nav .logo img {
-            height: 5rem;
-            width: 30rem;
-            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+            height: 4rem;
+            width: 4rem;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
             transition: all 0.3s ease;
+        }
+
+        nav .logo-subtitle {
+            font-family: "Poppins", sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #B68A23;
+            text-shadow: 0 0 15px rgba(182, 138, 35, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
         }
 
         nav .logo:hover {
@@ -123,7 +154,15 @@
         }
 
         nav .logo:hover img {
-            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7));
+            filter: drop-shadow(0 0 25px rgba(243, 214, 120, 0.8));
+        }
+
+        nav .logo:hover .logo-title {
+            text-shadow: 0 0 30px rgba(212, 175, 55, 1), 0 0 45px rgba(243, 214, 120, 0.8);
+        }
+
+        nav .logo:hover .logo-subtitle {
+            text-shadow: 0 0 25px rgba(182, 138, 35, 1);
         }
 
         .hamburger {
@@ -788,9 +827,17 @@
                 padding: 0.9375rem 1.25rem;
             }
 
+            nav .logo-title {
+                font-size: 0.9rem;
+            }
+
             nav .logo img {
-                height: 3.1875rem;
-                width: auto;
+                height: 3rem;
+                width: 3rem;
+            }
+
+            nav .logo-subtitle {
+                font-size: 0.55rem;
             }
 
             .hamburger {
@@ -1044,7 +1091,11 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo"><img src="Uploads/logo.jpg" alt="Logo"></a>
+            <a href="index.html" class="logo">
+                <span class="logo-title">Tree of Abundance</span>
+                <img src="uploads/tree-logo.png" alt="Tree of Abundance Logo">
+                <span class="logo-subtitle">Counselling & Therapy</span>
+            </a>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
