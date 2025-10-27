@@ -864,21 +864,38 @@
             transform: translateY(-2px) scale(1.02);
         }
 
-        .footer-channel-link {
-            color: #25D366 !important;
+        .footer-channel-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: #FFFFFF;
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.625rem;
-            font-size: 1.25rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            margin-top: 1rem;
+            border: 2px solid rgba(37, 211, 102, 0.3);
         }
 
-        .footer-channel-link:hover {
-            color: #128C7E !important;
-            text-shadow: 0 0 8px rgba(37, 211, 102, 0.6), 0 0 12px rgba(37, 211, 102, 0.4);
-            transform: translateX(3px);
+        .footer-channel-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.7);
+            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+            border-color: rgba(37, 211, 102, 0.6);
+        }
+
+        .footer-channel-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .channel-icon {
+            font-size: 1.3rem;
+            display: inline-block;
         }
 
         .footer {
@@ -1218,8 +1235,16 @@
                 background-color: #38a3a5;
             }
 
-            .footer-channel-link {
+            .footer-channel-button {
+                padding: 0.8rem 1.5rem;
                 font-size: 1rem;
+                width: 90%;
+                max-width: 250px;
+                justify-content: center;
+            }
+
+            .channel-icon {
+                font-size: 1.1rem;
             }
 
             .footer {
@@ -1464,6 +1489,10 @@
     <footer class="footer">
         <div class="footer-section">
             <a href="https://wa.me/914448548889" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
+            <a href="https://whatsapp.com/channel/0029VbBtLmO7oQhcQTBO7538" target="_blank" rel="noopener noreferrer" class="footer-channel-button">
+                <span class="channel-icon">📢</span>
+                <span>Follow Channel</span>
+            </a>
         </div>
         <div class="footer-section">
             <p class="name">Tinesh Kumar</p>
@@ -1473,7 +1502,6 @@
             <a href="faqs.html">FAQs</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
-            <a href="https://whatsapp.com/channel/0029VbBtLmO7oQhcQTBO7538" target="_blank" rel="noopener noreferrer" class="footer-channel-link">WhatsApp Channel</a>
         </div>
     </footer>
 
