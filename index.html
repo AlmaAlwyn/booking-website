@@ -1052,9 +1052,13 @@
             }
 
             .services-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 1.5rem;
                 margin-top: 2rem;
+            }
+
+            .services-grid .service-card:last-child {
+                grid-column: auto;
             }
 
             .service-card.expanded {
