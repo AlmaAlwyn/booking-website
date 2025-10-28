@@ -360,48 +360,151 @@
             font-family: "Poppins", sans-serif;
         }
 
+        /* Consultation Form - Side Icon Design */
         .form-head {
             text-align: center;
             color: #F3D678;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-top: 3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #F5E6D3;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-style: italic;
         }
 
         .form-container {
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
-            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(243, 214, 120, 0.3);
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.98) 50%, rgba(30, 42, 31, 0.95) 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(243, 214, 120, 0.3);
             border: 2px solid rgba(243, 214, 120, 0.4);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #F3D678, #D4AF37, #F3D678, #D4AF37);
+            border-radius: 24px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.6s ease;
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .form-container:hover::before {
+            opacity: 0.15;
+        }
+
+        .form-field {
+            position: relative;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInUp 0.6s ease backwards;
+        }
+
+        .form-field:nth-child(1) { animation-delay: 0.1s; }
+        .form-field:nth-child(2) { animation-delay: 0.2s; }
+        .form-field:nth-child(3) { animation-delay: 0.3s; }
+        .form-field:nth-child(4) { animation-delay: 0.4s; }
+        .form-field:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .field-icon {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(243, 214, 120, 0.15) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 12px;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .form-field:hover .field-icon,
+        .form-field:focus-within .field-icon {
+            background: linear-gradient(135deg, rgba(243, 214, 120, 0.25) 0%, rgba(212, 175, 55, 0.2) 100%);
+            border-color: rgba(243, 214, 120, 0.6);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 20px rgba(243, 214, 120, 0.4);
+        }
+
+        .field-wrapper {
+            flex: 1;
+            position: relative;
         }
 
         .form-container label {
             display: block;
-            font-size: 1.125rem;
+            font-size: 0.95rem;
             margin-bottom: 0.5rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 500;
+            font-weight: 600;
             color: #F3D678;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
         }
 
         .form-container input,
         .form-container select,
         .form-container textarea {
             width: 100%;
-            padding: 0.875rem;
-            margin: 0.5rem 0 1.5rem 0;
-            border: 2px solid rgba(243, 214, 120, 0.3);
-            border-radius: 10px;
-            font-size: 1rem;
+            padding: 1rem 1.25rem;
+            border: 2px solid rgba(243, 214, 120, 0.25);
+            border-radius: 12px;
+            font-size: 1.05rem;
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             background: rgba(10, 20, 16, 0.5);
             color: #F5E6D3;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .form-container input:hover,
+        .form-container select:hover,
+        .form-container textarea:hover {
+            border-color: rgba(243, 214, 120, 0.4);
+            background: rgba(10, 20, 16, 0.6);
         }
 
         .form-container input:focus,
@@ -409,40 +512,72 @@
         .form-container textarea:focus {
             outline: none;
             border-color: #F3D678;
-            box-shadow: 0 0 15px rgba(243, 214, 120, 0.3);
             background: rgba(10, 20, 16, 0.7);
+            box-shadow: 0 0 0 4px rgba(243, 214, 120, 0.1), 0 8px 24px rgba(243, 214, 120, 0.2);
+            transform: translateY(-2px);
         }
 
         .form-container textarea {
-            height: 120px;
+            min-height: 140px;
             resize: vertical;
+        }
+
+        .form-container select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23F3D678' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 3rem;
         }
 
         .form-container button {
             width: 100%;
-            padding: 1rem 2rem;
+            padding: 1.3rem 2.5rem;
             background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
-            color: #1A1A2E;
+            color: #0a1410;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-size: 1.25rem;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.3rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.3), 0 0 20px rgba(243, 214, 120, 0.2);
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.4), 0 0 20px rgba(243, 214, 120, 0.3);
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease 0.6s backwards;
+        }
+
+        .form-container button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .form-container button:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
         .form-container button:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 20px 60px rgba(243, 214, 120, 0.5), 0 0 40px rgba(243, 214, 120, 0.3);
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(243, 214, 120, 0.6), 0 0 50px rgba(243, 214, 120, 0.4);
             background: linear-gradient(135deg, #D4AF37 0%, #B68A23 100%);
         }
 
         .form-container button:active {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-3px) scale(1);
         }
 
         .footer {
@@ -738,28 +873,54 @@
             }
 
             .form-head {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
                 margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .form-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
             }
 
             .form-container {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
+            }
+
+            .form-field {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .field-icon {
+                width: 100%;
+                height: 2.5rem;
+                font-size: 1.3rem;
+            }
+
+            .form-field:hover .field-icon,
+            .form-field:focus-within .field-icon {
+                transform: scale(1.02) rotate(0deg);
             }
 
             .form-container label {
-                font-size: 1rem;
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
             }
 
             .form-container input,
             .form-container select,
             .form-container textarea {
-                font-size: 0.9rem;
-                padding: 0.75rem;
+                font-size: 1rem;
+                padding: 0.9rem 1rem;
             }
 
             .form-container button {
-                font-size: 1rem;
-                padding: 0.875rem 1.5rem;
+                font-size: 1.1rem;
+                padding: 1.1rem 2rem;
+                margin-top: 1rem;
             }
 
             .footer {
@@ -936,25 +1097,51 @@
         </div>
 
         <h3 class="form-head">Schedule Your Free Consultation</h3>
+        <p class="form-subtitle">Begin your healing journey - We're here to support you</p>
         <div class="form-container">
             <form id="consultationForm">
-                <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" required>
+                <div class="form-field">
+                    <div class="field-icon">👤</div>
+                    <div class="field-wrapper">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                </div>
 
-                <label for="mobileNumber">Mobile Number:</label>
-                <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                <div class="form-field">
+                    <div class="field-icon">📱</div>
+                    <div class="field-wrapper">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                    </div>
+                </div>
 
-                <label for="preferredContact">Preferred Contact:</label>
-                <select id="preferredContact" name="preferredContact" required>
-                    <option value="Phone">Phone</option>
-                    <option value="Whatsapp">Whatsapp</option>
-                </select>
+                <div class="form-field">
+                    <div class="field-icon">💬</div>
+                    <div class="field-wrapper">
+                        <label for="preferredContact">Preferred Contact</label>
+                        <select id="preferredContact" name="preferredContact" required>
+                            <option value="Phone">Phone</option>
+                            <option value="Whatsapp">Whatsapp</option>
+                        </select>
+                    </div>
+                </div>
 
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" min="0">
+                <div class="form-field">
+                    <div class="field-icon">🎂</div>
+                    <div class="field-wrapper">
+                        <label for="age">Age (Optional)</label>
+                        <input type="number" id="age" name="age" min="0">
+                    </div>
+                </div>
 
-                <label for="message">How may I help you?</label>
-                <textarea id="message" name="message" required rows="4"></textarea>
+                <div class="form-field">
+                    <div class="field-icon">✍️</div>
+                    <div class="field-wrapper">
+                        <label for="message">How may I help you?</label>
+                        <textarea id="message" name="message" required rows="4"></textarea>
+                    </div>
+                </div>
 
                 <button type="submit">ROOTED</button>
             </form>

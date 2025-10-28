@@ -347,32 +347,105 @@
             color: #F5E6D3;
         }
 
-        .section li {
-            list-style-type: circle;
-            font-size: 1.25rem;
-            font-weight: 300;
-            color: #F5E6D3;
-            margin-left: 2rem;
-            margin-bottom: 0.75rem;
+        /* Sponsorship Benefits Accordion */
+        .benefits-accordion {
+            max-width: 1000px;
+            margin: 3rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .section li a {
-            color: #F3D678;
-            text-decoration: none;
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 50%, rgba(30, 42, 31, 0.95) 100%);
+            border-left: 4px solid #F3D678;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(243, 214, 120, 0.2);
             transition: all 0.3s ease;
-            font-weight: 500;
         }
 
-        .section li a:hover {
-            color: #D4AF37;
-            text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
+        .benefit-card:hover {
+            box-shadow: 0 6px 24px rgba(243, 214, 120, 0.3), 0 0 0 1px rgba(243, 214, 120, 0.4);
+            transform: translateX(5px);
         }
 
+        .benefit-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.75rem 2rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-header:hover {
+            background: rgba(243, 214, 120, 0.08);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 10px rgba(243, 214, 120, 0.4));
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(243, 214, 120, 0.6));
+        }
+
+        .benefit-title {
+            flex: 1;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #F3D678;
+            line-height: 1.4;
+        }
+
+        .benefit-toggle {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: #F3D678;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .benefit-card.active .benefit-toggle {
+            transform: rotate(45deg);
+        }
+
+        .benefit-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 2rem;
+        }
+
+        .benefit-card.active .benefit-content {
+            max-height: 500px;
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        .benefit-description {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.125rem;
+            color: #F5E6D3;
+            line-height: 1.8;
+        }
+
+        /* Glass-morphism Form Design */
         .form-head {
             text-align: center;
             font-size: 2.5rem;
             color: #F3D678;
-            margin-top: 3rem;
+            margin-top: 4rem;
             margin-bottom: 2rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
@@ -381,58 +454,114 @@
         .form-container {
             max-width: 700px;
             margin: 0 auto 3rem auto;
-            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(243, 214, 120, 0.3);
-            text-align: center;
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.7) 0%, rgba(26, 40, 30, 0.8) 50%, rgba(30, 42, 31, 0.7) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(243, 214, 120, 0.3);
             border: 2px solid rgba(243, 214, 120, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
-        .form-container label {
-            display: block;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            color: #F3D678;
-            text-align: left;
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(243, 214, 120, 0.1) 0%, transparent 70%);
+            animation: shimmer 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(-20%, -20%) scale(1.1); opacity: 0.8; }
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 2rem;
         }
 
         .form-container input,
-        .form-container select,
         .form-container textarea {
             width: 100%;
-            padding: 0.9rem;
-            margin: 0.5rem 0 1.25rem 0;
+            padding: 1.2rem 1rem 0.6rem 1rem;
             border: 2px solid rgba(243, 214, 120, 0.3);
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
             font-family: "Poppins", sans-serif;
             font-weight: 400;
-            background: rgba(10, 20, 16, 0.6);
+            background: rgba(10, 20, 16, 0.4);
             color: #F5E6D3;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-container label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 1.1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: rgba(243, 214, 120, 0.7);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 2;
         }
 
         .form-container input:focus,
-        .form-container select:focus,
         .form-container textarea:focus {
             outline: none;
             border-color: #F3D678;
-            box-shadow: 0 0 15px rgba(243, 214, 120, 0.4);
-            background: rgba(10, 20, 16, 0.8);
+            background: rgba(10, 20, 16, 0.6);
+            box-shadow: 0 0 0 4px rgba(243, 214, 120, 0.1), 0 0 30px rgba(243, 214, 120, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .form-container input:focus + label,
+        .form-container input:not(:placeholder-shown) + label,
+        .form-container textarea:focus + label,
+        .form-container textarea:not(:placeholder-shown) + label {
+            top: 0.3rem;
+            font-size: 0.75rem;
+            color: #F3D678;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(243, 214, 120, 0.5);
         }
 
         .form-container textarea {
-            height: 120px;
+            min-height: 140px;
             resize: vertical;
+            padding-top: 1.5rem;
+        }
+
+        .form-note {
+            font-size: 0.95rem;
+            color: #E8D5C4;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            font-style: italic;
+            text-align: center;
+            padding: 1rem;
+            background: rgba(243, 214, 120, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(243, 214, 120, 0.2);
         }
 
         .form-container button {
-            padding: 1.2rem 3rem;
+            width: 100%;
+            padding: 1.3rem 3rem;
             background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
-            color: #1A1A2E;
+            color: #0a1410;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -440,32 +569,44 @@
             font-family: "Poppins", sans-serif;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.3), 0 0 20px rgba(243, 214, 120, 0.2);
+            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.4), 0 0 20px rgba(243, 214, 120, 0.3);
             margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .form-container button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .form-container button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .form-container button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(243, 214, 120, 0.5), 0 0 40px rgba(243, 214, 120, 0.3);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(243, 214, 120, 0.6), 0 0 40px rgba(243, 214, 120, 0.4);
             background: linear-gradient(135deg, #D4AF37 0%, #B68A23 100%);
         }
 
         .form-container button:active {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-2px) scale(1);
         }
 
-        .form-container p {
-            font-size: 0.95rem;
-            color: #E8D5C4;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-top: 1rem;
-            font-style: italic;
-        }
-
+        /* Payment Cards Grid */
         .payment-section {
             max-width: 1600px;
             margin: 4rem auto 3rem auto;
@@ -475,52 +616,129 @@
         .payment-section h2 {
             font-size: 3rem;
             color: #F3D678;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
             text-align: center;
             text-shadow: none;
         }
 
-        .payment-section ul {
+        .payment-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #F5E6D3;
+            margin-bottom: 3rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .payment-subtitle::before {
+            content: '🔒';
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(243, 214, 120, 0.4));
+        }
+
+        .payment-grid {
             max-width: 900px;
             margin: 0 auto;
-            background: linear-gradient(135deg, rgba(21, 30, 26, 0.8) 0%, rgba(26, 40, 30, 0.85) 50%, rgba(30, 42, 31, 0.8) 100%);
-            padding: 2.5rem 3rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .payment-card {
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
             border: 2px solid rgba(243, 214, 120, 0.3);
-        }
-
-        .payment-section li {
-            list-style-type: none;
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: #F5E6D3;
-            margin-bottom: 1.5rem;
-            padding: 1.25rem;
-            background: rgba(243, 214, 120, 0.05);
-            border-radius: 12px;
-            border-left: 4px solid #F3D678;
-            transition: all 0.3s ease;
-        }
-
-        .payment-section li:hover {
-            background: rgba(243, 214, 120, 0.1);
-            transform: translateX(8px);
-            box-shadow: 0 4px 15px rgba(243, 214, 120, 0.2);
-        }
-
-        .payment-section li a {
-            color: #F3D678;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            display: block;
         }
 
-        .payment-section li a:hover {
-            color: #D4AF37;
-            text-shadow: 0 0 10px rgba(243, 214, 120, 0.6);
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(243, 214, 120, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .payment-card:hover::before {
+            opacity: 1;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: rgba(243, 214, 120, 0.8);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(243, 214, 120, 0.4);
+        }
+
+        .payment-icon {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 15px rgba(243, 214, 120, 0.4));
+            transition: all 0.4s ease;
+        }
+
+        .payment-card:hover .payment-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 30px rgba(243, 214, 120, 0.7));
+        }
+
+        .payment-title {
+            font-size: 1.5rem;
+            color: #F3D678;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .payment-description {
+            font-size: 1rem;
+            color: #F5E6D3;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        .payment-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            color: #0a1410;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(243, 214, 120, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .footer {
@@ -676,9 +894,40 @@
                 font-size: 1rem;
             }
 
-            .section li {
+            .benefits-accordion {
+                margin: 2rem auto;
+                gap: 1rem;
+            }
+
+            .benefit-header {
+                padding: 1.25rem 1rem;
+                gap: 1rem;
+            }
+
+            .benefit-icon {
+                font-size: 2rem;
+            }
+
+            .benefit-title {
+                font-size: 1.2rem;
+            }
+
+            .benefit-toggle {
+                width: 1.5rem;
+                height: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+            .benefit-content {
+                padding: 0 1rem;
+            }
+
+            .benefit-card.active .benefit-content {
+                padding: 0 1rem 1.5rem 1rem;
+            }
+
+            .benefit-description {
                 font-size: 1rem;
-                margin-left: 1.5rem;
             }
 
             .form-head {
@@ -688,28 +937,33 @@
             }
 
             .form-container {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
                 margin: 0 auto 2rem auto;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .form-container input,
+            .form-container textarea {
+                font-size: 1rem;
+                padding: 1.1rem 0.9rem 0.5rem 0.9rem;
             }
 
             .form-container label {
                 font-size: 1rem;
-            }
-
-            .form-container input,
-            .form-container select,
-            .form-container textarea {
-                font-size: 0.95rem;
-                padding: 0.75rem;
+                left: 0.9rem;
             }
 
             .form-container button {
                 font-size: 1.1rem;
-                padding: 1rem 2rem;
+                padding: 1.1rem 2rem;
             }
 
-            .form-container p {
+            .form-note {
                 font-size: 0.85rem;
+                padding: 0.75rem;
             }
 
             .payment-section {
@@ -719,17 +973,39 @@
 
             .payment-section h2 {
                 font-size: 2rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 0.75rem;
             }
 
-            .payment-section ul {
-                padding: 1.5rem 1.25rem;
-            }
-
-            .payment-section li {
+            .payment-subtitle {
                 font-size: 1rem;
-                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .payment-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .payment-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .payment-icon {
+                font-size: 3rem;
                 margin-bottom: 1rem;
+            }
+
+            .payment-title {
+                font-size: 1.3rem;
+            }
+
+            .payment-description {
+                font-size: 0.95rem;
+            }
+
+            .payment-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.7rem;
             }
 
             .footer {
@@ -815,41 +1091,123 @@
     <section class="section" id="sponsor">
         <h2>Become a Sponsor - Empower someone's rooting journey through your generosity.</h2>
         <p>Need Sponsor is a generous initiative that empowers healing.</p>
-        <h3>Sponsorship Process:</h3>
-         <p><ul><li>Your privacy - Remain anonymous or be recognized</li>
-            <li>Your purpose - Transfer funds as you choose</li>
-            <li>Your impact - Confidential updates on lives empowered</li></ul></p>
 
+        <h3 style="text-align: center; margin-top: 3rem;">Sponsorship Process:</h3>
+
+        <!-- Interactive Accordion for Benefits -->
+        <div class="benefits-accordion">
+            <!-- Benefit 1: Your Privacy -->
+            <div class="benefit-card">
+                <div class="benefit-header" onclick="toggleBenefit(this)">
+                    <div class="benefit-icon">🔐</div>
+                    <div class="benefit-title">Your Privacy</div>
+                    <div class="benefit-toggle">+</div>
+                </div>
+                <div class="benefit-content">
+                    <div class="benefit-description">
+                        <p>Choose complete anonymity or be recognized for your contribution. Your identity is protected throughout the sponsorship process. Whether you prefer to remain a silent guardian or receive acknowledgment for your generosity, the choice is entirely yours. We honor your privacy preferences with the highest level of confidentiality and respect.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefit 2: Your Purpose -->
+            <div class="benefit-card">
+                <div class="benefit-header" onclick="toggleBenefit(this)">
+                    <div class="benefit-icon">💫</div>
+                    <div class="benefit-title">Your Purpose</div>
+                    <div class="benefit-toggle">+</div>
+                </div>
+                <div class="benefit-content">
+                    <div class="benefit-description">
+                        <p>Transfer funds using your preferred method with complete flexibility and control. Support one individual or multiple people in need. Choose to sponsor specific types of therapy or general counseling services. Your contribution is handled with transparency, and you decide how your generosity creates meaningful change in someone's healing journey.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefit 3: Your Impact -->
+            <div class="benefit-card">
+                <div class="benefit-header" onclick="toggleBenefit(this)">
+                    <div class="benefit-icon">🌟</div>
+                    <div class="benefit-title">Your Impact</div>
+                    <div class="benefit-toggle">+</div>
+                </div>
+                <div class="benefit-content">
+                    <div class="benefit-description">
+                        <p>Receive confidential updates on the lives you've empowered without compromising anyone's privacy. Learn about the transformative journeys made possible by your generosity. See how your contribution creates ripples of healing and hope. Track the meaningful difference you're making in building a community where mental health support is accessible to everyone who needs it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Glass-morphism Form with Floating Labels -->
         <h3 class="form-head">Sponsor Form</h3>
         <div class="form-container">
             <form id="sponsorForm">
-                <label for="fullName">Full Name: [Optional for anonymity]</label>
-                <input type="text" id="fullName" name="fullName">
+                <div class="form-group">
+                    <input type="text" id="fullName" name="fullName" placeholder=" ">
+                    <label for="fullName">Full Name (Optional for anonymity)</label>
+                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Email Address *</label>
+                </div>
 
-                <label for="amount">Amount:</label>
-                <input type="number" id="amount" name="amount" min="0" required>
+                <div class="form-group">
+                    <input type="number" id="amount" name="amount" min="0" placeholder=" " required>
+                    <label for="amount">Sponsorship Amount *</label>
+                </div>
 
-                <label for="purpose">Purpose</label>
-                <textarea id="purpose" name="purpose" required rows="4"></textarea>
+                <div class="form-group">
+                    <textarea id="purpose" name="purpose" placeholder=" " required rows="4"></textarea>
+                    <label for="purpose">Purpose of Your Sponsorship *</label>
+                </div>
 
-              <p>By sponsoring, you'll receive our confidential newsletter with impact updates and program developments.</p>
+                <p class="form-note">By sponsoring, you'll receive our confidential newsletter with impact updates and program developments.</p>
 
                 <button type="submit">ROOTED</button>
             </form>
         </div>
     </section>
 
+    <!-- Modern Payment Cards Grid -->
     <section class="payment-section">
-        <h2>Secure Payment:</h2>
-        <ul>
-            <li>India: <a href="https://example.com/upi-payment">UPI Payment Link</a></li>
-            <li>International: <a href="https://example.com/wise-transfer">Wise Transfer Link</a></li>
-            <li>Global: <a href="https://example.com/card-payment">Credit/Debit Card Payment</a></li>
-            <li>Other: <a href="https://example.com/paypal">PayPal Link</a></li>
-        </ul>
+        <h2>Secure Payment</h2>
+        <p class="payment-subtitle">Encrypted & Safe - Your trust is our priority</p>
+
+        <div class="payment-grid">
+            <!-- India UPI Payment -->
+            <a href="https://example.com/upi-payment" class="payment-card">
+                <span class="payment-badge">Secure</span>
+                <div class="payment-icon">🇮🇳</div>
+                <div class="payment-title">India UPI</div>
+                <div class="payment-description">Fast & secure payments through UPI for Indian sponsors</div>
+            </a>
+
+            <!-- International Wise Transfer -->
+            <a href="https://example.com/wise-transfer" class="payment-card">
+                <span class="payment-badge">Secure</span>
+                <div class="payment-icon">🌍</div>
+                <div class="payment-title">International Wire</div>
+                <div class="payment-description">Global transfers via Wise with low fees</div>
+            </a>
+
+            <!-- Credit/Debit Card -->
+            <a href="https://example.com/card-payment" class="payment-card">
+                <span class="payment-badge">Secure</span>
+                <div class="payment-icon">💳</div>
+                <div class="payment-title">Card Payment</div>
+                <div class="payment-description">Credit or debit card payments accepted worldwide</div>
+            </a>
+
+            <!-- PayPal -->
+            <a href="https://example.com/paypal" class="payment-card">
+                <span class="payment-badge">Secure</span>
+                <div class="payment-icon">💰</div>
+                <div class="payment-title">PayPal</div>
+                <div class="payment-description">Safe & convenient PayPal transactions</div>
+            </a>
+        </div>
     </section>
 
     <footer class="footer">
@@ -900,16 +1258,33 @@
             observer.observe(section);
         });
 
+        // Benefits Accordion functionality
+        function toggleBenefit(headerElement) {
+            const card = headerElement.parentElement;
+            const isActive = card.classList.contains('active');
+
+            // Close all other benefit cards
+            document.querySelectorAll('.benefit-card').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked card
+            card.classList.toggle('active');
+        }
+
+        // Sponsor Form Submission
         const form = document.getElementById('sponsorForm');
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const fullName = document.getElementById('fullName').value || 'Not provided';
+            const fullName = document.getElementById('fullName').value || 'Anonymous Sponsor';
             const email = document.getElementById('email').value;
             const amount = document.getElementById('amount').value;
-            const purpose = document.getElementById('purpose').value || 'Not provided';
+            const purpose = document.getElementById('purpose').value;
 
-            const whatsappMessage = `Sponsor Name: ${fullName}\nEmail: ${email}\nAmount: ${amount}\nPurpose: ${purpose}`;
+            const whatsappMessage = `New Sponsorship Request\n\nSponsor Name: ${fullName}\nEmail: ${email}\nAmount: ${amount}\nPurpose: ${purpose}`;
 
             const whatsappUrl = `https://wa.me/+914448548889?text=${encodeURIComponent(whatsappMessage)}`;
 
