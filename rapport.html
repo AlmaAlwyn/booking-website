@@ -531,6 +531,142 @@
             filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
         }
 
+        /* Consultation Info Box */
+        .consultation-info-box {
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.95) 0%, rgba(26, 40, 30, 0.98) 50%, rgba(30, 42, 31, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0 3rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(243, 214, 120, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consultation-info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(243, 214, 120, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .consultation-info-box h3 {
+            margin-top: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .consultation-info-box p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Timeline Section Header */
+        .timeline-section {
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .timeline-section h3 {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-section h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(243, 214, 120, 0.6);
+        }
+
+        .timeline-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0.2rem;
+            height: 200%;
+            background: linear-gradient(180deg, rgba(243, 214, 120, 0.8) 0%, rgba(243, 214, 120, 0.2) 100%);
+            z-index: -1;
+        }
+
+        /* Feature Cards Grid */
+        .feature-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(243, 214, 120, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(243, 214, 120, 0.8);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(243, 214, 120, 0.3);
+        }
+
+        .feature-card-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(243, 214, 120, 0.3));
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-card-icon {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 20px rgba(243, 214, 120, 0.6));
+        }
+
+        .feature-card-text {
+            font-size: 1.2rem;
+            color: #F3D678;
+            text-align: center;
+            line-height: 1.6;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
         @media (max-width: 768px) {
             header {
                 padding: 0.9375rem 1.25rem;
@@ -673,6 +809,47 @@
             .footer-section .whatsapp-link img:hover {
                 transform: scale(1.1);
             }
+
+            /* Mobile styles for feature cards */
+            .feature-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-card-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .feature-card-text {
+                font-size: 1rem;
+            }
+
+            .consultation-info-box {
+                padding: 1.5rem;
+                margin: 1.5rem 0 2rem 0;
+            }
+
+            .timeline-section {
+                margin-top: 3rem;
+            }
+
+            .timeline-section h3 {
+                padding-left: 2.5rem;
+            }
+
+            .timeline-section h3::before {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            .timeline-section h3::after {
+                left: 0.65rem;
+            }
         }
 
         @media (min-width: 769px) {
@@ -708,22 +885,56 @@
 
     <section class="section" id="consultation">
         <h2>Your Rooting Begins with a Consultation</h2>
-        <h3>What is a Consultation?</h3>
-        <p>A consultation is simply a comfortable conversation where we get to know each other. In this 60-minute talk, I'll listen to your concerns and explain how we can work together. Your initial consultation is complimentary.</p>
-        <h3>What we will do:</h3>
-        <ul>
-            <li>Talk about what's bothering you - Share your concerns in a safe space</li>
-            <li>Learn how therapy can help - Simple, clear information</li>
-            <li>Ask all your questions - No question is too small</li>
-            <li>Decide if we're a good fit - Make sure you feel comfortable</li>
-        </ul>
-        <h3>What you will experience:</h3>
-        <ul>
-            <li>Complete privacy and confidentiality</li>
-            <li>No judgement, just understanding</li>
-            <li>No pressure to continue after the consultation</li>
-            <li>No cost for your initial consultation</li>
-        </ul>
+
+        <div class="consultation-info-box">
+            <h3>What is a Consultation?</h3>
+            <p>A consultation is simply a comfortable conversation where we get to know each other. In this 60-minute talk, I'll listen to your concerns and explain how we can work together. Your initial consultation is complimentary.</p>
+        </div>
+
+        <div class="timeline-section">
+            <h3>What we will do:</h3>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">💬</div>
+                    <div class="feature-card-text">Talk about what's bothering you - Share your concerns in a safe space</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🌱</div>
+                    <div class="feature-card-text">Learn how therapy can help - Simple, clear information</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">❓</div>
+                    <div class="feature-card-text">Ask all your questions - No question is too small</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🤝</div>
+                    <div class="feature-card-text">Decide if we're a good fit - Make sure you feel comfortable</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-section">
+            <h3>What you will experience:</h3>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">🔒</div>
+                    <div class="feature-card-text">Complete privacy and confidentiality</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🫶</div>
+                    <div class="feature-card-text">No judgement, just understanding</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">✨</div>
+                    <div class="feature-card-text">No pressure to continue after the consultation</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🎁</div>
+                    <div class="feature-card-text">No cost for your initial consultation</div>
+                </div>
+            </div>
+        </div>
+
         <h3 class="form-head">Schedule Your Free Consultation</h3>
         <div class="form-container">
             <form id="consultationForm">

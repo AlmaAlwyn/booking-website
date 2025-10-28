@@ -329,51 +329,130 @@
             text-shadow: none;
         }
 
-        .section h3 {
+        /* FAQ Accordion Styles */
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .faq-card {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 50%, rgba(30, 42, 31, 0.95) 100%);
+            border-left: 4px solid #F3D678;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(243, 214, 120, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .faq-card:hover {
+            box-shadow: 0 6px 24px rgba(243, 214, 120, 0.3), 0 0 0 1px rgba(243, 214, 120, 0.4);
+            transform: translateX(5px);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.75rem 2rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(243, 214, 120, 0.08);
+        }
+
+        .faq-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 50%;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0a1410;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(243, 214, 120, 0.4);
+        }
+
+        .faq-question-text {
+            flex: 1;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #F3D678;
+            line-height: 1.4;
+        }
+
+        .faq-icon {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.75rem;
             color: #F3D678;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            text-shadow: none;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
-        .section p {
+        .faq-card.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 2rem;
+        }
+
+        .faq-card.active .faq-answer {
+            max-height: 3000px;
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        .faq-answer-content {
+            font-family: "Poppins", sans-serif;
             font-size: 1.125rem;
-            margin-bottom: 1rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
             color: #F5E6D3;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        .section ul {
+        .faq-answer-content p {
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer-content ul {
             margin: 1rem 0 1.5rem 2rem;
         }
 
-        .section li {
+        .faq-answer-content li {
             list-style-type: circle;
             font-size: 1.125rem;
-            font-weight: 400;
             color: #F5E6D3;
-            font-family: "Poppins", sans-serif;
             margin-bottom: 0.5rem;
             line-height: 1.7;
         }
 
         .certificate {
-            max-width: 100%;
+            max-width: 40%;
             height: auto;
-            margin: 2rem auto;
-            display: block;
+            float: right;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(243, 214, 120, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .certificate:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
             box-shadow: 0 12px 32px rgba(243, 214, 120, 0.4), 0 0 0 1px rgba(243, 214, 120, 0.5);
         }
 
@@ -520,17 +599,53 @@
                 margin-bottom: 2rem;
             }
 
-            .section h3 {
-                font-size: 1.4rem;
-                margin-top: 2rem;
+            .faq-container {
+                gap: 1rem;
             }
 
-            .section p {
+            .faq-question {
+                padding: 1.25rem 1rem;
+                gap: 1rem;
+            }
+
+            .faq-number {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.9rem;
+            }
+
+            .faq-question-text {
+                font-size: 1.05rem;
+            }
+
+            .faq-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+            .faq-answer {
+                padding: 0 1rem;
+            }
+
+            .faq-card.active .faq-answer {
+                padding: 0 1rem 1.5rem 1rem;
+            }
+
+            .faq-answer-content {
                 font-size: 1rem;
             }
 
-            .section li {
+            .faq-answer-content li {
                 font-size: 1rem;
+            }
+
+            .certificate {
+                max-width: 100%;
+                float: none;
+                margin-left: 0;
+                margin-bottom: 1rem;
+                display: block;
             }
 
             .footer {
@@ -616,53 +731,143 @@
     <section class="section" id="faqs">
         <h2>Frequently Asked Questions</h2>
 
-        <h3>1. Who will I be speaking with?</h3>
-        <p>I am TINESH KUMAR from Chennai, Tamil Nadu, India. A Mental Health Professional:</p>
-        <ul>
-            <li>M.Sc., Counselling Psychology – University of Madras</li>
-            <li>Certified Therapist in Hypnotherapy/Regression Therapy – The Hypnotherapy School of India</li>
-            <li>Certified in Counseling Suicidal People – QPR for Suicide Prevention.</li>
-        </ul>
-        <img src="Uploads/certificate.jpg" alt="Certificate of Course Completion for Counseling Suicidal People" class="certificate">
+        <div class="faq-container">
+            <!-- FAQ 1 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">1</div>
+                    <div class="faq-question-text">Who will I be speaking with?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <img src="Uploads/certificate.jpg" alt="Certificate of Course Completion for Counseling Suicidal People" class="certificate">
+                        <p>I am TINESH KUMAR from Chennai, Tamil Nadu, India. A Mental Health Professional:</p>
+                        <ul>
+                            <li>M.Sc., Counselling Psychology – University of Madras</li>
+                            <li>Certified Therapist in Hypnotherapy/Regression Therapy – The Hypnotherapy School of India</li>
+                            <li>Certified in Counseling Suicidal People – QPR for Suicide Prevention.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-        <h3>2. What is a session?</h3>
-        <p>A session is a confidential conversation where we focus on what's on your mind. In this 120-minute call, I will listen and we will work towards resolution, healing, and positive change — for me, it's a magical two hours.</p>
+            <!-- FAQ 2 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">2</div>
+                    <div class="faq-question-text">What is a session?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>A session is a confidential conversation where we focus on what's on your mind. In this 120-minute call, I will listen and we will work towards resolution, healing, and positive change — for me, it's a magical two hours.</p>
+                    </div>
+                </div>
+            </div>
 
-        <h3>3. What is counselling?</h3>
-        <p>Counselling is short-term support to help you deal with specific problems or current challenges. It focuses on finding solutions, building coping skills, and helping you feel more in control.</p>
-        <p>Example: If you're struggling after the loss of a loved one, counselling can help you process grief, manage emotions, and cope with daily life.</p>
+            <!-- FAQ 3 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">3</div>
+                    <div class="faq-question-text">What is counselling?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Counselling is short-term support to help you deal with specific problems or current challenges. It focuses on finding solutions, building coping skills, and helping you feel more in control.</p>
+                        <p>Example: If you're struggling after the loss of a loved one, counselling can help you process grief, manage emotions, and cope with daily life.</p>
+                    </div>
+                </div>
+            </div>
 
-        <h3>4. What is therapy?</h3>
-        <p>Therapy is longer-term support that helps you understand deeper issues and patterns in your life. It focuses on healing, personal growth, and lasting change.</p>
-        <p>Example: If you're dealing with the effects of childhood trauma, therapy can help you heal emotional pain and rebuild your sense of self.</p>
+            <!-- FAQ 4 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">4</div>
+                    <div class="faq-question-text">What is therapy?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Therapy is longer-term support that helps you understand deeper issues and patterns in your life. It focuses on healing, personal growth, and lasting change.</p>
+                        <p>Example: If you're dealing with the effects of childhood trauma, therapy can help you heal emotional pain and rebuild your sense of self.</p>
+                    </div>
+                </div>
+            </div>
 
-        <h3>5. Why WhatsApp?</h3>
-        <ul>
-            <li>End-to-end encryption - Your conversations are completely protected</li>
-            <li>No session recordings - Confidentiality maintained</li>
-            <li>Instant support - Quick messages when you need guidance.</li>
-        </ul>
+            <!-- FAQ 5 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">5</div>
+                    <div class="faq-question-text">Why WhatsApp?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <ul>
+                            <li>End-to-end encryption - Your conversations are completely protected</li>
+                            <li>No session recordings - Confidentiality maintained</li>
+                            <li>Instant support - Quick messages when you need guidance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-        <h3>6. How much is the fee?</h3>
-        <p>Counselling - For specific issues and short-term support:</p>
-        <p>India: ₹1,500 (2 hours)</p>
-        <p>International: $20 USD / €15 EUR (2 hours)</p>
-        <p>Therapy - For deeper healing and long-term growth:</p>
-        <p>India: ₹3,000 (2 hours)</p>
-        <p>International: $40 USD / €30 EUR (2 hours).</p>
+            <!-- FAQ 6 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">6</div>
+                    <div class="faq-question-text">How much is the fee?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Counselling - For specific issues and short-term support:</p>
+                        <p>India: ₹1,500 (2 hours)</p>
+                        <p>International: $20 USD / €15 EUR (2 hours)</p>
+                        <p>Therapy - For deeper healing and long-term growth:</p>
+                        <p>India: ₹3,000 (2 hours)</p>
+                        <p>International: $40 USD / €30 EUR (2 hours).</p>
+                    </div>
+                </div>
+            </div>
 
-        <h3>7. What is a Need Sponsor?</h3>
-        <p>A generous initiative that empowers healing. Sponsors help those in need of counselling or therapy.</p>
-        <p>Become a sponsor - Empower someone's healing journey through your generosity.</p>
-        <p>Need support - Receive help now, then empower others when you're ready.</p>
-        <p>This generous cycle transforms need into empowerment, creating a community of healing.</p>
+            <!-- FAQ 7 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">7</div>
+                    <div class="faq-question-text">What is a Need Sponsor?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>A generous initiative that empowers healing. Sponsors help those in need of counselling or therapy.</p>
+                        <p>Become a sponsor - Empower someone's healing journey through your generosity.</p>
+                        <p>Need support - Receive help now, then empower others when you're ready.</p>
+                        <p>This generous cycle transforms need into empowerment, creating a community of healing.</p>
+                    </div>
+                </div>
+            </div>
 
-        <h3>8. How to proceed?</h3>
-        <p>Step 1: After your consultation, message me on WhatsApp to schedule your session.</p>
-        <p>Step 2: Confirm your appointment time and date.</p>
-        <p>Step 3: Choose your payment option - pay in advance or after your session.</p>
-        <p>Advance Payment Benefit: Discounted rates when you commit to regular sessions and pay in advance.</p>
-        <p>Need financial support? Let me know - we'll find a solution together through our Need Sponsor initiative.</p>
+            <!-- FAQ 8 -->
+            <div class="faq-card">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <div class="faq-number">8</div>
+                    <div class="faq-question-text">How to proceed?</div>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Step 1: After your consultation, message me on WhatsApp to schedule your session.</p>
+                        <p>Step 2: Confirm your appointment time and date.</p>
+                        <p>Step 3: Choose your payment option - pay in advance or after your session.</p>
+                        <p>Advance Payment Benefit: Discounted rates when you commit to regular sessions and pay in advance.</p>
+                        <p>Need financial support? Let me know - we'll find a solution together through our Need Sponsor initiative.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer class="footer">
@@ -712,6 +917,22 @@
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
         });
+
+        // FAQ Accordion functionality
+        function toggleFaq(questionElement) {
+            const card = questionElement.parentElement;
+            const isActive = card.classList.contains('active');
+
+            // Close all other FAQ cards
+            document.querySelectorAll('.faq-card').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked card
+            card.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
