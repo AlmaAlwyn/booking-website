@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Abundance Being</title>
+    <title>Privacy Policy - Tree of Abundance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comic+Relief:wght@700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
             margin: 0;
@@ -12,18 +26,32 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f5f9fc;
+            color: #F5E6D3;
+            background:
+                linear-gradient(rgba(10, 20, 16, 0.7), rgba(10, 20, 16, 0.7)),
+                url('uploads/forest-background.jpg') center/cover fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 20, 16, 0.4) 100%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         header {
-            background-color: #f5f9fc;
-            padding: 20px 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: transparent;
+            padding: 1.25rem 2.5rem;
             width: 100%;
             animation: slideDown 0.5s ease-out;
+            position: relative;
             z-index: 1000;
         }
 
@@ -42,195 +70,523 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
         nav .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2b5e8c;
             transition: transform 0.3s ease;
             text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo-text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.2rem;
+        }
+
+        nav .logo-title {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #F3D678;
+            text-shadow: none;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            transition: text-shadow 0.3s ease;
+        }
+
+        nav .logo img {
+            height: 5.5rem;
+            width: 5.5rem;
+            filter: none;
+            transition: all 0.3s ease;
+        }
+
+        nav .logo-subtitle {
+            font-family: "Poppins", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #F3D678;
+            text-shadow: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            transition: text-shadow 0.3s ease;
         }
 
         nav .logo:hover {
             transform: scale(1.05);
         }
 
-        nav ul {
-            list-style: none;
+        nav .logo:hover img {
+            filter: drop-shadow(0 0 25px rgba(243, 214, 120, 0.8));
+        }
+
+        nav .logo:hover .logo-title {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 15px rgba(243, 214, 120, 0.4);
+        }
+
+        nav .logo:hover .logo-subtitle {
+            text-shadow: 0 0 10px rgba(182, 138, 35, 0.5);
+        }
+
+        .hamburger {
             display: flex;
-            gap: 20px;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 2.75rem;
+            height: 2.75rem;
+            cursor: pointer;
+            background: rgba(243, 214, 120, 0.05);
+            border-radius: 12px;
+            padding: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1.5px solid rgba(243, 214, 120, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        nav ul li a {
+        .hamburger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(243, 214, 120, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hamburger:hover::before {
+            left: 100%;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2.5px;
+            background: linear-gradient(90deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(243, 214, 120, 0.4);
+            position: relative;
+        }
+
+        .hamburger:hover {
+            background: rgba(243, 214, 120, 0.2);
+            border-color: rgba(243, 214, 120, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(243, 214, 120, 0.8), 0 0 50px rgba(243, 214, 120, 0.5);
+        }
+
+        .hamburger:hover span {
+            background: linear-gradient(90deg, #D4AF37 0%, #F3D678 100%);
+            box-shadow: 0 0 20px rgba(243, 214, 120, 1), 0 0 35px rgba(243, 214, 120, 0.7);
+        }
+
+        .hamburger:hover span:nth-child(1) {
+            transform: translateX(3px);
+        }
+
+        .hamburger:hover span:nth-child(2) {
+            transform: translateX(-3px);
+        }
+
+        .hamburger:hover span:nth-child(3) {
+            transform: translateX(3px);
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.97) 0%, rgba(26, 40, 32, 0.97) 50%, rgba(30, 42, 31, 0.97) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-direction: column;
+            top: 5.5rem;
+            right: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(243, 214, 120, 0.2), 0 4px 20px rgba(243, 214, 120, 0.15);
+            border-radius: 16px;
+            z-index: 1000;
+            list-style: none;
+            border: 2px solid rgba(243, 214, 120, 0.4);
+            min-width: 220px;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu.active {
+            display: flex;
+            animation: menuSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes menuSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .nav-menu li {
+            margin: 0;
+            position: relative;
+        }
+
+        .nav-menu li a {
+            display: block;
             text-decoration: none;
-            color: #2b5e8c;
-            font-size: 17px;
-            transition: color 0.3s, transform 0.3s;
+            color: #F5E6D3;
+            font-size: 1.15rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        nav ul li a:hover {
-            color: #4a90e2;
-            transform: translateY(-2px);
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 0 2px 2px 0;
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        nav ul li.schedule a {
-            border: 2px solid #4a90e2;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(243, 214, 120, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        nav ul li.schedule a:hover {
-            background-color: #4a90e2;
-            color: #fff;
-            transform: scale(1.05);
+        .nav-menu li a:hover {
+            color: #F3D678;
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateX(8px);
+            padding-left: 1.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 15px rgba(243, 214, 120, 0.25);
+        }
+
+        .nav-menu li a:hover::before {
+            height: 70%;
+        }
+
+        .nav-menu li a:hover::after {
+            opacity: 1;
+        }
+
+        .nav-menu li:not(:last-child) {
+            margin-bottom: 0.25rem;
         }
 
         .section {
-            max-width: 1200px;
-            margin: 100px auto;
-            padding: 20px;
-            text-align: left;
+            max-width: 1600px;
+            margin: 5rem auto;
+            padding: 2rem;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section h2 {
-            font-size: 36px;
-            color: #2b5e8c;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            color: #F3D678;
+            margin-bottom: 3rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
             text-align: center;
+            text-shadow: none;
         }
 
         .section h3 {
-            font-size: 24px;
-            color: #2b5e8c;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            font-size: 2rem;
+            color: #F3D678;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
         }
 
         .section p {
-            font-size: 18px;
-            margin-bottom: 15px;
+            font-size: 1.125rem;
+            color: #F5E6D3;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .section ul {
+            list-style: none;
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section ul li {
+            font-size: 1.125rem;
+            color: #F5E6D3;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #F3D678;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .section a {
+            color: #F3D678;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .section a:hover {
+            color: #D4AF37;
+            text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
         }
 
         .footer {
-            display: flex;
-            justify-content: space-between;
-            padding: 40px 80px;
-            font-family: sans-serif;
-            font-size: 20px;
-            background-color: #f5f9fc;
-            color: #2b5e8c;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-size: 1.25rem;
+            background: transparent;
+            color: #F5E6D3;
+            margin-bottom: 2.5rem;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 3rem;
         }
 
         .footer-section {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            text-align: center;
         }
 
         .footer-section:first-child {
-            margin-right: 20px;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .footer-section:nth-child(2) {
+            text-align: center;
         }
 
         .footer-section:last-child {
-            margin-left: 20px;
+            align-items: flex-end;
+            text-align: right;
         }
 
         .footer-section p {
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            margin-bottom: 0.9375rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            color: #F5E6D3;
         }
 
         .footer-section p.name {
-            font-size: 23px;
+            font-size: 3rem;
             font-weight: bold;
+            font-family: "Satisfy", cursive;
+            color: #F3D678;
+            text-shadow: none;
+            margin-bottom: 0.5rem;
         }
 
-        .footer-section a {
-            color: #007bff;
+        .footer-section:last-child a {
+            color: #F5E6D3;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            font-size: 20px;
+            margin-bottom: 0.625rem;
+            font-size: 1.25rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
         }
 
-        .footer-section a:hover {
-            color: #4a90e2;
+        .footer-section:last-child a:hover {
+            color: #F3D678;
+            text-shadow: none;
         }
 
-        .footer-section .cta-button {
-            color: #fff;
-            padding: 15px 30px;
-            background-color: #4a90e2;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        .footer-section .whatsapp-link img {
+            width: 4.5rem;
+            height: 4.5rem;
+            vertical-align: middle;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
         }
 
-        .footer-section .cta-button:hover {
-            background-color: #357abd;
+        .footer-section .whatsapp-link img:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
         }
 
         @media (max-width: 768px) {
             header {
-                padding: 15px 20px;
+                padding: 0.9375rem 1.25rem;
             }
 
-            nav ul {
-                gap: 10px;
+            nav .logo {
+                gap: 0.6rem;
             }
 
-            nav ul li a {
-                font-size: 14px;
+            nav .logo-title {
+                font-size: 1.1rem;
+            }
+
+            nav .logo img {
+                height: 3.5rem;
+                width: 3.5rem;
+            }
+
+            nav .logo-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .hamburger {
+                width: 2.5rem;
+                height: 2.5rem;
+                gap: 5px;
+            }
+
+            .hamburger span {
+                height: 2px;
+            }
+
+            .nav-menu {
+                padding: 0.5rem;
+                top: 4.5rem;
+                right: 1rem;
+                min-width: 200px;
+            }
+
+            .nav-menu li a {
+                font-size: 1.1rem;
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                color: #F5E6D3;
+                padding: 0.9rem 1rem;
             }
 
             .section {
-                margin: 80px auto;
-                padding: 15px;
+                padding: 1.5rem;
+                margin: 3rem auto;
             }
 
             .section h2 {
-                font-size: 30px;
+                font-size: 2.25rem;
+                margin-bottom: 2rem;
             }
 
             .section h3 {
-                font-size: 20px;
+                font-size: 1.5rem;
+                margin-top: 2rem;
             }
 
             .section p {
-                font-size: 16px;
+                font-size: 1rem;
+            }
+
+            .section ul li {
+                font-size: 1rem;
             }
 
             .footer {
-                flex-direction: column;
-                padding: 30px 20px;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem;
+                text-align: center;
             }
 
             .footer-section {
-                margin: 0;
-                margin-bottom: 20px;
+                align-items: center;
+                text-align: center;
             }
 
             .footer-section:first-child {
-                margin-right: 0;
+                align-items: center;
             }
 
             .footer-section:last-child {
-                margin-left: 0;
+                align-items: center;
+                text-align: center;
             }
 
-            .footer-section p, .footer-section a {
-                font-size: 18px;
+            .footer-section p, .footer-section:last-child a {
+                font-size: 1rem;
+                font-family: "Poppins", sans-serif;
+                font-weight: 300;
+                color: #F5E6D3;
+            }
+
+            .footer-section:last-child a {
+                color: #F5E6D3;
             }
 
             .footer-section p.name {
-                font-size: 21px;
+                font-size: 2.2rem;
+                font-family: "Satisfy", cursive;
+                font-weight: bold;
+                color: #F3D678;
+                text-shadow: none;
+            }
+
+            .footer-section .whatsapp-link img {
+                transition: transform 0.3s ease;
+            }
+
+            .footer-section .whatsapp-link img:hover {
+                transform: scale(1.1);
             }
         }
     </style>
@@ -238,12 +594,22 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">Abundance Being</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="approach.html">About the Work</a></li>
+            <a href="index.html" class="logo">
+                <img src="uploads/logo.jpg" alt="Tree of Abundance Logo">
+                <div class="logo-text-container">
+                    <span class="logo-title">Tree of Abundance</span>
+                    <span class="logo-subtitle">Counselling & Therapy</span>
+                </div>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="rapport.html">Consultation</a></li>
                 <li><a href="faqs.html">FAQs</a></li>
-                <li class="schedule"><a href="schedule.html">Schedule a Session</a></li>
+                <li><a href="sponsor.html">Sponsor</a></li>
             </ul>
         </nav>
     </header>
@@ -251,11 +617,11 @@
     <section class="section">
         <h2>Privacy Policy</h2>
         <h3>Introduction</h3>
-        <p>At Abundance Being, I am committed to protecting your privacy. This Privacy Policy outlines how I collect, use, and safeguard your personal information when you visit my website or engage with my services.</p>
-        
+        <p>At Tree of Abundance, I am committed to protecting your privacy. This Privacy Policy outlines how I collect, use, and safeguard your personal information when you visit my website or engage with my services.</p>
+
         <h3>Information I Collect</h3>
         <p>I may collect personal information such as your name, email address, phone number, and other details you provide when scheduling a session or contacting me via WhatsApp. I do not collect sensitive payment information, as payments are handled securely through third-party platforms.</p>
-        
+
         <h3>How I Use Your Information</h3>
         <p>Your information is used to:</p>
         <ul>
@@ -263,33 +629,67 @@
             <li>Respond to your inquiries via email or WhatsApp.</li>
             <li>Improve my services and website functionality.</li>
         </ul>
-        
+
         <h3>Data Security</h3>
         <p>I take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no method of transmission over the internet is 100% secure.</p>
-        
+
         <h3>Third-Party Services</h3>
         <p>I use WhatsApp to communicate with clients. Please review WhatsApp's privacy policy for information on how they handle your data.</p>
-        
+
         <h3>Your Rights</h3>
         <p>You have the right to request access to, correction, or deletion of your personal information. Contact me to exercise these rights.</p>
-        
+
         <h3>Contact Me</h3>
-        <p>If you have any questions about this Privacy Policy, please contact me via WhatsApp <a href="https://wa.me/919445150202">here</a>.</p>
+        <p>If you have any questions about this Privacy Policy, please contact me via WhatsApp <a href="https://wa.me/914448548889">here</a>.</p>
     </section>
 
     <footer class="footer">
         <div class="footer-section">
+            <a href="https://wa.me/914448548889" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
+        </div>
+        <div class="footer-section">
             <p class="name">Tinesh Kumar</p>
-            <p>xx@gmail.com</p>
-            <a href="https://wa.me/919445150202" class="cta-button">Contact me on WhatsApp</a>
+            <p>Counselling & Therapy</p>
         </div>
         <div class="footer-section">
             <a href="faqs.html">FAQs</a>
-            <a href="admin.html">Admin Dashboard</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
-

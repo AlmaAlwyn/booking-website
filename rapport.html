@@ -27,16 +27,31 @@
 
         body {
             line-height: 1.6;
-            color: #284b63;
-            background-color: white;
-            font-family: "Poppins", sans-serif;
+            color: #F5E6D3;
+            background:
+                linear-gradient(rgba(10, 20, 16, 0.7), rgba(10, 20, 16, 0.7)),
+                url('uploads/forest-background.jpg') center/cover fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 20, 16, 0.4) 100%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         header {
-            background-color: white;
+            background: transparent;
             padding: 1.25rem 2.5rem;
             width: 100%;
             animation: slideDown 0.5s ease-out;
+            position: relative;
             z-index: 1000;
         }
 
@@ -62,196 +77,412 @@
         nav .logo {
             transition: transform 0.3s ease;
             text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo-text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.2rem;
+        }
+
+        nav .logo-title {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #F3D678;
+            text-shadow: none;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            transition: text-shadow 0.3s ease;
         }
 
         nav .logo img {
-            height: 5rem;
-            width: 30rem;
+            height: 5.5rem;
+            width: 5.5rem;
+            filter: none;
+            transition: all 0.3s ease;
+        }
+
+        nav .logo-subtitle {
+            font-family: "Poppins", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #F3D678;
+            text-shadow: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            transition: text-shadow 0.3s ease;
         }
 
         nav .logo:hover {
             transform: scale(1.05);
         }
 
+        nav .logo:hover img {
+            filter: drop-shadow(0 0 25px rgba(243, 214, 120, 0.8));
+        }
+
+        nav .logo:hover .logo-title {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 15px rgba(243, 214, 120, 0.4);
+        }
+
+        nav .logo:hover .logo-subtitle {
+            text-shadow: 0 0 10px rgba(182, 138, 35, 0.5);
+        }
 
         .hamburger {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            width: 2.5rem;
-            height: 1.875rem;
+            justify-content: center;
+            gap: 6px;
+            width: 2.75rem;
+            height: 2.75rem;
             cursor: pointer;
+            background: rgba(243, 214, 120, 0.05);
+            border-radius: 12px;
+            padding: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1.5px solid rgba(243, 214, 120, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hamburger img {
+        .hamburger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(243, 214, 120, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hamburger:hover::before {
+            left: 100%;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2.5px;
+            background: linear-gradient(90deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(243, 214, 120, 0.4);
+            position: relative;
+        }
+
+        .hamburger:hover {
+            background: rgba(243, 214, 120, 0.2);
+            border-color: rgba(243, 214, 120, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(243, 214, 120, 0.8), 0 0 50px rgba(243, 214, 120, 0.5);
+        }
+
+        .hamburger:hover span {
+            background: linear-gradient(90deg, #D4AF37 0%, #F3D678 100%);
+            box-shadow: 0 0 20px rgba(243, 214, 120, 1), 0 0 35px rgba(243, 214, 120, 0.7);
+        }
+
+        .hamburger:hover span:nth-child(1) {
+            transform: translateX(3px);
+        }
+
+        .hamburger:hover span:nth-child(2) {
+            transform: translateX(-3px);
+        }
+
+        .hamburger:hover span:nth-child(3) {
+            transform: translateX(3px);
         }
 
         .nav-menu {
             display: none;
-            height: fit-content;
             position: absolute;
-            padding: 1.5rem;
-            background-color: #FEFCFF;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.97) 0%, rgba(26, 40, 32, 0.97) 50%, rgba(30, 42, 31, 0.97) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             flex-direction: column;
-            top: 6rem;
-            right: 1.875rem;
-            box-shadow: 10px 10px 10px #747d8c;
-            border-radius: 0.75rem;
+            top: 5.5rem;
+            right: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(243, 214, 120, 0.2), 0 4px 20px rgba(243, 214, 120, 0.15);
+            border-radius: 16px;
             z-index: 1000;
             list-style: none;
-            border: 0.5px solid #353535;
+            border: 2px solid rgba(243, 214, 120, 0.4);
+            min-width: 220px;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-menu.active {
             display: flex;
+            animation: menuSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes menuSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .nav-menu li {
+            margin: 0;
+            position: relative;
         }
 
         .nav-menu li a {
+            display: block;
             text-decoration: none;
-            color: #284b63;
-            font-size: 1.3rem;
-            font-weight: bold;
+            color: #F5E6D3;
+            font-size: 1.15rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            transition: color 0.3s, transform 0.3s;
+            font-weight: 500;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 0 2px 2px 0;
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(243, 214, 120, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-menu li a:hover {
-            color: #4a90e2;
-            transform: translateY(-0.125rem);
+            color: #F3D678;
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateX(8px);
+            padding-left: 1.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 15px rgba(243, 214, 120, 0.25);
+        }
+
+        .nav-menu li a:hover::before {
+            height: 70%;
+        }
+
+        .nav-menu li a:hover::after {
+            opacity: 1;
+        }
+
+        .nav-menu li:not(:last-child) {
+            margin-bottom: 0.25rem;
         }
 
         .section {
-            max-width: 1200px;
-            margin: 100px auto;
-            padding: 20px;
+            max-width: 1600px;
+            margin: 3rem auto;
+            padding: 2rem;
             line-height: 1.8;
-            text-align: justify;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section h2 {
-            font-size: 36px;
-            color: #1786A6;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            color: #F3D678;
+            margin-bottom: 2rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
+            text-align: center;
+            text-shadow: none;
         }
 
         .section h3 {
-            font-size: 26px;
-            color: #1786A6;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            color: #F3D678;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
         }
 
         .section p {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            color: ##1786A6;
+            font-weight: 400;
+            color: #F5E6D3;
+        }
+
+        .section ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .section li {
             list-style-type: circle;
-            font-size: 24px;
-            font-weight: 300;
-            color: #284b63;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #F5E6D3;
+            margin-bottom: 0.75rem;
+            font-family: "Poppins", sans-serif;
         }
 
         .form-head {
             text-align: center;
+            color: #F3D678;
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
         }
 
         .form-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(243, 214, 120, 0.3);
+            border: 2px solid rgba(243, 214, 120, 0.4);
+            backdrop-filter: blur(10px);
         }
 
         .form-container label {
             display: block;
-            font-size: 16px;
-            margin-bottom: 8px;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            color: #284b63;
+            font-weight: 500;
+            color: #F3D678;
         }
 
         .form-container input,
         .form-container select,
         .form-container textarea {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+            padding: 0.875rem;
+            margin: 0.5rem 0 1.5rem 0;
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 300;
+            font-weight: 400;
+            background: rgba(10, 20, 16, 0.5);
+            color: #F5E6D3;
+            transition: all 0.3s ease;
+        }
+
+        .form-container input:focus,
+        .form-container select:focus,
+        .form-container textarea:focus {
+            outline: none;
+            border-color: #F3D678;
+            box-shadow: 0 0 15px rgba(243, 214, 120, 0.3);
+            background: rgba(10, 20, 16, 0.7);
         }
 
         .form-container textarea {
-            height: 100px;
+            height: 120px;
+            resize: vertical;
         }
 
         .form-container button {
-            padding: 10px 20px;
-            background-color: #3c6e71;
-            color: #d9d9d9;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            color: #1A1A2E;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 16px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.25rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.3), 0 0 20px rgba(243, 214, 120, 0.2);
         }
 
         .form-container button:hover {
-            background-color: #284b63;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(243, 214, 120, 0.5), 0 0 40px rgba(243, 214, 120, 0.3);
+            background: linear-gradient(135deg, #D4AF37 0%, #B68A23 100%);
+        }
+
+        .form-container button:active {
+            transform: translateY(-2px) scale(1.02);
         }
 
         .footer {
-            display: flex;
-            justify-content: space-between;
-            padding: 2.5rem 5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 5rem;
             font-family: "Poppins", sans-serif;
+            font-weight: 300;
             font-size: 1.25rem;
-            background-color: #EDF8FC;
-            color: #0B1D34;
-            /*margin-bottom: 2.5rem;
-            max-width: 1600px;*/
+            background: transparent;
+            color: #F5E6D3;
+            margin-bottom: 2.5rem;
+            max-width: 1600px;
             margin-left: auto;
             margin-right: auto;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 3rem;
         }
 
         .footer-section {
-            flex: 1;
             display: flex;
             justify-content: center;
-            background-color: #EDF8FC;
             align-items: center;
             flex-direction: column;
-            text-align: center;
         }
 
         .footer-section:first-child {
-            margin-right: 1.25rem;
-            flex-direction: row;
-            gap: 0.625rem;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .footer-section:nth-child(2) {
+            text-align: center;
         }
 
         .footer-section:last-child {
-            margin-left: 1.25rem;
+            align-items: flex-end;
+            text-align: right;
         }
 
         .footer-section p {
@@ -259,17 +490,20 @@
             margin-bottom: 0.9375rem;
             font-family: "Poppins", sans-serif;
             font-weight: 300;
+            color: #F5E6D3;
         }
 
         .footer-section p.name {
-            font-size: 2.875rem;
+            font-size: 3rem;
             font-weight: bold;
             font-family: "Satisfy", cursive;
-            color: #1786A6;
+            color: #F3D678;
+            text-shadow: none;
+            margin-bottom: 0.5rem;
         }
 
         .footer-section:last-child a {
-            color: #6A5ACD;
+            color: #F5E6D3;
             text-decoration: none;
             display: block;
             margin-bottom: 0.625rem;
@@ -279,13 +513,22 @@
         }
 
         .footer-section:last-child a:hover {
-            color: #4a90e2;
+            color: #F3D678;
+            text-shadow: none;
         }
 
         .footer-section .whatsapp-link img {
             width: 4.5rem;
             height: 4.5rem;
             vertical-align: middle;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .footer-section .whatsapp-link img:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
         }
 
         @media (max-width: 768px) {
@@ -293,128 +536,134 @@
                 padding: 0.9375rem 1.25rem;
             }
 
+            nav .logo {
+                gap: 0.6rem;
+            }
+
+            nav .logo-title {
+                font-size: 1.1rem;
+            }
+
             nav .logo img {
-                height: 3.1875rem;
-                width: auto;
+                height: 3.5rem;
+                width: 3.5rem;
+            }
+
+            nav .logo-subtitle {
+                font-size: 0.65rem;
             }
 
             .hamburger {
-                width: 2.25rem;
-                height: 1.625rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                gap: 5px;
             }
 
-             .nav-menu {
-                padding: 1rem;
-                top: 3rem;
-            right: 1rem;
+            .hamburger span {
+                height: 2px;
+            }
+
+            .nav-menu {
+                padding: 0.5rem;
+                top: 4.5rem;
+                right: 1rem;
+                min-width: 200px;
             }
 
             .nav-menu li a {
-                font-size: 1.25rem;
+                font-size: 1.1rem;
                 font-family: "Poppins", sans-serif;
-                font-weight: 400;
-                color: #284b63;
+                font-weight: 500;
+                color: #F5E6D3;
+                padding: 0.9rem 1rem;
             }
 
             .section {
-                margin: 80px auto;
-                padding: 15px;
+                padding: 1.5rem;
+                margin: 2rem auto;
             }
 
             .section h2 {
-                font-size: 30px;
-                font-family: "Poppins", sans-serif;
-                font-weight: 700;
-                color: #1786A6;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
             }
 
             .section h3 {
-                font-size: 20px;
-                font-family: "Poppins", sans-serif;
-                font-weight: 600;
-                color: #1786A6;
+                font-size: 1.5rem;
+                margin-top: 1.5rem;
             }
 
             .section p {
-                font-size: 16px;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                color: #1786A6;
+                font-size: 1rem;
             }
 
-             .section li {
-            list-style-type: circle;
-            font-size: 16px;
-            font-weight: 300;
-            color: #284b63;
-             }
+            .section li {
+                font-size: 1rem;
+            }
+
+            .form-head {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
 
             .form-container {
-                padding: 15px;
+                padding: 1.5rem;
             }
 
             .form-container label {
-                font-size: 14px;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                color: #284b63;
+                font-size: 1rem;
             }
 
             .form-container input,
             .form-container select,
             .form-container textarea {
-                font-size: 14px;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
+                font-size: 0.9rem;
+                padding: 0.75rem;
             }
 
             .form-container button {
-                font-size: 14px;
-                padding: 8px 16px;
-                font-family: "Poppins", sans-serif;
-                font-weight: 500;
-                color: #d9d9d9;
-                background-color: #3c6e71;
+                font-size: 1rem;
+                padding: 0.875rem 1.5rem;
             }
 
             .footer {
-                flex-direction: column;
-                padding: 1.25rem 0.9375rem;
-                background-color: #EDF8FC;
-                
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem;
+                text-align: center;
             }
 
             .footer-section {
-                margin: 0;
-                margin-bottom: 1.25rem;
+                align-items: center;
+                text-align: center;
             }
 
             .footer-section:first-child {
-                margin-right: 0;
-                flex-direction: column;
-                gap: 0.625rem;
+                align-items: center;
             }
 
             .footer-section:last-child {
-                margin-left: 0;
+                align-items: center;
+                text-align: center;
             }
 
             .footer-section p, .footer-section:last-child a {
-                font-size: 1.25rem;
+                font-size: 1rem;
                 font-family: "Poppins", sans-serif;
                 font-weight: 300;
-                color: #0B1D34;
+                color: #F5E6D3;
             }
 
             .footer-section:last-child a {
-                color: #6A5ACD;
+                color: #F5E6D3;
             }
 
             .footer-section p.name {
-                font-size: 2.8125rem;
+                font-size: 2.2rem;
                 font-family: "Satisfy", cursive;
                 font-weight: bold;
-                color: #1786A6;
+                color: #F3D678;
+                text-shadow: none;
             }
 
             .footer-section .whatsapp-link img {
@@ -437,9 +686,17 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo"><img src="Uploads/logo.jpg" alt="Logo"></a>
+            <a href="index.html" class="logo">
+                <img src="uploads/logo.jpg" alt="Tree of Abundance Logo">
+                <div class="logo-text-container">
+                    <span class="logo-title">Tree of Abundance</span>
+                    <span class="logo-subtitle">Counselling & Therapy</span>
+                </div>
+            </a>
             <div class="hamburger" id="hamburger">
-                <img src="Uploads/hamburger-icon.png" alt="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="rapport.html">Consultation</a></li>
@@ -452,11 +709,21 @@
     <section class="section" id="consultation">
         <h2>Your Rooting Begins with a Consultation</h2>
         <h3>What is a Consultation?</h3>
-        <p>A consultation is simply a comfortable conversation where we get to know each other.  In this 60-minute talk, I'll listen to your concerns and explain how we can work together.  Your initial consultation is complimentary.</p>
-        <h3>What we will do: </h3>
-         <p><ul><li>Talk about what's bothering you - Share your concerns in a safe space</li><li>Learn how therapy can help - Simple, clear information</li><li>Ask all your questions - No question is too small</li><li>Decide if we're a goot fit - Make sure you feel comfortable</li></ul></p>
-         <h3>What you will experience: </h3>
-         <p><ul><li>Complete privacy and confidentiality</li><li>No judgement, just understanding</li><li>No pressure to continue after the consultation</li><li>No cost for your initial consultation</li></ul></p>
+        <p>A consultation is simply a comfortable conversation where we get to know each other. In this 60-minute talk, I'll listen to your concerns and explain how we can work together. Your initial consultation is complimentary.</p>
+        <h3>What we will do:</h3>
+        <ul>
+            <li>Talk about what's bothering you - Share your concerns in a safe space</li>
+            <li>Learn how therapy can help - Simple, clear information</li>
+            <li>Ask all your questions - No question is too small</li>
+            <li>Decide if we're a good fit - Make sure you feel comfortable</li>
+        </ul>
+        <h3>What you will experience:</h3>
+        <ul>
+            <li>Complete privacy and confidentiality</li>
+            <li>No judgement, just understanding</li>
+            <li>No pressure to continue after the consultation</li>
+            <li>No cost for your initial consultation</li>
+        </ul>
         <h3 class="form-head">Schedule Your Free Consultation</h3>
         <div class="form-container">
             <form id="consultationForm">
@@ -486,7 +753,10 @@
     <footer class="footer">
         <div class="footer-section">
             <a href="https://wa.me/914448548889" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
+        </div>
+        <div class="footer-section">
             <p class="name">Tinesh Kumar</p>
+            <p>Counselling & Therapy</p>
         </div>
         <div class="footer-section">
             <a href="faqs.html">FAQs</a>
@@ -509,6 +779,25 @@
             }
         });
 
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
         const form = document.getElementById('consultationForm');
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -528,13 +817,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
