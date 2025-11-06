@@ -409,6 +409,29 @@
             margin-top: 2rem;
         }
 
+        /* Hide mobile version on desktop */
+        .overlay-conditions-mobile {
+            display: none;
+        }
+
+        /* Conditions banner at bottom - Desktop only */
+        .conditions-banner {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 3rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.7) 100%);
+            font-family: "Poppins", sans-serif;
+            color: #F3D678;
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-align: center;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4), 0 0 14px rgba(243, 214, 120, 0.3), 1px 2px 6px rgba(0, 0, 0, 0.6);
+            z-index: 6;
+            line-height: 1.6;
+        }
+
         .cta-button {
             display: inline-block;
             padding: 0.9375rem 1.375rem;
@@ -1080,6 +1103,16 @@
                 line-height: 1.4;
             }
 
+            /* Show mobile version on mobile */
+            .overlay-conditions-mobile {
+                display: block;
+            }
+
+            /* Hide desktop bottom banner on mobile */
+            .conditions-banner {
+                display: none;
+            }
+
             .section {
                 padding: 1.5rem;
                 margin: 3rem auto;
@@ -1374,7 +1407,10 @@
         </video>
         <div class="overlay">
             <h1>Rooted.</h1>
-            <p>Get help with Suicidal Ideation - Anorexia - Depression - Psychosis - Addiction - Trauma - Anxiety - Obsession - Insomnia - Hyperactivity</p>
+            <p class="overlay-conditions-mobile">Get help with Suicidal Ideation - Anorexia - Depression - Psychosis - Addiction - Trauma - Anxiety - Obsession - Insomnia - Hyperactivity</p>
+        </div>
+        <div class="conditions-banner">
+            Get help with Suicidal Ideation - Anorexia - Depression - Psychosis - Addiction - Trauma - Anxiety - Obsession - Insomnia - Hyperactivity
         </div>
     </div>
 
