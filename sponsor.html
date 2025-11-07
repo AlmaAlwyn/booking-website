@@ -643,11 +643,11 @@
         }
 
         .payment-grid {
-            max-width: 1400px;
+            max-width: 900px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
         .payment-card {
@@ -983,7 +983,7 @@
 
             .payment-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
 
             .payment-card {
@@ -1177,35 +1177,19 @@
 
         <div class="payment-grid">
             <!-- India UPI Payment -->
-            <a href="https://example.com/upi-payment" class="payment-card">
+            <a href="upi://pay?pa=YOUR-UPI-ID@provider&pn=Tree%20of%20Abundance" class="payment-card">
                 <span class="payment-badge">Secure</span>
                 <div class="payment-icon">🇮🇳</div>
-                <div class="payment-title">India UPI</div>
+                <div class="payment-title">UPI Payment</div>
                 <div class="payment-description">Fast & secure payments through UPI for Indian sponsors</div>
             </a>
 
-            <!-- International Wise Transfer -->
-            <a href="https://example.com/wise-transfer" class="payment-card">
+            <!-- International Wisely Payment -->
+            <a href="https://your-wisely-business-link.com" class="payment-card" target="_blank" rel="noopener noreferrer">
                 <span class="payment-badge">Secure</span>
                 <div class="payment-icon">🌍</div>
-                <div class="payment-title">International Wire</div>
-                <div class="payment-description">Global transfers via Wise with low fees</div>
-            </a>
-
-            <!-- Credit/Debit Card -->
-            <a href="https://example.com/card-payment" class="payment-card">
-                <span class="payment-badge">Secure</span>
-                <div class="payment-icon">💳</div>
-                <div class="payment-title">Card Payment</div>
-                <div class="payment-description">Credit or debit card payments accepted worldwide</div>
-            </a>
-
-            <!-- PayPal -->
-            <a href="https://example.com/paypal" class="payment-card">
-                <span class="payment-badge">Secure</span>
-                <div class="payment-icon">💰</div>
-                <div class="payment-title">PayPal</div>
-                <div class="payment-description">Safe & convenient PayPal transactions</div>
+                <div class="payment-title">International Payment</div>
+                <div class="payment-description">Secure international transfers via Wisely for global sponsors</div>
             </a>
         </div>
     </section>
