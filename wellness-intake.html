@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Intake - Rooted. Help with Suicidal ideation - Depression - Anxiety - Disorders.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comic+Relief:wght@700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #F5E6D3;
+            background:
+                linear-gradient(rgba(10, 20, 16, 0.7), rgba(10, 20, 16, 0.7)),
+                url('uploads/forest-background.jpg') center/cover fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 20, 16, 0.4) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            background: transparent;
+            padding: 1.25rem 2.5rem;
+            width: 100%;
+            animation: slideDown 0.5s ease-out;
+            position: relative;
+            z-index: 1000;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav .logo-text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.2rem;
+        }
+
+        nav .logo-title {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #F3D678;
+            text-shadow: none;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            transition: text-shadow 0.3s ease;
+        }
+
+        nav .logo img {
+            height: 5.5rem;
+            width: 5.5rem;
+            filter: none;
+            transition: all 0.3s ease;
+        }
+
+        nav .logo-subtitle {
+            font-family: "Poppins", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #F3D678;
+            text-shadow: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            transition: text-shadow 0.3s ease;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav .logo:hover img {
+            filter: drop-shadow(0 0 25px rgba(243, 214, 120, 0.8));
+        }
+
+        nav .logo:hover .logo-title {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 15px rgba(243, 214, 120, 0.4);
+        }
+
+        nav .logo:hover .logo-subtitle {
+            text-shadow: 0 0 10px rgba(182, 138, 35, 0.5);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 2.75rem;
+            height: 2.75rem;
+            cursor: pointer;
+            background: rgba(243, 214, 120, 0.05);
+            border-radius: 12px;
+            padding: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1.5px solid rgba(243, 214, 120, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hamburger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(243, 214, 120, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hamburger:hover::before {
+            left: 100%;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2.5px;
+            background: linear-gradient(90deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(243, 214, 120, 0.4);
+            position: relative;
+        }
+
+        .hamburger:hover {
+            background: rgba(243, 214, 120, 0.2);
+            border-color: rgba(243, 214, 120, 0.9);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(243, 214, 120, 0.8), 0 0 50px rgba(243, 214, 120, 0.5);
+        }
+
+        .hamburger:hover span {
+            background: linear-gradient(90deg, #D4AF37 0%, #F3D678 100%);
+            box-shadow: 0 0 20px rgba(243, 214, 120, 1), 0 0 35px rgba(243, 214, 120, 0.7);
+        }
+
+        .hamburger:hover span:nth-child(1) {
+            transform: translateX(3px);
+        }
+
+        .hamburger:hover span:nth-child(2) {
+            transform: translateX(-3px);
+        }
+
+        .hamburger:hover span:nth-child(3) {
+            transform: translateX(3px);
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.97) 0%, rgba(26, 40, 32, 0.97) 50%, rgba(30, 42, 31, 0.97) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-direction: column;
+            top: 5.5rem;
+            right: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(243, 214, 120, 0.2), 0 4px 20px rgba(243, 214, 120, 0.15);
+            border-radius: 16px;
+            z-index: 1000;
+            list-style: none;
+            border: 2px solid rgba(243, 214, 120, 0.4);
+            min-width: 220px;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu.active {
+            display: flex;
+            animation: menuSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes menuSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .nav-menu li {
+            margin: 0;
+            position: relative;
+        }
+
+        .nav-menu li a {
+            display: block;
+            text-decoration: none;
+            color: #F5E6D3;
+            font-size: 1.15rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #F3D678 0%, #D4AF37 100%);
+            border-radius: 0 2px 2px 0;
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(243, 214, 120, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-menu li a:hover {
+            color: #F3D678;
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateX(8px);
+            padding-left: 1.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 15px rgba(243, 214, 120, 0.25);
+        }
+
+        .nav-menu li a:hover::before {
+            height: 70%;
+        }
+
+        .nav-menu li a:hover::after {
+            opacity: 1;
+        }
+
+        .nav-menu li:not(:last-child) {
+            margin-bottom: 0.25rem;
+        }
+
+        .section {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 2rem;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h1 {
+            font-size: 3.5rem;
+            color: #F3D678;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: none;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #F3D678;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: none;
+        }
+
+        .section h3 {
+            font-size: 2rem;
+            color: #F3D678;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .section p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: #F5E6D3;
+            text-align: center;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.8) 0%, rgba(26, 40, 30, 0.85) 50%, rgba(30, 42, 31, 0.8) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid #F3D678;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(243, 214, 120, 0.4);
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            font-size: 1.125rem;
+            color: #E8D5C4;
+        }
+
+        .info-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #F3D678;
+            font-weight: bold;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.98) 50%, rgba(30, 42, 31, 0.95) 100%);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+        }
+
+        .form-section {
+            margin-bottom: 3rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.5rem;
+            color: #F3D678;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(243, 214, 120, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            color: #F3D678;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(243, 214, 120, 0.25);
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-family: "Poppins", sans-serif;
+            background: rgba(10, 20, 16, 0.5);
+            color: #F5E6D3;
+            transition: all 0.3s ease;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #F3D678;
+            background: rgba(10, 20, 16, 0.7);
+            box-shadow: 0 0 0 4px rgba(243, 214, 120, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .alert-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 2px solid rgba(255, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .alert-box h4 {
+            color: #ff4444;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            color: #0a1410;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 2rem;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(243, 214, 120, 0.6);
+            background: linear-gradient(135deg, #D4AF37 0%, #B68A23 100%);
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-size: 1.25rem;
+            background: transparent;
+            color: #F5E6D3;
+            margin-bottom: 2.5rem;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 3rem;
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .footer-section:first-child {
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .footer-section:nth-child(2) {
+            text-align: center;
+        }
+
+        .footer-section:last-child {
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .footer-section p {
+            font-size: 1.25rem;
+            margin-bottom: 0.9375rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            color: #F5E6D3;
+        }
+
+        .footer-section p.name {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: "Satisfy", cursive;
+            color: #F3D678;
+            text-shadow: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section:last-child a {
+            color: #F5E6D3;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.625rem;
+            font-size: 1.25rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+        }
+
+        .footer-section:last-child a:hover {
+            color: #F3D678;
+            text-shadow: none;
+        }
+
+        .footer-section .whatsapp-link img {
+            width: 4.5rem;
+            height: 4.5rem;
+            vertical-align: middle;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .footer-section .whatsapp-link img:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.9375rem 1.25rem;
+            }
+
+            nav .logo {
+                gap: 0.6rem;
+            }
+
+            nav .logo-title {
+                font-size: 1.1rem;
+            }
+
+            nav .logo img {
+                height: 3.5rem;
+                width: 3.5rem;
+            }
+
+            nav .logo-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .hamburger {
+                width: 2.5rem;
+                height: 2.5rem;
+                gap: 5px;
+            }
+
+            .hamburger span {
+                height: 2px;
+            }
+
+            .nav-menu {
+                padding: 0.5rem;
+                top: 4.5rem;
+                right: 1rem;
+                min-width: 200px;
+            }
+
+            .nav-menu li a {
+                font-size: 1.1rem;
+                padding: 0.9rem 1rem;
+            }
+
+            .section h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.75rem;
+            }
+
+            .section h3 {
+                font-size: 1.5rem;
+            }
+
+            .section p {
+                font-size: 1rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem;
+                text-align: center;
+            }
+
+            .footer-section {
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section:first-child {
+                align-items: center;
+            }
+
+            .footer-section:last-child {
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section p, .footer-section:last-child a {
+                font-size: 1rem;
+            }
+
+            .footer-section p.name {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="uploads/logo.jpg" alt="Tree of Abundance Logo">
+                <div class="logo-text-container">
+                    <span class="logo-title">Tree of Abundance</span>
+                    <span class="logo-subtitle">Counselling & Therapy</span>
+                </div>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="rapport.html">Consultation</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="sponsor.html">Sponsor</a></li>
+                <li><a href="wellness-intake.html">Wellness Intake</a></li>
+                <li><a href="workplace-wellness.html">Workplace Wellness</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section" id="wellness-intake">
+        <h1>Your Wellness Journey Begins Here</h1>
+
+        <div class="intro-text">
+            <h3>What is a Wellness Intake?</h3>
+            <p>A wellness intake is a simple, confidential form where we get your essential information so we can schedule your first appointment. Once you submit this, I'll reach out within 24 hours to confirm a time that works for you.</p>
+            <p>Your first appointment is a comfortable conversation where we'll discuss what you're experiencing and how we can support you. All sessions are fully covered by your workplace wellness package.</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>What We Will Do:</h3>
+                <ul>
+                    <li>Confidential screening – Understand what you're experiencing and identify the support you need</li>
+                    <li>Match you with the right care – Counselling for immediate issues, therapy for deeper healing, or both</li>
+                    <li>Begin 2-hour deep sessions – Real progress combining counselling, therapy, and practical coaching</li>
+                    <li>Track your progress – Measurable improvements over 6-12 weeks with ongoing support</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>What You Will Experience:</h3>
+                <ul>
+                    <li>Complete privacy and confidentiality – Your employer never sees your personal details</li>
+                    <li>No judgment, just understanding</li>
+                    <li>No pressure to continue after your first session</li>
+                    <li>All sessions covered by your workplace wellness package</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Complete Your Wellness Intake</h2>
+        <p style="font-style: italic; margin-bottom: 2rem;">Takes 5-7 minutes • Completely confidential</p>
+
+        <div class="form-container">
+            <form id="wellnessIntakeForm">
+                <div class="form-section">
+                    <h3>PERSONAL INFORMATION</h3>
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth *</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="male" name="gender" value="Male" required>
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="female" name="gender" value="Female" required>
+                                <label for="female">Female</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="nonbinary" name="gender" value="Non-binary" required>
+                                <label for="nonbinary">Non-binary</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="preferNotToSay" name="gender" value="Prefer not to say" required>
+                                <label for="preferNotToSay">Prefer not to say</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Current City/Location *</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>WORK INFORMATION</h3>
+
+                    <div class="form-group">
+                        <label for="company">Company/Organization *</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department/Role *</label>
+                        <input type="text" id="department" name="department" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How long with this organization? *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="tenure1" name="tenure" value="Less than 6 months" required>
+                                <label for="tenure1">Less than 6 months</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="tenure2" name="tenure" value="6-12 months" required>
+                                <label for="tenure2">6-12 months</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="tenure3" name="tenure" value="1-2 years" required>
+                                <label for="tenure3">1-2 years</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="tenure4" name="tenure" value="2+ years" required>
+                                <label for="tenure4">2+ years</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>CONTACT INFORMATION</h3>
+
+                    <div class="form-group">
+                        <label for="workEmail">Work Email *</label>
+                        <input type="email" id="workEmail" name="workEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personalEmail">Personal Email *</label>
+                        <input type="email" id="personalEmail" name="personalEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number *</label>
+                        <input type="tel" id="mobile" name="mobile" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="altContact">Alternate Contact Number (optional)</label>
+                        <input type="tel" id="altContact" name="altContact">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred language for sessions *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="langEnglish" name="language" value="English" required>
+                                <label for="langEnglish">English</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="langHindi" name="language" value="Hindi" required>
+                                <label for="langHindi">Hindi</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="langTamil" name="language" value="Tamil" required>
+                                <label for="langTamil">Tamil</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="langOther" name="language" value="Other" required>
+                                <label for="langOther">Other:</label>
+                                <input type="text" id="langOtherText" name="langOtherText" style="width: 150px; margin-left: 0.5rem;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>YOUR SUPPORT NEEDS</h3>
+
+                    <div class="form-group">
+                        <label for="supportNeeds">What would you like support with? *</label>
+                        <p style="font-size: 0.95rem; color: #E8D5C4; margin-bottom: 0.5rem;">Brief description – we'll discuss in detail during your first confidential appointment</p>
+                        <p style="font-size: 0.9rem; color: #F3D678; margin-bottom: 0.5rem; font-style: italic;">Examples: Work stress, anxiety, burnout, grief, sleep issues, relationship concerns, career transitions, trauma, depression, work-life balance, etc.</p>
+                        <textarea id="supportNeeds" name="supportNeeds" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How urgent is your need? *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="urgency1" name="urgency" value="Immediate/Crisis" required>
+                                <label for="urgency1">Immediate/Crisis</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="urgency2" name="urgency" value="Within 1-2 weeks" required>
+                                <label for="urgency2">Within 1-2 weeks</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="urgency3" name="urgency" value="Not urgent – just want to explore support" required>
+                                <label for="urgency3">Not urgent – just want to explore support</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert-box">
+                    <h4>⚠️ SAFETY CHECK (Important for immediate support)</h4>
+                    <div class="form-group">
+                        <label>Are you currently feeling safe? *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="safe1" name="safety" value="Yes, completely safe" required>
+                                <label for="safe1">Yes, completely safe</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="safe2" name="safety" value="Mostly safe, some concerns" required>
+                                <label for="safe2">Mostly safe, some concerns</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="safe3" name="safety" value="No, I'm not feeling safe right now" required>
+                                <label for="safe3">No, I'm not feeling safe right now</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="safe4" name="safety" value="Prefer not to answer" required>
+                                <label for="safe4">Prefer not to answer</label>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.95rem; color: #ff6666; margin-top: 1rem;">If you checked "No," we'll prioritize reaching out within 2 hours.</p>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>YOUR MENTAL HEALTH HISTORY</h3>
+
+                    <div class="form-group">
+                        <label>Have you received counselling or therapy before? *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="therapy1" name="therapyHistory" value="No, this is my first time" required>
+                                <label for="therapy1">No, this is my first time</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="therapy2" name="therapyHistory" value="Yes, in the past" required>
+                                <label for="therapy2">Yes, in the past</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="therapy3" name="therapyHistory" value="Yes, currently in therapy elsewhere" required>
+                                <label for="therapy3">Yes, currently in therapy elsewhere</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="therapyDetails">If yes, briefly describe (optional)</label>
+                        <textarea id="therapyDetails" name="therapyDetails"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Are you currently taking any medication for mental health? *</label>
+                        <p style="font-size: 0.95rem; color: #E8D5C4; margin-bottom: 0.5rem;">This helps us provide better care and watch for interactions</p>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="med1" name="medication" value="No" required>
+                                <label for="med1">No</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="med2" name="medication" value="Yes" required>
+                                <label for="med2">Yes, please specify:</label>
+                                <input type="text" id="medDetails" name="medDetails" style="width: 250px; margin-left: 0.5rem;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>PREFERRED APPOINTMENT TIME</h3>
+
+                    <div class="form-group">
+                        <label>Which days/times work best for your first appointment? *</label>
+                        <p style="font-size: 0.95rem; color: #E8D5C4; margin-bottom: 0.5rem;">We offer flexibility</p>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="time1" name="preferredTime" value="Weekday morning (before 12 PM)">
+                                <label for="time1">Weekday morning (before 12 PM)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="time2" name="preferredTime" value="Weekday afternoon (12-5 PM)">
+                                <label for="time2">Weekday afternoon (12-5 PM)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="time3" name="preferredTime" value="Weekday evening (after 5 PM)">
+                                <label for="time3">Weekday evening (after 5 PM)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="time4" name="preferredTime" value="Saturday morning">
+                                <label for="time4">Saturday morning</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="time5" name="preferredTime" value="Saturday afternoon">
+                                <label for="time5">Saturday afternoon</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="time6" name="preferredTime" value="Flexible – I can adjust">
+                                <label for="time6">Flexible – I can adjust</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>CONFIDENTIALITY & CONSENT</h3>
+
+                    <div class="form-group">
+                        <label>Please confirm you understand: *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent1" name="consent1" required>
+                                <label for="consent1">All session information is 100% confidential</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent2" name="consent2" required>
+                                <label for="consent2">My employer receives ONLY aggregate data (e.g., "program satisfaction: 4.5/5")</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent3" name="consent3" required>
+                                <label for="consent3">My employer will NEVER see: My personal details, What I discuss in sessions, That I'm using this service</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent4" name="consent4" required>
+                                <label for="consent4">I consent to be contacted via phone/WhatsApp/email to schedule my appointment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent5" name="consent5" required>
+                                <label for="consent5">I understand my participation is voluntary and I can stop at any time</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>HOW DID YOU LEARN ABOUT THIS PROGRAM?</h3>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="radio" id="source1" name="source" value="Company announcement" required>
+                                <label for="source1">Company announcement</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="source2" name="source" value="Manager recommended it" required>
+                                <label for="source2">Manager recommended it</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="source3" name="source" value="HR email" required>
+                                <label for="source3">HR email</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="source4" name="source" value="Colleague told me" required>
+                                <label for="source4">Colleague told me</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="source5" name="source" value="Internal poster/communication" required>
+                                <label for="source5">Internal poster/communication</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="source6" name="source" value="Other" required>
+                                <label for="source6">Other:</label>
+                                <input type="text" id="sourceOther" name="sourceOther" style="width: 200px; margin-left: 0.5rem;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; font-size: 1rem; color: #F3D678; margin: 2rem 0;">
+                    By submitting, you'll receive our confidential wellness newsletter with wellbeing resources and program updates.
+                </p>
+
+                <button type="submit" class="submit-button">Submit Your Wellness Intake</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <a href="https://wa.me/914448548889" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
+        </div>
+        <div class="footer-section">
+            <p class="name">Tinesh Kumar</p>
+            <p>Counselling & Therapy</p>
+        </div>
+        <div class="footer-section">
+            <a href="faqs.html">FAQs</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Form submission
+        const form = document.getElementById('wellnessIntakeForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect all form data
+            const formData = new FormData(form);
+            let message = "WELLNESS INTAKE FORM\n\n";
+
+            // Format the message
+            for (let [key, value] of formData.entries()) {
+                if (value) {
+                    message += `${key}: ${value}\n`;
+                }
+            }
+
+            // Collect checkboxes for preferred time
+            const preferredTimes = [];
+            document.querySelectorAll('input[name="preferredTime"]:checked').forEach(checkbox => {
+                preferredTimes.push(checkbox.value);
+            });
+            if (preferredTimes.length > 0) {
+                message += `\nPreferred Times: ${preferredTimes.join(', ')}\n`;
+            }
+
+            const whatsappUrl = `https://wa.me/+914448548889?text=${encodeURIComponent(message)}`;
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
