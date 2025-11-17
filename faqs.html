@@ -329,123 +329,383 @@
             text-shadow: none;
         }
 
-        /* FAQ Accordion Styles */
-        .faq-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
         }
 
-        .faq-card {
-            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 50%, rgba(30, 42, 31, 0.95) 100%);
-            border-left: 4px solid #F3D678;
-            border-radius: 12px;
+        .hero-section h1 {
+            font-size: 3.5rem;
+            color: #F3D678;
+            margin-bottom: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.5rem;
+            color: #F5E6D3;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(243, 214, 120, 0.2);
-            transition: all 0.3s ease;
         }
 
-        .faq-card:hover {
-            box-shadow: 0 6px 24px rgba(243, 214, 120, 0.3), 0 0 0 1px rgba(243, 214, 120, 0.4);
-            transform: translateX(5px);
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #F3D678 0%, #D4AF37 100%);
         }
 
-        .faq-question {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.75rem 2rem;
-            cursor: pointer;
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(243, 214, 120, 0.6);
+            box-shadow: 0 12px 32px rgba(243, 214, 120, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            color: #F3D678;
+            margin-bottom: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #F5E6D3;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .service-card .example {
+            background: rgba(243, 214, 120, 0.1);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 3px solid #F3D678;
+        }
+
+        .service-card .example strong {
+            color: #F3D678;
+        }
+
+        /* Session Format Section */
+        .session-format {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .session-format h3 {
+            font-size: 2.25rem;
+            color: #F3D678;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h4 {
+            color: #F3D678;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            color: #F5E6D3;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            margin-bottom: 4rem;
+        }
+
+        .pricing-section h3 {
+            font-size: 2.5rem;
+            color: #F3D678;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(243, 214, 120, 0.7);
+            box-shadow: 0 12px 40px rgba(243, 214, 120, 0.4);
+        }
+
+        .pricing-card.featured {
+            border-color: #F3D678;
+            box-shadow: 0 8px 32px rgba(243, 214, 120, 0.3);
+        }
+
+        .pricing-card .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            color: #0a1410;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h4 {
+            font-size: 1.75rem;
+            color: #F3D678;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            color: #F3D678;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .pricing-card .duration {
+            color: #F5E6D3;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card .features {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .pricing-card .features li {
+            color: #F5E6D3;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(243, 214, 120, 0.2);
+            font-size: 1rem;
+            list-style: none;
+        }
+
+        .pricing-card .features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card .save {
+            background: rgba(243, 214, 120, 0.2);
+            color: #F3D678;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* Community Section */
+        .community-section {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .community-section h3 {
+            font-size: 2.5rem;
+            color: #F3D678;
+            margin-bottom: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .community-section p {
+            color: #F5E6D3;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+
+        .community-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .community-option {
+            padding: 2rem;
+            background: rgba(243, 214, 120, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(243, 214, 120, 0.3);
+        }
+
+        .community-option h4 {
+            color: #F3D678;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            margin-bottom: 4rem;
+        }
+
+        .process-timeline h3 {
+            font-size: 2.5rem;
+            color: #F3D678;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .timeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .timeline-step {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
             position: relative;
             transition: all 0.3s ease;
         }
 
-        .faq-question:hover {
-            background: rgba(243, 214, 120, 0.08);
+        .timeline-step:hover {
+            transform: translateY(-5px);
+            border-color: rgba(243, 214, 120, 0.6);
         }
 
-        .faq-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
+        .timeline-step .step-number {
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
             border-radius: 50%;
-            font-family: "Poppins", sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #0a1410;
-            flex-shrink: 0;
-            box-shadow: 0 2px 8px rgba(243, 214, 120, 0.4);
-        }
-
-        .faq-question-text {
-            flex: 1;
-            font-family: "Poppins", sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #F3D678;
-            line-height: 1.4;
-        }
-
-        .faq-icon {
-            width: 2rem;
-            height: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.75rem;
-            color: #F3D678;
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .faq-card.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 0 2rem;
-        }
-
-        .faq-card.active .faq-answer {
-            max-height: 3000px;
-            padding: 0 2rem 2rem 2rem;
-        }
-
-        .faq-answer-content {
+            font-weight: 700;
+            color: #0a1410;
+            margin: 0 auto 1.5rem;
             font-family: "Poppins", sans-serif;
-            font-size: 1.125rem;
-            color: #F5E6D3;
-            line-height: 1.8;
         }
 
-        .faq-answer-content p {
+        .timeline-step h4 {
+            color: #F3D678;
+            font-size: 1.25rem;
             margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
         }
 
-        .faq-answer-content ul {
-            margin: 1rem 0 1.5rem 2rem;
-        }
-
-        .faq-answer-content li {
-            list-style-type: circle;
-            font-size: 1.125rem;
+        .timeline-step p {
             color: #F5E6D3;
-            margin-bottom: 0.5rem;
-            line-height: 1.7;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-section h3 {
+            font-size: 2.5rem;
+            color: #F3D678;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
         }
 
         .certificate {
-            max-width: 40%;
+            width: 100%;
             height: auto;
-            float: right;
-            margin-left: 2rem;
-            margin-bottom: 1rem;
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(243, 214, 120, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -454,6 +714,138 @@
         .certificate:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 32px rgba(243, 214, 120, 0.4), 0 0 0 1px rgba(243, 214, 120, 0.5);
+        }
+
+        .credentials {
+            color: #F5E6D3;
+        }
+
+        .credentials p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .credentials ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .credentials ul li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: rgba(243, 214, 120, 0.1);
+            border-left: 3px solid #F3D678;
+            border-radius: 8px;
+            font-size: 1.125rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-section h3 {
+            font-size: 2.5rem;
+            color: #F3D678;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(243, 214, 120, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .faq-item h4 {
+            color: #F3D678;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #F5E6D3;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(243, 214, 120, 0.15) 0%, rgba(212, 175, 55, 0.15) 100%);
+            border: 2px solid #F3D678;
+            border-radius: 16px;
+            padding: 4rem 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .cta-section h3 {
+            font-size: 3rem;
+            color: #F3D678;
+            margin-bottom: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: #F5E6D3;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            color: #0a1410;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: "Poppins", sans-serif;
+            display: inline-block;
+            box-shadow: 0 4px 16px rgba(243, 214, 120, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(243, 214, 120, 0.6);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #F3D678;
+            color: #F3D678;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(243, 214, 120, 0.1);
         }
 
         .footer {
@@ -599,53 +991,57 @@
                 margin-bottom: 2rem;
             }
 
-            .faq-container {
+            .hero-section h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1.125rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card .price {
+                font-size: 2rem;
+            }
+
+            .timeline-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h3 {
+                font-size: 2rem;
+            }
+
+            .cta-section p {
+                font-size: 1.0625rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
                 gap: 1rem;
             }
 
-            .faq-question {
-                padding: 1.25rem 1rem;
-                gap: 1rem;
+            .benefits-grid {
+                grid-template-columns: 1fr;
             }
 
-            .faq-number {
-                width: 2rem;
-                height: 2rem;
-                font-size: 0.9rem;
-            }
-
-            .faq-question-text {
-                font-size: 1.05rem;
-            }
-
-            .faq-icon {
-                width: 1.5rem;
-                height: 1.5rem;
-                font-size: 1.5rem;
-            }
-
-            .faq-answer {
-                padding: 0 1rem;
-            }
-
-            .faq-card.active .faq-answer {
-                padding: 0 1rem 1.5rem 1rem;
-            }
-
-            .faq-answer-content {
-                font-size: 1rem;
-            }
-
-            .faq-answer-content li {
-                font-size: 1rem;
-            }
-
-            .certificate {
-                max-width: 100%;
-                float: none;
-                margin-left: 0;
-                margin-bottom: 1rem;
-                display: block;
+            .community-options {
+                grid-template-columns: 1fr;
             }
 
             .footer {
@@ -730,217 +1126,202 @@
         </nav>
     </header>
 
-    <section class="section" id="faqs">
-        <h2>Individual Healing</h2>
+    <!-- Hero Section -->
+    <section class="section hero-section visible">
+        <h1>Individual Healing</h1>
+        <p class="subtitle">A session is a confidential conversation where we focus on what's on your mind. In this 120-minute call, I will listen and we will work towards resolution, healing, and positive change — for me, it's a magical two hours.</p>
+    </section>
 
-        <div class="faq-container">
-            <!-- Healing Your Root Cause -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">1</div>
-                    <div class="faq-question-text">Healing Your Root Cause</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>A session is a confidential conversation where we focus on what's on your mind. In this 120-minute call, I will listen and we will work towards resolution, healing, and positive change — for me, it's a magical two hours.</p>
-                    </div>
+    <!-- Services Section -->
+    <section class="section visible">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Counselling</h3>
+                <p>Short-term support to help you deal with specific problems or current challenges. It focuses on finding solutions, building coping skills, and helping you feel more in control.</p>
+                <div class="example">
+                    <p><strong>Example:</strong> If you're struggling after the loss of a loved one, counselling can help you process grief, manage emotions, and cope with daily life.</p>
                 </div>
             </div>
-
-            <!-- Counselling -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">2</div>
-                    <div class="faq-question-text">Counselling</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>Short-term support to help you deal with specific problems or current challenges. It focuses on finding solutions, building coping skills, and helping you feel more in control.</p>
-                        <p><strong>Example:</strong> If you're struggling after the loss of a loved one, counselling can help you process grief, manage emotions, and cope with daily life.</p>
-                    </div>
+            <div class="service-card">
+                <h3>Therapy</h3>
+                <p>Longer-term support that helps you understand deeper issues and patterns in your life. It focuses on healing, personal growth, and lasting change.</p>
+                <div class="example">
+                    <p><strong>Example:</strong> If you're dealing with the effects of childhood trauma, therapy can help you heal emotional pain and rebuild your sense of self.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Therapy -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">3</div>
-                    <div class="faq-question-text">Therapy</div>
-                    <div class="faq-icon">+</div>
+    <!-- Session Format Section -->
+    <section class="section visible">
+        <div class="session-format">
+            <h3>WhatsApp Sessions</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <h4>End-to-End Encryption</h4>
+                    <p>Your conversations are completely protected</p>
                 </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>Longer-term support that helps you understand deeper issues and patterns in your life. It focuses on healing, personal growth, and lasting change.</p>
-                        <p><strong>Example:</strong> If you're dealing with the effects of childhood trauma, therapy can help you heal emotional pain and rebuild your sense of self.</p>
-                    </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔇</div>
+                    <h4>No Session Recordings</h4>
+                    <p>Confidentiality maintained</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>Instant Support</h4>
+                    <p>Quick messages when you need guidance</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Session Format -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">4</div>
-                    <div class="faq-question-text">Session Format - WhatsApp Sessions</div>
-                    <div class="faq-icon">+</div>
+    <!-- Pricing Section - Single Sessions -->
+    <section class="section pricing-section visible">
+        <h3>Single Sessions</h3>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h4>Counselling</h4>
+                <p>For specific issues and short-term support</p>
+                <div class="price">₹1,500</div>
+                <p class="duration">2 hours per session</p>
+                <ul class="features">
+                    <li>India: ₹1,500</li>
+                    <li>International: $28 USD / €22 EUR</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <h4>Therapy</h4>
+                <p>For deeper healing and long-term growth</p>
+                <div class="price">₹3,000</div>
+                <p class="duration">2 hours per session</p>
+                <ul class="features">
+                    <li>India: ₹3,000</li>
+                    <li>International: $55 USD / €42 EUR</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section - Committed Sessions -->
+    <section class="section pricing-section visible">
+        <h3>Committed Sessions</h3>
+        <p style="text-align: center; color: #F5E6D3; font-size: 1.125rem; margin-bottom: 2.5rem;">Pay for 3 sessions, receive 1 additional complimentary session for your commitment to your healing journey</p>
+        <div class="pricing-grid">
+            <div class="pricing-card featured">
+                <div class="badge">Best Value</div>
+                <h4>Counselling Package</h4>
+                <div class="price">₹4,500</div>
+                <p class="duration">4 sessions = 8 hours total</p>
+                <ul class="features">
+                    <li>India: ₹4,500</li>
+                    <li>International: $84 / €66</li>
+                </ul>
+                <div class="save">Save ₹1,500</div>
+            </div>
+            <div class="pricing-card featured">
+                <div class="badge">Best Value</div>
+                <h4>Therapy Package</h4>
+                <div class="price">₹9,000</div>
+                <p class="duration">4 sessions = 8 hours total</p>
+                <ul class="features">
+                    <li>India: ₹9,000</li>
+                    <li>International: $165 / €126</li>
+                </ul>
+                <div class="save">Save ₹3,000</div>
+            </div>
+        </div>
+        <p style="text-align: center; color: #F3D678; font-size: 1.125rem; margin-top: 2rem; font-weight: 600;">Deeper healing happens with consistent support. Your commitment rewarded with an extra session.</p>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section visible">
+        <div class="community-section">
+            <h3>Need Sponsor</h3>
+            <p>Can't afford therapy right now?</p>
+            <p>Need Sponsor is a generous initiative that empowers healing. Sponsors help those in need of counselling or therapy.</p>
+            <div class="community-options">
+                <div class="community-option">
+                    <h4>Become a Sponsor</h4>
+                    <p>Empower someone's healing journey through your generosity.</p>
                 </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <ul>
-                            <li>End-to-end encryption – Your conversations are completely protected</li>
-                            <li>No session recordings – Confidentiality maintained</li>
-                            <li>Instant support – Quick messages when you need guidance</li>
-                        </ul>
-                    </div>
+                <div class="community-option">
+                    <h4>Need Support?</h4>
+                    <p>Receive help now, then empower others when you're ready.</p>
                 </div>
             </div>
+            <p style="margin-top: 2rem; font-style: italic;">This generous cycle transforms need into empowerment, creating a community of healing.</p>
+        </div>
+    </section>
 
-            <!-- Payments - Single Sessions -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">5</div>
-                    <div class="faq-question-text">Payments - Single Sessions</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p><strong>Counselling – For specific issues and short-term support</strong></p>
-                        <p>India: ₹1,500 (2 hours)</p>
-                        <p>International: $28 USD / €22 EUR (2 hours)</p>
-                        <br>
-                        <p><strong>Therapy – For deeper healing and long-term growth</strong></p>
-                        <p>India: ₹3,000 (2 hours)</p>
-                        <p>International: $55 USD / €42 EUR (2 hours)</p>
-                    </div>
-                </div>
+    <!-- Process Timeline -->
+    <section class="section process-timeline visible">
+        <h3>How to Proceed</h3>
+        <div class="timeline-steps">
+            <div class="timeline-step">
+                <div class="step-number">1</div>
+                <h4>Schedule Your Session</h4>
+                <p>After your consultation, message me on WhatsApp to schedule your session</p>
             </div>
+            <div class="timeline-step">
+                <div class="step-number">2</div>
+                <h4>Confirm Details</h4>
+                <p>Confirm your appointment time and date</p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">3</div>
+                <h4>Choose Payment Option</h4>
+                <p>Pay in advance or after your session. Committed Sessions available - pay 3, receive 1 complimentary</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #F5E6D3; font-size: 1.125rem; margin-top: 2.5rem;">Need financial support? Let me know – we'll find a solution together through our Need Sponsor initiative.</p>
+    </section>
 
-            <!-- Committed Sessions -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">6</div>
-                    <div class="faq-question-text">Committed Sessions</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>Advance payment for 3 sessions you receive 1 additional complimentary session for your commitment to your healing journey</p>
-                        <br>
-                        <p><strong>Counselling Package:</strong></p>
-                        <p>₹4,500 / $84 / €66 (4 sessions = 8 hours)</p>
-                        <p>Save ₹1,500</p>
-                        <br>
-                        <p><strong>Therapy Package:</strong></p>
-                        <p>₹9,000 / $165 / €126 (4 sessions = 8 hours)</p>
-                        <p>Save ₹3,000</p>
-                        <br>
-                        <p><strong>Why commit?</strong> Deeper healing happens with consistent support. Your commitment rewarded with an extra session.</p>
-                    </div>
-                </div>
+    <!-- About Section -->
+    <section class="section about-section visible">
+        <h3>Who Will I Be Speaking With?</h3>
+        <div class="about-content">
+            <div>
+                <img src="Uploads/certificate.jpg" alt="Certificate of Course Completion for Counseling Suicidal People" class="certificate">
             </div>
+            <div class="credentials">
+                <p>I am RANI from Chennai, Tamil Nadu, India. A Mental Health Professional:</p>
+                <ul>
+                    <li>M.Sc. Counselling Psychology – University of Madras</li>
+                    <li>Certified Therapist in Hypnotherapy/Regression Therapy – The Hypnotherapy School of India</li>
+                    <li>Certified in Counseling Suicidal People – QPR Institute, United States.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-            <!-- Need Sponsor -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">7</div>
-                    <div class="faq-question-text">Need Sponsor</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>Can't afford therapy right now?</p>
-                        <p>Need Sponsor is a generous initiative that empowers healing. Sponsors help those in need of counselling or therapy.</p>
-                        <br>
-                        <p><strong>Become a sponsor</strong> – Empower someone's healing journey through your generosity.</p>
-                        <p><strong>Need support?</strong> – Receive help now, then empower others when you're ready.</p>
-                        <br>
-                        <p>This generous cycle transforms need into empowerment, creating a community of healing.</p>
-                    </div>
-                </div>
+    <!-- FAQ Section -->
+    <section class="section faq-section visible">
+        <h3>Common Questions</h3>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>How long does healing take?</h4>
+                <p>It varies. Some see relief after 2-3 sessions. Deeper work typically takes 6-12 sessions. We track progress together.</p>
             </div>
+            <div class="faq-item">
+                <h4>What if I can't afford it?</h4>
+                <p>The Need Sponsor program provides support. You can receive help now and sponsor others when you're able.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Are WhatsApp sessions effective?</h4>
+                <p>Yes! Online therapy is just as effective as in-person for most concerns. Complete privacy from your comfortable space.</p>
+            </div>
+        </div>
+    </section>
 
-            <!-- How to Proceed -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">8</div>
-                    <div class="faq-question-text">How to Proceed</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p><strong>Step 1:</strong> After your consultation, message me on WhatsApp to schedule your session</p>
-                        <p><strong>Step 2:</strong> Confirm your appointment time and date</p>
-                        <p><strong>Step 3:</strong> Choose your payment option – pay in advance or after your session</p>
-                        <br>
-                        <p><strong>Advance Payment Benefit:</strong> Committed Sessions - pay 3, receive 1 complimentary</p>
-                        <br>
-                        <p>Need financial support? Let me know – we'll find a solution together through our Need Sponsor initiative.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Common Questions - Who will I be speaking with -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">9</div>
-                    <div class="faq-question-text">Who will I be speaking with?</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <img src="Uploads/certificate.jpg" alt="Certificate of Course Completion for Counseling Suicidal People" class="certificate">
-                        <p>I am RANI from Chennai, Tamil Nadu, India. A Mental Health Professional:</p>
-                        <ul>
-                            <li>M.Sc. Counselling Psychology – University of Madras</li>
-                            <li>Certified Therapist in Hypnotherapy/Regression Therapy – The Hypnotherapy School of India</li>
-                            <li>Certified in Counseling Suicidal People – QPR Institute, United States.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- How long does healing take -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">10</div>
-                    <div class="faq-question-text">How long does healing take?</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>It varies. Some see relief after 2-3 sessions. Deeper work typically takes 6-12 sessions. We track progress together.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- What if I can't afford it -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">11</div>
-                    <div class="faq-question-text">What if I can't afford it?</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>The Need Sponsor program provides support. You can receive help now and sponsor others when you're able.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Are WhatsApp sessions effective -->
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <div class="faq-number">12</div>
-                    <div class="faq-question-text">Are WhatsApp sessions effective?</div>
-                    <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        <p>Yes! Online therapy is just as effective as in-person for most concerns. Complete privacy from your comfortable space.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- CTA Section -->
+    <section class="section cta-section visible">
+        <h3>Ready to Begin?</h3>
+        <p>Take the first step towards healing and transformation</p>
+        <div class="cta-buttons">
+            <a href="rapport.html" class="cta-button">Schedule Free Consultation</a>
+            <a href="https://wa.me/914448548889" class="cta-button secondary">Message on WhatsApp</a>
         </div>
     </section>
 
@@ -991,22 +1372,6 @@
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
         });
-
-        // FAQ Accordion functionality
-        function toggleFaq(questionElement) {
-            const card = questionElement.parentElement;
-            const isActive = card.classList.contains('active');
-
-            // Close all other FAQ cards
-            document.querySelectorAll('.faq-card').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('active');
-                }
-            });
-
-            // Toggle the clicked card
-            card.classList.toggle('active');
-        }
     </script>
 </body>
 </html>
