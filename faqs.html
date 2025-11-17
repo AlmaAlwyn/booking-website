@@ -563,8 +563,15 @@
             margin-bottom: 1.5rem;
         }
 
+        .pricing-card .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #F3D678 50%, transparent 100%);
+            margin: 1.5rem auto;
+        }
+
         .pricing-card .features {
-            text-align: left;
+            text-align: center;
             margin: 1.5rem 0;
             flex-grow: 1;
             list-style: none;
@@ -577,12 +584,16 @@
             font-size: 1.125rem;
             position: relative;
             padding-left: 1.75rem;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
         }
 
         .pricing-card .features li::before {
             content: '✓';
             position: absolute;
-            left: 0;
+            left: 50%;
+            transform: translateX(-3rem);
             color: #4CAF50;
             font-weight: 700;
             font-size: 1.1rem;
@@ -1226,8 +1237,10 @@
             <div class="pricing-card">
                 <h4>Counselling</h4>
                 <p class="description">For specific issues and short-term support</p>
+                <div class="divider"></div>
                 <div class="price"><span class="currency">₹</span>1,500</div>
                 <p class="duration">2 hours per session</p>
+                <div class="divider"></div>
                 <ul class="features">
                     <li>India: ₹1,500</li>
                     <li>International: $28 USD / €22 EUR</li>
@@ -1239,8 +1252,10 @@
             <div class="pricing-card">
                 <h4>Therapy</h4>
                 <p class="description">For deeper healing and long-term growth</p>
+                <div class="divider"></div>
                 <div class="price"><span class="currency">₹</span>3,000</div>
                 <p class="duration">2 hours per session</p>
+                <div class="divider"></div>
                 <ul class="features">
                     <li>India: ₹3,000</li>
                     <li>International: $55 USD / €42 EUR</li>
@@ -1261,8 +1276,10 @@
                 <div class="badge">Best Value</div>
                 <h4>Counselling Package</h4>
                 <p class="description">4 sessions with 1 complimentary</p>
+                <div class="divider"></div>
                 <div class="price"><span class="currency">₹</span>4,500</div>
                 <p class="duration">8 hours total (4 × 2 hours)</p>
+                <div class="divider"></div>
                 <ul class="features">
                     <li>India: ₹4,500</li>
                     <li>International: $84 / €66</li>
@@ -1276,8 +1293,10 @@
                 <div class="badge">Best Value</div>
                 <h4>Therapy Package</h4>
                 <p class="description">4 sessions with 1 complimentary</p>
+                <div class="divider"></div>
                 <div class="price"><span class="currency">₹</span>9,000</div>
                 <p class="duration">8 hours total (4 × 2 hours)</p>
+                <div class="divider"></div>
                 <ul class="features">
                     <li>India: ₹9,000</li>
                     <li>International: $165 / €126</li>
