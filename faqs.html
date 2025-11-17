@@ -567,7 +567,7 @@
             width: 60px;
             height: 2px;
             background: linear-gradient(90deg, transparent 0%, #F3D678 50%, transparent 100%);
-            margin: 1.5rem auto;
+            margin: 0.75rem auto;
         }
 
         .pricing-card .features {
@@ -583,20 +583,18 @@
             padding: 0.75rem 0;
             font-size: 1.125rem;
             position: relative;
-            padding-left: 1.75rem;
-            display: inline-block;
-            width: 100%;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .pricing-card .features li::before {
             content: '✓';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-3rem);
             color: #4CAF50;
             font-weight: 700;
             font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         .pricing-card .features li.unavailable::before {
