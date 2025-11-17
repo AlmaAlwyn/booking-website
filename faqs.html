@@ -486,24 +486,26 @@
         }
 
         .pricing-card {
-            background: rgba(245, 230, 211, 0.95);
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
             border-radius: 20px;
             padding: 2.5rem 2rem;
             text-align: center;
             transition: all 0.4s ease;
             position: relative;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
+            border: 2px solid rgba(243, 214, 120, 0.3);
         }
 
         .pricing-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 40px rgba(243, 214, 120, 0.4);
+            border-color: rgba(243, 214, 120, 0.6);
         }
 
         .pricing-card.featured {
-            background: rgba(255, 255, 255, 0.98);
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.98) 0%, rgba(26, 40, 32, 0.98) 100%);
             box-shadow: 0 8px 32px rgba(243, 214, 120, 0.4);
             border: 2px solid #F3D678;
         }
@@ -524,7 +526,7 @@
 
         .pricing-card h4 {
             font-size: 1.75rem;
-            color: #0a1410;
+            color: #F3D678;
             margin-bottom: 0.5rem;
             margin-top: 0.5rem;
             font-family: "Poppins", sans-serif;
@@ -532,7 +534,7 @@
         }
 
         .pricing-card .description {
-            color: #666;
+            color: #F5E6D3;
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
             min-height: 40px;
@@ -540,7 +542,7 @@
 
         .pricing-card .price {
             font-size: 3rem;
-            color: #0a1410;
+            color: #F3D678;
             font-weight: 700;
             margin: 1rem 0;
             font-family: "Poppins", sans-serif;
@@ -556,7 +558,7 @@
         }
 
         .pricing-card .duration {
-            color: #666;
+            color: #F5E6D3;
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
@@ -570,7 +572,7 @@
         }
 
         .pricing-card .features li {
-            color: #0a1410;
+            color: #F5E6D3;
             padding: 0.75rem 0;
             font-size: 1.125rem;
             position: relative;
