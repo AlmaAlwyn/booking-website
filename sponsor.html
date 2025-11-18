@@ -435,26 +435,19 @@
         }
 
         .benefit-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 0;
-        }
-
-        .benefit-card.active .benefit-content {
-            max-height: 500px;
-            padding-top: 1rem;
+            display: block;
+            opacity: 1;
         }
 
         .benefit-description {
             font-family: "Poppins", sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #F5E6D3;
             line-height: 1.6;
         }
 
         .benefit-description p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 0;
         }
 
@@ -1123,44 +1116,29 @@
         <div class="benefits-accordion">
             <div class="benefits-grid">
                 <!-- Benefit 1: Your Privacy -->
-                <div class="benefit-card" onclick="toggleBenefit(this)">
-                    <div class="benefit-header">
-                        <div class="benefit-icon">🔐</div>
-                        <div class="benefit-title">Your Privacy</div>
-                        <div class="benefit-toggle">+</div>
-                    </div>
-                    <div class="benefit-content">
-                        <div class="benefit-description">
-                            <p>Choose complete anonymity or be recognized for your contribution</p>
-                        </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔐</div>
+                    <div class="benefit-title">Your Privacy</div>
+                    <div class="benefit-description">
+                        <p>Choose complete anonymity or be recognized for your contribution</p>
                     </div>
                 </div>
 
                 <!-- Benefit 2: Your Purpose -->
-                <div class="benefit-card" onclick="toggleBenefit(this)">
-                    <div class="benefit-header">
-                        <div class="benefit-icon">💫</div>
-                        <div class="benefit-title">Your Purpose</div>
-                        <div class="benefit-toggle">+</div>
-                    </div>
-                    <div class="benefit-content">
-                        <div class="benefit-description">
-                            <p>Transfer funds with complete flexibility and control</p>
-                        </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💫</div>
+                    <div class="benefit-title">Your Purpose</div>
+                    <div class="benefit-description">
+                        <p>Transfer funds with complete flexibility and control</p>
                     </div>
                 </div>
 
                 <!-- Benefit 3: Your Impact -->
-                <div class="benefit-card" onclick="toggleBenefit(this)">
-                    <div class="benefit-header">
-                        <div class="benefit-icon">🌟</div>
-                        <div class="benefit-title">Your Impact</div>
-                        <div class="benefit-toggle">+</div>
-                    </div>
-                    <div class="benefit-content">
-                        <div class="benefit-description">
-                            <p>Receive confidential updates on lives you've empowered</p>
-                        </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌟</div>
+                    <div class="benefit-title">Your Impact</div>
+                    <div class="benefit-description">
+                        <p>Receive confidential updates on lives you've empowered</p>
                     </div>
                 </div>
             </div>
@@ -1268,22 +1246,6 @@
         document.querySelectorAll('.section, .payment-section').forEach(section => {
             observer.observe(section);
         });
-
-        // Benefits Accordion functionality
-        function toggleBenefit(headerElement) {
-            const card = headerElement.parentElement;
-            const isActive = card.classList.contains('active');
-
-            // Close all other benefit cards
-            document.querySelectorAll('.benefit-card').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('active');
-                }
-            });
-
-            // Toggle the clicked card
-            card.classList.toggle('active');
-        }
 
         // Sponsor Form Submission
         const form = document.getElementById('sponsorForm');
