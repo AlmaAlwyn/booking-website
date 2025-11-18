@@ -347,46 +347,71 @@
             color: #F5E6D3;
         }
 
-        /* Sponsorship Benefits Accordion */
+        /* Sponsorship Benefits Ribbon Layout */
         .benefits-accordion {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 3rem auto;
+            padding: 0;
+        }
+
+        .benefits-grid {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            justify-content: center;
+            align-items: stretch;
+            gap: 0;
         }
 
         .benefit-card {
-            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 50%, rgba(30, 42, 31, 0.95) 100%);
-            border-left: 4px solid #F3D678;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(243, 214, 120, 0.2);
-            transition: all 0.3s ease;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.8) 0%, rgba(26, 40, 32, 0.8) 100%);
+            transition: all 0.4s ease;
+            border-right: 1px solid rgba(243, 214, 120, 0.3);
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .benefit-card:first-child {
+            border-radius: 20px 0 0 20px;
+            border-left: 2px solid rgba(243, 214, 120, 0.5);
+        }
+
+        .benefit-card:last-child {
+            border-radius: 0 20px 20px 0;
+            border-right: 2px solid rgba(243, 214, 120, 0.5);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(243, 214, 120, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
         }
 
         .benefit-card:hover {
-            box-shadow: 0 6px 24px rgba(243, 214, 120, 0.3), 0 0 0 1px rgba(243, 214, 120, 0.4);
-            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(26, 40, 32, 0.9) 0%, rgba(13, 20, 16, 0.9) 100%);
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.3);
         }
 
         .benefit-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.75rem 2rem;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .benefit-header:hover {
-            background: rgba(243, 214, 120, 0.08);
+            display: block;
         }
 
         .benefit-icon {
-            font-size: 2.5rem;
-            flex-shrink: 0;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             filter: drop-shadow(0 0 10px rgba(243, 214, 120, 0.4));
             transition: all 0.4s ease;
         }
@@ -397,47 +422,40 @@
         }
 
         .benefit-title {
-            flex: 1;
             font-family: "Poppins", sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: #F3D678;
             line-height: 1.4;
+            margin-bottom: 0.75rem;
         }
 
         .benefit-toggle {
-            width: 2rem;
-            height: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            color: #F3D678;
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .benefit-card.active .benefit-toggle {
-            transform: rotate(45deg);
+            display: none;
         }
 
         .benefit-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 0 2rem;
+            padding: 0;
         }
 
         .benefit-card.active .benefit-content {
             max-height: 500px;
-            padding: 0 2rem 2rem 2rem;
+            padding-top: 1rem;
         }
 
         .benefit-description {
             font-family: "Poppins", sans-serif;
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: #F5E6D3;
-            line-height: 1.8;
+            line-height: 1.6;
+        }
+
+        .benefit-description p {
+            font-size: 1rem;
+            margin-bottom: 0;
         }
 
         /* Glass-morphism Form Design */
@@ -896,12 +914,31 @@
 
             .benefits-accordion {
                 margin: 2rem auto;
-                gap: 1rem;
             }
 
-            .benefit-header {
-                padding: 1.25rem 1rem;
-                gap: 1rem;
+            .benefits-grid {
+                flex-direction: column;
+            }
+
+            .benefit-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(243, 214, 120, 0.3);
+            }
+
+            .benefit-card:first-child {
+                border-radius: 20px 20px 0 0;
+                border-top: 2px solid rgba(243, 214, 120, 0.5);
+                border-left: none;
+            }
+
+            .benefit-card:last-child {
+                border-radius: 0 0 20px 20px;
+                border-bottom: 2px solid rgba(243, 214, 120, 0.5);
+                border-right: none;
+            }
+
+            .benefit-card:hover {
+                transform: scale(1.02);
             }
 
             .benefit-icon {
@@ -909,25 +946,11 @@
             }
 
             .benefit-title {
-                font-size: 1.2rem;
-            }
-
-            .benefit-toggle {
-                width: 1.5rem;
-                height: 1.5rem;
-                font-size: 1.5rem;
-            }
-
-            .benefit-content {
-                padding: 0 1rem;
-            }
-
-            .benefit-card.active .benefit-content {
-                padding: 0 1rem 1.5rem 1rem;
+                font-size: 1.1rem;
             }
 
             .benefit-description {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .form-head {
@@ -1094,48 +1117,50 @@
         <h2>Become a Sponsor - Empower someone's rooting journey through your generosity.</h2>
         <p>Need Sponsor is a generous initiative that empowers healing.</p>
 
-        <h3 style="text-align: center; margin-top: 3rem;">Sponsorship Process:</h3>
+        <h3 style="text-align: center; margin-top: 3rem; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Sponsorship Process:</h3>
 
-        <!-- Interactive Accordion for Benefits -->
+        <!-- Ribbon Layout for Benefits -->
         <div class="benefits-accordion">
-            <!-- Benefit 1: Your Privacy -->
-            <div class="benefit-card">
-                <div class="benefit-header" onclick="toggleBenefit(this)">
-                    <div class="benefit-icon">🔐</div>
-                    <div class="benefit-title">Your Privacy</div>
-                    <div class="benefit-toggle">+</div>
-                </div>
-                <div class="benefit-content">
-                    <div class="benefit-description">
-                        <p>Choose complete anonymity or be recognized for your contribution. Your identity is protected throughout the sponsorship process. Whether you prefer to remain a silent guardian or receive acknowledgment for your generosity, the choice is entirely yours. We honor your privacy preferences with the highest level of confidentiality and respect.</p>
+            <div class="benefits-grid">
+                <!-- Benefit 1: Your Privacy -->
+                <div class="benefit-card" onclick="toggleBenefit(this)">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🔐</div>
+                        <div class="benefit-title">Your Privacy</div>
+                        <div class="benefit-toggle">+</div>
+                    </div>
+                    <div class="benefit-content">
+                        <div class="benefit-description">
+                            <p>Choose complete anonymity or be recognized for your contribution</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Benefit 2: Your Purpose -->
-            <div class="benefit-card">
-                <div class="benefit-header" onclick="toggleBenefit(this)">
-                    <div class="benefit-icon">💫</div>
-                    <div class="benefit-title">Your Purpose</div>
-                    <div class="benefit-toggle">+</div>
-                </div>
-                <div class="benefit-content">
-                    <div class="benefit-description">
-                        <p>Transfer funds using your preferred method with complete flexibility and control. Support one individual or multiple people in need. Choose to sponsor specific types of therapy or general counseling services. Your contribution is handled with transparency, and you decide how your generosity creates meaningful change in someone's healing journey.</p>
+                <!-- Benefit 2: Your Purpose -->
+                <div class="benefit-card" onclick="toggleBenefit(this)">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">💫</div>
+                        <div class="benefit-title">Your Purpose</div>
+                        <div class="benefit-toggle">+</div>
+                    </div>
+                    <div class="benefit-content">
+                        <div class="benefit-description">
+                            <p>Transfer funds with complete flexibility and control</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Benefit 3: Your Impact -->
-            <div class="benefit-card">
-                <div class="benefit-header" onclick="toggleBenefit(this)">
-                    <div class="benefit-icon">🌟</div>
-                    <div class="benefit-title">Your Impact</div>
-                    <div class="benefit-toggle">+</div>
-                </div>
-                <div class="benefit-content">
-                    <div class="benefit-description">
-                        <p>Receive confidential updates on the lives you've empowered without compromising anyone's privacy. Learn about the transformative journeys made possible by your generosity. See how your contribution creates ripples of healing and hope. Track the meaningful difference you're making in building a community where mental health support is accessible to everyone who needs it.</p>
+                <!-- Benefit 3: Your Impact -->
+                <div class="benefit-card" onclick="toggleBenefit(this)">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🌟</div>
+                        <div class="benefit-title">Your Impact</div>
+                        <div class="benefit-toggle">+</div>
+                    </div>
+                    <div class="benefit-content">
+                        <div class="benefit-description">
+                            <p>Receive confidential updates on lives you've empowered</p>
+                        </div>
                     </div>
                 </div>
             </div>
