@@ -752,6 +752,40 @@
             50% { transform: scale(1.05); }
         }
 
+        .qr-code-img {
+            width: 200px;
+            height: 200px;
+            margin: 1rem auto;
+            display: block;
+            border-radius: 12px;
+            border: 2px solid rgba(243, 214, 120, 0.5);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .qr-code-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(243, 214, 120, 0.4);
+        }
+
+        .upi-details {
+            text-align: center;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .upi-details p {
+            font-size: 0.85rem;
+            color: #F5E6D3;
+            margin: 0.25rem 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .upi-details strong {
+            color: #F3D678;
+        }
+
         .footer {
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
@@ -1182,12 +1216,17 @@
 
         <div class="payment-grid">
             <!-- India UPI Payment -->
-            <a href="upi://pay?pa=YOUR-UPI-ID@provider&pn=Tree%20of%20Abundance" class="payment-card">
+            <div class="payment-card">
                 <span class="payment-badge">Secure</span>
                 <div class="payment-icon">🇮🇳</div>
                 <div class="payment-title">UPI Payment</div>
                 <div class="payment-description">Fast & secure payments through UPI for Indian sponsors</div>
-            </a>
+                <img src="uploads/indian qr code.jpeg" alt="UPI QR Code" class="qr-code-img">
+                <div class="upi-details">
+                    <p><strong>UPI ID:</strong> abundancebeing@indianbank</p>
+                    <p><strong>UPI Number:</strong> 48548889</p>
+                </div>
+            </div>
 
             <!-- International Wisely Payment -->
             <a href="https://your-wisely-business-link.com" class="payment-card" target="_blank" rel="noopener noreferrer">
