@@ -44,26 +44,7 @@
         }
 
         .contact-container {
-            max-width: 600px;
-            width: 100%;
-            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(243, 214, 120, 0.3);
-            border: 2px solid rgba(243, 214, 120, 0.4);
             text-align: center;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .name {
@@ -71,21 +52,12 @@
             font-weight: bold;
             font-family: "Satisfy", cursive;
             color: #F3D678;
-            text-shadow: 0 0 10px rgba(243, 214, 120, 0.4);
-            margin-bottom: 2.5rem;
+            text-shadow: none;
+            margin-bottom: 2rem;
         }
 
         .contact-item {
             margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(10, 20, 16, 0.3);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(243, 214, 120, 0.1);
-            transform: translateY(-3px);
         }
 
         .contact-item a {
@@ -95,12 +67,10 @@
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             transition: all 0.3s ease;
-            display: block;
         }
 
         .contact-item a:hover {
             color: #F3D678;
-            text-shadow: 0 0 8px rgba(243, 214, 120, 0.5);
         }
 
         .whatsapp-container {
@@ -108,15 +78,7 @@
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(10, 20, 16, 0.3);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-container:hover {
-            background: rgba(243, 214, 120, 0.1);
-            transform: translateY(-3px);
+            margin-bottom: 2rem;
         }
 
         .whatsapp-logo {
@@ -134,44 +96,19 @@
         .whatsapp-number {
             color: #F5E6D3;
             text-decoration: none;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 500;
+            font-weight: 400;
             transition: all 0.3s ease;
         }
 
         .whatsapp-number:hover {
             color: #F3D678;
-            text-shadow: 0 0 8px rgba(243, 214, 120, 0.5);
-        }
-
-        .back-link {
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(243, 214, 120, 0.2);
-        }
-
-        .back-link a {
-            color: #F3D678;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .back-link a:hover {
-            text-shadow: 0 0 10px rgba(243, 214, 120, 0.6);
         }
 
         @media (max-width: 768px) {
-            .contact-container {
-                padding: 2rem 1.5rem;
-            }
-
             .name {
                 font-size: 2.5rem;
-                margin-bottom: 2rem;
             }
 
             .contact-item a {
@@ -189,7 +126,7 @@
             }
 
             .whatsapp-number {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -207,10 +144,6 @@
                 <img src="Uploads/whatsapp-logo.png" alt="WhatsApp" class="whatsapp-logo">
             </a>
             <a href="https://wa.me/914448548889" class="whatsapp-number">+91 44 4854 8889</a>
-        </div>
-
-        <div class="back-link">
-            <a href="index.html">← Back to Home</a>
         </div>
     </div>
 </body>
