@@ -745,7 +745,7 @@
         }
 
         .crisis-header {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             color: #ff4444;
@@ -851,12 +851,16 @@
         }
 
         .professional-support-header {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
             color: #F3D678;
             margin-bottom: 0.8rem;
             text-align: center;
+        }
+
+        .professional-support-header.green {
+            color: #4CAF50;
         }
 
         .professional-support-text {
@@ -877,6 +881,10 @@
             margin-bottom: 0;
             text-align: center;
             text-shadow: none;
+        }
+
+        .rooted-message.green {
+            color: #4CAF50;
         }
 
         .cta-buttons-container {
@@ -924,15 +932,15 @@
         .cta-corporate {
             display: inline-block;
             padding: 1.5rem 4rem;
-            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
-            color: #1A1A2E;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: #FFFFFF;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.6rem;
             font-family: "Poppins", sans-serif;
             font-weight: 700;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.3), 0 0 20px rgba(243, 214, 120, 0.2);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3), 0 0 20px rgba(76, 175, 80, 0.2);
             border: none;
             cursor: pointer;
             position: relative;
@@ -944,8 +952,8 @@
 
         .cta-corporate:hover {
             transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 20px 60px rgba(243, 214, 120, 0.5), 0 0 40px rgba(243, 214, 120, 0.3);
-            background: linear-gradient(135deg, #D4AF37 0%, #B68A23 100%);
+            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.5), 0 0 40px rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, #45a049 0%, #388E3C 100%);
         }
 
         .cta-corporate:active {
@@ -1227,7 +1235,7 @@
             }
 
             .crisis-header {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 padding-top: 1.5rem;
             }
 
@@ -1274,7 +1282,7 @@
             }
 
             .professional-support-header {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
 
             .professional-support-text {
@@ -1460,7 +1468,7 @@
     <section class="support-section" id="support">
         <div class="support-section-inner">
             <div class="crisis-info-container">
-                <h2 class="crisis-header">If You're In Crisis Right Now:</h2>
+                <h4 class="crisis-header">If You're In Crisis Right Now:</h4>
                 <p class="crisis-intro">Your life matters. If you're thinking about suicide or in immediate danger, please reach out for help right now.</p>
 
                 <div class="crisis-helplines-grid">
@@ -1496,7 +1504,7 @@
                 <div class="section-divider"></div>
 
                 <div class="professional-support-section">
-                    <p class="professional-support-header">If You're Seeking Personal Support:</p>
+                    <h4 class="professional-support-header">If You're Seeking Personal Support:</h4>
                     <p class="professional-support-text">Your pain is real, but so is hope. You deserve support, and recovery is possible.</p>
                     <p class="rooted-message">Individual healing starts here.</p>
                     <div style="text-align: center; margin-top: 1.5rem;">
@@ -1505,9 +1513,9 @@
 
                     <div class="section-divider"></div>
 
-                    <p class="professional-support-header">If You're Ready for Professional Success:</p>
+                    <h4 class="professional-support-header green">If You're Ready for Professional Success:</h4>
                     <p class="professional-support-text">Your burnout is common, but sustainable success is achievable.</p>
-                    <p class="rooted-message">Workplace wellness starts here.</p>
+                    <p class="rooted-message green">Workplace wellness starts here.</p>
                     <div style="text-align: center; margin-top: 1.5rem;">
                         <a href="wellness-intake.html" class="cta-corporate">Wellness Intake</a>
                     </div>
