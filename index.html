@@ -1014,9 +1014,8 @@
         }
 
         .footer {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 3rem;
+            display: flex;
+            justify-content: center;
             align-items: center;
             padding: 3rem 5rem;
             font-family: "Poppins", sans-serif;
@@ -1030,73 +1029,31 @@
             margin-right: auto;
             border-top: 1px solid rgba(255, 215, 0, 0.3);
             padding-top: 3rem;
-        }
-
-        .footer-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .footer-section:first-child {
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-
-        .footer-section:nth-child(2) {
             text-align: center;
         }
 
-        .footer-section:last-child {
-            align-items: flex-end;
-            text-align: right;
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
-        .footer-section p {
-            font-size: 1.25rem;
-            margin-bottom: 0.9375rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            color: #F5E6D3;
-        }
-
-        .footer-section p.name {
-            font-size: 3rem;
-            font-weight: bold;
-            font-family: "Satisfy", cursive;
-            color: #F3D678;
-            text-shadow: none;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section:last-child a {
+        .footer-links a {
             color: #F5E6D3;
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.625rem;
             font-size: 1.25rem;
             font-family: "Poppins", sans-serif;
             font-weight: 300;
+            transition: all 0.3s ease;
         }
 
-        .footer-section:last-child a:hover {
+        .footer-links a:hover {
             color: #F3D678;
-            text-shadow: none;
         }
 
-        .footer-section .whatsapp-link img {
-            width: 4.5rem;
-            height: 4.5rem;
-            vertical-align: middle;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
-        }
-
-        .footer-section .whatsapp-link img:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        .footer-divider {
+            color: #F5E6D3;
+            opacity: 0.5;
         }
 
         @media (max-width: 768px) {
@@ -1391,51 +1348,20 @@
             }
 
             .footer {
-                grid-template-columns: 1fr;
-                gap: 2rem;
                 padding: 2rem 1rem;
-                text-align: center;
             }
 
-            .footer-section {
-                align-items: center;
-                text-align: center;
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
             }
 
-            .footer-section:first-child {
-                align-items: center;
+            .footer-links a {
+                font-size: 1.1rem;
             }
 
-            .footer-section:last-child {
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-section p, .footer-section:last-child a {
-                font-size: 1rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                color: #F5E6D3;
-            }
-
-            .footer-section:last-child a {
-                color: #F5E6D3;
-            }
-
-            .footer-section p.name {
-                font-size: 2.2rem;
-                font-family: "Satisfy", cursive;
-                font-weight: bold;
-                color: #F3D678;
-                text-shadow: none;
-            }
-
-            .footer-section .whatsapp-link img {
-                transition: transform 0.3s ease;
-            }
-
-            .footer-section .whatsapp-link img:hover {
-                transform: scale(1.1);
+            .footer-divider {
+                display: none;
             }
         }
 
@@ -1666,17 +1592,11 @@
     </section>
 
     <footer class="footer">
-        <div class="footer-section">
-            <a href="https://wa.me/914448548889" class="whatsapp-link"><img src="Uploads/whatsapp-logo.png" alt="WhatsApp"></a>
-        </div>
-        <div class="footer-section">
-            <p class="name">Tinesh Kumar</p>
-            <p>Counselling & Therapy</p>
-        </div>
-        <div class="footer-section">
+        <div class="footer-links">
             <a href="contact.html">Contact</a>
-            <a href="faqs.html">Individual Healing</a>
+            <span class="footer-divider">|</span>
             <a href="privacy.html">Privacy Policy</a>
+            <span class="footer-divider">|</span>
             <a href="terms.html">Terms of Service</a>
         </div>
     </footer>
