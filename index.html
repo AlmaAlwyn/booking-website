@@ -756,11 +756,49 @@
         .section-divider {
             width: 60%;
             max-width: 400px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, #F3D678 20%, #D4AF37 50%, #F3D678 80%, transparent 100%);
             margin: 2.5rem auto;
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(243, 214, 120, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent 0%, #F3D678 50%, transparent 100%);
+            box-shadow: 0 0 8px rgba(243, 214, 120, 0.3);
+        }
+
+        .section-divider::before {
+            background: linear-gradient(90deg, transparent 0%, #F3D678 100%);
+        }
+
+        .section-divider::after {
+            background: linear-gradient(90deg, #F3D678 0%, transparent 100%);
+        }
+
+        .divider-dot {
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #F3D678 0%, #D4AF37 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(243, 214, 120, 0.6), 0 0 20px rgba(243, 214, 120, 0.3);
+            position: relative;
+        }
+
+        .divider-dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgba(243, 214, 120, 0.3);
+            border-radius: 50%;
         }
 
         .crisis-intro {
@@ -1516,7 +1554,9 @@
                     </div>
                 </div>
 
-                <div class="section-divider"></div>
+                <div class="section-divider">
+                    <span class="divider-dot"></span>
+                </div>
 
                 <div class="professional-support-section">
                     <h4 class="professional-support-header">If You're Seeking Personal Support:</h4>
@@ -1526,7 +1566,9 @@
                         <a href="rapport.html" class="cta-consultation">Consultation</a>
                     </div>
 
-                    <div class="section-divider"></div>
+                    <div class="section-divider">
+                        <span class="divider-dot"></span>
+                    </div>
 
                     <h4 class="professional-support-header green">If You're Ready for Professional Success:</h4>
                     <p class="professional-support-text">Your burnout is common, but sustainable success is achievable.</p>
@@ -1609,9 +1651,17 @@
             </div>
         </div>
         <div class="whatsapp-channel-cta">
-            🌱 You're not alone in this.  Mental health guidance that's refreshingly real—no toxic positivity, no empty advice.  You're not broken. You're human. And healing is possible.  Mental health education to empower your healing journey.<br>
-            ⚠️ Educational content only 🔒 Your phone number stays private — you can leave anytime.<br>
-            <a href="https://whatsapp.com/channel/0029VbBtLmO7oQhcQTBO7538" target="_blank" rel="noopener noreferrer">Roots of Abundance</a>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                🌱 You're not alone in this. Mental health guidance that's refreshingly real—no toxic positivity, no empty advice. You're not broken. You're human. And healing is possible. Mental health education to empower your healing journey.<br>
+                ⚠️  Educational content only ⚠️
+            </p>
+            <h4 style="font-size: 2rem; font-family: 'Poppins', sans-serif; font-weight: 600; color: #F3D678; margin: 1.5rem 0; text-align: center;">I'm Rooted here and now!</h4>
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="https://whatsapp.com/channel/0029VbBtLmO7oQhcQTBO7538" target="_blank" rel="noopener noreferrer" class="cta-consultation">Roots of Abundance</a>
+            </div>
+            <p style="font-size: 0.9rem; color: #E8D5C4; margin-top: 1rem; text-align: center; line-height: 1.6;">
+                🔒 Your phone number stays private — you can leave anytime.
+            </p>
         </div>
     </section>
 
