@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -77,15 +78,15 @@
         nav .logo-text-container {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             gap: 0.2rem;
         }
 
         nav .logo-title {
-            font-family: "Adamina", serif;
-            font-size: 2rem;
-            font-weight: 500;
+            font-family: "Playfair Display", serif;
+            font-size: 2.3rem;
+            font-weight: 800;
             color: #F3D678;
             text-shadow: none;
             letter-spacing: 1px;
@@ -94,22 +95,26 @@
         }
 
         nav .logo img {
-            height: 5.5rem;
-            width: 5.5rem;
+            height: 6.2rem;
+            width: 6.2rem;
             filter: none;
             transition: all 0.3s ease;
         }
 
         nav .logo-subtitle {
-            font-family: "Poppins", sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #F3D678;
             text-shadow: none;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-transform: none;
             line-height: 1.2;
             transition: text-shadow 0.3s ease;
+        }
+
+        nav .logo-subtitle .ampersand {
+            font-family: "Poppins", sans-serif;
         }
 
         nav .logo:hover {
@@ -300,9 +305,8 @@
             margin: 3rem auto;
             padding: 4rem 2rem;
             text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .hero-section.visible {
@@ -362,9 +366,8 @@
             max-width: 1400px;
             margin: 3rem auto;
             padding: 2rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section.visible {
@@ -690,65 +693,41 @@
         }
 
         .faq-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .faq-card {
-            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 50%, rgba(30, 42, 31, 0.95) 100%);
-            border-left: 4px solid #F3D678;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-        }
-
-        .faq-question {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 2rem;
-            cursor: pointer;
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.4);
+            border-radius: 16px;
+            padding: 2rem;
             transition: all 0.3s ease;
         }
 
-        .faq-question:hover {
-            background: rgba(243, 214, 120, 0.08);
+        .faq-card:hover {
+            border-color: #F3D678;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.3);
         }
 
-        .faq-question h4 {
+        .faq-question {
             color: #F3D678;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
-        }
-
-        .faq-icon {
-            font-size: 1.5rem;
-            color: #F3D678;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-card.active .faq-icon {
-            transform: rotate(180deg);
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            line-height: 1.4;
         }
 
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 0 2rem;
-        }
-
-        .faq-card.active .faq-answer {
-            max-height: 500px;
-            padding: 0 2rem 2rem 2rem;
-        }
-
-        .faq-answer p {
-            font-size: 1.05rem;
-            color: #F5E6D3;
+            color: #E8D5C4;
+            font-size: 1rem;
             line-height: 1.7;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
         }
 
         .final-cta {
@@ -799,9 +778,8 @@
         }
 
         .footer {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 3rem;
+            display: flex;
+            justify-content: center;
             align-items: center;
             padding: 3rem 5rem;
             font-family: "Poppins", sans-serif;
@@ -815,73 +793,31 @@
             margin-right: auto;
             border-top: 1px solid rgba(255, 215, 0, 0.3);
             padding-top: 3rem;
-        }
-
-        .footer-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .footer-section:first-child {
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-
-        .footer-section:nth-child(2) {
             text-align: center;
         }
 
-        .footer-section:last-child {
-            align-items: flex-end;
-            text-align: right;
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
-        .footer-section p {
-            font-size: 1.25rem;
-            margin-bottom: 0.9375rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            color: #F5E6D3;
-        }
-
-        .footer-section p.name {
-            font-size: 3rem;
-            font-weight: bold;
-            font-family: "Satisfy", cursive;
-            color: #F3D678;
-            text-shadow: none;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section:last-child a {
+        .footer-links a {
             color: #F5E6D3;
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.625rem;
             font-size: 1.25rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 300;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .footer-section:last-child a:hover {
+        .footer-links a:hover {
             color: #F3D678;
-            text-shadow: none;
         }
 
-        .footer-section .whatsapp-link img {
-            width: 4.5rem;
-            height: 4.5rem;
-            vertical-align: middle;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
-        }
-
-        .footer-section .whatsapp-link img:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        .footer-divider {
+            color: #F5E6D3;
+            opacity: 0.5;
         }
 
         @media (max-width: 1200px) {
@@ -913,16 +849,16 @@
             }
 
             nav .logo-title {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             nav .logo img {
-                height: 3.5rem;
-                width: 3.5rem;
+                height: 4rem;
+                width: 4rem;
             }
 
             nav .logo-subtitle {
-                font-size: 0.75rem;
+                font-size: 0.85rem;
             }
 
             .hamburger {
@@ -980,33 +916,36 @@
                 align-items: center;
             }
 
+            .popular-badge {
+                top: 0.5rem;
+                right: 0.5rem;
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .pricing-card h3 {
+                padding-right: 6rem;
+            }
+
             .footer {
-                grid-template-columns: 1fr;
-                gap: 2rem;
                 padding: 2rem 1rem;
-                text-align: center;
             }
 
-            .footer-section {
-                align-items: center;
-                text-align: center;
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
             }
 
-            .footer-section:first-child {
-                align-items: center;
+            .footer-links a {
+                font-size: 1.1rem;
             }
 
-            .footer-section:last-child {
-                align-items: center;
-                text-align: center;
+            .footer-divider {
+                display: none;
             }
 
-            .footer-section p, .footer-section:last-child a {
-                font-size: 1rem;
-            }
-
-            .footer-section p.name {
-                font-size: 2.2rem;
+            .faq-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1018,7 +957,7 @@
                 <img src="uploads/logo.jpg" alt="Tree of Abundance Logo">
                 <div class="logo-text-container">
                     <span class="logo-title">Tree of Abundance</span>
-                    <span class="logo-subtitle">Healing & Wellness</span>
+                    <span class="logo-subtitle">Healing <span class="ampersand">&</span> Wellness</span>
                 </div>
             </a>
             <div class="hamburger" id="hamburger">
@@ -1110,7 +1049,7 @@
                 <span class="popular-badge">Most Popular</span>
                 <h3>Professional</h3>
                 <p class="tagline">Complete support for growing organizations</p>
-                <p style="font-size: 0.9rem; color: #F3D678; font-style: italic; margin-bottom: 1rem;">Best value - Most popular for 50-200 employee companies</p>
+                <p style="font-size: 0.9rem; color: #F3D678; font-style: italic; margin-bottom: 1rem;">Best value - Most popular for 50-100 employee companies</p>
                 <div class="price">₹30,000</div>
                 <p class="price-period">per month</p>
 
@@ -1355,43 +1294,18 @@
 
         <div class="faq-container">
             <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h4>How is this different from traditional EAP?</h4>
-                    <div class="faq-icon">↓</div>
-                </div>
-                <div class="faq-answer">
-                    <p>Most EAPs offer 30-60 minute sessions focused on crisis management. We provide 2-hour deep sessions that actually resolve issues, not just manage them. Plus we combine counselling and therapy for comprehensive care.</p>
-                </div>
+                <div class="faq-question">How long does healing take?</div>
+                <div class="faq-answer">It varies. Some see relief after 2-3 sessions. Deeper work typically takes 6-12 sessions. We track progress together.</div>
             </div>
 
             <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h4>Is employee information confidential from management?</h4>
-                    <div class="faq-icon">↓</div>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely. We provide aggregate reports (e.g., "30% reduction in stress") but never individual names or session details. Your employees' privacy is completely protected.</p>
-                </div>
+                <div class="faq-question">What if I can't afford it?</div>
+                <div class="faq-answer">The Need Sponsor program provides support. You can receive help now and sponsor others when you're able.</div>
             </div>
 
             <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h4>What if we need more sessions mid-month?</h4>
-                    <div class="faq-icon">↓</div>
-                </div>
-                <div class="faq-answer">
-                    <p>Emergency sessions available at ₹3,500 (crisis rate). You can also upgrade your tier anytime with no penalties or waiting periods.</p>
-                </div>
-            </div>
-
-            <div class="faq-card">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h4>How quickly can we start?</h4>
-                    <div class="faq-icon">↓</div>
-                </div>
-                <div class="faq-answer">
-                    <p>Within 1 week of contract signature. We conduct initial screening, set up crisis protocols, and begin sessions immediately. Most organizations see impact within 3-6 weeks.</p>
-                </div>
+                <div class="faq-question">Are WhatsApp sessions effective?</div>
+                <div class="faq-answer">Yes! Online therapy is just as effective as in-person for most concerns. Complete privacy from your comfortable space.</div>
             </div>
         </div>
     </section>
@@ -1465,22 +1379,6 @@
         document.querySelectorAll('.section, .hero-section').forEach(section => {
             observer.observe(section);
         });
-
-        // FAQ Toggle
-        function toggleFaq(questionElement) {
-            const card = questionElement.parentElement;
-            const isActive = card.classList.contains('active');
-
-            // Close all other FAQ cards
-            document.querySelectorAll('.faq-card').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('active');
-                }
-            });
-
-            // Toggle the clicked card
-            card.classList.toggle('active');
-        }
     </script>
 </body>
 </html>
