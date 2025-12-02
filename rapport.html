@@ -115,13 +115,17 @@
         nav .logo-subtitle {
             font-family: "Playfair Display", serif;
             font-size: 1.5rem;
-            font-weight: 400;
+            font-weight: 600;
             color: #F3D678;
             text-shadow: none;
             letter-spacing: 1px;
             text-transform: none;
             line-height: 1.2;
             transition: text-shadow 0.3s ease;
+        }
+
+        nav .logo-subtitle .ampersand {
+            font-family: "Poppins", sans-serif;
         }
 
         nav .logo:hover {
@@ -536,7 +540,7 @@
 
         .form-container button {
             width: 100%;
-            padding: 1.3rem 2.5rem;
+            padding: 1.3rem 1.5rem;
             background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
             color: #0a1410;
             border: none;
@@ -553,6 +557,17 @@
             position: relative;
             overflow: hidden;
             animation: slideInUp 0.6s ease 0.6s backwards;
+        }
+
+        .newsletter-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #E8D5C4;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            margin-top: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
         }
 
         .form-container button::before {
@@ -957,7 +972,7 @@
                 <img src="uploads/logo.jpg" alt="Tree of Abundance Logo">
                 <div class="logo-text-container">
                     <span class="logo-title">Tree of Abundance</span>
-                    <span class="logo-subtitle">Healing & Wellness</span>
+                    <span class="logo-subtitle">Healing <span class="ampersand">&</span> Wellness</span>
                 </div>
             </a>
             <div class="hamburger" id="hamburger">
@@ -976,7 +991,7 @@
     </header>
 
     <section class="section" id="consultation">
-        <h2>Your Rooting Begins with a Consultation</h2>
+        <h2>Your Healing Begins with a Consultation</h2>
 
         <div class="consultation-info-box">
             <h3>What is a Consultation?</h3>
@@ -1047,11 +1062,8 @@
 
                 <div class="form-field">
                     <div class="field-wrapper">
-                        <label for="preferredContact">Preferred Contact</label>
-                        <select id="preferredContact" name="preferredContact" required>
-                            <option value="Phone">Phone</option>
-                            <option value="Whatsapp">Whatsapp</option>
-                        </select>
+                        <label for="emailId">E-mail ID</label>
+                        <input type="email" id="emailId" name="emailId" required>
                     </div>
                 </div>
 
@@ -1071,6 +1083,7 @@
 
                 <button type="submit">ROOTED</button>
             </form>
+            <p class="newsletter-text">Stay Rooted.<br>You'll receive our confidential healing newsletter with mental health resources and wellness insights.</p>
         </div>
     </section>
 
@@ -1128,11 +1141,11 @@
 
             const fullName = document.getElementById('fullName').value;
             const mobileNumber = document.getElementById('mobileNumber').value;
-            const preferredContact = document.getElementById('preferredContact').value;
+            const emailId = document.getElementById('emailId').value;
             const age = document.getElementById('age').value || 'Not provided';
             const message = document.getElementById('message').value;
 
-            const whatsappMessage = `Full Name: ${fullName}\nMobile Number: ${mobileNumber}\nPreferred Contact: ${preferredContact}\nAge: ${age}\nHow may I help you?: ${message}`;
+            const whatsappMessage = `*Full Name:* ${fullName}\n*Mobile Number:* ${mobileNumber}\n*E-mail ID:* ${emailId}\n*Age:* ${age}\n*How may I help you?:* ${message}`;
 
             const whatsappUrl = `https://wa.me/+914448548889?text=${encodeURIComponent(whatsappMessage)}`;
 
