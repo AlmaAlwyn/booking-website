@@ -6,6 +6,7 @@
     <title>Terms of Service - Tree of Abundance</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <style>
@@ -76,15 +77,15 @@
         nav .logo-text-container {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             gap: 0.2rem;
         }
 
         nav .logo-title {
-            font-family: "Adamina", serif;
-            font-size: 2rem;
-            font-weight: 500;
+            font-family: "Playfair Display", serif;
+            font-size: 2.3rem;
+            font-weight: 800;
             color: #F3D678;
             text-shadow: none;
             letter-spacing: 1px;
@@ -93,22 +94,28 @@
         }
 
         nav .logo img {
-            height: 5.5rem;
-            width: 5.5rem;
+            height: 6.2rem;
+            width: 6.2rem;
             filter: none;
             transition: all 0.3s ease;
         }
 
         nav .logo-subtitle {
-            font-family: "Poppins", sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #F3D678;
             text-shadow: none;
             letter-spacing: 2px;
             text-transform: uppercase;
             line-height: 1.2;
             transition: text-shadow 0.3s ease;
+        }
+
+        nav .logo-subtitle .ampersand {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-weight: 400;
         }
 
         nav .logo:hover {
@@ -299,9 +306,8 @@
             margin: 1rem auto;
             padding: 1.5rem 2rem;
             line-height: 1.6;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section.visible {
@@ -376,10 +382,34 @@
             text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
         }
 
+        .download-pdf-link {
+            color: #F3D678;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(243, 214, 120, 0.1);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .download-pdf-link:hover {
+            color: #D4AF37;
+            background: rgba(243, 214, 120, 0.2);
+            border-color: rgba(243, 214, 120, 0.6);
+            text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(243, 214, 120, 0.3);
+        }
+
         .footer {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 3rem;
+            display: flex;
+            justify-content: center;
             align-items: center;
             padding: 3rem 5rem;
             font-family: "Poppins", sans-serif;
@@ -393,73 +423,31 @@
             margin-right: auto;
             border-top: 1px solid rgba(255, 215, 0, 0.3);
             padding-top: 3rem;
-        }
-
-        .footer-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .footer-section:first-child {
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-
-        .footer-section:nth-child(2) {
             text-align: center;
         }
 
-        .footer-section:last-child {
-            align-items: flex-end;
-            text-align: right;
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
-        .footer-section p {
-            font-size: 1.25rem;
-            margin-bottom: 0.9375rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            color: #F5E6D3;
-        }
-
-        .footer-section p.name {
-            font-size: 3rem;
-            font-weight: bold;
-            font-family: "Satisfy", cursive;
-            color: #F3D678;
-            text-shadow: none;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section:last-child a {
+        .footer-links a {
             color: #F5E6D3;
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.625rem;
             font-size: 1.25rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 300;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .footer-section:last-child a:hover {
+        .footer-links a:hover {
             color: #F3D678;
-            text-shadow: none;
         }
 
-        .footer-section .whatsapp-link img {
-            width: 4.5rem;
-            height: 4.5rem;
-            vertical-align: middle;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
-        }
-
-        .footer-section .whatsapp-link img:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        .footer-divider {
+            color: #F5E6D3;
+            opacity: 0.5;
         }
 
         @media (max-width: 768px) {
@@ -472,16 +460,16 @@
             }
 
             nav .logo-title {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             nav .logo img {
-                height: 3.5rem;
-                width: 3.5rem;
+                height: 4rem;
+                width: 4rem;
             }
 
             nav .logo-subtitle {
-                font-size: 0.75rem;
+                font-size: 0.85rem;
             }
 
             .hamburger {
@@ -529,51 +517,20 @@
             }
 
             .footer {
-                grid-template-columns: 1fr;
-                gap: 2rem;
                 padding: 2rem 1rem;
-                text-align: center;
             }
 
-            .footer-section {
-                align-items: center;
-                text-align: center;
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
             }
 
-            .footer-section:first-child {
-                align-items: center;
+            .footer-links a {
+                font-size: 1.1rem;
             }
 
-            .footer-section:last-child {
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-section p, .footer-section:last-child a {
-                font-size: 1rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                color: #F5E6D3;
-            }
-
-            .footer-section:last-child a {
-                color: #F5E6D3;
-            }
-
-            .footer-section p.name {
-                font-size: 2.2rem;
-                font-family: "Satisfy", cursive;
-                font-weight: bold;
-                color: #F3D678;
-                text-shadow: none;
-            }
-
-            .footer-section .whatsapp-link img {
-                transition: transform 0.3s ease;
-            }
-
-            .footer-section .whatsapp-link img:hover {
-                transform: scale(1.1);
+            .footer-divider {
+                display: none;
             }
         }
     </style>
@@ -585,7 +542,7 @@
                 <img src="uploads/logo.jpg" alt="Tree of Abundance Logo">
                 <div class="logo-text-container">
                     <span class="logo-title">Tree of Abundance</span>
-                    <span class="logo-subtitle">Counselling & Therapy</span>
+                    <span class="logo-subtitle">Healing <span class="ampersand">&</span> Wellness</span>
                 </div>
             </a>
             <div class="hamburger" id="hamburger">
@@ -597,15 +554,20 @@
                 <li><a href="rapport.html">Consultation</a></li>
                 <li><a href="faqs.html">Individual Healing</a></li>
                 <li><a href="sponsor.html">Sponsor</a></li>
-                <li><a href="wellness-intake.html">Wellness Intake</a></li>
                 <li><a href="workplace-wellness.html">Workplace Wellness</a></li>
+                <li><a href="wellness-intake.html">Wellness Intake</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="section" id="terms">
         <h2>Terms of Service</h2>
-        <p style="text-align: center; font-size: 1rem; color: #D4AF37; margin-bottom: 2rem;">Effective: December 1, 2025 | Version: 1.0</p>
+        <p style="text-align: center; font-size: 1rem; color: #D4AF37; margin-bottom: 1rem;">Effective: December 1, 2025 | Version: 1.0</p>
+        <p style="text-align: center; margin-bottom: 2rem;">
+            <a href="javascript:void(0);" onclick="window.print();" class="download-pdf-link">
+                📄 Download PDF
+            </a>
+        </p>
 
         <h3>Quick Summary</h3>
         <p>Service terms in 30 seconds:</p>
@@ -663,7 +625,11 @@
         <ul>
             <li>Counselling: ₹1,500</li>
             <li>Therapy: ₹3,000</li>
-            <li>Package: pay 3, get 1 free (prepay)</li>
+        </ul>
+        <p><strong>Prepaid Packages:</strong></p>
+        <ul>
+            <li>Buy 3, Get 1 Free: Pay for 3 sessions, get 4th free (same type)</li>
+            <li>Flexi-5 Bundle: 5 sessions (your choice of Counselling or Therapy)</li>
         </ul>
         <p><strong>Workplace programs:</strong></p>
         <ul>
@@ -764,7 +730,7 @@
             <li>Email written complaint</li>
             <li>I respond within 14 days</li>
         </ul>
-        <p><strong>If unresolved:</strong> Grievance Officer (contact below), Consumer Protection Authority, Professional regulatory body</p>
+        <p><strong>If unresolved:</strong> Consumer Protection Authority, Professional regulatory body</p>
         <p>Jurisdiction: Chennai courts, Indian law</p>
 
         <h3>16. Ending Services</h3>
@@ -786,7 +752,7 @@
         </ul>
 
         <h3>19. Contact</h3>
-        <p>📧 <a href="mailto:abundancebeing@outlook.com">Email</a> | 📞 <a href="tel:+914448548889">Phone</a> | 💬 <a href="https://wa.me/914448548889">WhatsApp</a></p>
+        <p>📧 <a href="mailto:abundancebeing@outlook.com">Email</a> | 💬 <a href="https://wa.me/914448548889">WhatsApp</a></p>
         <p style="text-align: center; margin-top: 3rem; color: #F3D678;">Your privacy. Your healing. Your trust. 🌱</p>
     </section>
 
