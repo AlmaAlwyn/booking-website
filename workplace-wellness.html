@@ -1269,7 +1269,7 @@
                     <p>No Personal Details to Management</p>
                 </div>
 
-                <a href="#contact" class="cta-button">Start Foundation</a>
+                <a href="#contact" class="cta-button" onclick="selectPackage('foundation')">Start Foundation</a>
             </div>
 
             <!-- Professional Package -->
@@ -1321,7 +1321,7 @@
                     <p>No Personal Details to Management</p>
                 </div>
 
-                <a href="#contact" class="cta-button">Choose Professional</a>
+                <a href="#contact" class="cta-button" onclick="selectPackage('professional')">Choose Professional</a>
             </div>
 
             <!-- Enterprise Package -->
@@ -1373,7 +1373,7 @@
                     <p>No Personal Details to Management</p>
                 </div>
 
-                <a href="#contact" class="cta-button">Get Enterprise</a>
+                <a href="#contact" class="cta-button" onclick="selectPackage('enterprise')">Get Enterprise</a>
             </div>
         </div>
     </section>
@@ -1704,6 +1704,17 @@
             observer.observe(section);
         });
 
+        // Function to select package and scroll to form
+        function selectPackage(packageValue) {
+            // Set the dropdown value
+            document.getElementById('interestedPackage').value = packageValue;
+
+            // Scroll to the form smoothly
+            setTimeout(() => {
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
         // ROI Form submission handler
         document.getElementById('roiForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1723,28 +1734,53 @@
                 challenges.push(challenge);
             });
 
-            // Format the message for WhatsApp
-            const message = `
-ROI Discovery Call Request
+            // Get readable labels for the values
+            const sizeOptions = {
+                'below-10': 'Below 10 employees',
+                '10-50': '10-50 employees',
+                '50-100': '50-100 employees',
+                '100-200': '100-200 employees',
+                '200-above': '200 above employees'
+            };
+
+            const packageOptions = {
+                'not-sure': 'Not sure yet',
+                'foundation': 'Foundation (₹15k/month)',
+                'professional': 'Professional (₹30k/month)',
+                'enterprise': 'Enterprise (₹60k/month)'
+            };
+
+            const challengeLabels = {
+                'high-turnover': 'High turnover',
+                'burnout-stress': 'Burnout & stress',
+                'low-engagement': 'Low engagement',
+                'recent-incident': 'Recent incident',
+                'culture-issues': 'Culture issues',
+                'leadership-stress': 'Leadership stress'
+            };
+
+            const readableChallenges = challenges.map(c => challengeLabels[c] || c).join(', ');
+
+            // Format the email subject
+            const subject = `ROI Discovery Call Request - ${organizationName}`;
+
+            // Format the email body
+            const body = `ROI Discovery Call Request
 
 Full Name: ${fullName}
 Email: ${email}
 Organization Name: ${organizationName}
-Organization Size: ${formData.get('organizationSize')}
-Top Challenges: ${challenges.join(', ') || 'None selected'}
-Interested Package: ${interestedPackage}
-Additional Information: ${additionalInfo || 'N/A'}
-            `.trim();
+Organization Size: ${sizeOptions[organizationSize] || organizationSize}
+Top Challenges: ${readableChallenges || 'None selected'}
+Interested Package: ${packageOptions[interestedPackage] || interestedPackage}
+Additional Information: ${additionalInfo || 'N/A'}`;
 
-            // Open WhatsApp with pre-filled message
-            const whatsappURL = `https://wa.me/914448548889?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
-
-            // Optional: Reset form after submission
-            // this.reset();
+            // Open email client with pre-filled data
+            const mailtoURL = `mailto:tree@abundancebeing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoURL;
 
             // Show success message
-            alert('Thank you! Your request will be sent via WhatsApp. Please complete the message to send it.');
+            alert('Thank you! Your email client will open with the request details. Please review and send the email.');
         });
     </script>
 </body>
