@@ -1202,8 +1202,6 @@
                     <label for="purpose">Purpose of Your Sponsorship *</label>
                 </div>
 
-                <p class="form-note">By sponsoring, you'll receive our confidential newsletter with impact updates and program developments.</p>
-
                 <button type="submit">ROOTED</button>
             </form>
         </div>
@@ -1296,11 +1294,12 @@
             const amount = document.getElementById('amount').value;
             const purpose = document.getElementById('purpose').value;
 
-            const whatsappMessage = `New Sponsorship Request\n\nSponsor Name: ${fullName}\nEmail: ${email}\nAmount: ${amount}\nPurpose: ${purpose}`;
+            const subject = 'New Sponsorship Request';
+            const body = `New Sponsorship Request\n\nSponsor Name: ${fullName}\nEmail: ${email}\nAmount: ${amount}\nPurpose: ${purpose}`;
 
-            const whatsappUrl = `https://wa.me/+914448548889?text=${encodeURIComponent(whatsappMessage)}`;
+            const mailtoUrl = `mailto:tree@abundancebeing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            window.location.href = whatsappUrl;
+            window.location.href = mailtoUrl;
         });
     </script>
 </body>
