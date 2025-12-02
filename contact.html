@@ -82,6 +82,14 @@
             margin-bottom: 2rem;
         }
 
+        .contact-info-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 2rem;
+        }
+
         .contact-item {
             margin-bottom: 2rem;
         }
@@ -104,12 +112,11 @@
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
-            margin-bottom: 2rem;
         }
 
         .email-logo {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 4.5rem;
+            height: 4.5rem;
             transition: transform 0.3s ease, filter 0.3s ease;
             filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
         }
@@ -130,7 +137,6 @@
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
-            margin-bottom: 2rem;
         }
 
         .whatsapp-logo {
@@ -312,6 +318,11 @@
                 font-size: 2.5rem;
             }
 
+            .contact-info-row {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
             .contact-item a {
                 font-size: 1.2rem;
             }
@@ -322,8 +333,8 @@
             }
 
             .email-logo {
-                width: 2rem;
-                height: 2rem;
+                width: 3.5rem;
+                height: 3.5rem;
             }
 
             .email-container .contact-item {
@@ -397,18 +408,20 @@
     <div class="contact-container">
         <h1 class="name">Tinesh Kumar</h1>
 
-        <div class="email-container">
-            <a href="mailto:tree@abundancebeing.com">
-                <img src="uploads/golden-mail.png" alt="Email" class="email-logo">
-            </a>
-            <a href="mailto:tree@abundancebeing.com" class="contact-item">tree@abundancebeing.com</a>
-        </div>
+        <div class="contact-info-row">
+            <div class="email-container">
+                <a href="mailto:tree@abundancebeing.com">
+                    <img src="uploads/golden-mail.png" alt="Email" class="email-logo">
+                </a>
+                <a href="mailto:tree@abundancebeing.com" class="contact-item">tree@abundancebeing.com</a>
+            </div>
 
-        <div class="whatsapp-container">
-            <a href="https://wa.me/914448548889">
-                <img src="Uploads/whatsapp-logo.png" alt="WhatsApp" class="whatsapp-logo">
-            </a>
-            <a href="https://wa.me/914448548889" class="whatsapp-number">+91 44 4854 8889</a>
+            <div class="whatsapp-container">
+                <a href="https://wa.me/914448548889">
+                    <img src="Uploads/whatsapp-logo.png" alt="WhatsApp" class="whatsapp-logo">
+                </a>
+                <a href="https://wa.me/914448548889" class="whatsapp-number">+91 44 4854 8889</a>
+            </div>
         </div>
 
         <section class="payment-section">
