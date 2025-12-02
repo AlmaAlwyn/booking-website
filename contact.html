@@ -132,6 +132,105 @@
             color: #F3D678;
         }
 
+        .payment-section {
+            margin-top: 4rem;
+        }
+
+        .payment-title {
+            font-size: 2rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            color: #F3D678;
+            margin-bottom: 2rem;
+        }
+
+        .payment-container {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .payment-card {
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.8) 0%, rgba(26, 40, 30, 0.85) 50%, rgba(30, 42, 31, 0.8) 100%);
+            border: 2px solid #F3D678;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.4);
+        }
+
+        .payment-badge {
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            color: #0a1410;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            font-family: "Poppins", sans-serif;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .payment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-card h3 {
+            font-size: 1.5rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            color: #F3D678;
+            margin-bottom: 1rem;
+        }
+
+        .payment-card p {
+            font-size: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            color: #E8D5C4;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .payment-qr {
+            background: white;
+            padding: 1rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .payment-qr img {
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+
+        .payment-link {
+            color: #F3D678;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .payment-link:hover {
+            color: #D4AF37;
+            text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
+        }
+
         @media (max-width: 768px) {
             .name {
                 font-size: 2.5rem;
@@ -161,6 +260,24 @@
                 font-size: 1.1rem;
                 padding: 0.6rem 1.2rem;
             }
+
+            .payment-title {
+                font-size: 1.5rem;
+            }
+
+            .payment-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .payment-card {
+                max-width: 100%;
+            }
+
+            .payment-qr img {
+                width: 180px;
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -178,6 +295,33 @@
                 <img src="Uploads/whatsapp-logo.png" alt="WhatsApp" class="whatsapp-logo">
             </a>
             <a href="https://wa.me/914448548889" class="whatsapp-number">+91 44 4854 8889</a>
+        </div>
+
+        <div class="payment-section">
+            <h2 class="payment-title">Payment Links</h2>
+            <div class="payment-container">
+                <div class="payment-card">
+                    <div class="payment-badge">SECURE</div>
+                    <div class="payment-icon">🇮🇳</div>
+                    <h3>UPI Payment</h3>
+                    <p>Fast & secure payments through UPI for Indian sponsors</p>
+                    <div class="payment-qr">
+                        <img src="uploads/upi-qr.jpeg" alt="UPI QR Code">
+                    </div>
+                    <a href="https://wa.me/?text=UPI%20ID:%20abundancebeingcom@indianbank" class="payment-link">Click here to pay via UPI</a>
+                </div>
+
+                <div class="payment-card">
+                    <div class="payment-badge">SECURE</div>
+                    <div class="payment-icon">🌍</div>
+                    <h3>International Payment</h3>
+                    <p>Secure international transfers via Wise for global sponsors</p>
+                    <div class="payment-qr">
+                        <img src="uploads/wisely.jpeg" alt="Wise QR Code">
+                    </div>
+                    <a href="https://wise.com/pay/r/cF8J9mZ" class="payment-link">Click here to pay via Wise</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
