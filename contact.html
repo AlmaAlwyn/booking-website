@@ -99,6 +99,26 @@
             color: #F3D678;
         }
 
+        .email-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .email-logo {
+            width: 4.5rem;
+            height: 4.5rem;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+        }
+
+        .email-logo:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        }
+
         .whatsapp-container {
             display: flex;
             align-items: center;
@@ -240,6 +260,16 @@
                 font-size: 1.2rem;
             }
 
+            .email-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .email-logo {
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+
             .whatsapp-container {
                 flex-direction: column;
                 gap: 1rem;
@@ -286,8 +316,11 @@
     <div class="contact-container">
         <h1 class="name">Tinesh Kumar</h1>
 
-        <div class="contact-item">
-            <a href="mailto:tree@abundancebeing.com">tree@abundancebeing.com</a>
+        <div class="email-container">
+            <a href="mailto:tree@abundancebeing.com">
+                <img src="uploads/golden-mail.png" alt="Email" class="email-logo">
+            </a>
+            <a href="mailto:tree@abundancebeing.com" class="contact-item">tree@abundancebeing.com</a>
         </div>
 
         <div class="whatsapp-container">
