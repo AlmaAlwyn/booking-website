@@ -43,6 +43,32 @@
             z-index: -1;
         }
 
+        .home-link {
+            position: fixed;
+            top: 2rem;
+            right: 2.5rem;
+            color: #F3D678;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            background: rgba(243, 214, 120, 0.1);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 12px;
+            z-index: 1000;
+        }
+
+        .home-link:hover {
+            color: #D4AF37;
+            background: rgba(243, 214, 120, 0.2);
+            border-color: rgba(243, 214, 120, 0.6);
+            text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(243, 214, 120, 0.3);
+        }
+
         .contact-container {
             text-align: center;
         }
@@ -128,10 +154,18 @@
             .whatsapp-number {
                 font-size: 1.2rem;
             }
+
+            .home-link {
+                top: 1rem;
+                right: 1rem;
+                font-size: 1.1rem;
+                padding: 0.6rem 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <a href="index.html" class="home-link">Home</a>
     <div class="contact-container">
         <h1 class="name">Tinesh Kumar</h1>
 
