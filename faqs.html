@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comic+Relief:wght@700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,15 +89,15 @@
         nav .logo-text-container {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             gap: 0.2rem;
         }
 
         nav .logo-title {
-            font-family: "Adamina", serif;
-            font-size: 2rem;
-            font-weight: 500;
+            font-family: "Playfair Display", serif;
+            font-size: 2.3rem;
+            font-weight: 800;
             color: #F3D678;
             text-shadow: none;
             letter-spacing: 1px;
@@ -103,22 +106,26 @@
         }
 
         nav .logo img {
-            height: 5.5rem;
-            width: 5.5rem;
+            height: 6.2rem;
+            width: 6.2rem;
             filter: none;
             transition: all 0.3s ease;
         }
 
         nav .logo-subtitle {
-            font-family: "Poppins", sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #F3D678;
             text-shadow: none;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-transform: none;
             line-height: 1.2;
             transition: text-shadow 0.3s ease;
+        }
+
+        nav .logo-subtitle .ampersand {
+            font-family: "Poppins", sans-serif;
         }
 
         nav .logo:hover {
@@ -943,9 +950,8 @@
         }
 
         .footer {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            gap: 3rem;
+            display: flex;
+            justify-content: center;
             align-items: center;
             padding: 3rem 5rem;
             font-family: "Poppins", sans-serif;
@@ -959,73 +965,31 @@
             margin-right: auto;
             border-top: 1px solid rgba(255, 215, 0, 0.3);
             padding-top: 3rem;
-        }
-
-        .footer-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .footer-section:first-child {
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-
-        .footer-section:nth-child(2) {
             text-align: center;
         }
 
-        .footer-section:last-child {
-            align-items: flex-end;
-            text-align: right;
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
-        .footer-section p {
-            font-size: 1.25rem;
-            margin-bottom: 0.9375rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 300;
-            color: #F5E6D3;
-        }
-
-        .footer-section p.name {
-            font-size: 3rem;
-            font-weight: bold;
-            font-family: "Satisfy", cursive;
-            color: #F3D678;
-            text-shadow: none;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section:last-child a {
+        .footer-links a {
             color: #F5E6D3;
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.625rem;
             font-size: 1.25rem;
             font-family: "Poppins", sans-serif;
-            font-weight: 300;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .footer-section:last-child a:hover {
+        .footer-links a:hover {
             color: #F3D678;
-            text-shadow: none;
         }
 
-        .footer-section .whatsapp-link img {
-            width: 4.5rem;
-            height: 4.5rem;
-            vertical-align: middle;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
-        }
-
-        .footer-section .whatsapp-link img:hover {
-            transform: scale(1.15);
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+        .footer-divider {
+            color: #F5E6D3;
+            opacity: 0.5;
         }
 
         @media (max-width: 768px) {
@@ -1038,16 +1002,16 @@
             }
 
             nav .logo-title {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             nav .logo img {
-                height: 3.5rem;
-                width: 3.5rem;
+                height: 4rem;
+                width: 4rem;
             }
 
             nav .logo-subtitle {
-                font-size: 0.75rem;
+                font-size: 0.85rem;
             }
 
             .hamburger {
@@ -1160,51 +1124,20 @@
             }
 
             .footer {
-                grid-template-columns: 1fr;
-                gap: 2rem;
                 padding: 2rem 1rem;
-                text-align: center;
             }
 
-            .footer-section {
-                align-items: center;
-                text-align: center;
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
             }
 
-            .footer-section:first-child {
-                align-items: center;
+            .footer-links a {
+                font-size: 1.1rem;
             }
 
-            .footer-section:last-child {
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-section p, .footer-section:last-child a {
-                font-size: 1rem;
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                color: #F5E6D3;
-            }
-
-            .footer-section:last-child a {
-                color: #F5E6D3;
-            }
-
-            .footer-section p.name {
-                font-size: 2.2rem;
-                font-family: "Satisfy", cursive;
-                font-weight: bold;
-                color: #F3D678;
-                text-shadow: none;
-            }
-
-            .footer-section .whatsapp-link img {
-                transition: transform 0.3s ease;
-            }
-
-            .footer-section .whatsapp-link img:hover {
-                transform: scale(1.1);
+            .footer-divider {
+                display: none;
             }
         }
 
@@ -1223,7 +1156,7 @@
                 <img src="uploads/logo.jpg" alt="Tree of Abundance Logo">
                 <div class="logo-text-container">
                     <span class="logo-title">Tree of Abundance</span>
-                    <span class="logo-subtitle">Counselling & Therapy</span>
+                    <span class="logo-subtitle">Healing <span class="ampersand">&</span> Wellness</span>
                 </div>
             </a>
             <div class="hamburger" id="hamburger">
@@ -1235,8 +1168,8 @@
                 <li><a href="rapport.html">Consultation</a></li>
                 <li><a href="faqs.html">Individual Healing</a></li>
                 <li><a href="sponsor.html">Sponsor</a></li>
-                <li><a href="wellness-intake.html">Wellness Intake</a></li>
                 <li><a href="workplace-wellness.html">Workplace Wellness</a></li>
+                <li><a href="wellness-intake.html">Wellness Intake</a></li>
             </ul>
         </nav>
     </header>
@@ -1332,15 +1265,15 @@
     <!-- Pricing Section - Committed Sessions -->
     <section class="section pricing-section visible">
         <h3>Committed Sessions</h3>
-        <p style="text-align: center; color: #F5E6D3; font-size: 1.125rem; margin-bottom: 2.5rem;">Pay for 3 sessions, receive 1 additional complimentary session for your commitment to your healing journey</p>
+        <p style="text-align: center; color: #F5E6D3; font-size: 1.125rem; margin-bottom: 2.5rem;">Advance payment for 3 sessions, receive 1 additional complimentary session for your commitment to your healing journey</p>
         <div class="pricing-grid">
             <div class="pricing-card featured">
                 <div class="badge">Best Value</div>
                 <h4>Counselling Package</h4>
                 <p class="description">4 sessions with 1 complimentary</p>
                 <div class="divider"></div>
-                <div class="price"><span class="currency">₹</span>4,500</div>
-                <p class="duration">8 hours total (4 × 2 hours)</p>
+                <div class="price">₹4,500 / $84 / €66</div>
+                <p class="duration">4 sessions = 8 hours</p>
                 <div class="divider"></div>
                 <ul class="features">
                     <li>India: ₹4,500</li>
@@ -1356,8 +1289,8 @@
                 <h4>Therapy Package</h4>
                 <p class="description">4 sessions with 1 complimentary</p>
                 <div class="divider"></div>
-                <div class="price"><span class="currency">₹</span>9,000</div>
-                <p class="duration">8 hours total (4 × 2 hours)</p>
+                <div class="price">₹9,000 / $165 / €126</div>
+                <p class="duration">4 sessions = 8 hours</p>
                 <div class="divider"></div>
                 <ul class="features">
                     <li>India: ₹9,000</li>
@@ -1369,7 +1302,7 @@
                 <a href="rapport.html" class="select-plan-btn">Select Plan</a>
             </div>
         </div>
-        <p style="text-align: center; color: #F3D678; font-size: 1.125rem; margin-top: 2rem; font-weight: 600;">Deeper healing happens with consistent support. Your commitment rewarded with an extra session.</p>
+        <p style="text-align: center; color: #F3D678; font-size: 1.125rem; margin-top: 2rem; font-weight: 600;"><strong>Why Commit?</strong> Deeper healing happens with commitment. Your commitment rewarded with an extra session.</p>
     </section>
 
     <!-- Community Section -->
