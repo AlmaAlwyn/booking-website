@@ -688,6 +688,64 @@
             color: #E8D5C4;
         }
 
+        .credentials-section {
+            margin-top: 4rem;
+        }
+
+        .credentials-container {
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.4);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .certificate-image {
+            flex: 0 0 auto;
+        }
+
+        .certificate-image img {
+            width: 350px;
+            height: auto;
+            border: 3px solid #F5E6D3;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .credentials-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            color: #F5E6D3;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .credential-item {
+            background: rgba(243, 214, 120, 0.1);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            color: #F5E6D3;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .credential-item:hover {
+            border-color: #F3D678;
+            background: rgba(243, 214, 120, 0.15);
+            transform: translateX(10px);
+        }
+
         .faq-section {
             margin-top: 4rem;
         }
@@ -946,6 +1004,26 @@
 
             .faq-container {
                 grid-template-columns: 1fr;
+            }
+
+            .credentials-container {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 2rem;
+            }
+
+            .certificate-image img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .intro-text {
+                font-size: 1.05rem;
+            }
+
+            .credential-item {
+                font-size: 0.95rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -1289,23 +1367,44 @@
         </div>
     </section>
 
+    <section class="section credentials-section">
+        <h2>Who Will I Be Speaking With?</h2>
+
+        <div class="credentials-container">
+            <div class="certificate-image">
+                <img src="uploads/certificate.jpg" alt="QPR Certificate - Counseling Suicidal People">
+            </div>
+            <div class="credentials-text">
+                <p class="intro-text">I am Tinesh Kumar from Chennai, Tamil Nadu, India. A Mental Health Professional:</p>
+                <div class="credential-item">M.Sc. Counselling Psychology – University of Madras</div>
+                <div class="credential-item">Certified Therapist in Hypnotherapy/Regression Therapy – The Hypnotherapy School of India</div>
+                <div class="credential-item">Certified in Counseling Suicidal People – QPR Institute, United States.</div>
+            </div>
+        </div>
+    </section>
+
     <section class="section faq-section">
         <h2>Common Questions</h2>
 
         <div class="faq-container">
             <div class="faq-card">
-                <div class="faq-question">How long does healing take?</div>
-                <div class="faq-answer">It varies. Some see relief after 2-3 sessions. Deeper work typically takes 6-12 sessions. We track progress together.</div>
+                <div class="faq-question">How is this different from traditional EAP?</div>
+                <div class="faq-answer">Most EAPs offer 30-60 minute sessions focused on crisis management. We provide 2-hour deep sessions that actually resolve issues, not just manage them. Plus we combine counselling and therapy for comprehensive care.</div>
             </div>
 
             <div class="faq-card">
-                <div class="faq-question">What if I can't afford it?</div>
-                <div class="faq-answer">The Need Sponsor program provides support. You can receive help now and sponsor others when you're able.</div>
+                <div class="faq-question">Is employee information confidential from management?</div>
+                <div class="faq-answer">Absolutely. We provide aggregate reports (e.g., "30% reduction in stress") but never individual names or session details. Your employees' privacy is completely protected.</div>
             </div>
 
             <div class="faq-card">
-                <div class="faq-question">Are WhatsApp sessions effective?</div>
-                <div class="faq-answer">Yes! Online therapy is just as effective as in-person for most concerns. Complete privacy from your comfortable space.</div>
+                <div class="faq-question">What if we need more sessions mid-month?</div>
+                <div class="faq-answer">Emergency sessions available at ₹3,500 (crisis rate). You can also upgrade your tier anytime with no penalties or waiting periods.</div>
+            </div>
+
+            <div class="faq-card">
+                <div class="faq-question">How quickly can we start?</div>
+                <div class="faq-answer">Within 1 week of contract signature. We conduct initial screening, set up crisis protocols, and begin sessions immediately. Most organizations see impact within 3-6 weeks.</div>
             </div>
         </div>
     </section>
