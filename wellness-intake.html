@@ -535,6 +535,10 @@
             background: linear-gradient(135deg, #D4AF37 0%, #B68A23 100%);
         }
 
+        .desktop-break {
+            display: inline;
+        }
+
         .footer {
             display: flex;
             justify-content: center;
@@ -680,6 +684,10 @@
             .submit-button {
                 font-size: 1.2rem;
                 padding: 1.2rem 2rem;
+            }
+
+            .desktop-break {
+                display: none;
             }
         }
     </style>
@@ -961,7 +969,7 @@
                             <div class="checkbox-item">
                                 <input type="radio" id="med2" name="medication" value="Yes" required>
                                 <label for="med2">Yes, please specify:</label>
-                                <input type="text" id="medDetails" name="medDetails" style="width: 250px; margin-left: 0.5rem;">
+                                <input type="text" id="medDetails" name="medDetails" style="max-width: 250px; width: 100%; margin-left: 0.5rem;">
                             </div>
                         </div>
                     </div>
@@ -1069,7 +1077,7 @@
                 <button type="submit" class="submit-button">Rooted</button>
 
                 <p style="text-align: center; font-size: 1.3rem; color: #F3D678; font-weight: 600; margin-top: 2rem; margin-bottom: 0.5rem;">Stay Rooted 🌱</p>
-                <p style="text-align: center; font-size: 1rem; color: #E8D5C4; margin: 0;">You'll receive our confidential wellness newsletter with wellbeing resources and program updates. 📊</p>
+                <p style="text-align: center; font-size: 1rem; color: #E8D5C4; margin: 0;">You'll receive our confidential wellness newsletter with wellbeing<br class="desktop-break"> resources and program updates. 📊</p>
             </form>
         </div>
     </section>
