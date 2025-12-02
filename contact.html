@@ -153,102 +153,171 @@
         }
 
         .payment-section {
-            margin-top: 4rem;
+            max-width: 1600px;
+            margin: 4rem auto 3rem auto;
+            padding: 2rem;
         }
 
-        .payment-title {
-            font-size: 2rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
+        .payment-section h2 {
+            font-size: 3rem;
             color: #F3D678;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: none;
         }
 
-        .payment-container {
+        .payment-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #F5E6D3;
+            margin-bottom: 3rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
             display: flex;
-            gap: 3rem;
+            align-items: center;
             justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .payment-subtitle::before {
+            content: '🔒';
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(243, 214, 120, 0.4));
+        }
+
+        .payment-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
         .payment-card {
-            background: linear-gradient(135deg, rgba(21, 30, 26, 0.8) 0%, rgba(26, 40, 30, 0.85) 50%, rgba(30, 42, 31, 0.8) 100%);
-            border: 2px solid #F3D678;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            max-width: 400px;
-            transition: all 0.3s ease;
-        }
-
-        .payment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(243, 214, 120, 0.4);
-        }
-
-        .payment-badge {
-            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
-            color: #0a1410;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            font-family: "Poppins", sans-serif;
-            display: inline-block;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .payment-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .payment-card h3 {
-            font-size: 1.5rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            color: #F3D678;
-            margin-bottom: 1rem;
-        }
-
-        .payment-card p {
-            font-size: 1rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            color: #E8D5C4;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .payment-qr {
-            background: white;
-            padding: 1rem;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .payment-qr img {
-            width: 200px;
-            height: 200px;
+            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
             display: block;
         }
 
-        .payment-link {
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(243, 214, 120, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .payment-card:hover::before {
+            opacity: 1;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: rgba(243, 214, 120, 0.8);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(243, 214, 120, 0.4);
+        }
+
+        .payment-icon {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 15px rgba(243, 214, 120, 0.4));
+            transition: all 0.4s ease;
+        }
+
+        .payment-card:hover .payment-icon {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 30px rgba(243, 214, 120, 0.7));
+        }
+
+        .payment-title {
+            font-size: 1.2rem;
             color: #F3D678;
-            text-decoration: none;
-            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .payment-description {
+            font-size: 0.9rem;
+            color: #F5E6D3;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            line-height: 1.5;
+        }
+
+        .payment-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #F3D678 0%, #D4AF37 100%);
+            color: #0a1410;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(243, 214, 120, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .qr-code-img {
+            width: 200px;
+            height: 200px;
+            margin: 1rem auto;
+            display: block;
+            border-radius: 12px;
+            border: 2px solid rgba(243, 214, 120, 0.5);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
             transition: all 0.3s ease;
         }
 
-        .payment-link:hover {
-            color: #D4AF37;
-            text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
+        .qr-code-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(243, 214, 120, 0.4);
+        }
+
+        .upi-details {
+            text-align: center;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .upi-details p {
+            font-size: 0.85rem;
+            color: #F5E6D3;
+            margin: 0.25rem 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .upi-details strong {
+            color: #F3D678;
         }
 
         @media (max-width: 768px) {
@@ -291,22 +360,46 @@
                 padding: 0.6rem 1.2rem;
             }
 
-            .payment-title {
-                font-size: 1.5rem;
+            .payment-section {
+                margin: 3rem auto 2rem auto;
+                padding: 1.5rem;
             }
 
-            .payment-container {
-                flex-direction: column;
+            .payment-section h2 {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .payment-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .payment-grid {
+                grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
             .payment-card {
-                max-width: 100%;
+                padding: 2rem 1.5rem;
             }
 
-            .payment-qr img {
-                width: 180px;
-                height: 180px;
+            .payment-icon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .payment-title {
+                font-size: 1.3rem;
+            }
+
+            .payment-description {
+                font-size: 0.95rem;
+            }
+
+            .payment-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.7rem;
             }
         }
     </style>
@@ -330,32 +423,36 @@
             <a href="https://wa.me/914448548889" class="whatsapp-number">+91 44 4854 8889</a>
         </div>
 
-        <div class="payment-section">
-            <h2 class="payment-title">Payment Links</h2>
-            <div class="payment-container">
+        <section class="payment-section">
+            <h2>Payment Links</h2>
+            <p class="payment-subtitle">Encrypted & Safe - Your trust is our priority</p>
+
+            <div class="payment-grid">
+                <!-- India UPI Payment -->
                 <div class="payment-card">
-                    <div class="payment-badge">SECURE</div>
+                    <span class="payment-badge">Secure</span>
                     <div class="payment-icon">🇮🇳</div>
-                    <h3>UPI Payment</h3>
-                    <p>Fast & secure payments through UPI for Indian sponsors</p>
-                    <div class="payment-qr">
-                        <img src="uploads/upi-qr.jpeg" alt="UPI QR Code">
+                    <div class="payment-title">UPI Payment</div>
+                    <div class="payment-description">Fast & secure payments through UPI for Indian<br>sponsors</div>
+                    <img src="uploads/upi-qr.jpeg" alt="UPI QR Code" class="qr-code-img">
+                    <div class="upi-details">
+                        <p><a href="upi://pay?pa=abundancebeingcom@indianbank&pn=Abundance Being&am=&cu=INR" target="_blank" rel="noopener noreferrer" style="color: #F3D678; text-decoration: underline; font-weight: 600;">Click here to pay via UPI</a></p>
                     </div>
-                    <a href="https://wa.me/?text=UPI%20ID:%20abundancebeingcom@indianbank" class="payment-link">Click here to pay via UPI</a>
                 </div>
 
+                <!-- International Wisely Payment -->
                 <div class="payment-card">
-                    <div class="payment-badge">SECURE</div>
+                    <span class="payment-badge">Secure</span>
                     <div class="payment-icon">🌍</div>
-                    <h3>International Payment</h3>
-                    <p>Secure international transfers via Wise for global sponsors</p>
-                    <div class="payment-qr">
-                        <img src="uploads/wisely.jpeg" alt="Wise QR Code">
+                    <div class="payment-title">International Payment</div>
+                    <div class="payment-description">Secure international transfers via Wise for global sponsors</div>
+                    <img src="uploads/wisely.jpeg" alt="Wise Payment QR Code" class="qr-code-img">
+                    <div class="upi-details">
+                        <p><a href="https://wise.com/pay/business/abundancebeingcom" target="_blank" rel="noopener noreferrer" style="color: #F3D678; text-decoration: underline; font-weight: 600;">Click here to pay via Wise</a></p>
                     </div>
-                    <a href="https://wise.com/pay/r/cF8J9mZ" class="payment-link">Click here to pay via Wise</a>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>
