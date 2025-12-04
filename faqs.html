@@ -1083,7 +1083,20 @@
             }
 
             .about-content {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .about-content > div:first-child {
+                order: 2;
+            }
+
+            .about-content > div:last-child {
+                order: 1;
+            }
+
+            .certificate {
+                margin-top: 2rem;
             }
 
             .faq-grid {
