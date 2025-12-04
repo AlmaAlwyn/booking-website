@@ -378,12 +378,14 @@
             }
 
             .home-link {
-                position: fixed;
-                top: 1rem;
-                right: 1rem;
+                position: fixed !important;
+                top: 1rem !important;
+                right: 1rem !important;
                 font-size: 1.1rem;
                 padding: 0.6rem 1.2rem;
-                z-index: 1000;
+                z-index: 9999 !important;
+                transform: translateZ(0);
+                -webkit-transform: translateZ(0);
             }
 
             .payment-section {
