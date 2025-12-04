@@ -849,6 +849,7 @@
 
         .form-group input[type="text"],
         .form-group input[type="email"],
+        .form-group input[type="tel"],
         .form-group textarea {
             padding: 0.9rem 1rem;
             background: rgba(245, 230, 211, 0.1);
@@ -878,6 +879,7 @@
 
         .form-group input[type="text"]:focus,
         .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
@@ -1618,6 +1620,13 @@
                         <input type="text" id="fullName" name="fullName" required>
                     </div>
                     <div class="form-group">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
                         <label for="email">Email ID:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
@@ -1758,6 +1767,7 @@
             // Collect form data
             const formData = new FormData(this);
             const fullName = formData.get('fullName');
+            const mobileNumber = formData.get('mobileNumber');
             const email = formData.get('email');
             const organizationName = formData.get('organizationName');
             const organizationSize = formData.get('organizationSize');
@@ -1798,13 +1808,14 @@
             const readableChallenges = challenges.map(c => challengeLabels[c] || c).join(', ');
 
             // Format the email subject
-            const subject = `ROI Discovery Call Request - ${organizationName}`;
+            const subject = `ROI Discovery Call - ${organizationName}`;
 
             // Format the email body
-            const body = `ROI DISCOVERY CALL REQUEST
+            const body = `ROI DISCOVERY CALL
 
 === CONTACT INFORMATION ===
 Full Name: ${fullName}
+Mobile Number: ${mobileNumber}
 Email: ${email}
 
 === ORGANIZATION DETAILS ===

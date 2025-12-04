@@ -1181,7 +1181,7 @@
             const formData = new FormData(form);
 
             // Build formatted message for email
-            let message = "WELLNESS INTAKE FORM\n\n";
+            let message = "WELLNESS INTAKE\n\n";
             message += "=== PERSONAL INFORMATION ===\n";
             message += `Full Name: ${formData.get('fullName') || 'N/A'}\n`;
             message += `Date of Birth: ${formData.get('dob') || 'N/A'}\n`;
@@ -1189,7 +1189,7 @@
             message += `Location: ${formData.get('location') || 'N/A'}\n\n`;
 
             message += "=== WORK INFORMATION ===\n";
-            message += `Company: ${formData.get('company') || 'N/A'}\n`;
+            message += `Company/Organization: ${formData.get('company') || 'N/A'}\n`;
             message += `Department: ${formData.get('department') || 'N/A'}\n`;
             message += `Tenure: ${formData.get('tenure') || 'N/A'}\n\n`;
 
@@ -1267,7 +1267,7 @@
             }
 
             // Create email subject
-            const subject = `Wellness Intake Form - ${formData.get('fullName') || 'New Submission'}`;
+            const subject = `Wellness Intake - ${formData.get('fullName') || 'New Submission'}`;
 
             // Create mailto link with proper line breaks
             const mailtoUrl = `mailto:tree@abundancebeing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;

@@ -1243,8 +1243,8 @@
             const amount = document.getElementById('amount').value;
             const purpose = document.getElementById('purpose').value;
 
-            const subject = `New Sponsorship Request - ${fullName}`;
-            const body = `NEW SPONSORSHIP REQUEST
+            const subject = `Sponsor - ${fullName}`;
+            const body = `SPONSOR
 
 === SPONSOR INFORMATION ===
 Full Name: ${fullName}
@@ -1254,9 +1254,7 @@ Email: ${email}
 Sponsorship Amount: ${amount}
 
 === PURPOSE ===
-${purpose}
-
-Thank you for empowering someone's healing journey through your generosity.`;
+${purpose}`;
 
             const mailtoUrl = `mailto:tree@abundancebeing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
