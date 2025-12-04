@@ -43,30 +43,28 @@
             z-index: -1;
         }
 
-        .home-link {
+        header {
             position: fixed;
-            top: 2rem;
-            right: 2.5rem;
-            color: #F3D678;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.75rem 1.5rem;
-            background: rgba(243, 214, 120, 0.1);
-            border: 2px solid rgba(243, 214, 120, 0.3);
-            border-radius: 12px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2.5rem;
+            display: flex;
+            justify-content: flex-end;
             z-index: 1000;
         }
 
+        .home-link {
+            color: #F3D678;
+            text-decoration: underline;
+            font-size: 1.2rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
         .home-link:hover {
-            color: #D4AF37;
-            background: rgba(243, 214, 120, 0.2);
-            border-color: rgba(243, 214, 120, 0.6);
-            text-shadow: 0 0 8px rgba(243, 214, 120, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(243, 214, 120, 0.3);
+            color: #F5E6D3;
         }
 
         .contact-container {
@@ -321,7 +319,7 @@
         @media (max-width: 768px) {
             .name {
                 font-size: 2.5rem;
-                margin-top: 50px;
+                margin-top: 0;
             }
 
             .contact-info-row {
@@ -352,11 +350,13 @@
             }
 
             .email-container .contact-item {
-                font-size: 1.2rem;
+                font-size: 0.95rem;
                 font-family: "Poppins", sans-serif;
                 font-weight: 400;
                 line-height: 1.6;
                 margin-bottom: 0;
+                word-break: break-all;
+                max-width: 200px;
             }
 
             .whatsapp-container {
@@ -377,15 +377,12 @@
                 line-height: 1.6;
             }
 
+            header {
+                padding: 1rem 1.5rem;
+            }
+
             .home-link {
-                position: fixed !important;
-                top: 1rem !important;
-                right: 1rem !important;
-                font-size: 1.1rem;
-                padding: 0.6rem 1.2rem;
-                z-index: 9999 !important;
-                transform: translateZ(0);
-                -webkit-transform: translateZ(0);
+                font-size: 1rem;
             }
 
             .payment-section {
@@ -428,7 +425,9 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="home-link">Home</a>
+    <header>
+        <a href="index.html" class="home-link">Home</a>
+    </header>
     <div class="contact-container">
         <h1 class="name">Tinesh Kumar</h1>
 
