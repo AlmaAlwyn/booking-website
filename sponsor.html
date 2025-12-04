@@ -101,7 +101,6 @@
             letter-spacing: 1px;
             line-height: 1.2;
             transition: text-shadow 0.3s ease;
-            white-space: nowrap;
         }
 
         nav .logo img {
@@ -974,8 +973,12 @@
             }
 
             .form-container label {
-                font-size: 1rem;
+                font-size: 0.85rem;
                 left: 0.9rem;
+                max-width: calc(100% - 1.8rem);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .form-container button {
