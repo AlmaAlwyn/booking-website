@@ -694,61 +694,64 @@
         }
 
         .credentials-section {
-            margin-top: 4rem;
+            background: linear-gradient(135deg, rgba(13, 20, 16, 0.95) 0%, rgba(26, 40, 32, 0.95) 100%);
+            border: 2px solid rgba(243, 214, 120, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .credentials-section h3 {
+            font-size: 2.5rem;
+            color: #F3D678;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
         }
 
         .credentials-container {
-            background: linear-gradient(135deg, rgba(21, 30, 26, 0.9) 0%, rgba(26, 40, 30, 0.95) 50%, rgba(30, 42, 31, 0.9) 100%);
-            border: 2px solid rgba(243, 214, 120, 0.4);
-            border-radius: 20px;
-            padding: 3rem;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
             gap: 3rem;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .certificate-image {
-            flex: 0 0 auto;
+            align-items: start;
         }
 
         .certificate-image img {
-            width: 350px;
+            width: 100%;
             height: auto;
-            border: 3px solid #F5E6D3;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(243, 214, 120, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certificate-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(243, 214, 120, 0.4), 0 0 0 1px rgba(243, 214, 120, 0.5);
         }
 
         .credentials-text {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
             color: #F5E6D3;
-            line-height: 1.6;
-            margin-bottom: 1rem;
         }
 
-        .credential-item {
+        .credentials-text p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .credentials-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .credentials-text ul li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
             background: rgba(243, 214, 120, 0.1);
-            border: 2px solid rgba(243, 214, 120, 0.3);
-            border-radius: 10px;
-            padding: 1.2rem 1.5rem;
-            color: #F5E6D3;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
-
-        .credential-item:hover {
-            border-color: #F3D678;
-            background: rgba(243, 214, 120, 0.15);
-            transform: translateX(10px);
+            border-left: 3px solid #F3D678;
+            border-radius: 8px;
+            font-size: 1.125rem;
         }
 
         .faq-section {
@@ -942,6 +945,16 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(243, 214, 120, 0.6);
             background: linear-gradient(135deg, #D4AF37 0%, #B68A23 100%);
+        }
+
+        .newsletter-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #E8D5C4;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            margin-top: 1rem;
+            line-height: 1.6;
         }
 
         .contact-options {
@@ -1165,32 +1178,25 @@
                 grid-template-columns: 1fr;
             }
 
-            .credentials-container {
-                flex-direction: column;
+            .credentials-section {
                 padding: 2rem;
-                gap: 2rem;
             }
 
-            .certificate-image {
+            .credentials-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .credentials-container > div:first-child {
                 order: 2;
             }
 
-            .credentials-text {
+            .credentials-container > div:last-child {
                 order: 1;
             }
 
             .certificate-image img {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .intro-text {
-                font-size: 1.05rem;
-            }
-
-            .credential-item {
-                font-size: 0.95rem;
-                padding: 1rem;
+                margin-top: 0.5rem;
             }
 
             .checkbox-group {
@@ -1549,17 +1555,19 @@
     </section>
 
     <section class="section credentials-section">
-        <h2>Who Is The Chief Of Service?</h2>
+        <h3>Who Is The Chief Of Service?</h3>
 
         <div class="credentials-container">
             <div class="certificate-image">
                 <img src="uploads/certificate.jpg" alt="QPR Certificate - Counseling Suicidal People">
             </div>
             <div class="credentials-text">
-                <p class="intro-text">I am Tinesh Kumar from Chennai, Tamil Nadu, India. A Mental Health Professional:</p>
-                <div class="credential-item">M.Sc. Counselling Psychology – University of Madras</div>
-                <div class="credential-item">Certified Therapist in Hypnotherapy/Regression Therapy – The Hypnotherapy School of India</div>
-                <div class="credential-item">Certified in Counseling Suicidal People – QPR Institute, United States.</div>
+                <p>I am Tinesh Kumar from Chennai, Tamil Nadu, India. A Mental Health Professional:</p>
+                <ul>
+                    <li>M.Sc. Counselling Psychology – University of Madras</li>
+                    <li>Certified Therapist in Hypnotherapy/Regression Therapy – The Hypnotherapy School of India</li>
+                    <li>Certified in Counseling Suicidal People – QPR Institute, United States.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -1680,7 +1688,7 @@
             </form>
 
             <button type="submit" form="roiForm" class="form-submit-button">ROOTED</button>
-            <p style="text-align: center; font-size: 0.9rem; color: #E8D5C4; font-family: 'Poppins', sans-serif; font-weight: 300; margin-top: 1rem; line-height: 1.6;">🌱 Stay Rooted — You'll receive our confidential business newsletter with ROI case studies and workplace wellness insights. 📊</p>
+            <p class="newsletter-text">🌱 Stay Rooted — You'll receive our confidential business newsletter with ROI case studies and workplace wellness insights. 📊</p>
         </div>
     </section>
 
