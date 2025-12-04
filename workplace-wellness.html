@@ -1800,15 +1800,24 @@
             const subject = `ROI Discovery Call Request - ${organizationName}`;
 
             // Format the email body
-            const body = `ROI Discovery Call Request
+            const body = `ROI DISCOVERY CALL REQUEST
 
+=== CONTACT INFORMATION ===
 Full Name: ${fullName}
 Email: ${email}
-Organization Name: ${organizationName}
+
+=== ORGANIZATION DETAILS ===
+Company/Organization: ${organizationName}
 Organization Size: ${sizeOptions[organizationSize] || organizationSize}
+
+=== CHALLENGES & NEEDS ===
 Top Challenges: ${readableChallenges || 'None selected'}
+
+=== PACKAGE INTEREST ===
 Interested Package: ${packageOptions[interestedPackage] || interestedPackage}
-Additional Information: ${additionalInfo || 'N/A'}`;
+
+=== ADDITIONAL INFORMATION ===
+${additionalInfo || 'N/A'}`;
 
             // Open email client with pre-filled data
             const mailtoURL = `mailto:tree@abundancebeing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

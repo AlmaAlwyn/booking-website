@@ -1179,94 +1179,98 @@
             // Collect form data
             const formData = new FormData(form);
 
-            // Build formatted message
-            let message = "*WELLNESS INTAKE FORM*\n\n";
+            // Build formatted message for email
+            let message = "WELLNESS INTAKE FORM\n\n";
+            message += "=== PERSONAL INFORMATION ===\n";
+            message += `Full Name: ${formData.get('fullName') || 'N/A'}\n`;
+            message += `Date of Birth: ${formData.get('dob') || 'N/A'}\n`;
+            message += `Gender: ${formData.get('gender') || 'N/A'}\n`;
+            message += `Location: ${formData.get('location') || 'N/A'}\n\n`;
 
-            // Personal Information
-            message += `*Full Name :* ${formData.get('fullName') || 'N/A'}\n`;
-            message += `*Date of Birth :* ${formData.get('dob') || 'N/A'}\n`;
-            message += `*Gender :* ${formData.get('gender') || 'N/A'}\n`;
-            message += `*Location :* ${formData.get('location') || 'N/A'}\n`;
+            message += "=== WORK INFORMATION ===\n";
+            message += `Company: ${formData.get('company') || 'N/A'}\n`;
+            message += `Department: ${formData.get('department') || 'N/A'}\n`;
+            message += `Tenure: ${formData.get('tenure') || 'N/A'}\n\n`;
 
-            // Work Information
-            message += `*Company :* ${formData.get('company') || 'N/A'}\n`;
-            message += `*Department :* ${formData.get('department') || 'N/A'}\n`;
-            message += `*Tenure :* ${formData.get('tenure') || 'N/A'}\n`;
-
-            // Contact Information
-            message += `*Work Email :* ${formData.get('workEmail') || 'N/A'}\n`;
-            message += `*Personal Email :* ${formData.get('personalEmail') || 'N/A'}\n`;
-            message += `*Mobile :* ${formData.get('mobile') || 'N/A'}\n`;
+            message += "=== CONTACT INFORMATION ===\n";
+            message += `Work Email: ${formData.get('workEmail') || 'N/A'}\n`;
+            message += `Personal Email: ${formData.get('personalEmail') || 'N/A'}\n`;
+            message += `Mobile: ${formData.get('mobile') || 'N/A'}\n`;
 
             const altContact = formData.get('altContact');
             if (altContact) {
-                message += `*Alternate Contact :* ${altContact}\n`;
+                message += `Alternate Contact: ${altContact}\n`;
             }
 
             const language = formData.get('language');
             const langOtherText = formData.get('langOtherText');
             if (language === 'Other' && langOtherText) {
-                message += `*Language :* ${langOtherText}\n`;
+                message += `Language: ${langOtherText}\n\n`;
             } else {
-                message += `*Language :* ${language || 'N/A'}\n`;
+                message += `Language: ${language || 'N/A'}\n\n`;
             }
 
-            // Support Needs
-            message += `*Support Needs :* ${formData.get('supportNeeds') || 'N/A'}\n`;
-            message += `*Urgency :* ${formData.get('urgency') || 'N/A'}\n`;
-            message += `*Safety :* ${formData.get('safety') || 'N/A'}\n`;
+            message += "=== SUPPORT NEEDS ===\n";
+            message += `Support Needs: ${formData.get('supportNeeds') || 'N/A'}\n`;
+            message += `Urgency: ${formData.get('urgency') || 'N/A'}\n`;
+            message += `Safety: ${formData.get('safety') || 'N/A'}\n\n`;
 
-            // Mental Health History
-            message += `*Therapy History :* ${formData.get('therapyHistory') || 'N/A'}\n`;
+            message += "=== MENTAL HEALTH HISTORY ===\n";
+            message += `Therapy History: ${formData.get('therapyHistory') || 'N/A'}\n`;
 
             const therapyDetails = formData.get('therapyDetails');
             if (therapyDetails) {
-                message += `*Therapy Details :* ${therapyDetails}\n`;
+                message += `Therapy Details: ${therapyDetails}\n`;
             }
 
             const medication = formData.get('medication');
             const medDetails = formData.get('medDetails');
             if (medication === 'Yes' && medDetails) {
-                message += `*Medication :* Yes - ${medDetails}\n`;
+                message += `Medication: Yes - ${medDetails}\n\n`;
             } else {
-                message += `*Medication :* ${medication || 'N/A'}\n`;
+                message += `Medication: ${medication || 'N/A'}\n\n`;
             }
 
-            // Preferred Times
+            message += "=== PREFERRED APPOINTMENT TIME ===\n";
             const preferredTimes = [];
             document.querySelectorAll('input[name="preferredTime"]:checked').forEach(checkbox => {
                 preferredTimes.push(checkbox.value);
             });
-            message += `*Preferred Time :* ${preferredTimes.length > 0 ? preferredTimes.join(', ') : 'N/A'}\n`;
+            message += `Preferred Time: ${preferredTimes.length > 0 ? preferredTimes.join(', ') : 'N/A'}\n\n`;
 
-            // Consent Confirmations
+            message += "=== CONSENT CONFIRMATIONS ===\n";
             if (formData.get('consent1')) {
-                message += "YES, I know All session information is 100% confidential.\n";
+                message += "✓ All session information is 100% confidential\n";
             }
             if (formData.get('consent2')) {
-                message += "YES, I know My employer receives ONLY aggregate data.\n";
+                message += "✓ My employer receives ONLY aggregate data\n";
             }
             if (formData.get('consent3')) {
-                message += "YES, I know My employer will NEVER see: My personal details, What I discuss in sessions, That I'm using this service.\n";
+                message += "✓ My employer will NEVER see my personal details, what I discuss in sessions, or that I'm using this service\n";
             }
             if (formData.get('consent4')) {
-                message += "YES, I consent to be contacted via phone/WhatsApp/email to schedule my appointment.\n";
+                message += "✓ I consent to be contacted via phone/WhatsApp/email to schedule my appointment\n";
             }
             if (formData.get('consent5')) {
-                message += "YES, I understand my participation is voluntary and I can stop at any time.\n";
+                message += "✓ I understand my participation is voluntary and I can stop at any time\n";
             }
+            message += "\n";
 
-            // Source
+            message += "=== SOURCE ===\n";
             const source = formData.get('source');
             const sourceOther = formData.get('sourceOther');
             if (source === 'Other' && sourceOther) {
-                message += `*Source :* ${sourceOther}`;
+                message += `Source: ${sourceOther}`;
             } else {
-                message += `*Source :* ${source || 'N/A'}`;
+                message += `Source: ${source || 'N/A'}`;
             }
 
-            const whatsappUrl = `https://wa.me/+914448548889?text=${encodeURIComponent(message)}`;
-            window.location.href = whatsappUrl;
+            // Create email subject
+            const subject = `Wellness Intake Form - ${formData.get('fullName') || 'New Submission'}`;
+
+            // Create mailto link with proper line breaks
+            const mailtoUrl = `mailto:tree@abundancebeing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+            window.location.href = mailtoUrl;
         });
     </script>
 </body>
